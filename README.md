@@ -1,6 +1,6 @@
 # Terra Motion Skills
 
-[English](README.en.md) · **v0.1 — marco técnico local validado** · Cópia candidata à publicação
+[English](README.en.md) · **v0.1 — marco técnico local validado** · Repositório público no GitHub
 
 Receitas de motion para React e skills operacionais para agentes de IA. Duas receitas reutilizáveis, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
 
@@ -12,9 +12,11 @@ Receitas de motion para React e skills operacionais para agentes de IA. Duas rec
 
 Ambiente verificado: Windows, Node **24.20.0** e pnpm **11.24.0**. Faixa aceita pelas ferramentas: Node `^22.22.2 || ^24.15.0 || >=26.0.0`; os demais ambientes não compõem uma matriz testada. React/React DOM 19.3.1 e Motion 14.3.0 estão fixados no lockfile. Se pnpm não estiver disponível, consulte a [instalação oficial](https://pnpm.io/installation) e use a versão fixada.
 
-Destino previsto: `joaquimftt-web/terra-motion-skills`. O remoto ainda não foi criado. Use esta pasta candidata ou, após a publicação autorizada, clone o repositório e entre na raiz que contém pnpm-workspace.yaml. Não há credenciais ou .env necessários.
+Repositório público: [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills), branch `main`. Clone o projeto e entre na raiz que contém pnpm-workspace.yaml. Não há credenciais ou .env necessários.
 
 ```sh
+git clone https://github.com/joaquimftt-web/terra-motion-skills.git
+cd terra-motion-skills
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -30,7 +32,7 @@ Preview é ferramenta local, não servidor de produção. Hospedagem e publicaç
 
 ## Identidade e compatibilidade
 
-Nome oficial: **Terra Motion Skills**; destino previsto: `joaquimftt-web/terra-motion-skills`. O escopo local `@motion-skills-lab/*`, o nome do workspace e os nomes das skills permanecem por compatibilidade. Os exemplos abaixo usam os identificadores reais; não há pacotes publicados no registry. O nome anterior aparece em registros históricos e capturas A1 preservadas. [Inventário e decisão](docs/IDENTITY.md).
+Nome oficial: **Terra Motion Skills**; repositório público: [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills). O escopo local `@motion-skills-lab/*`, o nome do workspace e os nomes das skills permanecem por compatibilidade. Os exemplos abaixo usam os identificadores reais; não há pacotes publicados no registry. O nome anterior aparece em registros históricos e capturas A1 preservadas. [Inventário e decisão](docs/IDENTITY.md).
 
 ## Receitas reais
 
@@ -118,4 +120,4 @@ A futura demo estática dependerá de autorização e dos avisos legais aplicáv
 
 **Código original sob a licença [MIT](LICENSE).** Copyright (c) 2026 Joaquim Freitas. Os manifests permanecem privados para evitar publicação acidental de pacotes. Dependências mantêm seus próprios termos: [notices](THIRD_PARTY_NOTICES.md), [fontes/licenças](docs/REFERENCES_AND_LICENSES.md) e [inventário](docs/DEPENDENCY_LICENSES.json).
 
-[Contribuições](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Estado da preparação](docs/PUBLICATION_STATUS.md)
+[Contribuições](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Estado da publicação](docs/PUBLICATION_STATUS.md)

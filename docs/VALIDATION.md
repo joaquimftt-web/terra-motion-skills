@@ -1,4 +1,6 @@
-# Validação da v0.1 — entrega local para revisão
+# Validação da v0.1 — registros de execução
+
+> **Estado atual — 20/10/2026:** o código-fonte está público no [GitHub](https://github.com/joaquimftt-web/terra-motion-skills), após o primeiro push do snapshot saneado. O showcase ainda não está hospedado; tag, Release e pacotes npm ainda não foram publicados. Os registros abaixo descrevem as etapas históricas anteriores ao primeiro push, inclusive menções a candidato, ausência de remoto e autorização pendente. Seus resultados e limitações foram preservados. Esta atualização documental não representa nova execução da suíte funcional.
 
 ## Identidade Terra Motion Skills — 19/10/2026
 

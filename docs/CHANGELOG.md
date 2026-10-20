@@ -1,5 +1,9 @@
 # Changelog
 
+## 20/10/2026 — documentação após o primeiro push
+
+Código-fonte público em [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills), branch main. READMEs, identidade e estado de publicação atualizados, sem alterações funcionais. Showcase ainda sem hospedagem; tag, Release v0.1.0 e pacotes npm não publicados. Os registros abaixo descrevem etapas históricas anteriores ao primeiro push e mantêm o estado daquela época.
+
 ## 0.1.0 — identidade Terra Motion Skills
 
 Nome oficial e apresentação atualizados para Terra Motion Skills; destino previsto joaquimftt-web/terra-motion-skills. Título HTML, marca visível, nome acessível e rodapé do showcase atualizados sem mudar CSS, funcionalidades ou motions. Identificadores técnicos e histórico privado preservados; [inventário](IDENTITY.md). MIT e copyright de 2026 Joaquim Freitas mantidos. Registros e capturas anteriores conservam o nome usado à época. Sem remoto, push ou deploy.

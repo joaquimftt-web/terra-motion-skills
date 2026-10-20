@@ -1,6 +1,6 @@
 # Terra Motion Skills
 
-[Português](README.md) · **v0.1 — validated local milestone** · Publication candidate
+[Português](README.md) · **v0.1 — validated local milestone** · Public GitHub repository
 
 Reusable React motion recipes and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
 
@@ -12,9 +12,11 @@ Reusable React motion recipes and operational AI agent skills, with neutral toke
 
 Verified environment: Windows, Node **24.20.0**, pnpm **11.24.0**, React/React DOM 19.3.1 and Motion 14.3.0. Accepted Node engines: `^22.22.2 || ^24.15.0 || >=26.0.0`; other environments are not a validated matrix. See [pnpm installation](https://pnpm.io/installation) and use the pinned version.
 
-Intended destination: `joaquimftt-web/terra-motion-skills`. No remote has been created. Open this candidate folder, or clone the repository after publication is authorized, then enter the root containing pnpm-workspace.yaml. No credentials or .env are needed.
+Public repository: [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills), branch `main`. Clone the project and enter the root containing pnpm-workspace.yaml. No credentials or .env are needed.
 
 ```sh
+git clone https://github.com/joaquimftt-web/terra-motion-skills.git
+cd terra-motion-skills
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -30,7 +32,7 @@ Preview is a local tool, not a production server. Hosting and npm distribution a
 
 ## Identity and compatibility
 
-Official name: **Terra Motion Skills**; intended destination: `joaquimftt-web/terra-motion-skills`. The local `@motion-skills-lab/*` scope, workspace name, and skill names are retained for compatibility. Examples below use the actual identifiers; no packages are published to a registry. The former name remains in historical records and preserved A1 captures. [Inventory and decision (Portuguese)](docs/IDENTITY.md).
+Official name: **Terra Motion Skills**; public repository: [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills). The local `@motion-skills-lab/*` scope, workspace name, and skill names are retained for compatibility. Examples below use the actual identifiers; no packages are published to a registry. The former name remains in historical records and preserved A1 captures. [Inventory and decision (Portuguese)](docs/IDENTITY.md).
 
 ## Real recipes
 
@@ -102,7 +104,7 @@ pnpm exec playwright install chromium
 pnpm test:e2e
 ```
 
-The refined base passed **22 Vitest tests, 17 Playwright tests and eight axe audits** at four widths. Historical evidence also records native browser zoom at 200% with one additional axe audit returning no violations. See [VALIDATION.md](docs/VALIDATION.md) for this candidate's fresh results. E2E needs a free port 4173 and installed Chromium.
+The refined base passed **22 Vitest tests, 17 Playwright tests and eight axe audits** at four widths. Historical evidence also records native browser zoom at 200% with one additional axe audit returning no violations. See [VALIDATION.md](docs/VALIDATION.md) for the recorded validation results. E2E needs a free port 4173 and installed Chromium.
 
 Windows/Chromium only: no claims of a tested alternative browser, screen reader, physical device or accessibility certification. No FPS/hardware measurements. A2 (boundary checks) and A3 (preference changes during scheduled replay) remain backlog. GSAP, Lenis, WebGL, Drawer and new recipes are outside v0.1.
 
@@ -118,4 +120,4 @@ A future static demo requires separate approval and applicable notices. No ficti
 
 **Original code is licensed under [MIT](LICENSE).** Copyright (c) 2026 Joaquim Freitas. Package manifests remain private to prevent accidental package publication. Dependencies retain their own terms: [notices](THIRD_PARTY_NOTICES.md), [sources/licenses](docs/REFERENCES_AND_LICENSES.md), and [inventory](docs/DEPENDENCY_LICENSES.json).
 
-[Contributing](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Preparation status](docs/PUBLICATION_STATUS.md)
+[Contributing](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Publication status](docs/PUBLICATION_STATUS.md)

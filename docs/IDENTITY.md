@@ -3,7 +3,7 @@
 ## Identidade oficial
 
 - Projeto: **Terra Motion Skills**.
-- Repositório previsto: **joaquimftt-web/terra-motion-skills**.
+- Repositório público: [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills).
 - Branch: `main`; versão inicial planejada: `v0.1.0`.
 - Código original: MIT, **Copyright (c) 2026 Joaquim Freitas**.
 - Git público: Joaquim Freitas, `319236695+joaquimftt-web@users.noreply.github.com`.
@@ -24,10 +24,10 @@ O nome anterior, Motion Skills Lab, foi substituído na apresentação atual. A 
 | `packages/motion-recipes`, `packages/motion-tokens`, `apps/showcase` | Estrutura modular                            | Preservar           |
 | `lab-shell` e demais classes, IDs/âncoras e subpaths CSS             | Estilos, navegação e seletores               | Preservar           |
 
-O inventário foi feito antes das edições. Filtros pnpm, imports, manifests, workspace e lockfile continuam coerentes entre si; os nomes privados locais não são o nome público do repositório. Não houve publicação npm. Uma eventual migração de namespace exige decisão separada, sem ser necessária à publicação do snapshot atual.
+O inventário foi feito antes das edições. Filtros pnpm, imports, manifests, workspace e lockfile continuam coerentes entre si; os nomes privados locais não são o nome público do repositório. Não houve publicação npm. Uma eventual migração de namespace exige decisão separada, sem ser necessária ao uso do repositório público atual.
 
 ## Referências históricas preservadas
 
 Especificação e plano em `docs/superpowers/`, registros anteriores de validação, logs e capturas A1 mantêm o nome utilizado quando produzidos. Não foram reescritos para simular evidências com a marca nova. As capturas históricas dos READMEs estão identificadas; as verificações desta etapa ficam em [VALIDATION.md](VALIDATION.md).
 
-Os caminhos dos documentos históricos permanecem para preservar links. O diretório local de preparação também pode manter o nome antigo, sem afetar o identificador do remoto futuro. O histórico privado original permanece separado e intacto. O snapshot público mantém um único commit raiz, sem remoto ou autorização de push/deploy nesta etapa.
+Os caminhos dos documentos históricos permanecem para preservar links. O diretório local de preparação também pode manter o nome antigo, sem afetar a identidade do repositório público. O histórico privado original permanece separado e intacto. O histórico público começou com um commit raiz saneado e recebe commits normais posteriores; origin aponta para o repositório público e main acompanha origin/main. O showcase ainda não está hospedado; pacotes npm, tag e Release v0.1.0 ainda não foram publicados.

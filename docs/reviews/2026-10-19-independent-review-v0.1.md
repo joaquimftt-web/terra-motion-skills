@@ -11,6 +11,6 @@ Aceite da v0.1 como marco técnico local funcional, com recomendação de refina
 - **A1 — legibilidade:** textos informativos de 7–10 px e código a 10 px. Refinamento implementado e aceito localmente: código a 14 px, metadados a 12 px, quebras e controles ajustados. Veja [evidências A1](../REFINEMENT_A1.md).
 - **A2 — fronteiras:** scan de imports textual e consumidor compilado têm cobertura delimitada; ampliação de grafo/AST/tarball permanece no backlog.
 - **A3 — replay:** mudança da preferência reduzida durante timeout já agendado da vitrine merece avaliação futura; não é defeito comprovado da receita. Mantido no backlog.
-- **A4 — publicação:** nome, titularidade/licença, notices, privacidade e apresentação pública. Atualização editorial: MIT aprovada para o código original, Copyright (c) 2026 Joaquim Freitas; notices e saneamento preparados. A publicação continua pendente de autorização final.
+- **A4 — publicação:** nome, titularidade/licença, notices, privacidade e apresentação pública. Atualização editorial: MIT aprovada para o código original, Copyright (c) 2026 Joaquim Freitas; notices e saneamento preparados. Atualização de estado em 20/10/2026: o código-fonte foi publicado no GitHub; o showcase ainda não está hospedado e tag/Release não foram criadas.
 
 Outros navegadores, leitores de tela e dispositivos físicos permanecem limitações documentadas. Os resultados locais atuais devem ser consultados em [VALIDATION.md](../VALIDATION.md), sem serem atribuídos à revisão externa.
