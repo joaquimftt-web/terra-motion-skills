@@ -1,0 +1,11 @@
+$ pnpm build:packages && tsc -p tsconfig.json && pnpm -r --if-present typecheck
+$ pnpm --filter @motion-skills-lab/motion-tokens build && pnpm --filter @motion-skills-lab/motion-recipes build
+$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+Scope: 3 of 4 workspace projects
+packages/motion-tokens typecheck$ tsc -p tsconfig.json
+packages/motion-tokens typecheck: Done
+packages/motion-recipes typecheck$ tsc -p tsconfig.json
+packages/motion-recipes typecheck: Done
+apps/showcase typecheck$ tsc -p tsconfig.json --noEmit
+apps/showcase typecheck: Done

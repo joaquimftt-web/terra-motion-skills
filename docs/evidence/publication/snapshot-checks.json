@@ -1,0 +1,20 @@
+{
+  "verifiedAt": "2026-10-20T00:28:39.584Z",
+  "protectedSourceFilesUnchanged": 36,
+  "screenshotFilesByteIdentical": 32,
+  "oldCommitReferencesFound": 0,
+  "privateMetadataFindings": 0,
+  "credentialPatternFindings": 0,
+  "localLinksVerified": 98,
+  "independentGitObjectDatabase": true,
+  "originalPreserved": true,
+  "license": "MIT proposal only; copyright holder pending; original code UNLICENSED",
+  "identity": "Explicit public name/noreply configured locally; no private email inherited",
+  "normalization": "Logs have personal roots replaced by placeholders; imported capture metadata has private Git identifiers removed; original image bytes and historical outcomes retained.",
+  "limitations": [
+    "Windows and cached package store/Chromium only.",
+    "No additional native 200% zoom run; A1 evidence is historical.",
+    "Pattern screening is not an exhaustive security guarantee.",
+    "No remote, push or deploy; copyright holder and MIT adoption need final approval."
+  ]
+}

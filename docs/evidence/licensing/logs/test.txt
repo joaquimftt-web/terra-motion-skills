@@ -1,0 +1,12 @@
+$ pnpm build:packages && vitest run
+$ pnpm --filter @motion-skills-lab/motion-tokens build && pnpm --filter @motion-skills-lab/motion-recipes build
+$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+
+ RUN  v5.0.5 <PUBLIC_SNAPSHOT>
+
+
+ Test Files  5 passed (5)
+      Tests  22 passed (22)
+   Start at  23:24:07
+   Duration  20.83s (environment 82%, setup 8%, import 8%, tests 2%, transform 1%)

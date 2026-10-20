@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "noEmit": true, "types": ["node"] },
+  "include": ["*.config.ts", "vitest.setup.ts", "apps/showcase/tests/**/*.ts"]
+}

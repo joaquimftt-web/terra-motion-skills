@@ -1,0 +1,27 @@
+{
+  "name": "@motion-skills-lab/motion-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./motion-tokens.css": "./dist/motion-tokens.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run src/index.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  },
+  "license": "MIT"
+}

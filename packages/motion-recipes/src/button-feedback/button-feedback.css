@@ -1,0 +1,58 @@
+.msl-button-feedback {
+  --msl-button-feedback-duration: var(--msl-motion-duration-button-feedback, 140ms);
+  --msl-button-feedback-easing: var(--msl-motion-easing-standard, cubic-bezier(0.2, 0, 0, 1));
+
+  display: inline-flex;
+  min-block-size: 2.75rem;
+  min-inline-size: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: var(--msl-button-feedback-radius, 0.5rem);
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: 1.25;
+  padding-block: 0.65rem;
+  padding-inline: 1rem;
+  touch-action: manipulation;
+  transition-property: color, background-color, border-color;
+  transition-duration: var(--msl-button-feedback-duration);
+  transition-timing-function: var(--msl-button-feedback-easing);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .msl-button-feedback:not(:disabled):hover {
+    background-color: color-mix(in srgb, currentColor 8%, transparent);
+  }
+}
+
+.msl-button-feedback:not(:disabled):active {
+  background-color: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.msl-button-feedback:focus-visible {
+  outline: 3px solid Highlight;
+  outline-offset: 3px;
+}
+
+.msl-button-feedback:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
+.msl-button-feedback[data-reduce-motion='true'] {
+  transition-duration: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .msl-button-feedback {
+    transition-duration: 0ms;
+  }
+}
+
+@media (forced-colors: active) {
+  .msl-button-feedback:focus-visible {
+    outline-color: Highlight;
+  }
+}

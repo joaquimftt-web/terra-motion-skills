@@ -1,0 +1,27 @@
+{
+  "name": "@motion-skills-lab/showcase",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@motion-skills-lab/motion-recipes": "workspace:*",
+    "@motion-skills-lab/motion-tokens": "workspace:*",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "motion": "14.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "5.9.3",
+    "vite": "8.3.4"
+  },
+  "scripts": {
+    "dev": "node ../../scripts/export-reference-docs.mjs && vite",
+    "build": "node ../../scripts/export-reference-docs.mjs && tsc -p tsconfig.json --noEmit && vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "preview": "vite preview"
+  },
+  "license": "MIT"
+}

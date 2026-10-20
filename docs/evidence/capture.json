@@ -1,0 +1,36 @@
+{
+  "capturedAt": "2026-10-19T22:25:04.573Z",
+  "browser": "156.0.8078.4",
+  "url": "http://127.0.0.1:4174/",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "preference": "no-preference",
+  "state": "default, Accordion open",
+  "files": [
+    "showcase-desktop.png",
+    "showcase-desktop-top.png",
+    "accordion-desktop.png",
+    "showcase-mobile.png",
+    "showcase-mobile-top.png"
+  ],
+  "build": [
+    {
+      "file": "index-4WfwdzNm.js",
+      "bytes": 369752,
+      "sha256": "9EE105C403EDFEE4F3CB7A1404EAE7924A18A74A76967067E951E753C0A38743"
+    },
+    {
+      "file": "index-rCGCCCX0.css",
+      "bytes": 15171,
+      "sha256": "C7EA6DEFDCFCC104DB0D332F3A85F851C30CF14163B47F69DB1C792BF9C56554"
+    }
+  ]
+}

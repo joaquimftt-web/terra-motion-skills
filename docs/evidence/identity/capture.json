@@ -1,0 +1,48 @@
+{
+  "capturedAt": "2026-10-20T02:36:56.068Z",
+  "browser": "156.0.8078.4",
+  "source": "local production preview",
+  "reducedMotion": "reduce (capture stability only)",
+  "checks": [
+    {
+      "width": 1440,
+      "height": 900,
+      "title": "Terra Motion Skills — Interações com intenção",
+      "brand": "Terra Motion Skills início",
+      "pageOverflow": false,
+      "brandOverflow": false,
+      "screenshot": "terra-1440.png"
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "title": "Terra Motion Skills — Interações com intenção",
+      "brand": "Terra Motion Skills início",
+      "pageOverflow": false,
+      "brandOverflow": false,
+      "screenshot": "terra-1024.png"
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "title": "Terra Motion Skills — Interações com intenção",
+      "brand": "Terra Motion Skills início",
+      "pageOverflow": false,
+      "brandOverflow": false,
+      "screenshot": "terra-390.png"
+    },
+    {
+      "width": 320,
+      "height": 900,
+      "title": "Terra Motion Skills — Interações com intenção",
+      "brand": "Terra Motion Skills início",
+      "pageOverflow": false,
+      "brandOverflow": false,
+      "screenshot": "terra-320.png"
+    }
+  ],
+  "limitations": [
+    "No new native zoom, screen-reader or physical-device validation.",
+    "Historical A1 screenshots retain the former project name."
+  ]
+}

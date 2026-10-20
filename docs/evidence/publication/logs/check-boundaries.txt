@@ -1,0 +1,2 @@
+$ node scripts/check-boundaries.mjs
+PASS package boundaries: directed imports and four explicit recipe subpaths

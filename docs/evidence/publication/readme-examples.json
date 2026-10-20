@@ -1,0 +1,6 @@
+{
+  "checkedAt": "2026-10-20T00:27:17.226Z",
+  "examples": 4,
+  "strictTypecheckPassed": true,
+  "against": "copied public dist/declarations in independent consumer fixture"
+}

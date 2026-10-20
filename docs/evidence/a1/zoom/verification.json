@@ -1,0 +1,40 @@
+{
+  "attemptedAt": "2026-10-19T23:49:30.830Z",
+  "method": "Chromium headed; native chrome.tabs.setZoom(tabId, 2), confirmed by chrome.tabs.getZoom. No CSS zoom, deviceScaleFactor override, viewport reduction or Emulation.setPageScaleFactor.",
+  "success": true,
+  "checks": [
+    "Button keyboard Enter/Space; focus preserved",
+    "Clipboard exact snippet",
+    "Closed Accordion inert, Tab skips content, replay completes",
+    "Live OS reduced motion wins; Button transition 0s"
+  ],
+  "limitations": [],
+  "before": {
+    "innerWidth": 1424,
+    "innerHeight": 905,
+    "outerWidth": 1440,
+    "outerHeight": 1000,
+    "devicePixelRatio": 1,
+    "visualViewportScale": 1,
+    "scrollWidth": 1409,
+    "bodyFont": "14px",
+    "codeFont": "14px"
+  },
+  "after": {
+    "innerWidth": 712,
+    "innerHeight": 452,
+    "outerWidth": 1440,
+    "outerHeight": 1000,
+    "devicePixelRatio": 2,
+    "visualViewportScale": 1,
+    "scrollWidth": 704,
+    "bodyFont": "14px",
+    "codeFont": "14px"
+  },
+  "zoomFactor": 2,
+  "axe": {
+    "violations": [],
+    "passes": 25
+  },
+  "screenshotMethod": "CDP Page.captureScreenshot with no clip, fromSurface=true, captureBeyondViewport=false. Playwright screenshot clip dimensions are unreliable at native per-tab zoom; final images use browser viewport directly."
+}

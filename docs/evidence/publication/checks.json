@@ -1,0 +1,72 @@
+[
+  {
+    "command": "pnpm install --frozen-lockfile --offline",
+    "startedAt": "2026-10-20T00:26:01.4422403Z",
+    "completedAt": "2026-10-20T00:26:01.9557658Z",
+    "exitCode": 0,
+    "log": "logs/install.txt"
+  },
+  {
+    "command": "pnpm format:check",
+    "startedAt": "2026-10-20T00:26:03.2269322Z",
+    "completedAt": "2026-10-20T00:26:04.9747330Z",
+    "exitCode": 0,
+    "log": "logs/format-check.txt"
+  },
+  {
+    "command": "pnpm lint",
+    "startedAt": "2026-10-20T00:26:04.9751604Z",
+    "completedAt": "2026-10-20T00:26:08.6455150Z",
+    "exitCode": 0,
+    "log": "logs/lint.txt"
+  },
+  {
+    "command": "pnpm typecheck",
+    "startedAt": "2026-10-20T00:26:08.6458724Z",
+    "completedAt": "2026-10-20T00:26:18.4911250Z",
+    "exitCode": 0,
+    "log": "logs/typecheck.txt"
+  },
+  {
+    "command": "pnpm build",
+    "startedAt": "2026-10-20T00:26:18.4915667Z",
+    "completedAt": "2026-10-20T00:26:24.0553848Z",
+    "exitCode": 0,
+    "log": "logs/build.txt"
+  },
+  {
+    "command": "pnpm test",
+    "startedAt": "2026-10-20T00:26:24.0556815Z",
+    "completedAt": "2026-10-20T00:26:32.7772208Z",
+    "exitCode": 0,
+    "log": "logs/test.txt"
+  },
+  {
+    "command": "pnpm validate:skills",
+    "startedAt": "2026-10-20T00:26:32.7776058Z",
+    "completedAt": "2026-10-20T00:26:33.3198850Z",
+    "exitCode": 0,
+    "log": "logs/validate-skills.txt"
+  },
+  {
+    "command": "pnpm check:boundaries",
+    "startedAt": "2026-10-20T00:26:33.3203470Z",
+    "completedAt": "2026-10-20T00:26:33.8991260Z",
+    "exitCode": 0,
+    "log": "logs/check-boundaries.txt"
+  },
+  {
+    "command": "pnpm check:consumer",
+    "startedAt": "2026-10-20T00:26:33.8994425Z",
+    "completedAt": "2026-10-20T00:26:39.6106869Z",
+    "exitCode": 0,
+    "log": "logs/check-consumer.txt"
+  },
+  {
+    "command": "pnpm test:e2e",
+    "startedAt": "2026-10-20T00:26:39.6109295Z",
+    "completedAt": "2026-10-20T00:26:55.4974116Z",
+    "exitCode": 0,
+    "log": "logs/test-e2e.txt"
+  }
+]

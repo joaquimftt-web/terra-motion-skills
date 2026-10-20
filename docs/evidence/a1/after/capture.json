@@ -1,0 +1,633 @@
+{
+  "phase": "after",
+  "capturedAt": "2026-10-19T23:48:54.598Z",
+  "browser": "156.0.8078.4",
+  "url": "http://127.0.0.1:4174/",
+  "reducedMotion": "no-preference",
+  "deviceScaleFactor": 1,
+  "state": "default, Accordion open",
+  "files": [
+    {
+      "file": "showcase-1440-viewport.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 2804,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 554,
+            "scrollWidth": 554
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 554,
+            "scrollWidth": 563
+          }
+        ]
+      }
+    },
+    {
+      "file": "showcase-1440-full.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 2804,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 554,
+            "scrollWidth": 554
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 554,
+            "scrollWidth": 563
+          }
+        ]
+      }
+    },
+    {
+      "file": "code-1440.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "element": "#button-feedback .code-example"
+    },
+    {
+      "file": "showcase-1024-viewport.png",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "fullPage": false,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 3614,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 765,
+            "scrollWidth": 765
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 765,
+            "scrollWidth": 765
+          }
+        ]
+      }
+    },
+    {
+      "file": "showcase-1024-full.png",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "fullPage": true,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 3614,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 765,
+            "scrollWidth": 765
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 765,
+            "scrollWidth": 765
+          }
+        ]
+      }
+    },
+    {
+      "file": "code-1024.png",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "element": "#button-feedback .code-example"
+    },
+    {
+      "file": "showcase-390-viewport.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": false,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 4349,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 350,
+            "scrollWidth": 517
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 350,
+            "scrollWidth": 555
+          }
+        ]
+      }
+    },
+    {
+      "file": "showcase-390-full.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 4349,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 350,
+            "scrollWidth": 517
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 350,
+            "scrollWidth": 555
+          }
+        ]
+      }
+    },
+    {
+      "file": "code-390.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "element": "#button-feedback .code-example"
+    },
+    {
+      "file": "showcase-320-viewport.png",
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "fullPage": false,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 4811,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 280,
+            "scrollWidth": 517
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 280,
+            "scrollWidth": 555
+          }
+        ]
+      }
+    },
+    {
+      "file": "showcase-320-full.png",
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "fullPage": true,
+      "metrics": {
+        "horizontalOverflow": false,
+        "bodyHeight": 4811,
+        "smallText": [
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "mono",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "eyebrow",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "panel-bar",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "replay-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "copy-status",
+            "fontSize": "12px"
+          },
+          {
+            "selector": "dependency-note",
+            "fontSize": "12px"
+          }
+        ],
+        "code": [
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 280,
+            "scrollWidth": 517
+          },
+          {
+            "fontSize": "14px",
+            "lineHeight": "22.4px",
+            "width": 280,
+            "scrollWidth": 555
+          }
+        ]
+      }
+    },
+    {
+      "file": "code-320.png",
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "element": "#button-feedback .code-example"
+    }
+  ],
+  "errors": [],
+  "assets": [
+    {
+      "path": "/assets/index-5rSXTSdY.js",
+      "sha256": "9ee105c403edfee4f3cb7a1404eae7924a18a74a76967067e951e753c0a38743",
+      "bytes": 369752
+    },
+    {
+      "path": "/assets/index-DIZpH461.css",
+      "sha256": "c002ba03aab8cf685d6a8fe23567621f2395c01457321bd7638b3419d74e76b4",
+      "bytes": 15852
+    }
+  ],
+  "provenance": "Capturas locais A1; identificadores privados removidos na edição pública. Pixels preservados."
+}

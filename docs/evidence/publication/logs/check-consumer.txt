@@ -1,0 +1,6 @@
+$ pnpm build:packages && node scripts/check-consumer.mjs
+$ pnpm --filter @motion-skills-lab/motion-tokens build && pnpm --filter @motion-skills-lab/motion-recipes build
+$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+PASS output-only consumer: public ESM exports, SSR and CSS resolution
+PASS both skill examples: strict TypeScript against copied public declarations

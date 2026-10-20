@@ -1,0 +1,5 @@
+:root {
+  --msl-motion-duration-button-feedback: 140ms;
+  --msl-motion-duration-accordion-transition: 180ms;
+  --msl-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+}

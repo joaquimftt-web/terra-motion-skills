@@ -1,0 +1,56 @@
+{
+  "name": "@motion-skills-lab/motion-recipes",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./button-feedback": {
+      "types": "./dist/button-feedback/index.d.ts",
+      "import": "./dist/button-feedback/index.js"
+    },
+    "./button-feedback.css": "./dist/button-feedback/button-feedback.css",
+    "./accordion-transition": {
+      "types": "./dist/accordion-transition/index.d.ts",
+      "import": "./dist/accordion-transition/index.js"
+    },
+    "./accordion-transition.css": "./dist/accordion-transition/accordion-transition.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@motion-skills-lab/motion-tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "motion": "^14.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "motion": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "30.1.3",
+    "motion": "14.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run --config ../../vitest.config.ts packages/motion-recipes/src"
+  },
+  "license": "MIT"
+}

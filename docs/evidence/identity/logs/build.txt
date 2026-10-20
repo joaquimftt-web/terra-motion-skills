@@ -1,0 +1,18 @@
+$ pnpm -r --if-present build
+Scope: 3 of 4 workspace projects
+packages/motion-tokens build$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+packages/motion-tokens build: Done
+packages/motion-recipes build$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+packages/motion-recipes build: Done
+apps/showcase build$ node ../../scripts/export-reference-docs.mjs && tsc -p tsconfig.json --noEmit && vite build
+apps/showcase build: Reference documents exported as static text assets; no skill runtime imports.
+apps/showcase build: vite v8.3.4 building client environment for production...
+apps/showcase build: transforming...
+apps/showcase build: ✓ 442 modules transformed.
+apps/showcase build: rendering chunks...
+apps/showcase build: computing gzip size...
+apps/showcase build: dist/index.html                   0.69 kB │ gzip:   0.42 kB
+apps/showcase build: dist/assets/index-DIZpH461.css   15.85 kB │ gzip:   4.12 kB
+apps/showcase build: dist/assets/index-DnOSn_wO.js   369.76 kB │ gzip: 117.73 kB
+apps/showcase build: ✓ built in 198ms
+apps/showcase build: Done

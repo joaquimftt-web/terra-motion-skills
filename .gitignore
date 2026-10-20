@@ -1,0 +1,24 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.validation/
+apps/showcase/public/reference/
+.DS_Store
+Thumbs.db
+
+# Environment, credentials and local tooling
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+.cache/
+.vite/
+.superpowers/
+*.tsbuildinfo
+*.log

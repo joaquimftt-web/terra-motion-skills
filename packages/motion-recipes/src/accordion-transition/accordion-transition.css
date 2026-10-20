@@ -1,0 +1,36 @@
+.msl-accordion-transition {
+  border-block-end: 1px solid currentColor;
+}
+
+.msl-accordion-transition__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  inline-size: 100%;
+  min-block-size: 3.5rem;
+  border: 0;
+  padding: 1rem 0;
+  color: inherit;
+  background: transparent;
+  text-align: start;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.msl-accordion-transition__trigger:focus-visible {
+  outline: 3px solid Highlight;
+  outline-offset: 3px;
+}
+
+.msl-accordion-transition__indicator {
+  font-size: 1.4em;
+  line-height: 1;
+}
+.msl-accordion-transition__panel {
+  overflow: hidden;
+}
+.msl-accordion-transition__content {
+  padding-block-end: 1.25rem;
+}

@@ -1,0 +1,58 @@
+$ pnpm build && playwright test
+$ pnpm -r --if-present build
+Scope: 3 of 4 workspace projects
+packages/motion-tokens build$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+packages/motion-tokens build: Done
+packages/motion-recipes build$ tsc -p tsconfig.build.json && node ../../scripts/copy-css.mjs
+packages/motion-recipes build: Done
+apps/showcase build$ node ../../scripts/export-reference-docs.mjs && tsc -p tsconfig.json --noEmit && vite build
+apps/showcase build: Reference documents exported as static text assets; no skill runtime imports.
+apps/showcase build: vite v8.3.4 building client environment for production...
+apps/showcase build: transforming...
+apps/showcase build: ✓ 442 modules transformed.
+apps/showcase build: rendering chunks...
+apps/showcase build: computing gzip size...
+apps/showcase build: dist/index.html                   0.67 kB │ gzip:   0.42 kB
+apps/showcase build: dist/assets/index-DIZpH461.css   15.85 kB │ gzip:   4.12 kB
+apps/showcase build: dist/assets/index-C1Z0n1gu.js   369.76 kB │ gzip: 117.72 kB
+apps/showcase build: ✓ built in 231ms
+apps/showcase build: Done
+[WebServer] (node:31280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ vite preview "--host" "127.0.0.1"
+[WebServer] (node:30812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 17 tests using 6 workers
+
+(node:22676) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4592) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 apps\showcase\tests\legibility.spec.ts:4:3 › A1 legibility and control sizing at 390px (1.4s)
+  ok  2 apps\showcase\tests\legibility.spec.ts:4:3 › A1 legibility and control sizing at 320px (1.5s)
+  ok  3 apps\showcase\tests\legibility.spec.ts:4:3 › A1 legibility and control sizing at 1440px (1.6s)
+  ok  4 apps\showcase\tests\legibility.spec.ts:4:3 › A1 legibility and control sizing at 1024px (1.7s)
+  ok  6 apps\showcase\tests\showcase.spec.ts:35:1 › button keyboard, focus, press and disabled state are real (1.4s)
+  ok  5 apps\showcase\tests\showcase.spec.ts:19:1 › catalog links navigate and every local reference resolves (1.4s)
+  ok  7 apps\showcase\tests\showcase.spec.ts:58:1 › accordion keyboard excludes closed content from tab order (1.4s)
+  ok 10 apps\showcase\tests\showcase.spec.ts:134:1 › clipboard failure reports a manual alternative without false success (1.1s)
+  ok 12 apps\showcase\tests\showcase.spec.ts:122:1 › clipboard success copies the exact displayed snippet (940ms)
+  ok  9 apps\showcase\tests\showcase.spec.ts:103:1 › live OS preference wins over the demo reduction control (1.3s)
+  ok 16 apps\showcase\tests\showcase.spec.ts:172:3 › touch emulation › activates Button and Accordion without hover (1.0s)
+  ok  8 apps\showcase\tests\showcase.spec.ts:80:1 › duration, reversal, replay and remount use live state with cancellation (2.7s)
+  ok 17 apps\showcase\tests\showcase.spec.ts:189:3 › initial OS reduction › starts conservative without requiring a demo override (548ms)
+  ok 11 apps\showcase\tests\showcase.spec.ts:151:3 › responsive layout and axe audit at 1440px (3.8s)
+  ok 13 apps\showcase\tests\showcase.spec.ts:151:3 › responsive layout and axe audit at 1024px (3.0s)
+  ok 15 apps\showcase\tests\showcase.spec.ts:151:3 › responsive layout and axe audit at 320px (3.0s)
+  ok 14 apps\showcase\tests\showcase.spec.ts:151:3 › responsive layout and axe audit at 390px (3.2s)
+
+  17 passed (9.3s)

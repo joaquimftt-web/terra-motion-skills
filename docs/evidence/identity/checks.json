@@ -1,0 +1,79 @@
+[
+  {
+    "command": "pnpm install --frozen-lockfile --offline",
+    "startedAt": "2026-10-20T02:35:07.589787Z",
+    "completedAt": "2026-10-20T02:35:08.0620399Z",
+    "exitCode": 0,
+    "log": "logs/install.txt"
+  },
+  {
+    "command": "pnpm format:check",
+    "startedAt": "2026-10-20T02:35:09.2243332Z",
+    "completedAt": "2026-10-20T02:35:10.8083166Z",
+    "exitCode": 1,
+    "log": "logs/format-check.txt"
+  },
+  {
+    "command": "pnpm lint",
+    "startedAt": "2026-10-20T02:35:10.8087566Z",
+    "completedAt": "2026-10-20T02:35:13.6743421Z",
+    "exitCode": 0,
+    "log": "logs/lint.txt"
+  },
+  {
+    "command": "pnpm typecheck",
+    "startedAt": "2026-10-20T02:35:13.6747087Z",
+    "completedAt": "2026-10-20T02:35:22.8559083Z",
+    "exitCode": 0,
+    "log": "logs/typecheck.txt"
+  },
+  {
+    "command": "pnpm build",
+    "startedAt": "2026-10-20T02:35:22.8561919Z",
+    "completedAt": "2026-10-20T02:35:27.7657386Z",
+    "exitCode": 0,
+    "log": "logs/build.txt"
+  },
+  {
+    "command": "pnpm test",
+    "startedAt": "2026-10-20T02:35:27.7661092Z",
+    "completedAt": "2026-10-20T02:35:35.224591Z",
+    "exitCode": 0,
+    "log": "logs/test.txt"
+  },
+  {
+    "command": "pnpm validate:skills",
+    "startedAt": "2026-10-20T02:35:35.2249094Z",
+    "completedAt": "2026-10-20T02:35:35.7386373Z",
+    "exitCode": 0,
+    "log": "logs/validate-skills.txt"
+  },
+  {
+    "command": "pnpm check:boundaries",
+    "startedAt": "2026-10-20T02:35:35.7388837Z",
+    "completedAt": "2026-10-20T02:35:36.2662602Z",
+    "exitCode": 0,
+    "log": "logs/check-boundaries.txt"
+  },
+  {
+    "command": "pnpm check:consumer",
+    "startedAt": "2026-10-20T02:35:36.2665568Z",
+    "completedAt": "2026-10-20T02:35:42.0699712Z",
+    "exitCode": 0,
+    "log": "logs/check-consumer.txt"
+  },
+  {
+    "command": "pnpm test:e2e",
+    "startedAt": "2026-10-20T02:35:42.070251Z",
+    "completedAt": "2026-10-20T02:35:57.3257485Z",
+    "exitCode": 0,
+    "log": "logs/test-e2e.txt"
+  },
+  {
+    "command": "pnpm format:check (after formatting nominal assertions and final documentation)",
+    "startedAt": "2026-10-20T02:37:25.7246433Z",
+    "completedAt": "2026-10-20T02:37:27.3411718Z",
+    "exitCode": 0,
+    "log": "logs/format-check-final.txt"
+  }
+]

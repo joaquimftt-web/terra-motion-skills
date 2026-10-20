@@ -1,0 +1,5 @@
+pnpm-lock.yaml
+docs/superpowers/
+.superpowers/
+.validation/
+apps/showcase/public/reference/
