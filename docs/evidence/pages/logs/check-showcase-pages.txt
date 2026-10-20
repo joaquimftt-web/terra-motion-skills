@@ -1,0 +1,2 @@
+$ node scripts/check-showcase-build.mjs
+{"base":"/terra-motion-skills/","files":11,"bytes":416501,"entrypoints":["/terra-motion-skills/assets/index-DW1sqblv.js","/terra-motion-skills/assets/index-DIZpH461.css"],"referenceDocuments":6,"noticesIdentical":true,"forbiddenFiles":0,"credentialPatternMatches":0}

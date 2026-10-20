@@ -1,0 +1,3 @@
+$ node scripts/validate-skills.mjs
+PASS motion-foundations: minimal YAML schema, operational sections and local links
+PASS microinteraction-design: minimal YAML schema, operational sections and local links

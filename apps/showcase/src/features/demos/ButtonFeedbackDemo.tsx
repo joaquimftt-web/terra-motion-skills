@@ -80,8 +80,12 @@ export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) 
           <strong>Evite</strong> scale, sucesso simulado ou informação apenas em hover.
         </p>
         <div className="resource-links">
-          <a href="/reference/button-feedback.tsx">Código da receita ↗</a>
-          <a href="/reference/microinteraction-design.md">Skill: microinteraction-design ↗</a>
+          <a href={`${import.meta.env.BASE_URL}reference/button-feedback.tsx`}>
+            Código da receita ↗
+          </a>
+          <a href={`${import.meta.env.BASE_URL}reference/microinteraction-design.md`}>
+            Skill: microinteraction-design ↗
+          </a>
         </div>
         <p className="dependency-note">
           Dependências: React + React DOM. Receita CSS independente da vitrine.

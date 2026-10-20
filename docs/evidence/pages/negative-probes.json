@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-20T10:33:49.375Z",
+  "probes": [
+    {
+      "name": "forbidden env file",
+      "rejected": true
+    },
+    {
+      "name": "altered license text",
+      "rejected": true
+    },
+    {
+      "name": "unresolved exported Markdown",
+      "rejected": true
+    },
+    {
+      "name": "synthetic credential pattern",
+      "rejected": true
+    },
+    {
+      "name": "wrong base for compiled artifact",
+      "rejected": true
+    }
+  ],
+  "restoredArtifactPassed": true,
+  "scope": "Ignored build output only; original sources and test coverage untouched."
+}

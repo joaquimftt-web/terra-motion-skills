@@ -18,6 +18,7 @@
     "validate:skills": "node scripts/validate-skills.mjs",
     "check:boundaries": "node scripts/check-boundaries.mjs",
     "check:consumer": "pnpm build:packages && node scripts/check-consumer.mjs",
+    "check:showcase": "node scripts/check-showcase-build.mjs",
     "format:check": "prettier --check ."
   },
   "devDependencies": {

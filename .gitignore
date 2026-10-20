@@ -5,6 +5,8 @@ playwright-report/
 test-results/
 .validation/
 apps/showcase/public/reference/
+apps/showcase/public/LICENSE
+apps/showcase/public/THIRD_PARTY_NOTICES.md
 .DS_Store
 Thumbs.db
 

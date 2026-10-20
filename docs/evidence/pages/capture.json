@@ -1,0 +1,40 @@
+{
+  "capturedAt": "2026-10-20T10:32:07.997Z",
+  "browser": "156.0.8078.4",
+  "source": "local production preview, not GitHub Pages service",
+  "reducedMotion": "reduce for capture stability; normal and reduced behavior covered independently by E2E",
+  "checks": [
+    {
+      "width": 1440,
+      "height": 900,
+      "path": "/terra-motion-skills/",
+      "overflow": false,
+      "referenceLinks": 8,
+      "screenshot": "pages-1440.png"
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "path": "/terra-motion-skills/",
+      "overflow": false,
+      "referenceLinks": 8,
+      "screenshot": "pages-1024.png"
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "path": "/terra-motion-skills/",
+      "overflow": false,
+      "referenceLinks": 8,
+      "screenshot": "pages-390.png"
+    },
+    {
+      "width": 320,
+      "height": 900,
+      "path": "/terra-motion-skills/",
+      "overflow": false,
+      "referenceLinks": 8,
+      "screenshot": "pages-320.png"
+    }
+  ]
+}

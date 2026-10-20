@@ -1,6 +1,20 @@
 # Validação da v0.1 — registros de execução
 
-> **Estado atual — 20/10/2026:** o código-fonte está público no [GitHub](https://github.com/joaquimftt-web/terra-motion-skills), após o primeiro push do snapshot saneado. O showcase ainda não está hospedado; tag, Release e pacotes npm ainda não foram publicados. Os registros abaixo descrevem as etapas históricas anteriores ao primeiro push, inclusive menções a candidato, ausência de remoto e autorização pendente. Seus resultados e limitações foram preservados. Esta atualização documental não representa nova execução da suíte funcional.
+## Suporte ao GitHub Pages — 20/10/2026
+
+Implementação local, sem push do workflow, alteração remota de configuração ou deploy do Pages. Bases verificadas: `/` e `/terra-motion-skills/`. Recipes, skills, contrato, estilos e licença preservados. A tag e a Release v0.1.0 existentes não foram alteradas. Na conferência final, Pages já constava configurado para GitHub Actions com HTTPS, mas sem execuções de workflow; essa configuração não foi realizada nesta etapa.
+
+Passaram: instalação offline com lockfile congelado, formatação, lint, TypeScript, Vitest (**22 testes em cinco arquivos**), duas skills, fronteiras e consumidor independente. Build de produção e **18 Playwright em cada base**, incluindo **oito auditorias axe por variante**, passaram. Os 17 cenários anteriores foram preservados e reforçados; foi acrescentado um teste de JS/CSS/avisos legais. Navegação, refresh, seis referências com conteúdo conferido (sem aceitar fallback HTML), teclado, foco, replay/reset/interrupção, clipboard real/fallback, redução inicial/dinâmica, touch emulado e quatro larguras estão cobertos.
+
+O artefato Pages tem **11 arquivos**, seis referências e LICENSE/THIRD_PARTY_NOTICES.md integrais; somente o conteúdo de `apps/showcase/dist` será publicado. O verificador de artefato passou para as duas bases. Cinco sondagens negativas rejeitaram arquivo .env, licença alterada, Markdown com link relativo não resolvido, padrão sintético de credencial e base divergente; o build ignorado pelo Git foi restaurado e reconferido. A primeira execução do novo verificador, antes da implementação, detectou LICENSE ausente no build anterior.
+
+Workflow analisado estaticamente: YAML, sete Actions fixadas por SHA e seus inputs oficiais, permissões, ambiente, dependência entre jobs, gatilhos e concorrência conferidos. Isso não equivale a execução no runner Linux ou no serviço Pages. Os logs saneados e resultados estão em [evidence/pages/checks.json](evidence/pages/checks.json), [auditoria do workflow](evidence/pages/workflow-check.json) e [sondagens negativas](evidence/pages/negative-probes.json).
+
+Capturas reais com prefixo Pages em [1440](evidence/pages/pages-1440.png), [1024](evidence/pages/pages-1024.png), [390](evidence/pages/pages-390.png) e [320 px](evidence/pages/pages-320.png): sem overflow, oito links de referência com prefixo correto; [metadados](evidence/pages/capture.json). Usado movimento reduzido somente para estabilidade das capturas; E2E cobre comportamento normal e reduzido separadamente.
+
+Ambiente: Windows, Node 24.20.0, pnpm 11.24.0 e Chromium já disponível. Cache/store local usado na instalação; não foi simulado runner novo ou execução Linux. Smoke HTTPS, permissão de clipboard no site público e disponibilidade real aguardam o primeiro deploy autorizado. Outros navegadores, leitores de tela, aparelhos físicos e novo zoom nativo continuam pendentes; A2/A3 permanecem no backlog. Triagem de padrões de credenciais não é garantia exaustiva de segurança. Operação e rollback: [HOSTING.md](HOSTING.md).
+
+> **Registro histórico após o primeiro push — 20/10/2026:** o código-fonte ficou público no [GitHub](https://github.com/joaquimftt-web/terra-motion-skills). Naquele momento, showcase, tag, Release e pacotes npm ainda não estavam publicados; posteriormente a tag e a Release v0.1.0 foram publicadas. Os registros abaixo descrevem etapas históricas anteriores ao primeiro push, inclusive menções a candidato, ausência de remoto e autorização pendente. Seus resultados e limitações foram preservados.
 
 ## Identidade Terra Motion Skills — 19/10/2026
 

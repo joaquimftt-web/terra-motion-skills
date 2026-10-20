@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-20T10:30:24.239Z",
+  "yamlParsed": true,
+  "pinnedActions": [
+    {
+      "action": "actions/checkout",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "runtime": "node24",
+      "inputsVerified": true
+    },
+    {
+      "action": "actions/setup-node",
+      "sha": "949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "runtime": "node24",
+      "inputsVerified": true
+    },
+    {
+      "action": "pnpm/action-setup",
+      "sha": "ea17c68df8912ef543352723c149a84f56e3d413",
+      "runtime": "node24",
+      "inputsVerified": true
+    },
+    {
+      "action": "actions/upload-artifact",
+      "sha": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "runtime": "node24",
+      "inputsVerified": true
+    },
+    {
+      "action": "actions/upload-pages-artifact",
+      "sha": "fc324d3547104276b827a68afc52ff2a11cc49c9",
+      "runtime": "composite",
+      "inputsVerified": true
+    },
+    {
+      "action": "actions/configure-pages",
+      "sha": "45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+      "runtime": "node24",
+      "inputsVerified": true
+    },
+    {
+      "action": "actions/deploy-pages",
+      "sha": "368f82528645a54fb793d4d04e342629a3f51346",
+      "runtime": "node24",
+      "inputsVerified": true
+    }
+  ],
+  "permissionsAndTriggersChecked": true,
+  "limitation": "Static checks only; GitHub-hosted runner and deploy have not executed."
+}

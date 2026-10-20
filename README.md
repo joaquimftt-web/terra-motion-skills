@@ -28,7 +28,9 @@ pnpm build
 pnpm --filter @motion-skills-lab/showcase preview
 ```
 
-Preview é ferramenta local, não servidor de produção. Hospedagem e publicação npm não estão configuradas.
+Preview é ferramenta local, não servidor de produção. A hospedagem ainda não está ativa e os pacotes npm não estão publicados.
+
+O suporte ao GitHub Pages está preparado para validação e publicação posterior. Consulte [HOSTING.md](docs/HOSTING.md) para testar a base `/terra-motion-skills/`, operar o workflow e realizar rollback. O showcase ainda não está hospedado.
 
 ## Identidade e compatibilidade
 

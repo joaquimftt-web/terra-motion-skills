@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const runtimeErrors = new WeakMap<Page, string[]>();
+const expectedBase = process.env.SHOWCASE_BASE_PATH ?? '/';
 test.beforeEach(async ({ page }) => {
   const errors: string[] = [];
   runtimeErrors.set(page, errors);
@@ -9,7 +10,12 @@ test.beforeEach(async ({ page }) => {
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(message.text());
   });
-  await page.goto('/');
+  page.on('requestfailed', (request) => errors.push(`Request failed: ${request.url()}`));
+  page.on('response', (response) => {
+    if (response.status() >= 400) errors.push(`HTTP ${response.status()}: ${response.url()}`);
+  });
+  await page.goto('./');
+  expect(new URL(page.url()).pathname).toBe(expectedBase);
 });
 
 test.afterEach(async ({ page }) => {
@@ -22,14 +28,59 @@ test('catalog links navigate and every local reference resolves', async ({ page,
   await page.getByRole('link', { name: /02.*Accordion Transition/ }).click();
   await expect(page).toHaveURL(/#accordion-transition$/);
   const links = await page
-    .locator('a[href^="/reference/"]')
+    .locator('a[href*="/reference/"]')
     .evaluateAll((elements) => [...new Set(elements.map((el) => el.getAttribute('href')!))]);
   expect(links.length).toBe(6);
+  const expectedContent: Record<string, string> = {
+    'motion-contract.md': '# Contrato',
+    'motion-foundations.md': 'name: motion-foundations',
+    'microinteraction-design.md': 'name: microinteraction-design',
+    'references-and-licenses.md': '# Fontes',
+    'button-feedback.tsx': 'export',
+    'accordion-transition.tsx': 'export',
+  };
   for (const href of links) {
+    expect(href.startsWith(`${expectedBase}reference/`), href).toBe(true);
     const response = await request.get(href);
     expect(response.ok(), href).toBe(true);
-    expect((await response.text()).length).toBeGreaterThan(100);
+    const text = await response.text();
+    expect(text.length).toBeGreaterThan(100);
+    expect(text).not.toContain('<!doctype html>');
+    expect(text).toContain(expectedContent[href.split('/').at(-1)!]!);
   }
+});
+
+test('production entrypoints and license notices resolve under the selected base', async ({
+  page,
+  request,
+}) => {
+  const resources = await page
+    .locator('script[src],link[rel="stylesheet"]')
+    .evaluateAll((elements) =>
+      elements.map((element) => element.getAttribute('src') ?? element.getAttribute('href')!),
+    );
+  expect(resources.some((url) => url.endsWith('.js'))).toBe(true);
+  expect(resources.some((url) => url.endsWith('.css'))).toBe(true);
+  for (const resource of resources) {
+    expect(resource.startsWith(`${expectedBase}assets/`)).toBe(true);
+    const response = await request.get(resource);
+    expect(response.ok()).toBe(true);
+    expect(response.headers()['content-type']).toMatch(
+      resource.endsWith('.css') ? /text\/css/ : /javascript/,
+    );
+  }
+  for (const [file, marker] of [
+    ['LICENSE', 'Copyright (c) 2026 Joaquim Freitas'],
+    ['THIRD_PARTY_NOTICES.md', '## react@'],
+  ]) {
+    const response = await request.get(`${expectedBase}${file}`);
+    expect(response.ok()).toBe(true);
+    const text = await response.text();
+    expect(text).toContain(marker);
+    expect(text).not.toContain('<!doctype html>');
+  }
+  await page.reload();
+  await expect(page.getByRole('link', { name: 'Terra Motion Skills início' })).toBeVisible();
 });
 
 test('button keyboard, focus, press and disabled state are real', async ({ page }) => {

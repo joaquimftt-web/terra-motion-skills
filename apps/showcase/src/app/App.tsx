@@ -47,7 +47,7 @@ export function App() {
       <div className="main-column">
         <header className="topbar">
           <span>LABORATÓRIO DE INTERAÇÃO</span>
-          <a href="/reference/motion-contract.md">
+          <a href={`${import.meta.env.BASE_URL}reference/motion-contract.md`}>
             Contrato de motion <span aria-hidden="true">↗</span>
           </a>
         </header>
@@ -169,8 +169,12 @@ export function App() {
               </article>
             </div>
             <div className="foundation-links">
-              <a href="/reference/motion-foundations.md">Ler motion-foundations ↗</a>
-              <a href="/reference/microinteraction-design.md">Ler microinteraction-design ↗</a>
+              <a href={`${import.meta.env.BASE_URL}reference/motion-foundations.md`}>
+                Ler motion-foundations ↗
+              </a>
+              <a href={`${import.meta.env.BASE_URL}reference/microinteraction-design.md`}>
+                Ler microinteraction-design ↗
+              </a>
             </div>
           </section>
         </main>
@@ -181,7 +185,9 @@ export function App() {
           </span>
           <p>
             Projeto independente · Código original sob MIT ·{' '}
-            <a href="/reference/references-and-licenses.md">Fontes e créditos ↗</a>
+            <a href={`${import.meta.env.BASE_URL}reference/references-and-licenses.md`}>
+              Fontes e créditos ↗
+            </a>
           </p>
         </footer>
       </div>

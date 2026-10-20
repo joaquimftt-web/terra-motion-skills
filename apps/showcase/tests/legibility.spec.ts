@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 for (const width of [1440, 1024, 390, 320]) {
   test(`A1 legibility and control sizing at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/');
+    await page.goto('./');
     await expect(page).toHaveTitle('Terra Motion Skills — Interações com intenção');
     const brand = page.getByRole('link', { name: 'Terra Motion Skills início' });
     await expect(brand).toBeVisible();

@@ -1,0 +1,18 @@
+{
+  "verifiedAt": "2026-10-20T10:36:06.524Z",
+  "protectedFilesUnchanged": 27,
+  "privateOriginalPreserved": true,
+  "privateHistoryReferences": 0,
+  "privateMetadataFindings": 0,
+  "localLinksVerified": 136,
+  "rootManifestDependenciesUnchanged": true,
+  "licenseAndNoticesUnchanged": true,
+  "tagAndRelease": "v0.1.0 untouched; remote rechecked before commit",
+  "review": "Independent read-only reviewer: no Critical, Important or Minor findings",
+  "limitations": [
+    "Linux Actions and Pages service have not run; no push or activation authorized.",
+    "Install used Windows package store and available Chromium.",
+    "No new native zoom, alternative browser, screen-reader or physical-device validation.",
+    "Pattern screening is not an exhaustive security guarantee."
+  ]
+}

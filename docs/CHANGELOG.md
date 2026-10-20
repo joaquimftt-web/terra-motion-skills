@@ -1,5 +1,9 @@
 # Changelog
 
+## 20/10/2026 — suporte local ao GitHub Pages
+
+Base local e Pages, links do showcase, exportação de referências com URLs de origem e avisos legais integrais, verificador do artefato e workflow com build/validação separados do deploy. Playwright preservado e ampliado para as duas bases. Operação e rollback em [HOSTING.md](HOSTING.md); resultados em [VALIDATION.md](VALIDATION.md). Sem nova funcionalidade, redesign, alteração de recipe/skill/contrato ou dependências. Workflow ainda sem push; nenhuma configuração remota ou deploy realizado nesta etapa. Tag e Release v0.1.0 preservadas.
+
 ## 20/10/2026 — documentação após o primeiro push
 
 Código-fonte público em [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills), branch main. READMEs, identidade e estado de publicação atualizados, sem alterações funcionais. Showcase ainda sem hospedagem; tag, Release v0.1.0 e pacotes npm não publicados. Os registros abaixo descrevem etapas históricas anteriores ao primeiro push e mantêm o estado daquela época.

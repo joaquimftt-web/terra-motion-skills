@@ -135,8 +135,12 @@ export function Details() {
           essencial escondido ou controles dentro do gatilho.
         </p>
         <div className="resource-links">
-          <a href="/reference/accordion-transition.tsx">Código da receita ↗</a>
-          <a href="/reference/motion-foundations.md">Skill: motion-foundations ↗</a>
+          <a href={`${import.meta.env.BASE_URL}reference/accordion-transition.tsx`}>
+            Código da receita ↗
+          </a>
+          <a href={`${import.meta.env.BASE_URL}reference/motion-foundations.md`}>
+            Skill: motion-foundations ↗
+          </a>
         </div>
         <p className="dependency-note">
           Dependências: React + React DOM + Motion. Painel fechado: aria-hidden + inert. Movimento

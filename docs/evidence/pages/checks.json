@@ -1,0 +1,86 @@
+[
+  {
+    "command": "install-frozen-offline",
+    "startedAt": "2026-10-20T10:27:35.8754770Z",
+    "completedAt": "2026-10-20T10:27:36.3385270Z",
+    "exitCode": 0,
+    "log": "logs/install-frozen-offline.txt"
+  },
+  {
+    "command": "format:check",
+    "startedAt": "2026-10-20T10:27:36.3687683Z",
+    "completedAt": "2026-10-20T10:27:38.0661883Z",
+    "exitCode": 0,
+    "log": "logs/format-check.txt"
+  },
+  {
+    "command": "lint",
+    "startedAt": "2026-10-20T10:27:38.0703110Z",
+    "completedAt": "2026-10-20T10:28:06.0916301Z",
+    "exitCode": 0,
+    "log": "logs/lint.txt"
+  },
+  {
+    "command": "typecheck",
+    "startedAt": "2026-10-20T10:28:06.0944440Z",
+    "completedAt": "2026-10-20T10:28:15.7058811Z",
+    "exitCode": 0,
+    "log": "logs/typecheck.txt"
+  },
+  {
+    "command": "test",
+    "startedAt": "2026-10-20T10:28:15.7080866Z",
+    "completedAt": "2026-10-20T10:28:40.5831690Z",
+    "exitCode": 0,
+    "log": "logs/test.txt"
+  },
+  {
+    "command": "validate:skills",
+    "startedAt": "2026-10-20T10:28:40.5855576Z",
+    "completedAt": "2026-10-20T10:28:41.0822448Z",
+    "exitCode": 0,
+    "log": "logs/validate-skills.txt"
+  },
+  {
+    "command": "check:boundaries",
+    "startedAt": "2026-10-20T10:28:41.0843288Z",
+    "completedAt": "2026-10-20T10:28:41.5813566Z",
+    "exitCode": 0,
+    "log": "logs/check-boundaries.txt"
+  },
+  {
+    "command": "check:consumer",
+    "startedAt": "2026-10-20T10:28:41.5834594Z",
+    "completedAt": "2026-10-20T10:28:46.7400451Z",
+    "exitCode": 0,
+    "log": "logs/check-consumer.txt"
+  },
+  {
+    "command": "test:e2e-local",
+    "startedAt": "2026-10-20T10:28:46.7426225Z",
+    "completedAt": "2026-10-20T10:29:01.9553134Z",
+    "exitCode": 0,
+    "log": "logs/test-e2e-local.txt"
+  },
+  {
+    "command": "check:showcase-local",
+    "startedAt": "2026-10-20T10:29:01.9604152Z",
+    "completedAt": "2026-10-20T10:29:02.4702650Z",
+    "exitCode": 0,
+    "log": "logs/check-showcase-local.txt"
+  },
+  {
+    "command": "test:e2e-pages",
+    "startedAt": "2026-10-20T10:29:02.4726519Z",
+    "completedAt": "2026-10-20T10:29:15.4009396Z",
+    "exitCode": 0,
+    "log": "logs/test-e2e-pages.txt"
+  },
+  {
+    "command": "check:showcase-pages",
+    "startedAt": "2026-10-20T10:29:15.4036490Z",
+    "completedAt": "2026-10-20T10:29:15.9192563Z",
+    "exitCode": 0,
+    "log": "logs/check-showcase-pages.txt"
+  }
+]
