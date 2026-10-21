@@ -1,4 +1,16 @@
-# Integração futura — roteiro exato e condições de parada
+# Integração — estado atual e roteiro histórico
+
+## Estado atual — integração concluída em 21/10/2026
+
+A experiência V4/P1/P2/P3, laboratório Mineral Técnico e referências foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`. [Run 39654669658](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658): validação/build e deploy concluídos. [Estado público](PUBLICATION_STATUS.md). Direitos regularizados por declaração do titular; código MIT e permissões específicas dos assets permanecem separados.
+
+A integração autorizada gerou 7ea60ea; o primeiro run falhou antes do deploy por overflow no laboratório a 320 px em Linux. A recuperação foi validada e publicada em 49d7241. Release/tag v0.1.0 e Scroll Reveal foram preservados. Não reaplicar os manifestos e comandos abaixo: são o roteiro da preparação anterior, não instruções pendentes.
+
+Para uma próxima atualização: fetch e conferência da base esperada, árvore limpa, diff de escopo, identidade pública, gates completos, commit normal autorizado, rebuild com o novo SHA, reconferência remota, integração sem reescrita, push autorizado, Actions e smoke HTTPS. Parar em drift/falha. Rollback exige análise dos commits posteriores e autorização para revert normal; não executar cegamente a reversão histórica.
+
+## Arquivo histórico — roteiro anterior à integração
+
+Todas as expressões de futuro, bloqueio ou autorização pendente abaixo descrevem aquela etapa e não o estado público atual.
 
 ## Estado e autorização
 

@@ -4,10 +4,10 @@ v0.1 entrega apenas Button Feedback, Accordion Transition, duas skills e vitrine
 
 ## Revisão independente da v0.1
 
-- **A1:** refinamento de legibilidade implementado localmente; comparações e revalidação em [REFINEMENT_A1.md](REFINEMENT_A1.md).
+- **A1 — concluído:** refinamento de legibilidade implementado e preservado como base histórica; comparações e revalidação em [REFINEMENT_A1.md](REFINEMENT_A1.md). A experiência integrada posterior está publicada no Pages.
 - **A2 — backlog:** ampliar futuramente a verificação estática de fronteiras, considerando grafo/AST e consumo por tarball antes de distribuição pública de pacotes. Não implementado neste lote.
 - **A3 — backlog:** avaliar mudança da preferência reduzida durante um timeout de replay já agendado no showcase. Não é defeito comprovado da receita; comportamento não alterado neste lote.
-- **A4 — antes da publicação:** decidir nome/licença, revisar notices e obrigações de distribuição; rodada humana de legibilidade/foco/zoom e avaliar Firefox/WebKit, leitores de tela e dispositivos físicos, registrando indisponibilidades. O zoom Chromium foi validado no A1; não encerra as demais pendências. Publicação continua dependendo de autorização explícita do titular.
+- **A4 — publicação realizada:** nome Terra Motion Skills, código MIT, notices e permissões específicas dos assets registrados. Experiência integrada publicada após autorização do titular; [estado oficial](PUBLICATION_STATUS.md). Firefox/WebKit, leitores de tela e dispositivos físicos continuam limitações de validação, sem alegação de cobertura. Novas publicações exigem autorização de escopo própria.
 
 Fonte: [síntese pública da revisão independente](reviews/2026-10-19-independent-review-v0.1.md). Seus resultados são análise externa e não substituem as execuções locais registradas em VALIDATION.md.
 

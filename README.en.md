@@ -6,7 +6,7 @@ Reusable React motion recipes and operational AI agent skills, with neutral toke
 
 ![Terra Motion Skills showcase](docs/evidence/identity/terra-1440-viewport.png)
 
-**Public showcase:** [GitHub Pages](https://joaquimftt-web.github.io/terra-motion-skills/), serving the v0.1 showcase from `baceffee`. The accepted local P1/P2/P3 landing, Mineral Technical lab and references page in this candidate are **not published yet**. A1 screenshots document the accepted visual refinement; later editorial name/license messages may differ.
+**Public showcase:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [Mineral Technical lab](https://joaquimftt-web.github.io/terra-motion-skills/lab/) and [references](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). The integrated V4/P1/P2/P3 experience was published from `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [successful deployment](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Historical release/tag v0.1.0 remains unchanged; this visual publication does not bump the library version. A1 screenshots below are historical.
 
 ## Install and run
 
@@ -30,7 +30,7 @@ pnpm --filter @motion-skills-lab/showcase preview
 
 Preview is a local tool, not a production server. The v0.1 showcase is hosted on GitHub Pages; npm packages are not published.
 
-See [HOSTING.md (Portuguese)](docs/HOSTING.md) for Pages operation, `/terra-motion-skills/` testing and rollback. This local candidate has three routes: `/`, `/lab/` and `/referencias/`, prefixed in Pages builds. [Public versus local status](docs/PUBLICATION_STATUS.md) · [Closing validation](docs/CLOSING_VALIDATION.md).
+See [HOSTING.md (Portuguese)](docs/HOSTING.md) for Pages operation, `/terra-motion-skills/` testing and rollback. The published experience has three routes: `/`, `/lab/` and `/referencias/`, prefixed in Pages builds. [Public versus local status](docs/PUBLICATION_STATUS.md) · [Closing validation](docs/CLOSING_VALIDATION.md).
 
 ## Identity and compatibility
 
@@ -108,7 +108,9 @@ pnpm test:e2e
 
 Historical v0.1 refined-base results, not this candidate’s test count: **22 Vitest tests, 17 Playwright tests and eight axe audits** at four widths. Historical evidence also records native browser zoom at 200% with one additional axe audit returning no violations. See [VALIDATION.md](docs/VALIDATION.md) for the recorded validation results. E2E needs a free port 4173 and installed Chromium.
 
-Windows/Chromium only: no claims of a tested alternative browser, screen reader, physical device or accessibility certification. No FPS/hardware measurements. A2 (boundary checks) and A3 (preference changes during scheduled replay) remain backlog. GSAP, Lenis, WebGL, Drawer and new recipes are outside v0.1.
+The integrated experience was validated with Chromium on Windows and the Ubuntu 24.04 runner: no claims of a tested alternative browser, screen reader, physical device or accessibility certification. No FPS/hardware measurements. A2 (boundary checks) and A3 (preference changes during scheduled replay) remain backlog. GSAP, Lenis, WebGL, Drawer and new recipes are outside v0.1.
+
+Current integrated validation: **43 Vitest tests, 11 publication-gate tests and 30 Playwright tests for each base** (`/` and `/terra-motion-skills/`), including axe. Linux CI and real HTTPS smoke results are recorded in [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md). Scroll Reveal R1 remains isolated locally; R2 and later recipes remain planned. No npm packages have been published.
 
 ## Screenshots and demo
 
@@ -116,7 +118,7 @@ Windows/Chromium only: no claims of a tested alternative browser, screen reader,
 
 ![Readable code at a 390 px viewport](docs/evidence/a1/after/code-390.png)
 
-The public URL above serves the completed v0.1 deployment. A1 screenshots are historical. The accepted integrated experience remains local; publishing requires authorized integration. The holder authorized project-specific asset use on 21 October 2026, outside MIT and without a general reuse license. [Asset inventory and conditions](docs/ASSET_RIGHTS.md).
+The public URL above serves the integrated experience. A1 captures are historical refined-base records, not screenshots of the current landing. The holder authorized project-specific asset use on 21 October 2026, outside MIT and without a general reuse license. [Asset inventory and conditions](docs/ASSET_RIGHTS.md).
 
 ## Licensing and contribution
 

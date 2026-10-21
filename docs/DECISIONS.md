@@ -47,3 +47,7 @@ Verificado em 19/10/2026, Node v24.20.0 e pnpm v11.24.0. Foram consultados metad
 ## 21/10/2026 — fechamento local integrado
 
 As decisões anteriores descrevem a base histórica v0.1. No candidato aprovado localmente, há imagem raster e logo separadas, não cobertas automaticamente pela MIT. Preservam-se bytes/identidade e contratos; direitos públicos pendentes bloqueiam fontes/deploy. Testes passam a abrir o laboratório sem variável particular; workflow candidato acrescenta somente gate pré-upload. Tema e coreografias aprovados não foram refeitos.
+
+## 21/10/2026 — estado após publicação integrada
+
+A preparação local e o bloqueio de direitos mencionados acima são históricos. Permissões específicas dos assets foram registradas sem estender MIT às imagens. A experiência integrada foi publicada em 49d7241, run 39654669658; detalhes em [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md). Release v0.1.0 preservada, Scroll Reveal isolada e npm não publicado. Nenhum contrato ou identidade visual é alterado por este fechamento editorial.

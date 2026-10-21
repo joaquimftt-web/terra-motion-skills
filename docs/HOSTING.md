@@ -2,9 +2,9 @@
 
 ## Estado público confirmado em 21/10/2026
 
-Showcase v0.1 ativo em **https://joaquimftt-web.github.io/terra-motion-skills/**. Primeiro deploy:20/10/2026, commit `baceffee40bfaf9ed1461af92964e2d2a840a4ce`, [run 39469817919](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39469817919). Jobs de validação/build e deploy concluídos com sucesso. Conferência atual por API/HTTPS, sem disparar workflow. Pages usa GitHub Actions e HTTPS obrigatório.
+Experiência integrada ativa em **https://joaquimftt-web.github.io/terra-motion-skills/**, incluindo landing V4/P1/P2/P3, laboratório Mineral Técnico e referências. Commit publicado: `49d724183732bc8a82e8ed6889e9ecbd3338d527`, [run 39654669658](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658), com validação/build e deploy bem-sucedidos. Primeiro deploy histórico: 20/10/2026, baceffee, run 39469817919. Pages usa GitHub Actions e HTTPS obrigatório.
 
-**Público:** vitrine v0.1 com Button Feedback, Accordion Transition, referências e avisos. **Somente local:** landing V4/P1/P2/P3, laboratório Mineral Técnico e rota de referências da experiência integrada. Aceitação visual não significa publicação. Release/tag v0.1.0 preservada; sem pacotes npm.
+**Público:** experiência integrada, Button Feedback, Accordion Transition, duas skills, referências e avisos. **Somente local:** Scroll Reveal R1 isolada. R2 e demais propostas não estão implementadas no produto público. Release/tag v0.1.0 preservada; sem pacotes npm.
 
 ## Build, rotas e recursos
 
@@ -31,8 +31,8 @@ pnpm check:consumer
 ```
 
 ```powershell
-# Somente na cópia sem .git; omitir em clone normal:
-$env:PROTOTYPE_SOURCE_REVISION='baceffee40bfaf9ed1461af92964e2d2a840a4ce'
+# Em clone Git, usar HEAD sem override de origem:
+Remove-Item Env:PROTOTYPE_SOURCE_REVISION -ErrorAction SilentlyContinue
 $env:SHOWCASE_BASE_PATH='/'
 pnpm test:e2e
 pnpm check:showcase
@@ -45,21 +45,21 @@ pnpm --filter @motion-skills-lab/showcase preview
 
 Em Bash, aplicar a mesma variável ao comando. E2E reconstrói com a base selecionada. Recipes usam `/lab/` por padrão, sem exigir PROTOTYPE_LAB; landing/referências usam rotas explícitas. Chromium instalado e porta 4173 livre são necessários. Preview não é servidor de produção.
 
-**Bloqueio esperado:** `check:publication` retorna código 2 enquanto os direitos públicos dos dois assets não estiverem confirmados. Não remover a barreira: registrar titular, termos e evidência legítima em ASSET_RIGHTS.json e atualizar avisos antes de publicar.
+**Gate obrigatório:** `check:publication` está apto com os registros de permissão atuais. Deve bloquear registros ausentes, incoerentes ou sem autorização; não remover a barreira. Avisos e evidências legítimas permanecem obrigatórios.
 
-## Workflow candidato versus público
+## Workflow publicado
 
-Workflow público concluído permanece intocado. No candidato mantêm-se Actions por SHA, versões Node/pnpm, lockfile congelado, jobs separados, concorrência pages sem cancelar execução ativa, timeouts20/10 min, permissões mínimas e checkout sem credenciais persistidas. Acrescentou-se gate dos assets antes do upload.
+O workflow publicado usa Actions por SHA, Node/pnpm fixados, instalação congelada, jobs separados, concorrência pages sem cancelar execução ativa, timeouts de 20/10 minutos, permissões mínimas e checkout sem credenciais persistidas. O gate de assets precede o upload.
 
 O último build é Pages; E2E e auditor validam esse diretório. Não há rebuild entre validação e upload. Deploy recebe o artefato daquele build, sem compilação. Push/dispatch em main pode publicar; dispatch em outra branch valida, sem deploy. **A barreira CI não impede um push de expor os fontes/assets no GitHub:** confirmar direitos antes de qualquer envio remoto.
 
-A pipeline candidata não foi executada em Linux remoto nesta etapa. O run público anterior comprova somente a pipeline/v0.1 daquele SHA. Não são necessários PAT, segredo manual, npm publish ou serviço pago neste escopo. Titular deve reconferir Source e proteção de github-pages antes de futura integração.
+A pipeline foi executada no Ubuntu 24.04 no [run integrado](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658), incluindo ambas as bases e gate de publicação. Não são necessários PAT, segredo manual, npm publish ou serviço pago neste escopo. Settings → Pages → Source deve permanecer GitHub Actions.
 
-## Integração e smoke futuro
+## Atualizações e smoke HTTPS
 
-Roteiro exato e condições: [CLOSING_INTEGRATION.md](CLOSING_INTEGRATION.md). Sem operação Git de escrita ou publicação neste fechamento.
+Integração inicial concluída; histórico e condições de futuras atualizações: [CLOSING_INTEGRATION.md](CLOSING_INTEGRATION.md). Novas mudanças de produto continuam sujeitas à autorização de escopo.
 
-Após autorização futura: acompanhar novo SHA nos jobs e deployment. No HTTPS real, verificar raiz/lab/referências por navegação direta/refresh/âncoras; seis referências sem fallback HTML; imagens/JS/CSS/três avisos; teclado/foco/disabled/painel inerte; duração/replay/reset/cópia; movimento reduzido inicial/ao vivo; quatro larguras e ausência de overflow. Teste local não substitui esse smoke futuro.
+Em cada atualização autorizada, acompanhar o novo SHA nos jobs e deployment. No HTTPS real, verificar raiz/lab/referências por navegação direta/refresh/âncoras; seis referências sem fallback HTML; imagens/JS/CSS/três avisos; teclado/foco/disabled/painel inerte; duração/replay/reset/cópia; movimento reduzido inicial/ao vivo; quatro larguras e ausência de overflow. O smoke real da publicação integrada passou; cada novo SHA exige sua própria conferência. Teste local não substitui HTTPS.
 
 ## Rollback
 
@@ -80,4 +80,4 @@ HTTPS público atual retornou Cache-Control:max-age=600 e ETag; não é promessa
 
 ## Gate e regularização dos assets
 
-O candidato de regularização exige aviso separado regular e não vazio, originais e WebP com hashes registrados, derivação obrigatória, titular/termos e evidência regular não vazia sob docs, sem symlinks/junctions. Isso protege a integridade documental; não certifica legitimidade jurídica. Os registros agora contêm a declaração expressa do titular e permissões específicas. Validar check:publication antes de enviar fontes; a autorização operacional de integração/push/deploy continua separada. Consulte docs/ASSET_PROVENANCE_REVIEW.md.
+O gate publicado exige aviso separado regular e não vazio, originais e WebP com hashes registrados, derivação obrigatória, titular/termos e evidência regular não vazia sob docs, sem symlinks/junctions. Isso protege a integridade documental; não certifica legitimidade jurídica. Os registros agora contêm a declaração expressa do titular e permissões específicas. Validar check:publication antes de enviar fontes; a autorização operacional de integração/push/deploy continua separada. Consulte docs/ASSET_PROVENANCE_REVIEW.md.

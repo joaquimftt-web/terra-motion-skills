@@ -6,7 +6,7 @@ Receitas de motion para React e skills operacionais para agentes de IA. Duas rec
 
 ![Showcase Terra Motion Skills](docs/evidence/identity/terra-1440-viewport.png)
 
-**Showcase público:** [GitHub Pages](https://joaquimftt-web.github.io/terra-motion-skills/), com a vitrine v0.1 do commit `baceffee`. A landing P1/P2/P3, o laboratório Mineral Técnico e a página de referências desta cópia foram aceitos localmente e **ainda não estão publicados**. As capturas A1 mostram o refinamento aprovado; mensagens editoriais de nome/licença podem diferir da cópia preparada depois.
+**Showcase público:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). A experiência integrada V4/P1/P2/P3 foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [deploy bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). A Release/tag histórica v0.1.0 permanece intacta; esta publicação visual não altera a versão da biblioteca. As capturas A1 abaixo são históricas.
 
 ## Instalação e execução
 
@@ -30,7 +30,7 @@ pnpm --filter @motion-skills-lab/showcase preview
 
 Preview é ferramenta local, não servidor de produção. O showcase v0.1 está hospedado no GitHub Pages; os pacotes npm não estão publicados.
 
-Consulte [HOSTING.md](docs/HOSTING.md) para operação do Pages, teste da base `/terra-motion-skills/` e rollback. O candidato local tem três rotas: `/`, `/lab/` e `/referencias/` (com o prefixo Pages no build correspondente). [Estado público e local](docs/PUBLICATION_STATUS.md) · [Fechamento técnico](docs/CLOSING_VALIDATION.md).
+Consulte [HOSTING.md](docs/HOSTING.md) para operação do Pages, teste da base `/terra-motion-skills/` e rollback. A experiência publicada tem três rotas: `/`, `/lab/` e `/referencias/` (com o prefixo Pages no build correspondente). [Estado público e local](docs/PUBLICATION_STATUS.md) · [Fechamento técnico](docs/CLOSING_VALIDATION.md).
 
 ## Identidade e compatibilidade
 
@@ -108,7 +108,9 @@ pnpm test:e2e
 
 Histórico da base refinada v0.1, sem representar a contagem deste candidato: passou em **22 testes Vitest, 17 Playwright e oito auditorias axe** nas quatro larguras. Há evidência histórica adicional de zoom nativo de 200% em Chromium com uma auditoria axe sem violações retornadas. A revalidação específica desta cópia está em [VALIDATION.md](docs/VALIDATION.md). E2E precisa da porta 4173 livre e de Chromium instalado.
 
-Somente Windows/Chromium foi executado: não há alegação de compatibilidade validada com outros navegadores, leitores de tela, dispositivos físicos ou certificação de acessibilidade. Sem medições de FPS/hardware. A2 (fronteiras) e A3 (preferência durante replay agendado) permanecem no backlog. GSAP, Lenis, WebGL, Drawer e novas receitas não integram a v0.1.
+A experiência integrada foi validada em Windows/Chromium e no Chromium do runner Ubuntu 24.04: não há alegação de compatibilidade validada com outros navegadores, leitores de tela, dispositivos físicos ou certificação de acessibilidade. Sem medições de FPS/hardware. A2 (fronteiras) e A3 (preferência durante replay agendado) permanecem no backlog. GSAP, Lenis, WebGL, Drawer e novas receitas não integram a v0.1.
+
+Validação da experiência integrada: **43 testes Vitest, 11 testes do gate de publicação e 30 testes Playwright por base** (`/` e `/terra-motion-skills/`), incluindo axe. CI Linux e smoke HTTPS real estão registrados em [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md). Scroll Reveal R1 permanece isolada localmente; R2 e demais recipes continuam planejadas. Nenhum pacote npm foi publicado.
 
 ## Capturas e demonstração
 
@@ -116,7 +118,7 @@ Somente Windows/Chromium foi executado: não há alegação de compatibilidade v
 
 ![Código legível em viewport de 390 px](docs/evidence/a1/after/code-390.png)
 
-O link público acima corresponde ao deploy já concluído da v0.1. Capturas A1 são históricas. A experiência integrada aprovada permanece local; sua publicação depende de integração autorizada. Os usos específicos dos assets foram autorizados pelo titular em 21/10/2026, fora da MIT e sem licença geral de reutilização. [Inventário e condições](docs/ASSET_RIGHTS.md).
+O link público acima apresenta a experiência integrada. Capturas A1 são registros históricos da base refinada, não capturas da landing atual. Os usos específicos dos assets foram autorizados pelo titular em 21/10/2026, fora da MIT e sem licença geral de reutilização. [Inventário e condições](docs/ASSET_RIGHTS.md).
 
 ## Licenciamento e colaboração
 

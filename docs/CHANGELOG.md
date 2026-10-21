@@ -1,5 +1,11 @@
 # Changelog
 
+## 21/10/2026 — experiência integrada publicada, sem nova versão de biblioteca
+
+Landing V4/P1/P2/P3, laboratório Mineral Técnico e referências publicados no Pages em `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [run bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Overflow de 320 px no runner Linux reproduzido e corrigido antes do deploy final. Direitos específicos dos assets regularizados e avisos separados preservados. Fechamento editorial atualiza estado público, operação e contribuição sem alterar runtime, recipes, skills, identidade visual ou dependências. Release/tag histórica v0.1.0 preservada; R1 isolada e npm não publicado.
+
+## Histórico de preparação (estados da época)
+
 ## 21/10/2026 — candidato local de fechamento, sem bump/commit/publicação
 
 Experiência V4/P1/P2/P3 e laboratório Mineral Técnico aceitos localmente. Correções de proveniência raster, READMEs/estado Pages, configuração autossuficiente de testes, verificação de rotas/avisos e gate de direitos antes do upload. Fontes públicos e Release v0.1.0 permanecem intactos. Assets originais preservados; distribuição pública ainda bloqueada. Resultados: CLOSING_VALIDATION.md.

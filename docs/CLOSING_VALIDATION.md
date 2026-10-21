@@ -1,4 +1,28 @@
-# Histórico de validação técnica anterior e regularização atual
+# Validação — publicação integrada e histórico
+
+## Estado atual — integração concluída em 21/10/2026
+
+A experiência V4/P1/P2/P3, laboratório Mineral Técnico e referências foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`. [Run 39654669658](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658): validação/build e deploy concluídos. [Estado público](PUBLICATION_STATUS.md). Direitos regularizados por declaração do titular; código MIT e permissões específicas dos assets permanecem separados.
+
+### Evidências da publicação integrada (execuções anteriores a este fechamento editorial)
+
+- Windows e Ubuntu 24.04/Chromium: 43 Vitest, 11 testes positivos/negativos do gate, 30 Playwright em cada base (`/` e Pages); formatação, lint, TypeScript, builds, skills, fronteiras e consumidor independente passaram.
+- Regressão de overflow Linux reproduzida antes da correção; 320 px passou após ajuste mínimo de grid/flex.
+- HTTPS real: 17 recursos com hashes iguais ao artefato testado; três páginas em quatro larguras, navegação direta/refresh, sem overflow/erros detectados e axe sem violações nos 12 casos.
+- Cinco percursos reais: narrativa e laboratório desktop/mobile, teclado/foco, cópia, replay, reset e redução de movimento; 47 ocorrências de links internos retornaram 200. Zoom nativo 200% local nas três páginas.
+- Essas execuções pertencem à recuperação/publicação, não são testes novos do lote editorial. O fechamento editorial executa novamente os gates aplicáveis e registra seus logs separadamente; o novo Actions de main associa resultados ao commit editorial.
+
+Limitações mantidas: Chromium, mobile emulado, sem Safari/Firefox, leitor de tela ou dispositivo físico; axe não certifica acessibilidade. Sem benchmark de FPS/hardware. A2/A3 no backlog. A origem declarada dos assets não certifica exclusividade nem etapas desconhecidas do PNG final da logo.
+
+## Fechamento editorial pós-deploy — 21/10/2026
+
+Execuções novas no Windows/Chromium: formatação, lint, TypeScript, builds nas duas bases, 43 Vitest, 11 testes do gate, 30 Playwright por base, skills, fronteiras, consumidor independente, auditorias do artefato e `check:publication` passaram. Os 125 links relativos dos 13 documentos alterados apontam para arquivos existentes. Runtime, testes, assets, avisos, contratos, skills e workflow não foram modificados. A referência de fontes/licenças é exportada no build; reconstruir após o commit associa seus links ao SHA editorial. A confirmação do novo deploy e do HTTPS pertence ao relatório operacional deste fechamento e ao Actions correspondente, sem antecipar aprovação remota neste registro pré-push.
+
+Zoom nativo e vídeos de motion citados na seção anterior são evidências históricas reutilizadas, não novas gravações deste lote exclusivamente documental. Nenhuma verificação histórica foi renomeada como execução nova.
+
+## Arquivo histórico — regularização anterior
+
+Relatos de bloqueio, 29 testes E2E e publicação futura abaixo são históricos; não descrevem o estado integrado publicado nem as contagens posteriores de 30 testes.
 
 ## Atualização documental — 21/10/2026
 
