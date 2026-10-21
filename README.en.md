@@ -4,7 +4,7 @@
 
 Reusable React motion recipes and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
 
-![Terra Motion Skills showcase](docs/evidence/identity/terra-1440-viewport.png)
+![Terra Motion Skills showcase](docs/evidence/publication/terra-showcase-v4-1440.png)
 
 **Public showcase:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [Mineral Technical lab](https://joaquimftt-web.github.io/terra-motion-skills/lab/) and [references](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). The integrated V4/P1/P2/P3 experience was published from `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [successful deployment](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Historical release/tag v0.1.0 remains unchanged; this visual publication does not bump the library version. A1 screenshots below are historical.
 
