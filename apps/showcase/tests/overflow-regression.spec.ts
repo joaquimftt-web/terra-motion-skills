@@ -69,7 +69,19 @@ test('laboratory fits viewport before and after focus with diagnostic geometry',
         };
       });
       measurements.push({ width, state, ...geometry });
+      console.log(
+        'OVERFLOW_GEOMETRY ' +
+          JSON.stringify({
+            width,
+            state,
+            innerWidth: geometry.innerWidth,
+            scrollWidth: geometry.scrollWidth,
+            summary: geometry.summary,
+          }),
+      );
     }
+    const summaryImage = await page.locator('.lab-summary').screenshot();
+    console.log(`OVERFLOW_SUMMARY_PNG ${width} ${summaryImage.toString('base64')}`);
     await page.screenshot({ path: testInfo.outputPath(`laboratory-${width}.png`), fullPage: true });
   }
   await writeFile(
