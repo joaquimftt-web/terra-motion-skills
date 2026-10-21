@@ -1,5 +1,13 @@
 # Changelog
 
+## 21/10/2026 — candidato local de fechamento, sem bump/commit/publicação
+
+Experiência V4/P1/P2/P3 e laboratório Mineral Técnico aceitos localmente. Correções de proveniência raster, READMEs/estado Pages, configuração autossuficiente de testes, verificação de rotas/avisos e gate de direitos antes do upload. Fontes públicos e Release v0.1.0 permanecem intactos. Assets originais preservados; distribuição pública ainda bloqueada. Resultados: CLOSING_VALIDATION.md.
+
+## Histórico anterior
+
+As entradas seguintes registram o estado da etapa em que foram produzidas, incluindo ausência de hospedagem/tag antes das publicações posteriores.
+
 ## 20/10/2026 — suporte local ao GitHub Pages
 
 Base local e Pages, links do showcase, exportação de referências com URLs de origem e avisos legais integrais, verificador do artefato e workflow com build/validação separados do deploy. Playwright preservado e ampliado para as duas bases. Operação e rollback em [HOSTING.md](HOSTING.md); resultados em [VALIDATION.md](VALIDATION.md). Sem nova funcionalidade, redesign, alteração de recipe/skill/contrato ou dependências. Workflow ainda sem push; nenhuma configuração remota ou deploy realizado nesta etapa. Tag e Release v0.1.0 preservadas.

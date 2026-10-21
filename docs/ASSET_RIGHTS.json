@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "terra-commerce-logo",
+      "source": "apps/showcase/public/identity/terra-commerce-original.png",
+      "sha256": "5426d5e05c1ab9949425431d44683650dabf5088af088b88c383d57226b72d9f",
+      "origin": "01_logo_original-removebg-preview.png / símbolo fornecido pelo usuário",
+      "distribution": {
+        "status": "approved",
+        "holder": "Joaquim Freitas (titular declarado)",
+        "terms": "Specific holder permission dated 2026-10-21: include approved logo and architectural background in Terra Motion Skills public GitHub repository and display via GitHub Pages; technical appearance-preserving WebP conversion of background allowed; both assets excluded from code MIT; no general third-party reuse license granted.",
+        "evidence": "docs/ASSET_PERMISSION_2026-10-21.md",
+        "scope": {
+          "repository": "https://github.com/joaquimftt-web/terra-motion-skills",
+          "site": "https://joaquimftt-web.github.io/terra-motion-skills/",
+          "repositoryInclusion": true,
+          "pagesDisplay": true,
+          "backgroundWebP": false,
+          "generalThirdPartyReuse": false
+        },
+        "basis": "Express holder declaration; not an independent legal certification"
+      },
+      "localUse": "Public project-specific permissions recorded; not a general asset license",
+      "provenanceReview": "docs/ASSET_PROVENANCE_REVIEW.md",
+      "originDeclared": {
+        "platform": "ChatGPT / OpenAI",
+        "method": "Generated at the declared holder’s request",
+        "confirmedOn": "2026-10-21",
+        "source": "Textual holder declaration in this ChatGPT conversation",
+        "independentlyCertified": false
+      },
+      "limitations": [
+        "Final transparent PNG transformation chain and any background-removal service are not fully documented",
+        "Generation plan/account/model not supplied",
+        "No independent exclusivity or third-party-rights certification"
+      ]
+    },
+    {
+      "id": "architectural-material",
+      "source": "apps/showcase/src/prototype/assets/terra-material-reference.png",
+      "sha256": "e261a30501a764479587baced0f4bb95d69f56518194c3e6de3bb7744acd7fde",
+      "origin": "Material raster da base visual aprovada V4/P1/P2/P3; pixels RGBA iguais ao arquivo fornecido nomeado05_background_login_aprovado.png, mas codificação PNG/bytes diferentes",
+      "distribution": {
+        "status": "approved",
+        "holder": "Joaquim Freitas (titular declarado)",
+        "terms": "Specific holder permission dated 2026-10-21: include approved logo and architectural background in Terra Motion Skills public GitHub repository and display via GitHub Pages; technical appearance-preserving WebP conversion of background allowed; both assets excluded from code MIT; no general third-party reuse license granted.",
+        "evidence": "docs/ASSET_PERMISSION_2026-10-21.md",
+        "scope": {
+          "repository": "https://github.com/joaquimftt-web/terra-motion-skills",
+          "site": "https://joaquimftt-web.github.io/terra-motion-skills/",
+          "repositoryInclusion": true,
+          "pagesDisplay": true,
+          "backgroundWebP": true,
+          "generalThirdPartyReuse": false
+        },
+        "basis": "Express holder declaration; not an independent legal certification"
+      },
+      "localUse": "Public project-specific permissions recorded; not a general asset license",
+      "derivatives": [
+        {
+          "source": "apps/showcase/src/prototype/assets/terra-material-reference.webp",
+          "sha256": "cdf79a83461faeeaba14ceac362475673a087db898ba488fde90234f521951bd",
+          "encoding": "WebP lossless VP8L",
+          "dimensions": [1672, 941],
+          "rgbaVerifiedIn": "Chromium156.0.8078.4",
+          "chunks": [
+            {
+              "type": "VP8X",
+              "bytes": 10
+            },
+            {
+              "type": "ICCP",
+              "bytes": 456
+            },
+            {
+              "type": "VP8L",
+              "bytes": 1420908
+            }
+          ]
+        }
+      ],
+      "suppliedFileCheck": {
+        "name": "05_background_login_aprovado.png",
+        "sha256": "f452c81c460ba48cde1e7407f4b67c40f804a70e2bf43d34da5410bd0f9b0492",
+        "bytes": 1728410,
+        "dimensions": [1672, 941],
+        "sameRGBA": true,
+        "byteIdentical": false,
+        "scope": "Current local file comparison in Chromium, not proof of creation authorship or license"
+      },
+      "provenanceReview": "docs/ASSET_PROVENANCE_REVIEW.md",
+      "originDeclared": {
+        "platform": "ChatGPT / OpenAI",
+        "method": "Generated at the declared holder’s request",
+        "confirmedOn": "2026-10-21",
+        "source": "Textual holder declaration in this ChatGPT conversation",
+        "independentlyCertified": false
+      },
+      "limitations": [
+        "Generation plan/account/model not supplied",
+        "No independent exclusivity or third-party-rights certification"
+      ]
+    }
+  ]
+}

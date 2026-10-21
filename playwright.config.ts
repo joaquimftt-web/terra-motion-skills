@@ -4,7 +4,8 @@ const base = process.env.SHOWCASE_BASE_PATH ?? '/';
 if (!['/', '/terra-motion-skills/'].includes(base)) {
   throw new Error('SHOWCASE_BASE_PATH must be / or /terra-motion-skills/');
 }
-const baseURL = `http://127.0.0.1:4173${base}`;
+// Recipe regression tests target the lab; landing/reference tests use explicit routes.
+const baseURL = `http://127.0.0.1:4173${base}lab/`;
 
 export default defineConfig({
   testDir: './apps/showcase/tests',

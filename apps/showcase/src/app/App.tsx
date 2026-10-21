@@ -4,6 +4,7 @@ import { RecipeCatalog } from '../features/catalog/RecipeCatalog';
 import { ButtonFeedbackDemo } from '../features/demos/ButtonFeedbackDemo';
 import { AccordionTransitionDemo } from '../features/demos/AccordionTransitionDemo';
 import { ReducedMotionControl } from '../components/ReducedMotionControl';
+import './lab.css';
 
 export function App() {
   const [reduced, setReduced] = useState(false);
@@ -14,13 +15,20 @@ export function App() {
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
+      <nav className="lp-lab-return" aria-label="Navegação da prévia">
+        <a href={import.meta.env.BASE_URL}>← Voltar à apresentação</a>
+        <span>PRÉVIA LOCAL · MINERAL TÉCNICO</span>
+        <a href={`${import.meta.env.BASE_URL}referencias/`}>Referências ↗</a>
+      </nav>
       <aside className="sidebar">
         <a className="brand" href="#visao-geral" aria-label="Terra Motion Skills início">
-          <span className="brand-symbol" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
+          <img
+            className="lab-original-logo"
+            src={`${import.meta.env.BASE_URL}identity/terra-commerce-original.png`}
+            width="256"
+            height="256"
+            alt=""
+          />
           <span>
             Terra
             <br />
@@ -61,9 +69,9 @@ export function App() {
                 MOTION COM PROPÓSITO
               </p>
               <h1 id="hero-title">
-                Pequenos movimentos.
+                Experimente o gesto.
                 <br />
-                <span>Interfaces mais claras.</span>
+                <span>Entenda a intenção.</span>
               </h1>
               <p className="hero-description">
                 Receitas reutilizáveis e skills para agentes de IA.
@@ -73,33 +81,6 @@ export function App() {
               <a className="hero-cta" href="#button-feedback">
                 Experimentar receitas <span aria-hidden="true">↘</span>
               </a>
-            </div>
-            <div className="motion-figure" aria-hidden="true">
-              <div className="figure-label">
-                <span>INTENÇÃO → RESPOSTA</span>
-                <span>01—02</span>
-              </div>
-              <svg viewBox="0 0 280 170">
-                <defs>
-                  <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
-                    <circle cx="1" cy="1" r="1" fill="#bbc8b9" />
-                  </pattern>
-                </defs>
-                <rect width="280" height="170" fill="url(#dots)" />
-                <path
-                  d="M20 146 C84 146 57 25 190 25 L260 25"
-                  fill="none"
-                  stroke="#254b35"
-                  strokeWidth="3"
-                />
-                <path d="M20 146 L260 25" fill="none" stroke="#9aab98" strokeDasharray="3 5" />
-                <circle cx="20" cy="146" r="6" fill="#254b35" />
-                <circle cx="260" cy="25" r="8" fill="#d7f26d" stroke="#254b35" strokeWidth="2" />
-              </svg>
-              <div className="figure-footer">
-                <span>cubic-bezier</span>
-                <strong>0.2, 0, 0, 1</strong>
-              </div>
             </div>
           </section>
           <div className="lab-summary">

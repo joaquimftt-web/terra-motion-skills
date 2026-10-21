@@ -1,0 +1,373 @@
+/* V4 material study: exact reference asset, local use only. No public recipe styling. */
+.prototype-shell:has(.lp-hero) {
+  background: #0c1415;
+}
+.prototype-shell:has(.lp-hero) .lp-header {
+  position: relative;
+  background: linear-gradient(#101819c9, #10181935);
+  border-bottom: 1px solid #b99f7725;
+}
+.lp-hero {
+  margin-top: -89px;
+  padding-top: 132px;
+  min-height: 890px;
+  background: #0b1415;
+}
+.lp-material-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.lp-material-base {
+  position: absolute;
+  inset: 0;
+  background-image: var(--lp-material-image);
+  background-size: cover;
+  background-position: center;
+}
+.lp-material-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 76% 18%, #dba16c14, transparent 57%);
+  pointer-events: none;
+}
+.lp-material-contour {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, #0c1415, transparent 21%),
+    linear-gradient(90deg, #0b141544, transparent 67%);
+}
+.lp-hero::before {
+  background: linear-gradient(90deg, #0c1415b5 0%, #0c14155c 38%, transparent 67%);
+}
+.lp-hero-coordinate {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+.lp-hero-copy {
+  padding-top: 115px;
+}
+.lp-hero .lp-kicker {
+  color: #d0b18d;
+}
+.lp-hero h1 {
+  font-size: clamp(72px, 8.1vw, 130px);
+  max-width: 920px;
+  margin-top: 28px;
+}
+.lp-hero h1 em {
+  color: #e0bea1;
+}
+.lp-hero-description {
+  max-width: 465px;
+  text-shadow: 0 1px 4px #071011;
+  color: #e7e1d4;
+}
+.lp-actions .lp-text-link {
+  background: #101819a8;
+}
+.lp-hero-foot {
+  margin-top: 40px;
+}
+.lp-material-key {
+  margin-top: 28px;
+}
+.lp-proof-strip {
+  background: #17221fe8;
+  border-color: #74816b66;
+  position: relative;
+}
+.lp-statement {
+  background-image:
+    linear-gradient(90deg, #0c1415f2 0%, #0c1415c7 45%, #0c141577), var(--lp-material-image);
+  background-size: cover;
+  background-position: center 65%;
+  border-bottom: 1px solid #b99f7740;
+  padding: 96px 7%;
+}
+.lp-statement::before {
+  background: linear-gradient(125deg, #616d6126, transparent 60%);
+}
+.lp-statement::after {
+  display: none;
+}
+.lp-statement h2 span {
+  color: #d3b28d;
+}
+.lp-statement-bottom p {
+  background: #15201bdc;
+  border-color: #9ca18870;
+  box-shadow: 0 1px 0 #b99f771c inset;
+}
+.lp-library {
+  padding-block: 96px;
+}
+.lp-library::before {
+  background: radial-gradient(ellipse at 100% 50%, #616d6117, transparent 60%);
+}
+.lp-recipe-card {
+  background-image:
+    linear-gradient(90deg, #171c19ed 0%, #1b211bd9 44%, #1b211b55), var(--lp-material-image);
+  background-size: cover;
+  background-position: 50% 40%;
+  border-color: #b99f7770;
+  box-shadow:
+    0 1px 0 #ede4d51c inset,
+    0 26px 55px #050a0a45;
+}
+.lp-recipe-card:nth-child(2) {
+  background-image:
+    linear-gradient(90deg, #15221ce8 0%, #17281fe0 44%, #18271c70), var(--lp-material-image);
+  background-size: cover;
+  background-position: 78% 95%;
+  border-color: #92a18577;
+}
+.lp-recipe-card::before {
+  display: none;
+}
+.lp-recipe-card .lp-demo-surface {
+  background: #e6dece;
+  border-color: #d6bc9770;
+  box-shadow:
+    10px 14px 30px #06100e66,
+    0 1px 0 #fff8e7 inset;
+}
+.lp-recipe-card .lp-card-meta span {
+  background: #101818e0;
+  color: #cfb796;
+}
+.lp-recipe-card .lp-card-link {
+  color: #ddc39b;
+  background: #101818a8;
+  padding: 8px 12px;
+}
+.lp-method {
+  color: #ede4d5;
+  background-image:
+    linear-gradient(90deg, #17231ef5, #17231edb 60%, #14201d88), var(--lp-material-image);
+  background-size: cover;
+  background-position: center 30%;
+  border-color: #77866c66;
+}
+.lp-method::before {
+  background: linear-gradient(145deg, #616d612e, transparent 65%);
+}
+.lp-method h2,
+.lp-method h2 em,
+.lp-method h3 {
+  color: #ede4d5;
+}
+.lp-method .lp-kicker,
+.lp-method .lp-text-link {
+  color: #d6ba94;
+}
+.lp-method-heading > p:not(.lp-kicker),
+.lp-method-list p {
+  color: #d0d4c6;
+}
+.lp-method-list li,
+.lp-method-list li:first-child {
+  border-color: #87927880;
+}
+.lp-method-list li > span {
+  color: #bfa681;
+}
+.lp-closing {
+  background-image:
+    linear-gradient(90deg, #0b1314b8 0%, #0b1314db 45%, #0b13145c), var(--lp-material-image);
+  background-size: cover;
+  background-position: 50% 70%;
+  padding-block: 110px;
+}
+.lp-closing::before,
+.lp-closing::after {
+  display: none;
+}
+.lp-closing > div:last-child {
+  background: #12201bdb;
+  border-color: #8e998078;
+}
+.lp-closing h2 em {
+  color: #d5b28f;
+}
+.lp-footer {
+  background: #0c1415;
+}
+@media (max-width: 1100px) {
+  .lp-hero {
+    min-height: 850px;
+  }
+  .lp-hero-copy {
+    padding-top: 105px;
+  }
+  .lp-hero h1 {
+    font-size: clamp(68px, 8.1vw, 105px);
+  }
+  .lp-material-base {
+    background-position: 59% center;
+  }
+}
+@media (max-width: 700px) {
+  .prototype-shell:has(.lp-hero) .lp-header {
+    background: #0d1718d9;
+  }
+  .lp-hero {
+    margin-top: -138px;
+    padding-top: 170px;
+    min-height: 0;
+    padding-bottom: 28px;
+  }
+  .lp-material-base {
+    background-size: auto 100%;
+    background-position: 64% center;
+  }
+  .lp-material-contour {
+    background: linear-gradient(
+      180deg,
+      #0c141526,
+      transparent 20%,
+      #0c1415a8 48%,
+      #0c1415b0 75%,
+      #0c1415 100%
+    );
+  }
+  .lp-hero::before {
+    background:
+      linear-gradient(90deg, #0c141592, #0c141526), linear-gradient(0deg, #0c1415, transparent 15%);
+  }
+  .lp-hero-copy {
+    padding-top: 98px;
+  }
+  .lp-hero h1 {
+    font-size: clamp(44px, 11.7vw, 76px);
+    margin-block: 26px;
+  }
+  .lp-hero-description {
+    background: #0e1718c9;
+    padding: 12px 14px;
+    margin-inline: -2px;
+    border-left: 1px solid #b99f7780;
+    font-size: 16px;
+  }
+  .lp-actions {
+    margin-top: 24px;
+  }
+  .lp-material-key {
+    margin-top: 55px;
+    background: #0c1415cc;
+  }
+  .lp-hero-foot {
+    margin-top: 28px;
+  }
+  .lp-statement {
+    padding: 66px 18px;
+    background-position: 60% center;
+  }
+  .lp-statement-bottom p {
+    padding: 22px;
+  }
+  .lp-library {
+    padding-block: 66px;
+  }
+  .lp-recipe-card {
+    background-position: 66% center;
+  }
+  .lp-recipe-card:nth-child(2) {
+    background-position: 75% center;
+  }
+  .lp-recipe-card .lp-demo-surface {
+    box-shadow: 6px 8px 16px #07100c66;
+  }
+  .lp-method {
+    background-position: 70% center;
+  }
+  .lp-closing {
+    padding-block: 74px;
+    background-position: 67% center;
+  }
+}
+
+/* Each chapter samples a different material field rather than repeating the hero. */
+.lp-statement {
+  background-size:
+    cover,
+    185% auto;
+  background-position:
+    center,
+    88% 46%;
+}
+.lp-recipe-card {
+  background-size:
+    cover,
+    155% auto;
+  background-position:
+    center,
+    68% 48%;
+}
+.lp-recipe-card:nth-child(2) {
+  background-size:
+    cover,
+    175% auto;
+  background-position:
+    center,
+    96% 72%;
+}
+.lp-method {
+  background-size:
+    cover,
+    220% auto;
+  background-position:
+    center,
+    100% 70%;
+}
+.lp-closing {
+  background-size:
+    cover,
+    145% auto;
+  background-position:
+    center,
+    25% 80%;
+}
+@media (max-width: 700px) {
+  .lp-statement {
+    background-size:
+      cover,
+      auto 135%;
+    background-position:
+      center,
+      60% 55%;
+  }
+  .lp-recipe-card {
+    background-size:
+      cover,
+      auto 130%;
+    background-position:
+      center,
+      58% 45%;
+  }
+  .lp-recipe-card:nth-child(2) {
+    background-size:
+      cover,
+      auto 140%;
+    background-position:
+      center,
+      85% 72%;
+  }
+  .lp-method {
+    background-size:
+      cover,
+      auto 180%;
+    background-position:
+      center,
+      100% 70%;
+  }
+  .lp-closing {
+    background-size:
+      cover,
+      auto 120%;
+    background-position:
+      center,
+      65% 75%;
+  }
+}

@@ -1,0 +1,24 @@
+/* P1 affects only presentation while playing; settled V4 composition is preserved. */
+.lp-p1-underlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background-image: var(--lp-material-image);
+  background-size: cover;
+  background-position: center;
+}
+.lp-hero-line {
+  transform-origin: left bottom;
+}
+@media (max-width: 1100px) {
+  .lp-p1-underlay {
+    background-position: 59% center;
+  }
+}
+@media (max-width: 700px) {
+  .lp-p1-underlay {
+    background-size: auto 100%;
+    background-position: 64% center;
+  }
+}

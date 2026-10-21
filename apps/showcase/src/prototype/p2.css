@@ -1,0 +1,51 @@
+/* P2.1 isolated proof. Only this transient decorative plane moves. */
+.prototype-shell .lp-p2-slot {
+  position: absolute;
+  top: -64px;
+  left: -4.9%;
+  width: 109.8%;
+  height: 128px;
+  overflow: clip;
+  pointer-events: none;
+  contain: paint;
+}
+.prototype-shell .lp-p2-plane {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(100deg, #151a1b40, transparent 30%, #151a1b10 80%, #151a1b80),
+    var(--lp-material-image);
+  background-size:
+    cover,
+    115% auto;
+  background-position:
+    center,
+    86% 58%;
+  clip-path: polygon(0 70%, 32% 12%, 100% 0, 100% 62%, 62% 100%, 28% 68%);
+}
+@media (max-width: 700px) {
+  .prototype-shell .lp-p2-slot {
+    top: -44px;
+    height: 88px;
+  }
+  .prototype-shell .lp-p2-plane {
+    background-size:
+      cover,
+      auto 240%;
+    background-position:
+      center,
+      65% 55%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prototype-shell .lp-p2-plane {
+    opacity: 0 !important;
+    transform: none !important;
+  }
+}
+.prototype-shell[data-reduced='true'] .lp-p2-plane {
+  opacity: 0 !important;
+  transform: none !important;
+}

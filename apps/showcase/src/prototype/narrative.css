@@ -1,0 +1,88 @@
+/* Chapter-specific accents. Essential copy and controls never animate here. */
+.lp-concept-guide {
+  position: absolute;
+  width: 1px;
+  height: 180px;
+  right: 5%;
+  top: 32px;
+  background: linear-gradient(transparent, var(--terra-bronze), transparent);
+  opacity: 0;
+  transform-origin: top;
+  pointer-events: none;
+}
+.lp-method-sequence,
+.lp-method-list {
+  position: relative;
+}
+.lp-method-path {
+  position: absolute;
+  left: 22px;
+  top: 12px;
+  bottom: 52px;
+  width: 1px;
+  background: linear-gradient(var(--terra-bronze), var(--terra-mineral));
+  opacity: 0.2;
+  transform-origin: top;
+  pointer-events: none;
+}
+.lp-method-list li {
+  position: relative;
+}
+.lp-method-list li > span {
+  position: relative;
+  z-index: 1;
+  background: #17231e;
+}
+.lp-closing > .lp-closing-light {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  right: 43%;
+  width: 48px;
+  background: linear-gradient(90deg, transparent, #b99f7770, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+.prototype-shell .lp-card-link:focus-visible,
+.prototype-shell .lp-text-link:focus-visible {
+  outline-color: var(--terra-bronze);
+}
+@media (max-width: 700px) {
+  .lp-concept-guide {
+    height: 90px;
+    right: 12px;
+  }
+  .lp-method-path {
+    left: 16px;
+    bottom: 100px;
+  }
+  .lp-closing > .lp-closing-light {
+    right: 8%;
+    width: 24px;
+  }
+  .lp-method-list li {
+    gap: 16px;
+  }
+  .lp-closing > div:last-child {
+    padding: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-concept-guide,
+  .lp-closing-light {
+    opacity: 0 !important;
+    transform: none !important;
+  }
+  .lp-method-path {
+    opacity: 0.2 !important;
+    transform: none !important;
+  }
+}
+.prototype-shell[data-reduced='true'] :is(.lp-concept-guide, .lp-closing-light) {
+  opacity: 0 !important;
+  transform: none !important;
+}
+.prototype-shell[data-reduced='true'] .lp-method-path {
+  opacity: 0.2 !important;
+  transform: none !important;
+}

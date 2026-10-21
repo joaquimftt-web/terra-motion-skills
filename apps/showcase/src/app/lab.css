@@ -1,0 +1,774 @@
+/* Mineral técnico A. Presentation only; states/recipes keep their own implementation. */
+html:has(.lab-shell) {
+  background: #151a1b;
+  color-scheme: dark;
+  scroll-behavior: auto;
+}
+.lab-shell {
+  --lab-line: #485247;
+  display: grid;
+  grid-template-columns: 216px minmax(0, 1fr);
+  max-width: 1600px;
+  min-height: 100svh;
+  margin: auto;
+  color: var(--terra-ivory);
+  background: var(--terra-obsidian);
+  font: 16px/1.65 var(--terra-font);
+}
+.lab-shell *,
+.lab-shell *::before,
+.lab-shell *::after {
+  box-sizing: border-box;
+}
+.lab-shell a {
+  color: var(--terra-bronze);
+}
+.lab-shell .lp-lab-return {
+  grid-column: 1/-1;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--lab-line);
+  background: var(--terra-code);
+  color: var(--terra-muted);
+  font-size: 12px;
+}
+.lab-shell .lp-lab-return a {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+.lab-shell .sidebar {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  padding: 30px 20px 24px;
+  background: linear-gradient(145deg, #263329, #151a1b 65%);
+  border-right: 1px solid var(--lab-line);
+  color: var(--terra-ivory);
+}
+.lab-shell .brand {
+  display: flex;
+  gap: 10px;
+  font-size: 19px;
+  line-height: 1.12;
+  letter-spacing: 0.3px;
+  color: var(--terra-ivory);
+}
+.lab-shell .lab-original-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.lab-shell .brand-dot {
+  color: var(--terra-copper);
+}
+.lab-shell .sidebar-intro {
+  margin: 36px 0 24px;
+  color: var(--terra-muted);
+  font-size: 14px;
+}
+.lab-shell .recipe-nav {
+  gap: 6px;
+}
+.lab-shell .recipe-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 4px;
+  gap: 9px;
+  border-bottom: 1px solid #39483a;
+  color: var(--terra-ivory);
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+.lab-shell .recipe-nav a:hover {
+  color: var(--terra-bronze);
+  background: #2c372c;
+}
+.lab-shell .nav-caption {
+  color: var(--terra-bronze);
+  font-size: 12px;
+  margin-top: 24px;
+}
+.lab-shell .nav-index {
+  color: var(--terra-bronze);
+}
+.lab-shell .nav-arrow {
+  margin-left: auto;
+  color: var(--terra-bronze);
+}
+.lab-shell .overview-link {
+  background: none;
+  color: var(--terra-ivory);
+}
+.lab-shell .sidebar-bottom {
+  margin-top: auto;
+  padding-top: 40px;
+}
+.lab-shell .sidebar-bottom p {
+  color: var(--terra-muted);
+  font-size: 12px;
+}
+.lab-shell .version-badge {
+  border: 1px solid #69745d;
+  color: var(--terra-bronze);
+  background: #222d25;
+  font-size: 12px;
+}
+.lab-shell .main-column {
+  min-width: 0;
+}
+.lab-shell .topbar {
+  height: auto;
+  padding: 22px 40px;
+  border-bottom: 1px solid var(--lab-line);
+  color: var(--terra-muted);
+  font-size: 12px;
+  gap: 20px;
+}
+.lab-shell .topbar a {
+  font-size: 13px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+.lab-shell main {
+  max-width: none;
+  padding: 28px 40px 0;
+}
+.lab-shell .hero {
+  display: block;
+  position: relative;
+  padding: 32px;
+  background:
+    linear-gradient(90deg, #18201df5 20%, #151a1b70),
+    var(--terra-material-image) right center/cover;
+  border: 1px solid #58634e;
+  min-height: 0;
+}
+.lab-shell .hero h1 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  line-height: 1.13;
+  letter-spacing: -1px;
+  margin: 18px 0;
+}
+.lab-shell .hero h1 span {
+  color: var(--terra-bronze);
+}
+.lab-shell .hero-description {
+  color: #d3d4c8;
+  font-size: 16px;
+  max-width: 540px;
+  line-height: 1.7;
+}
+.lab-shell .hero-cta {
+  margin-top: 22px;
+  border: 1px solid var(--terra-bronze);
+  background: var(--terra-bronze);
+  color: var(--terra-obsidian);
+  min-height: 44px;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 2px;
+}
+.lab-shell .hero-cta:hover {
+  background: #d2b892;
+}
+.lab-shell .eyebrow {
+  color: var(--terra-bronze);
+  font-size: 12px;
+  letter-spacing: 1.1px;
+}
+.lab-shell .recipe-title .eyebrow,
+.lab-shell .recipe-nav > .eyebrow {
+  color: var(--terra-bronze);
+}
+.lab-shell .demo-panel .state-tag {
+  color: var(--terra-bronze);
+  background: #252f28;
+  border-color: #626e54;
+}
+.lab-shell .main-column > footer > p,
+.lab-shell footer .footer-version {
+  color: var(--terra-muted);
+}
+.lab-shell .accordion-stage .msl-accordion-transition__content p {
+  color: var(--terra-ivory);
+}
+.lab-shell .accordion-stage .msl-accordion-transition__content a {
+  color: var(--terra-bronze);
+}
+.lab-shell .tiny-cross {
+  color: var(--terra-bronze);
+}
+.lab-shell .lab-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  padding: 20px 0;
+  margin: 0 0 32px;
+  border-bottom: 1px solid var(--lab-line);
+}
+.lab-shell .lab-summary strong {
+  color: var(--terra-bronze);
+  font-size: 28px;
+}
+.lab-shell .lab-summary span {
+  color: var(--terra-muted);
+  font-size: 12px;
+}
+.lab-shell .lab-summary .summary-mark {
+  color: var(--terra-bronze);
+  font-size: 28px;
+}
+.lab-shell .recipes-heading {
+  margin-bottom: 20px;
+  align-items: end;
+  gap: 20px;
+}
+.lab-shell .recipes-heading h2 {
+  color: var(--terra-ivory);
+  font-size: 28px;
+  margin-top: 8px;
+}
+.lab-shell .recipes-heading > p {
+  color: var(--terra-muted);
+  font-size: 14px;
+}
+.lab-shell .motion-preference {
+  margin: 20px 0 44px;
+  padding: 16px 20px;
+  background: #27332a;
+  border: 1px solid #59684f;
+  border-radius: 2px;
+}
+.lab-shell .switch-label {
+  color: var(--terra-ivory);
+  min-height: 44px;
+}
+.lab-shell .motion-preference p {
+  color: #ccd1c1;
+  font-size: 13px;
+}
+.lab-shell .switch-track {
+  background: #596653;
+}
+.lab-shell .switch-label input:checked + .switch-track {
+  background: var(--terra-bronze);
+}
+.lab-shell .switch-label input:focus-visible + .switch-track {
+  outline: 3px solid var(--terra-ivory);
+  outline-offset: 5px;
+}
+.lab-shell .recipe-section {
+  margin: 0 0 52px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--lab-line);
+  scroll-margin-top: 24px;
+}
+.lab-shell .section-heading {
+  gap: 20px;
+}
+.lab-shell .recipe-number {
+  color: var(--terra-bronze);
+  border-color: #69705b;
+  background: #273029;
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+}
+.lab-shell .recipe-title h2 {
+  color: var(--terra-ivory);
+  font-size: 30px;
+  letter-spacing: -0.6px;
+}
+.lab-shell .technology-tag {
+  color: #ddc7a5;
+  background: #242d25;
+  border: 1px solid #666c55;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+.lab-shell .section-description {
+  color: var(--terra-muted);
+  margin: 18px 0 26px;
+  font-size: 16px;
+  max-width: 72ch;
+}
+.lab-shell .demo-layout {
+  display: block;
+}
+.lab-shell .demo-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(220px, 1fr);
+  grid-template-rows: auto 1fr;
+  background: #191f1f;
+  border: 1px solid var(--lab-line);
+  border-radius: 2px;
+  overflow: visible;
+}
+.lab-shell .panel-bar {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 16px 22px;
+  color: var(--terra-muted);
+  background: #1b2420;
+  border-bottom: 1px solid #354233;
+  font-size: 12px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lab-shell .live-dot {
+  background: var(--terra-bronze);
+  box-shadow: none;
+}
+.lab-shell .state-tag {
+  color: var(--terra-bronze);
+  font-size: 12px;
+}
+.lab-shell .button-stage,
+.lab-shell .accordion-stage {
+  grid-column: 1;
+  grid-row: 2;
+  min-height: 280px;
+  padding: 28px;
+  background: radial-gradient(ellipse at 50% 130%, #616d6140, transparent 70%), #191f1f;
+  color: var(--terra-ivory);
+}
+.lab-shell .button-stage {
+  gap: 24px;
+}
+.lab-shell .stage-hint,
+.lab-shell .stage-caption {
+  color: var(--terra-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.lab-shell .stage-caption {
+  font-size: 12px;
+  letter-spacing: 0.8px;
+}
+.lab-shell .activation-output {
+  color: var(--terra-bronze);
+  font-size: 14px;
+  background: transparent;
+  border: 0;
+}
+.lab-shell .demo-action.msl-button-feedback {
+  min-height: 48px;
+  padding: 12px 20px;
+  background: var(--terra-bronze);
+  color: var(--terra-obsidian);
+  border-color: var(--terra-bronze);
+  border-radius: 2px;
+  font-size: 16px;
+}
+.lab-shell .demo-action.msl-button-feedback:not(:disabled):hover {
+  background: #d3b995;
+  border-color: #e0c5a1;
+}
+.lab-shell .demo-action.msl-button-feedback:not(:disabled):active {
+  background: #aa8a5e;
+  border-color: #d0b089;
+}
+.lab-shell .demo-panel > .demo-controls,
+.lab-shell .lab-settings {
+  grid-column: 2;
+  grid-row: 1/3;
+  padding: 28px 24px;
+  border-left: 1px solid var(--lab-line);
+  background: #252f28;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+}
+.lab-shell .lab-control-heading {
+  color: var(--terra-bronze);
+  font-size: 12px;
+  letter-spacing: 1.3px;
+  font-weight: 600;
+}
+.lab-shell .checkbox-label {
+  color: var(--terra-ivory);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 44px;
+  gap: 10px;
+}
+.lab-shell input[type='checkbox'],
+.lab-shell input[type='range'] {
+  accent-color: var(--terra-bronze);
+}
+.lab-shell .demo-controls .mono {
+  color: var(--terra-muted);
+  font-size: 13px;
+}
+.lab-shell .duration-control {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.lab-shell .duration-control label {
+  color: var(--terra-ivory);
+  font-size: 14px;
+}
+.lab-shell .duration-control output {
+  color: var(--terra-bronze);
+  background: none;
+  border: 0;
+  font-size: 14px;
+}
+.lab-shell .duration-control input {
+  grid-column: 1/-1;
+  width: 100%;
+  min-height: 36px;
+}
+.lab-shell .lab-settings .demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.lab-shell .replay-controls .msl-button-feedback,
+.lab-shell .copy-button.msl-button-feedback {
+  color: var(--terra-ivory);
+  background: #303c30;
+  border: 1px solid #7b8467;
+  border-radius: 2px;
+  min-height: 44px;
+  font-size: 14px;
+}
+.lab-shell .replay-controls .msl-button-feedback:not(:disabled):hover,
+.lab-shell .copy-button.msl-button-feedback:not(:disabled):hover {
+  background: #445140;
+  border-color: var(--terra-bronze);
+}
+.lab-shell .replay-status {
+  color: var(--terra-muted);
+  font-size: 13px;
+  width: 100%;
+}
+.lab-shell .accordion-stage .msl-accordion-transition {
+  width: 100%;
+  color: var(--terra-ivory);
+  border-color: #7e896d;
+}
+.lab-shell .accordion-stage .msl-accordion-transition__trigger {
+  color: var(--terra-ivory);
+  font-size: 17px;
+}
+.lab-shell .accordion-stage .msl-accordion-transition__content {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.lab-shell .code-example {
+  margin-top: 24px;
+  min-width: 0;
+  background: var(--terra-code);
+  border: 1px solid var(--lab-line);
+  border-radius: 2px;
+}
+.lab-shell .code-example__bar {
+  padding: 12px 20px;
+  color: var(--terra-bronze);
+  background: #1c2620;
+  border-color: var(--lab-line);
+  font-size: 12px;
+  gap: 16px;
+}
+.lab-shell .code-language {
+  color: var(--terra-muted);
+}
+.lab-shell .code-example pre {
+  padding: 22px;
+  max-height: 30rem;
+  font: 14px/1.7 var(--terra-code-font);
+  color: #e0d3bd;
+  overflow: auto;
+}
+.lab-shell .copy-status {
+  background: none;
+  color: #d3c7b4;
+  min-height: 32px;
+  padding: 0 22px 12px;
+  font-size: 13px;
+}
+.lab-shell .recipe-notes {
+  margin-top: 24px;
+  color: var(--terra-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.lab-shell .recipe-notes strong {
+  color: var(--terra-ivory);
+}
+.lab-shell .resource-links {
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.lab-shell .resource-links a,
+.lab-shell .foundation-links a {
+  color: var(--terra-bronze);
+  background: none;
+  border: 1px solid #606b52;
+  min-height: 44px;
+  padding: 9px 12px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.lab-shell .dependency-note {
+  color: var(--terra-muted);
+  font-size: 13px;
+  margin-top: 16px;
+}
+.lab-shell .foundations {
+  border-color: var(--lab-line);
+  background: transparent;
+  padding: 0 0 44px;
+}
+.lab-shell .foundations h2 {
+  color: var(--terra-ivory);
+  font-size: 34px;
+  margin: 16px 0 28px;
+}
+.lab-shell .principles {
+  gap: 24px;
+}
+.lab-shell .principles article {
+  border-color: var(--lab-line);
+}
+.lab-shell .principles article > span {
+  color: var(--terra-bronze);
+  font-size: 12px;
+}
+.lab-shell .principles h3 {
+  color: var(--terra-ivory);
+  font-size: 18px;
+  margin: 14px 0 10px;
+}
+.lab-shell .principles p {
+  color: var(--terra-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.lab-shell footer {
+  color: var(--terra-muted);
+  background: var(--terra-obsidian);
+  border-color: var(--lab-line);
+  padding: 24px 40px;
+  font-size: 13px;
+}
+.lab-shell footer > span {
+  color: var(--terra-ivory);
+}
+.lab-shell .skip-link {
+  background: var(--terra-ivory);
+  color: var(--terra-obsidian);
+}
+.lab-shell :is(a, button, pre, input):focus-visible {
+  outline: 3px solid var(--terra-bronze);
+  outline-offset: 5px;
+}
+@media (max-width: 1100px) {
+  .lab-shell {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .lab-shell .sidebar {
+    padding-inline: 16px;
+  }
+  .lab-shell .brand {
+    font-size: 17px;
+  }
+  .lab-shell .lab-original-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .lab-shell main {
+    padding: 24px 28px 0;
+  }
+  .lab-shell .topbar,
+  .lab-shell footer {
+    padding-inline: 28px;
+  }
+  .lab-shell .demo-panel {
+    grid-template-columns: minmax(0, 1.4fr) minmax(210px, 1fr);
+  }
+  .lab-shell .button-stage,
+  .lab-shell .accordion-stage {
+    padding: 22px 18px;
+  }
+  .lab-shell .demo-panel > .demo-controls,
+  .lab-shell .lab-settings {
+    padding: 22px 18px;
+  }
+  .lab-shell .recipe-title h2 {
+    font-size: 27px;
+  }
+  .lab-shell .technology-tag {
+    white-space: normal;
+  }
+}
+@media (max-width: 760px) {
+  .lab-shell {
+    display: block;
+  }
+  .lab-shell .lp-lab-return {
+    padding: 12px 18px;
+    gap: 12px;
+    font-size: 12px;
+  }
+  .lab-shell .lp-lab-return > span {
+    display: none;
+  }
+  .lab-shell .sidebar {
+    position: static;
+    height: auto;
+    block-size: auto;
+    padding: 22px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--lab-line);
+  }
+  .lab-shell .brand {
+    font-size: 20px;
+  }
+  .lab-shell .lab-original-logo {
+    width: 48px;
+    height: 48px;
+  }
+  .lab-shell .sidebar-intro,
+  .lab-shell .sidebar-bottom {
+    display: none;
+  }
+  .lab-shell .recipe-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+  }
+  .lab-shell .recipe-nav a {
+    border: 1px solid #536049;
+    min-height: 44px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .lab-shell .recipe-nav .overview-link {
+    display: flex !important;
+  }
+  .lab-shell main {
+    padding: 20px 16px 0;
+  }
+  .lab-shell .topbar {
+    padding: 16px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .lab-shell .hero {
+    padding: 24px 20px;
+  }
+  .lab-shell .hero h1 {
+    font-size: 34px;
+  }
+  .lab-shell .hero-description {
+    font-size: 16px;
+  }
+  .lab-shell .lab-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .lab-shell .lab-summary > div {
+    flex-direction: row;
+    gap: 12px;
+  }
+  .lab-shell .lab-summary > div:last-child {
+    grid-column: 1/-1;
+  }
+  .lab-shell .recipes-heading {
+    display: block;
+  }
+  .lab-shell .recipes-heading h2 {
+    font-size: 26px;
+  }
+  .lab-shell .recipes-heading > p {
+    margin-top: 16px;
+  }
+  .lab-shell .motion-preference {
+    padding: 16px;
+    gap: 12px;
+  }
+  .lab-shell .switch-label {
+    align-items: flex-start;
+    font-size: 14px;
+  }
+  .lab-shell .switch-track {
+    margin-top: 4px;
+  }
+  .lab-shell .section-heading {
+    display: block;
+  }
+  .lab-shell .recipe-title {
+    gap: 12px;
+  }
+  .lab-shell .recipe-title h2 {
+    font-size: 26px;
+    overflow-wrap: anywhere;
+  }
+  .lab-shell .technology-tag {
+    display: inline-flex;
+    margin-top: 16px;
+  }
+  .lab-shell .demo-panel {
+    display: flex;
+    flex-direction: column;
+  }
+  .lab-shell .panel-bar {
+    padding: 16px;
+  }
+  .lab-shell .demo-panel > .demo-controls,
+  .lab-shell .lab-settings {
+    border-left: 0;
+    border-top: 1px solid var(--lab-line);
+    padding: 22px 20px;
+  }
+  .lab-shell .button-stage,
+  .lab-shell .accordion-stage {
+    min-height: 260px;
+    padding: 24px 20px;
+  }
+  .lab-shell .code-example__bar {
+    padding: 12px;
+    gap: 10px;
+  }
+  .lab-shell .code-example pre {
+    padding: 18px 14px;
+    font-size: 14px;
+  }
+  .lab-shell .copy-status {
+    padding-inline: 14px;
+  }
+  .lab-shell .principles {
+    grid-template-columns: 1fr;
+  }
+  .lab-shell .foundations h2 {
+    font-size: 30px;
+  }
+  .lab-shell footer {
+    padding: 24px 16px;
+    display: block;
+  }
+  .lab-shell footer p {
+    margin-top: 14px;
+  }
+}

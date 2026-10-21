@@ -1,0 +1,26 @@
+/* Private identity shared by the two actual showcase shells, not package tokens. */
+:where(.prototype-shell, .lab-shell) {
+  --terra-obsidian: #151a1b;
+  --terra-copper: #a66a4b;
+  --terra-bronze: #b99f77;
+  --terra-mineral: #616d61;
+  --terra-ivory: #ede4d5;
+  --terra-muted: #b8b8ab;
+  --terra-line: #3d4240;
+  --terra-panel: #202824;
+  --terra-code: #101718;
+  --terra-font: 'Segoe UI', Inter, system-ui, sans-serif;
+  --terra-code-font: 'Cascadia Code', Consolas, ui-monospace, monospace;
+  --terra-space-sm: 12px;
+  --terra-space-md: 24px;
+  --terra-space-lg: 48px;
+  --terra-material-image: url('../prototype/assets/terra-material-reference.webp');
+}
+.prototype-shell {
+  --lp-bg: var(--terra-obsidian);
+  --lp-ink: var(--terra-ivory);
+  --lp-bronze: var(--terra-bronze);
+  /* Accepted V4/P1 reading tone; the lab uses its own shared muted token. */
+  --lp-muted: #c5c4b6;
+  --lp-line: var(--terra-line);
+}

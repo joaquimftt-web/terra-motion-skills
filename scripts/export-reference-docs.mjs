@@ -6,7 +6,10 @@ import { execFileSync } from 'node:child_process';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const destination = resolve(root, 'apps/showcase/public/reference');
 mkdirSync(destination, { recursive: true });
-const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root }).toString().trim();
+// Local no-Git proof: reference unchanged public sources at the copied baseline.
+const revision =
+  process.env.PROTOTYPE_SOURCE_REVISION ??
+  execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root }).toString().trim();
 const repository = `https://github.com/joaquimftt-web/terra-motion-skills/blob/${revision}/`;
 const sources = {
   'motion-foundations.md': 'skills/motion-foundations/SKILL.md',
@@ -34,7 +37,7 @@ for (const [name, source] of Object.entries(sources)) {
     copyFileSync(resolve(root, source), resolve(destination, name));
   }
 }
-for (const name of ['LICENSE', 'THIRD_PARTY_NOTICES.md']) {
+for (const name of ['LICENSE', 'THIRD_PARTY_NOTICES.md', 'ASSET_NOTICES.md']) {
   copyFileSync(resolve(root, name), resolve(destination, '..', name));
 }
 console.log(`Reference documents and license notices exported; source revision ${revision}.`);

@@ -43,3 +43,7 @@ Verificado em 19/10/2026, Node v24.20.0 e pnpm v11.24.0. Foram consultados metad
 - A falha agregada do teste de tokens vinha de executar leitura de arquivo em ambiente DOM. O teste foi marcado explicitamente para Node; componentes permanecem em jsdom. A raiz recompila os pacotes antes de testes/checagens que consomem dist.
 - Os documentos de skills/fontes são exportados como assets estáticos para a vitrine, sem importar runtime de skills. As cópias geradas são ignoradas pelo Git; fontes editáveis permanecem no local original.
 - Não houve código incorporado de referências externas ou do ZIP encerrado pelo usuário. O desenho visual, SVG, CSS, receitas e testes são próprios deste projeto.
+
+## 21/10/2026 — fechamento local integrado
+
+As decisões anteriores descrevem a base histórica v0.1. No candidato aprovado localmente, há imagem raster e logo separadas, não cobertas automaticamente pela MIT. Preservam-se bytes/identidade e contratos; direitos públicos pendentes bloqueiam fontes/deploy. Testes passam a abrir o laboratório sem variável particular; workflow candidato acrescenta somente gate pré-upload. Tema e coreografias aprovados não foram refeitos.

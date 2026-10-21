@@ -59,6 +59,7 @@ export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) 
             </output>
           </div>
           <div className="demo-controls">
+            <p className="lab-control-heading">CONFIGURAÇÕES</p>
             <label className="checkbox-label">
               <input
                 type="checkbox"

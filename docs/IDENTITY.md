@@ -4,7 +4,7 @@
 
 - Projeto: **Terra Motion Skills**.
 - Repositório público: [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills).
-- Branch: `main`; versão inicial planejada: `v0.1.0`.
+- Branch: `main`; versão inicial publicada: `v0.1.0`.
 - Código original: MIT, **Copyright (c) 2026 Joaquim Freitas**.
 - Git público: Joaquim Freitas, `319236695+joaquimftt-web@users.noreply.github.com`.
 
@@ -30,4 +30,4 @@ O inventário foi feito antes das edições. Filtros pnpm, imports, manifests, w
 
 Especificação e plano em `docs/superpowers/`, registros anteriores de validação, logs e capturas A1 mantêm o nome utilizado quando produzidos. Não foram reescritos para simular evidências com a marca nova. As capturas históricas dos READMEs estão identificadas; as verificações desta etapa ficam em [VALIDATION.md](VALIDATION.md).
 
-Os caminhos dos documentos históricos permanecem para preservar links. O diretório local de preparação também pode manter o nome antigo, sem afetar a identidade do repositório público. O histórico privado original permanece separado e intacto. O histórico público começou com um commit raiz saneado e recebe commits normais posteriores; origin aponta para o repositório público e main acompanha origin/main. O showcase ainda não está hospedado e os pacotes npm não foram publicados. Tag e Release v0.1.0 estão publicadas e preservadas; o trabalho de hospedagem ocorre em branch local separada, sem push nesta etapa.
+Os caminhos dos documentos históricos permanecem para preservar links. O diretório local de preparação também pode manter o nome antigo, sem afetar a identidade do repositório público. O histórico privado original permanece separado e intacto. O histórico público começou com um commit raiz saneado e recebe commits normais posteriores; origin aponta para o repositório público e main acompanha origin/main. O showcase v0.1 está hospedado no [GitHub Pages](https://joaquimftt-web.github.io/terra-motion-skills/), pelo deploy de `baceffee`. Pacotes npm não foram publicados. Tag e Release v0.1.0 estão preservadas. Landing P1/P2/P3, laboratório Mineral Técnico e referências são uma evolução aceita localmente, ainda sem integração ou deploy; identidade visual não altera os contratos da biblioteca.

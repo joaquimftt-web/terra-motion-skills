@@ -6,7 +6,7 @@ Reusable React motion recipes and operational AI agent skills, with neutral toke
 
 ![Terra Motion Skills showcase](docs/evidence/identity/terra-1440-viewport.png)
 
-**Online demo:** not published. Run locally. A1 screenshots document the accepted visual refinement; later editorial name/license messages may differ.
+**Public showcase:** [GitHub Pages](https://joaquimftt-web.github.io/terra-motion-skills/), serving the v0.1 showcase from `baceffee`. The accepted local P1/P2/P3 landing, Mineral Technical lab and references page in this candidate are **not published yet**. A1 screenshots document the accepted visual refinement; later editorial name/license messages may differ.
 
 ## Install and run
 
@@ -28,9 +28,9 @@ pnpm build
 pnpm --filter @motion-skills-lab/showcase preview
 ```
 
-Preview is a local tool, not a production server. Hosting is not active yet and npm packages are not published.
+Preview is a local tool, not a production server. The v0.1 showcase is hosted on GitHub Pages; npm packages are not published.
 
-GitHub Pages support is prepared for validation and subsequent publication. See [HOSTING.md (Portuguese)](docs/HOSTING.md) for testing `/terra-motion-skills/`, workflow operation and rollback. The showcase is not hosted yet.
+See [HOSTING.md (Portuguese)](docs/HOSTING.md) for Pages operation, `/terra-motion-skills/` testing and rollback. This local candidate has three routes: `/`, `/lab/` and `/referencias/`, prefixed in Pages builds. [Public versus local status](docs/PUBLICATION_STATUS.md) · [Closing validation](docs/CLOSING_VALIDATION.md).
 
 ## Identity and compatibility
 
@@ -106,7 +106,7 @@ pnpm exec playwright install chromium
 pnpm test:e2e
 ```
 
-The refined base passed **22 Vitest tests, 17 Playwright tests and eight axe audits** at four widths. Historical evidence also records native browser zoom at 200% with one additional axe audit returning no violations. See [VALIDATION.md](docs/VALIDATION.md) for the recorded validation results. E2E needs a free port 4173 and installed Chromium.
+Historical v0.1 refined-base results, not this candidate’s test count: **22 Vitest tests, 17 Playwright tests and eight axe audits** at four widths. Historical evidence also records native browser zoom at 200% with one additional axe audit returning no violations. See [VALIDATION.md](docs/VALIDATION.md) for the recorded validation results. E2E needs a free port 4173 and installed Chromium.
 
 Windows/Chromium only: no claims of a tested alternative browser, screen reader, physical device or accessibility certification. No FPS/hardware measurements. A2 (boundary checks) and A3 (preference changes during scheduled replay) remain backlog. GSAP, Lenis, WebGL, Drawer and new recipes are outside v0.1.
 
@@ -116,10 +116,12 @@ Windows/Chromium only: no claims of a tested alternative browser, screen reader,
 
 ![Readable code at a 390 px viewport](docs/evidence/a1/after/code-390.png)
 
-A future static demo requires separate approval and applicable notices. No fictional URL, deployment, CI or publication badge.
+The public URL above serves the completed v0.1 deployment. A1 screenshots are historical. The accepted integrated experience remains local; publishing requires authorized integration. The holder authorized project-specific asset use on 21 October 2026, outside MIT and without a general reuse license. [Asset inventory and conditions](docs/ASSET_RIGHTS.md).
 
 ## Licensing and contribution
 
 **Original code is licensed under [MIT](LICENSE).** Copyright (c) 2026 Joaquim Freitas. Package manifests remain private to prevent accidental package publication. Dependencies retain their own terms: [notices](THIRD_PARTY_NOTICES.md), [sources/licenses](docs/REFERENCES_AND_LICENSES.md), and [inventory](docs/DEPENDENCY_LICENSES.json).
 
 [Contributing](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Publication status](docs/PUBLICATION_STATUS.md)
+
+The logo and architectural background have specific permissions separate from MIT: [holder declaration](docs/ASSET_PERMISSION_2026-10-21.md) and [conditions](ASSET_NOTICES.md). They are not assets offered for unrestricted reuse.

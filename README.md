@@ -6,7 +6,7 @@ Receitas de motion para React e skills operacionais para agentes de IA. Duas rec
 
 ![Showcase Terra Motion Skills](docs/evidence/identity/terra-1440-viewport.png)
 
-**Demo online:** ainda não publicada. Execute localmente. As capturas A1 mostram o refinamento aprovado; mensagens editoriais de nome/licença podem diferir da cópia preparada depois.
+**Showcase público:** [GitHub Pages](https://joaquimftt-web.github.io/terra-motion-skills/), com a vitrine v0.1 do commit `baceffee`. A landing P1/P2/P3, o laboratório Mineral Técnico e a página de referências desta cópia foram aceitos localmente e **ainda não estão publicados**. As capturas A1 mostram o refinamento aprovado; mensagens editoriais de nome/licença podem diferir da cópia preparada depois.
 
 ## Instalação e execução
 
@@ -28,9 +28,9 @@ pnpm build
 pnpm --filter @motion-skills-lab/showcase preview
 ```
 
-Preview é ferramenta local, não servidor de produção. A hospedagem ainda não está ativa e os pacotes npm não estão publicados.
+Preview é ferramenta local, não servidor de produção. O showcase v0.1 está hospedado no GitHub Pages; os pacotes npm não estão publicados.
 
-O suporte ao GitHub Pages está preparado para validação e publicação posterior. Consulte [HOSTING.md](docs/HOSTING.md) para testar a base `/terra-motion-skills/`, operar o workflow e realizar rollback. O showcase ainda não está hospedado.
+Consulte [HOSTING.md](docs/HOSTING.md) para operação do Pages, teste da base `/terra-motion-skills/` e rollback. O candidato local tem três rotas: `/`, `/lab/` e `/referencias/` (com o prefixo Pages no build correspondente). [Estado público e local](docs/PUBLICATION_STATUS.md) · [Fechamento técnico](docs/CLOSING_VALIDATION.md).
 
 ## Identidade e compatibilidade
 
@@ -106,7 +106,7 @@ pnpm exec playwright install chromium
 pnpm test:e2e
 ```
 
-A base refinada passou em **22 testes Vitest, 17 Playwright e oito auditorias axe** nas quatro larguras. Há evidência histórica adicional de zoom nativo de 200% em Chromium com uma auditoria axe sem violações retornadas. A revalidação específica desta cópia está em [VALIDATION.md](docs/VALIDATION.md). E2E precisa da porta 4173 livre e de Chromium instalado.
+Histórico da base refinada v0.1, sem representar a contagem deste candidato: passou em **22 testes Vitest, 17 Playwright e oito auditorias axe** nas quatro larguras. Há evidência histórica adicional de zoom nativo de 200% em Chromium com uma auditoria axe sem violações retornadas. A revalidação específica desta cópia está em [VALIDATION.md](docs/VALIDATION.md). E2E precisa da porta 4173 livre e de Chromium instalado.
 
 Somente Windows/Chromium foi executado: não há alegação de compatibilidade validada com outros navegadores, leitores de tela, dispositivos físicos ou certificação de acessibilidade. Sem medições de FPS/hardware. A2 (fronteiras) e A3 (preferência durante replay agendado) permanecem no backlog. GSAP, Lenis, WebGL, Drawer e novas receitas não integram a v0.1.
 
@@ -116,10 +116,12 @@ Somente Windows/Chromium foi executado: não há alegação de compatibilidade v
 
 ![Código legível em viewport de 390 px](docs/evidence/a1/after/code-390.png)
 
-A futura demo estática dependerá de autorização e dos avisos legais aplicáveis. Não há URL fictícia, deploy, CI ou badge de publicação.
+O link público acima corresponde ao deploy já concluído da v0.1. Capturas A1 são históricas. A experiência integrada aprovada permanece local; sua publicação depende de integração autorizada. Os usos específicos dos assets foram autorizados pelo titular em 21/10/2026, fora da MIT e sem licença geral de reutilização. [Inventário e condições](docs/ASSET_RIGHTS.md).
 
 ## Licenciamento e colaboração
 
 **Código original sob a licença [MIT](LICENSE).** Copyright (c) 2026 Joaquim Freitas. Os manifests permanecem privados para evitar publicação acidental de pacotes. Dependências mantêm seus próprios termos: [notices](THIRD_PARTY_NOTICES.md), [fontes/licenças](docs/REFERENCES_AND_LICENSES.md) e [inventário](docs/DEPENDENCY_LICENSES.json).
 
 [Contribuições](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Estado da publicação](docs/PUBLICATION_STATUS.md)
+
+Logo e fundo arquitetônico têm permissões específicas separadas da MIT: [declaração do titular](docs/ASSET_PERMISSION_2026-10-21.md) e [condições](ASSET_NOTICES.md). Não são recursos abertos para reutilização irrestrita.

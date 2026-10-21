@@ -1,0 +1,541 @@
+/* V3: original laminated architecture; presentation only. */
+.prototype-shell {
+  --lp-muted: #c5c4b6;
+  background: #111718;
+}
+.lp-preview {
+  background: #111718;
+  border-bottom-color: #39403a;
+}
+.lp-header {
+  background: #151a1b;
+  width: 100%;
+  max-width: none;
+  padding: 18px 4.5%;
+}
+.lp-hero {
+  min-height: 780px;
+  padding: 44px 5% 32px;
+  border: 0;
+  background: #101718;
+}
+.lp-architectural-field {
+  z-index: -2;
+}
+.lp-material-scene,
+.lp-metal-desktop,
+.lp-metal-mobile {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.lp-metal-mobile {
+  display: none;
+}
+.lp-hero::before {
+  background:
+    linear-gradient(90deg, #101718fa 0%, #101718e0 20%, #10171870 52%, transparent 76%),
+    linear-gradient(0deg, #111718 0%, transparent 18%);
+}
+.lp-hero-coordinate {
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+.lp-hero-coordinate span {
+  background: transparent;
+  padding: 0;
+}
+.lp-hero-coordinate span:last-child {
+  color: #d7c3a6;
+}
+.lp-hero-copy {
+  padding-top: 100px;
+  max-width: 1500px;
+}
+.lp-hero .lp-kicker {
+  padding: 0;
+  background: transparent;
+  color: #cbb58f;
+}
+.lp-hero h1 {
+  margin: 30px 0 32px;
+  font-size: clamp(72px, 8.6vw, 138px);
+  line-height: 1;
+  letter-spacing: -0.066em;
+  max-width: 1100px;
+}
+.lp-hero-line {
+  display: block;
+  width: fit-content;
+  transform-origin: left center;
+}
+.lp-hero h1 em {
+  color: #dfc4a1;
+  font-weight: 350;
+}
+.lp-hero-description {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: 460px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #d9d9ce;
+}
+.lp-actions {
+  margin-top: 30px;
+  gap: 28px;
+}
+.lp-primary {
+  background: linear-gradient(110deg, #c2a67a, #b99f77);
+  border: 1px solid #d5bc96;
+  box-shadow: 0 1px 0 #f0d7ad inset;
+  min-height: 52px;
+}
+.lp-actions .lp-text-link {
+  background: #151a1bdb;
+  padding: 10px 14px;
+}
+.lp-hero-foot {
+  margin-top: 44px;
+  gap: 24px;
+  justify-content: start;
+}
+.lp-hero-foot > span {
+  padding: 0;
+  background: none;
+  color: #c1c5b8;
+}
+.lp-hero-foot button {
+  padding: 10px 16px;
+  min-height: 44px;
+  border-color: #747b68;
+}
+.lp-material-key {
+  margin-top: 30px;
+  color: #c9c8b8;
+  font-size: 12px;
+}
+.lp-proof-strip {
+  position: relative;
+  background: #202d26;
+  border-block: 1px solid #616d61;
+  padding: 27px 5%;
+  color: #ede4d5;
+}
+.lp-statement {
+  padding: 92px 7%;
+  background: #1b2922;
+}
+.lp-statement::before {
+  background:
+    radial-gradient(ellipse at 88% 10%, #a0a58a40, transparent 53%),
+    linear-gradient(118deg, #34473a 0%, #616d61 45%, #283a2e 67%, #1b2922 90%);
+}
+.lp-statement::after {
+  width: 78%;
+  height: 160%;
+  top: -75%;
+  right: -30%;
+  border-color: #b9b79a80;
+  background: linear-gradient(135deg, #10171500 35%, #10201575 52%, #9caa8820 60%, #202c2200 70%);
+  box-shadow:
+    0 0 0 22px #11201525,
+    0 0 0 23px #c9c6a330;
+}
+.lp-statement .lp-kicker {
+  padding: 0;
+  background: none;
+}
+.lp-statement h2 {
+  font-size: clamp(52px, 6.7vw, 98px);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  margin-top: 32px;
+}
+.lp-statement h2 span {
+  color: #d4c6aa;
+}
+.lp-statement-bottom {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 48px;
+}
+.lp-statement-bottom p {
+  background: #142019e8;
+  padding: 28px;
+  border-color: #87947b;
+  line-height: 1.8;
+}
+.lp-fine-index {
+  font-size: 12px;
+  background: none;
+  border-left: 2px solid #b99f77;
+  padding: 8px 16px;
+  max-width: 100%;
+}
+.lp-library {
+  position: relative;
+  padding-block: 94px;
+}
+.lp-library::before {
+  content: '';
+  position: absolute;
+  inset: 0 -4.9%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 0 50%, #a66a4b14, transparent 60%);
+  z-index: 0;
+}
+.lp-section-heading {
+  position: relative;
+  margin-bottom: 48px;
+}
+.lp-section-heading h2 {
+  font-size: clamp(44px, 5.2vw, 76px);
+  line-height: 1.07;
+}
+.lp-recipe-grid {
+  gap: 40px;
+}
+.lp-recipe-card {
+  min-height: 470px;
+  padding: 48px;
+  border-radius: 4px;
+  border-color: #947a5a;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 100% 0, #b8815a55, transparent 65%),
+    linear-gradient(118deg, #211e1a 0%, #392c23 47%, #8d5b40 75%, #4a372b);
+  box-shadow:
+    0 1px 0 #e5c09430 inset,
+    0 24px 60px #05090933;
+}
+.lp-recipe-card::before {
+  width: 88%;
+  height: 190%;
+  left: 30%;
+  top: -80%;
+  border-color: #c8a27a70;
+  background: linear-gradient(122deg, transparent 35%, #e3bb8640 43%, #301d1520 50%, #1c18151a 62%);
+  box-shadow:
+    0 0 0 18px #13161128,
+    0 0 0 19px #dac49a33,
+    0 0 0 70px #111a1550,
+    0 0 0 71px #bfad8750;
+  transform: rotate(-28deg);
+}
+.lp-recipe-card:nth-child(2) {
+  border-color: #7d8b72;
+  background:
+    radial-gradient(ellipse at 95% 10%, #a9b79733, transparent 60%),
+    linear-gradient(118deg, #18231d 0%, #2d3a2e 47%, #616d61 75%, #304135);
+}
+.lp-recipe-card h3 {
+  font-size: clamp(32px, 3.2vw, 46px);
+  margin-top: 34px;
+}
+.lp-card-meta {
+  font-size: 12px;
+}
+.lp-recipe-card > p {
+  color: #ede4d5;
+  line-height: 1.75;
+}
+.lp-recipe-card .lp-demo-surface {
+  position: relative;
+  min-height: 300px;
+  padding: 30px;
+  background: #ede4d5;
+  border-radius: 4px;
+  border: 1px solid #e7d9c0;
+  box-shadow:
+    12px 14px 0 #111a1550,
+    0 28px 44px #0d15152b;
+}
+.lp-recipe-card .lp-card-link {
+  color: #ddc39b;
+  font-size: 14px;
+}
+.lp-scope-note {
+  position: relative;
+  color: #bdc2b6;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.lp-method {
+  padding: 90px 5%;
+  color: #151a1b;
+  background: #ddd4c3;
+  border-top: 1px solid #b99f77;
+  border-bottom: 1px solid #b99f77;
+}
+.lp-method::before {
+  background:
+    radial-gradient(ellipse at 100% 100%, #616d6133, transparent 55%),
+    linear-gradient(150deg, transparent 60%, #a66a4b12 60.1%, transparent 85%);
+}
+.lp-method .lp-kicker,
+.lp-method .lp-text-link {
+  color: #514333;
+}
+.lp-method h2,
+.lp-method h2 em,
+.lp-method h3 {
+  color: #151a1b;
+}
+.lp-method-heading > p:not(.lp-kicker),
+.lp-method-list p {
+  color: #3f493f;
+}
+.lp-method-list li,
+.lp-method-list li:first-child {
+  border-color: #717c68;
+}
+.lp-method-list li > span {
+  color: #69513a;
+}
+.lp-method-list {
+  gap: 36px;
+}
+.lp-method-list h3 {
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.lp-closing {
+  padding: 110px 7%;
+  min-height: 410px;
+  background: radial-gradient(ellipse at 50% 100%, #41513b30, transparent 65%), #111718;
+}
+.lp-closing::before {
+  width: 90%;
+  height: 300%;
+  left: -44%;
+  top: -100%;
+  background: linear-gradient(
+    145deg,
+    #3e2e25 20%,
+    #a66a4b 40%,
+    #d9ad7f 42%,
+    #4f3528 53%,
+    #221e1a 65%
+  );
+  box-shadow:
+    24px 0 0 #0a121180,
+    25px 0 0 #c19b6d70;
+}
+.lp-closing::after {
+  width: 70%;
+  height: 250%;
+  right: -45%;
+  top: -90%;
+  background: linear-gradient(135deg, #a7ac91, #616d61 20%, #233328 43%, #7b876c 65%, #1b2922);
+  box-shadow:
+    -20px 0 0 #10181780,
+    -21px 0 0 #83917690;
+}
+.lp-closing > div {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  position: relative;
+}
+.lp-closing h2 {
+  font-size: clamp(42px, 4.6vw, 68px);
+  line-height: 1.06;
+}
+.lp-closing > div:last-child {
+  padding: 28px;
+  background: #111718ec;
+  border: 1px solid #68745e;
+}
+.lp-footer {
+  padding-block: 40px;
+  background: #111718;
+}
+@media (max-width: 1100px) {
+  .lp-hero {
+    min-height: 750px;
+  }
+  .lp-hero-copy {
+    padding-top: 92px;
+  }
+  .lp-hero h1 {
+    font-size: clamp(68px, 8.6vw, 100px);
+  }
+  .lp-metal-desktop {
+    width: 115%;
+    margin-left: -7%;
+  }
+  .lp-recipe-card {
+    padding: 32px;
+    min-height: 460px;
+    gap: 0 28px;
+  }
+  .lp-recipe-card h3 {
+    font-size: 33px;
+  }
+  .lp-recipe-card .lp-demo-surface {
+    padding: 22px;
+  }
+}
+@media (max-width: 700px) {
+  .lp-header {
+    padding: 16px 18px;
+  }
+  .lp-metal-desktop {
+    display: none;
+  }
+  .lp-metal-mobile {
+    display: block;
+  }
+  .lp-hero {
+    min-height: 0;
+    padding: 26px 18px 38px;
+  }
+  .lp-hero::before {
+    background:
+      linear-gradient(90deg, #10171899, transparent 90%),
+      linear-gradient(0deg, #111718 0, transparent 15%);
+  }
+  .lp-hero-coordinate {
+    font-size: 12px;
+  }
+  .lp-hero-copy {
+    padding-top: 100px;
+  }
+  .lp-hero .lp-kicker {
+    font-size: 12px;
+    line-height: 1.8;
+    max-width: 270px;
+  }
+  .lp-hero h1 {
+    margin: 26px 0;
+    font-size: clamp(44px, 11.7vw, 76px);
+    letter-spacing: -0.055em;
+    line-height: 1.06;
+  }
+  .lp-hero-description {
+    font-size: 16px;
+    max-width: 350px;
+    line-height: 1.75;
+    padding: 0;
+    margin: 0;
+    background: #101718e8;
+  }
+  .lp-actions {
+    margin-top: 28px;
+    gap: 16px;
+  }
+  .lp-actions .lp-text-link {
+    padding: 10px 0;
+  }
+  .lp-hero-foot {
+    margin-top: 32px;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .lp-hero-foot > span {
+    font-size: 12px;
+  }
+  .lp-material-key {
+    margin-top: 90px;
+    font-size: 12px;
+    gap: 8px;
+    background: #111718d9;
+    width: fit-content;
+    padding: 5px 0;
+  }
+  .lp-proof-strip {
+    padding: 24px 18px;
+  }
+  .lp-statement {
+    padding: 64px 18px;
+  }
+  .lp-statement h2 {
+    font-size: clamp(43px, 11vw, 66px);
+    margin-top: 26px;
+  }
+  .lp-statement-bottom {
+    grid-template-columns: 1fr;
+    margin-top: 34px;
+    gap: 24px;
+  }
+  .lp-statement-bottom p {
+    padding: 22px;
+    font-size: 16px;
+  }
+  .lp-fine-index {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .lp-library {
+    padding-block: 64px;
+  }
+  .lp-section-heading h2 {
+    font-size: clamp(34px, 9.8vw, 48px);
+  }
+  .lp-recipe-card {
+    min-height: 0;
+    padding: 26px 20px;
+  }
+  .lp-recipe-card h3 {
+    font-size: 29px;
+    margin-top: 28px;
+  }
+  .lp-recipe-card .lp-demo-surface {
+    min-height: 250px;
+    margin-top: 28px;
+    padding: 20px;
+    box-shadow: 6px 7px 0 #111a1550;
+  }
+  .lp-recipe-card .lp-card-link {
+    color: #ddc39b;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .lp-card-meta {
+    font-size: 12px;
+    gap: 8px;
+  }
+  .lp-recipe-card::before {
+    top: -55%;
+    left: 26%;
+  }
+  .lp-method {
+    padding: 64px 18px;
+  }
+  .lp-method-heading > h2 {
+    font-size: 43px;
+  }
+  .lp-method-list {
+    gap: 32px;
+  }
+  .lp-method-list li,
+  .lp-method-list li:first-child {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 16px;
+  }
+  .lp-method-list h3 {
+    font-size: 23px;
+  }
+  .lp-closing {
+    padding: 74px 18px;
+    min-height: 0;
+  }
+  .lp-closing h2 {
+    font-size: 37px;
+  }
+  .lp-closing > div:last-child {
+    padding: 24px 20px;
+  }
+  .lp-footer {
+    padding-block: 32px;
+  }
+}
+
+.lp-hero h1 .lp-hero-line:not(em) {
+  color: #ede4d5;
+}

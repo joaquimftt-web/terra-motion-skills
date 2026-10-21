@@ -15,7 +15,7 @@ test.beforeEach(async ({ page }) => {
     if (response.status() >= 400) errors.push(`HTTP ${response.status()}: ${response.url()}`);
   });
   await page.goto('./');
-  expect(new URL(page.url()).pathname).toBe(expectedBase);
+  expect(new URL(page.url()).pathname).toBe(`${expectedBase}lab/`);
 });
 
 test.afterEach(async ({ page }) => {
@@ -97,7 +97,8 @@ test('button keyboard, focus, press and disabled state are real', async ({ page 
   await expect(button).toBeFocused();
   await button.hover();
   await page.mouse.down();
-  await expect(button).toHaveCSS('background-color', 'rgb(20, 44, 30)');
+  // Private Mineral técnico skin: preserve the active-state check in the new palette.
+  await expect(button).toHaveCSS('background-color', 'rgb(170, 138, 94)');
   await page.mouse.up();
   await page.getByLabel('Desabilitar botão').check();
   await expect(button).toBeDisabled();

@@ -1,20 +1,26 @@
-# Hospedagem do showcase — GitHub Pages
+# Hospedagem — GitHub Pages
 
-## Estado e limites
+## Estado público confirmado em 21/10/2026
 
-Suporte implementado e validado localmente; primeiro push do workflow e deploy real ainda dependem de autorização. URL planejada: https://joaquimftt-web.github.io/terra-motion-skills/. Não considerar essa URL ativa até o smoke público passar. A tag e a Release v0.1.0 permanecem intactas. Na conferência de 20/10/2026, Pages já constava configurado para GitHub Actions com HTTPS, sem execuções de workflow; essa configuração não foi alterada nesta implementação.
+Showcase v0.1 ativo em **https://joaquimftt-web.github.io/terra-motion-skills/**. Primeiro deploy:20/10/2026, commit `baceffee40bfaf9ed1461af92964e2d2a840a4ce`, [run 39469817919](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39469817919). Jobs de validação/build e deploy concluídos com sucesso. Conferência atual por API/HTTPS, sem disparar workflow. Pages usa GitHub Actions e HTTPS obrigatório.
 
-O repositório usa React, TypeScript strict, Motion, Vite e pnpm. Tokens compilam antes das receitas; o showcase consome os exports públicos. O comando raiz `pnpm build` respeita essa ordem. O artefato publicado é exclusivamente **apps/showcase/dist**, nunca a raiz do monorepo. Não há servidor, banco, domínio pago, nova dependência ou publicação npm.
+**Público:** vitrine v0.1 com Button Feedback, Accordion Transition, referências e avisos. **Somente local:** landing V4/P1/P2/P3, laboratório Mineral Técnico e rota de referências da experiência integrada. Aceitação visual não significa publicação. Release/tag v0.1.0 preservada; sem pacotes npm.
 
-## Bases e execução local
+## Build, rotas e recursos
 
-`SHOWCASE_BASE_PATH` aceita somente `/` (padrão) e `/terra-motion-skills/`. Vite e Playwright usam o mesmo valor; links do showcase usam `import.meta.env.BASE_URL`. A variável configura um caminho público de build, não um segredo. Sem a variável, `pnpm dev`, build e preview continuam na raiz.
+Tokens → receitas → showcase via `pnpm build`. Artefato exclusivo: `apps/showcase/dist`. Base `/` ou `/terra-motion-skills/`. Build cria `index.html`, `lab/index.html` e `referencias/index.html` com a mesma entrada JS/CSS: acesso direto e refresh independem do fallback SPA/404 do Pages. Usar barras finais; âncoras antigas de recipes redirecionam para o laboratório. Sem backend ou catch-all para rotas arbitrárias.
 
-Na raiz do clone, com Node **24.20.0** e pnpm **11.24.0**:
+Links usam `import.meta.env.BASE_URL`. Seis referências exportadas mantêm os fontes intactos; somente links Markdown relativos das cópias viram URLs para o SHA de origem. Em clone Git usa-se HEAD. Na cópia sem Git, `PROTOTYPE_SOURCE_REVISION` aponta para a base conhecida. **Não fixar esse override no workflow:** o build integrado deve usar seu novo SHA.
+
+LICENSE, THIRD_PARTY_NOTICES.md, ASSET_NOTICES.md e aviso de identidade integram o artefato, sem fontes completos, evidências de auditoria, Git, caches ou node_modules. Auditor exige entradas, imagens idênticas aos fontes, allowlist, bases e avisos; rejeita symlinks/padrões de dados privados. Gate separado verifica registros de direitos, não constitui certificação jurídica.
+
+## Validação local
+
+Node 24.20.0/pnpm 11.24.0 fixados. Na raiz:
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm exec playwright install chromium
+pnpm exec playwright install --with-deps chromium
 pnpm format:check
 pnpm lint
 pnpm typecheck
@@ -24,76 +30,54 @@ pnpm check:boundaries
 pnpm check:consumer
 ```
 
-Validar a raiz e depois Pages; cada `test:e2e` reconstrói o projeto. A variável precisa permanecer aplicada durante essa reconstrução e o preview.
-
-```sh
-# Bash
-SHOWCASE_BASE_PATH=/ pnpm test:e2e
-SHOWCASE_BASE_PATH=/ pnpm check:showcase
-SHOWCASE_BASE_PATH=/terra-motion-skills/ pnpm test:e2e
-SHOWCASE_BASE_PATH=/terra-motion-skills/ pnpm check:showcase
-SHOWCASE_BASE_PATH=/terra-motion-skills/ pnpm --filter @motion-skills-lab/showcase preview
-```
-
 ```powershell
-$env:SHOWCASE_BASE_PATH = '/'
+# Somente na cópia sem .git; omitir em clone normal:
+$env:PROTOTYPE_SOURCE_REVISION='baceffee40bfaf9ed1461af92964e2d2a840a4ce'
+$env:SHOWCASE_BASE_PATH='/'
 pnpm test:e2e
 pnpm check:showcase
-$env:SHOWCASE_BASE_PATH = '/terra-motion-skills/'
+$env:SHOWCASE_BASE_PATH='/terra-motion-skills/'
 pnpm test:e2e
 pnpm check:showcase
+pnpm check:publication
 pnpm --filter @motion-skills-lab/showcase preview
-# Após encerrar o preview, restaurar o padrão local:
-Remove-Item Env:SHOWCASE_BASE_PATH
 ```
 
-Abrir http://127.0.0.1:4173/terra-motion-skills/ para Pages. A porta 4173 precisa estar livre. Vite preview é uma ferramenta local, não o servidor de produção. Para reconstruir sem E2E, usar `pnpm build` com a base desejada.
+Em Bash, aplicar a mesma variável ao comando. E2E reconstrói com a base selecionada. Recipes usam `/lab/` por padrão, sem exigir PROTOTYPE_LAB; landing/referências usam rotas explícitas. Chromium instalado e porta 4173 livre são necessários. Preview não é servidor de produção.
 
-## Recursos, documentação e licenças
+**Bloqueio esperado:** `check:publication` retorna código 2 enquanto os direitos públicos dos dois assets não estiverem confirmados. Não remover a barreira: registrar titular, termos e evidência legítima em ASSET_RIGHTS.json e atualizar avisos antes de publicar.
 
-O exportador mantém seis referências estáticas: duas skills, dois fontes TSX, contrato e fontes/licenças. Os arquivos originais permanecem intactos; somente URLs relativas das cópias Markdown são convertidas em links HTTPS para o commit de origem no GitHub. Markdown/TSX são arquivos de texto, podendo ser exibidos ou baixados conforme o navegador; não há renderizador Markdown ou execução das skills no browser.
+## Workflow candidato versus público
 
-LICENSE e THIRD_PARTY_NOTICES.md são copiados integralmente para a raiz do artefato. Seus termos não são alterados. Os arquivos gerados em `apps/showcase/public` são ignorados pelo Git. O artefato não inclui a árvore documental inteira, imagens de auditoria, node_modules, caches, credenciais ou histórico Git.
+Workflow público concluído permanece intocado. No candidato mantêm-se Actions por SHA, versões Node/pnpm, lockfile congelado, jobs separados, concorrência pages sem cancelar execução ativa, timeouts20/10 min, permissões mínimas e checkout sem credenciais persistidas. Acrescentou-se gate dos assets antes do upload.
 
-`pnpm check:showcase` confere base de JS/CSS, arquivos esperados, avisos idênticos, links Markdown exportados, tamanho, ausência de symlinks e arquivos fora da lista permitida, além de padrões conhecidos de credenciais e caminhos pessoais. Essa triagem não é garantia exaustiva de segurança.
+O último build é Pages; E2E e auditor validam esse diretório. Não há rebuild entre validação e upload. Deploy recebe o artefato daquele build, sem compilação. Push/dispatch em main pode publicar; dispatch em outra branch valida, sem deploy. **A barreira CI não impede um push de expor os fontes/assets no GitHub:** confirmar direitos antes de qualquer envio remoto.
 
-## Workflow e permissões
+A pipeline candidata não foi executada em Linux remoto nesta etapa. O run público anterior comprova somente a pipeline/v0.1 daquele SHA. Não são necessários PAT, segredo manual, npm publish ou serviço pago neste escopo. Titular deve reconferir Source e proteção de github-pages antes de futura integração.
 
-`.github/workflows/pages.yml` tem jobs separados de build/validação e deploy. Usa ubuntu-24.04, Node/pnpm exatos, instalação congelada e cache do store por lockfile. Actions foram verificadas e fixadas por SHA; suas versões estão nos comentários do workflow.
+## Integração e smoke futuro
 
-O job de build tem somente contents:read; executa todas as validações e E2E/axe para as duas bases. O último build é Pages e somente ele é enviado como artefato. O job de deploy depende do build, só executa em main e usa pages:write e id-token:write no ambiente github-pages. Checkout não persiste credenciais. Não há PAT, segredo manual ou autoativação do Pages.
+Roteiro exato e condições: [CLOSING_INTEGRATION.md](CLOSING_INTEGRATION.md). Sem operação Git de escrita ou publicação neste fechamento.
 
-Gatilhos: push em main e workflow_dispatch. Dispatch em outra branch pode validar, mas não publicar. Grupo de concorrência pages, sem cancelar execução em andamento: nenhum deploy simultâneo; o GitHub pode substituir execuções ainda pendentes. Falhas bloqueiam publicação; relatórios de browser são retidos por três dias e o artefato Pages por um dia. Timeouts: build 20 minutos, deploy 10 minutos.
-
-## Primeira publicação — passos no GitHub
-
-1. Autorizar separadamente o primeiro push das alterações de hospedagem. O workflow ainda não foi enviado nesta etapa.
-2. Em Settings → Pages → Build and deployment, confirmar **GitHub Actions** como Source (já observado na conferência final). A action configure-pages está com enablement:false e não ativa o serviço automaticamente.
-3. Conferir Settings → Environments → github-pages, restringindo deploy a main; pode haver aprovação manual se configurada pelo titular.
-4. Após o push autorizado em main, acompanhar os dois jobs em Actions. Se o push ocorrer antes de ativar Pages, o build pode passar e o deploy falhar; configurar Source e reexecutar o workflow, sem relaxar permissões.
-5. Confirmar URL e commit no ambiente github-pages e executar o smoke HTTPS descrito abaixo.
-6. Só após o smoke passar, atualizar About → Website e os READMEs PT/EN com a URL real. Registrar o resultado em PUBLICATION_STATUS.md e VALIDATION.md com commit normal. Não alterar a Release v0.1.0.
-
-## Aceite e smoke público
-
-- HTML, JS e CSS corretos no subdiretório, sem erros de console/rede; refresh e âncoras preservam o prefixo.
-- Seis referências retornam o conteúdo esperado, sem aceitar fallback HTML; links das cópias apontam a arquivos existentes no GitHub. LICENSE e notices acessíveis.
-- Teclado, foco, disabled, conteúdo fechado inert/aria-hidden, interrupções, duração, replay, reset, cópia real e fallback de clipboard.
-- Preferência reduzida inicial e alterações durante a sessão; responsividade em 1440, 1024, 390 e 320 px; nenhum overflow; axe sem violações retornadas nos cenários existentes.
-- No HTTPS público, repetir navegação, referências, teclado, replay, cópia com permissão real do navegador e movimento reduzido. Automação local não equivale ao teste do serviço Pages.
-
-Validações locais em Windows/Chromium não comprovam execução do runner Linux ou disponibilidade do serviço remoto. Outros navegadores, leitores de tela, aparelhos físicos e novo zoom nativo de 200% permanecem limitações. A2/A3 continuam no backlog.
+Após autorização futura: acompanhar novo SHA nos jobs e deployment. No HTTPS real, verificar raiz/lab/referências por navegação direta/refresh/âncoras; seis referências sem fallback HTML; imagens/JS/CSS/três avisos; teclado/foco/disabled/painel inerte; duração/replay/reset/cópia; movimento reduzido inicial/ao vivo; quatro larguras e ausência de overflow. Teste local não substitui esse smoke futuro.
 
 ## Rollback
 
-Se validação/build falhar, não há deploy novo; manter a última versão funcional e corrigir o erro. Se o deploy falhar, conferir o ambiente antes de assumir que o site mudou. Em regressão publicada, reverter as alterações responsáveis com commit normal em main e repetir o pipeline completo sobre uma versão de hospedagem conhecida e funcional. Não usar reset/force push nem mover tags.
+Build/gate falhou: sem upload/deploy, manter site conhecido. Deploy falhou: conferir deployment efetivo antes de presumir substituição. Regressão publicada: reverter commit de integração com **novo commit normal**, executar pipeline completa e repetir smoke. Sem reset/force push ou mover tags. Um revert integral ao código de `baceffee` restaura o workflow e o artefato anteriores, sem assets novos. Registrar SHAs/logs antes/depois.
 
-Na primeira publicação, ainda sem versão hospedada anterior funcional, interromper novos deploys e usar Settings → Pages → Unpublish site para retirar o site; apenas desativar o workflow não remove o site já publicado. O código-fonte e a Release continuam disponíveis. Relançar somente após correção e validação.
+Em incidente grave, o titular pode autorizar Settings → Pages → Unpublish site. Desativar workflow sozinho não remove conteúdo hospedado. Nenhuma dessas ações está autorizada agora.
+
+## Cache e limites
+
+HTTPS público atual retornou Cache-Control:max-age=600 e ETag; não é promessa para todos recursos/futuras versões. JS/CSS/material têm nomes com hash; logo em caminho estável pode permanecer em cache até expirar/revalidar. Preview local não reproduz CDN Pages. Pesos, otimização e direitos: [ASSET_RIGHTS.md](ASSET_RIGHTS.md). Sem garantia de 60fps ou validação em dispositivo físico, outro navegador ou leitor de tela.
 
 ## Fontes oficiais
 
-- [Vite: base pública](https://vite.dev/guide/build.html#public-base-path).
-- [GitHub Pages: workflow personalizado](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
-- [Limites do Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits): site até 1 GB, banda com limite flexível de 100 GB/mês, timeout de deploy de 10 minutos.
-- [Actions e custos](https://docs.github.com/en/actions/concepts/billing-and-usage): runners padrão em repositório público não exigem serviço pago neste escopo; evitar runners pagos e retenção desnecessária.
-- [Despublicar o site](https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site).
+- [Vite: base](https://vite.dev/guide/build.html#public-base-path).
+- [Pages: workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+- [Limites Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
+- [Despublicar](https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site).
+
+## Gate e regularização dos assets
+
+O candidato de regularização exige aviso separado regular e não vazio, originais e WebP com hashes registrados, derivação obrigatória, titular/termos e evidência regular não vazia sob docs, sem symlinks/junctions. Isso protege a integridade documental; não certifica legitimidade jurídica. Os registros agora contêm a declaração expressa do titular e permissões específicas. Validar check:publication antes de enviar fontes; a autorização operacional de integração/push/deploy continua separada. Consulte docs/ASSET_PROVENANCE_REVIEW.md.

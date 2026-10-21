@@ -1,4 +1,6 @@
-# Validação da v0.1 — registros de execução
+# Validação — estado atual e registros históricos
+
+Fechamento atual do candidato integrado: [CLOSING_VALIDATION.md](CLOSING_VALIDATION.md). Estado público confirmado: [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md). O deploy v0.1 já ocorreu; abaixo estão registros históricos preservados, inclusive pendências anteriores ao primeiro deploy. Eles não representam a situação atual.
 
 ## Suporte ao GitHub Pages — 20/10/2026
 

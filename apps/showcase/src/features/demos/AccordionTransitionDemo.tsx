@@ -102,29 +102,32 @@ export function Details() {
             </AccordionTransition>
             <p className="stage-hint">Enter ou Espaço no gatilho. Tab para explorar o conteúdo.</p>
           </div>
-          <div className="duration-control">
-            <label htmlFor="accordion-duration">Duração do Accordion</label>
-            <output htmlFor="accordion-duration">{duration} ms</output>
-            <input
-              id="accordion-duration"
-              type="range"
-              min="160"
-              max="220"
-              step="10"
-              value={duration}
-              onChange={(event) => setDuration(event.currentTarget.valueAsNumber)}
-            />
-          </div>
-          <div className="demo-controls replay-controls">
-            <ButtonFeedback type="button" onClick={replay} reduceMotion={reduceMotion}>
-              ↻ Repetir transição
-            </ButtonFeedback>
-            <ButtonFeedback type="button" onClick={restart} reduceMotion={reduceMotion}>
-              Reiniciar exemplo
-            </ButtonFeedback>
-            <output className="replay-status" aria-live="polite">
-              Repetições: {replays}
-            </output>
+          <div className="lab-settings">
+            <p className="lab-control-heading">CONFIGURAÇÕES</p>
+            <div className="duration-control">
+              <label htmlFor="accordion-duration">Duração do Accordion</label>
+              <output htmlFor="accordion-duration">{duration} ms</output>
+              <input
+                id="accordion-duration"
+                type="range"
+                min="160"
+                max="220"
+                step="10"
+                value={duration}
+                onChange={(event) => setDuration(event.currentTarget.valueAsNumber)}
+              />
+            </div>
+            <div className="demo-controls replay-controls">
+              <ButtonFeedback type="button" onClick={replay} reduceMotion={reduceMotion}>
+                ↻ Repetir transição
+              </ButtonFeedback>
+              <ButtonFeedback type="button" onClick={restart} reduceMotion={reduceMotion}>
+                Reiniciar exemplo
+              </ButtonFeedback>
+              <output className="replay-status" aria-live="polite">
+                Repetições: {replays}
+              </output>
+            </div>
           </div>
         </div>
         <CodeExample code={code} name="Accordion Transition" />

@@ -8,17 +8,19 @@
     "pnpm": ">=11.24.0"
   },
   "scripts": {
+    "prototype": "pnpm build:packages && pnpm --filter @motion-skills-lab/showcase dev --port 4180 --strictPort",
     "dev": "pnpm build:packages && pnpm --filter @motion-skills-lab/showcase dev",
     "build:packages": "pnpm --filter @motion-skills-lab/motion-tokens build && pnpm --filter @motion-skills-lab/motion-recipes build",
     "build": "pnpm -r --if-present build",
     "typecheck": "pnpm build:packages && tsc -p tsconfig.json && pnpm -r --if-present typecheck",
     "lint": "eslint .",
-    "test": "pnpm build:packages && vitest run",
+    "test": "pnpm build:packages && vitest run && node --test scripts/check-publication-ready.test.mjs",
     "test:e2e": "pnpm build && playwright test",
     "validate:skills": "node scripts/validate-skills.mjs",
     "check:boundaries": "node scripts/check-boundaries.mjs",
     "check:consumer": "pnpm build:packages && node scripts/check-consumer.mjs",
     "check:showcase": "node scripts/check-showcase-build.mjs",
+    "check:publication": "pnpm check:showcase && node scripts/check-publication-ready.mjs",
     "format:check": "prettier --check ."
   },
   "devDependencies": {
