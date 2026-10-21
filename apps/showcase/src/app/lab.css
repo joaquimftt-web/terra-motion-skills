@@ -684,12 +684,14 @@ html:has(.lab-shell) {
   }
   .lab-shell .lab-summary {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     padding: 20px 0;
   }
   .lab-shell .lab-summary > div {
+    min-width: 0;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 12px;
   }
   .lab-shell .lab-summary > div:last-child {

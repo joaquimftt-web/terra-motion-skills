@@ -63,6 +63,7 @@ test('laboratory fits viewport before and after focus with diagnostic geometry',
           fontsStatus: document.fonts.status,
           font,
           sampleWidth: canvas?.measureText('Repetir transição').width,
+          summary: [...document.querySelectorAll('.lab-summary,.lab-summary > div')].map(describe),
           offenders,
           code: [...document.querySelectorAll('.code-example pre')].map(describe),
         };
