@@ -16,6 +16,7 @@ import './p1.css';
 import './p2.css';
 import './narrative.css';
 import materialUrl from './assets/terra-material-reference.webp';
+import { FirstContact, HorizontalStudy } from './horizontal-study/HorizontalStudy';
 
 const base = import.meta.env.BASE_URL;
 const resources = [
@@ -141,12 +142,18 @@ export function Prototype() {
   const [manualReduction, setManualReduction] = useState(false);
   const reduced = useSystemReducedMotion() || manualReduction;
   const { scope, replayIntro } = usePresentation(reduced);
+  const query = new URLSearchParams(window.location.search);
+  const study =
+    page === 'landing' && ['A', 'B'].includes(query.get('variant') ?? '')
+      ? (query.get('variant') as 'A' | 'B')
+      : undefined;
   if (page === 'lab') return <App />;
   return (
     <div
       className="prototype-shell"
       ref={scope}
       data-reduced={reduced}
+      data-horizontal-study={study ? 'true' : undefined}
       style={{ '--lp-material-image': `url("${materialUrl}")` } as CSSProperties}
     >
       <a className="lp-skip" href="#principal">
@@ -184,7 +191,18 @@ export function Prototype() {
       {page === 'references' ? (
         <References />
       ) : (
-        <Landing reduced={reduced} replayIntro={replayIntro} />
+        <Landing
+          reduced={reduced}
+          replayIntro={replayIntro}
+          study={study}
+          first={
+            query.get('first') === 'hero'
+              ? 'hero'
+              : ['1', 'after'].includes(query.get('first') ?? '')
+                ? 'after'
+                : undefined
+          }
+        />
       )}
       <footer className="lp-footer">
         <Brand />
@@ -202,14 +220,27 @@ export function Prototype() {
   );
 }
 
-function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () => void }) {
+function Landing({
+  reduced,
+  replayIntro,
+  study,
+  first,
+}: {
+  reduced: boolean;
+  replayIntro: () => void;
+  study: 'A' | 'B' | undefined;
+  first: 'after' | 'hero' | undefined;
+}) {
   const { plane, region } = useMineralFold(reduced, materialUrl);
   const narrativeRoot = useLandingNarrative(reduced);
   const [activations, setActivations] = useState(0);
   const [open, setOpen] = useState(false);
   return (
     <main id="principal" ref={narrativeRoot}>
-      <section className="lp-hero" aria-labelledby="lp-title">
+      <section
+        className={`lp-hero${study && first === 'hero' ? ' lp-hero--first-contact' : ''}`}
+        aria-labelledby="lp-title"
+      >
         <div className="lp-architectural-field" aria-hidden="true">
           <Architecture />
         </div>
@@ -250,6 +281,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
             </button>
           </div>
         </div>
+        {study && first === 'hero' && <FirstContact reduced={reduced} placement="hero" />}
         <div className="lp-material-key" aria-hidden="true">
           <i />
           <span>COBRE / ESTRUTURA</span>
@@ -257,6 +289,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
           <span>MINERAL / CONTEXTO</span>
         </div>
       </section>
+      {study && first === 'after' && <FirstContact reduced={reduced} placement="after" />}
       <div className="lp-proof-strip">
         <p>
           <strong>02</strong> Recipes funcionais
@@ -424,6 +457,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
           </ol>
         </div>
       </section>
+      {study && <HorizontalStudy variant={study} reduced={reduced} />}
       <section className="lp-closing lp-section" aria-labelledby="closing-title">
         <div className="lp-closing-light" data-narrative="closing" aria-hidden="true" />
         <div>
