@@ -2,8 +2,12 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const base = process.env.SHOWCASE_BASE_PATH ?? '/';
+async function useNative(page: import('@playwright/test').Page) {
+  await page.getByRole('button', { name: 'Preferir rolagem nativa' }).click();
+  await expect(page.getByTestId('horizontal-stage')).toHaveAttribute('data-mode', 'native');
+}
 test('editorial Reveal and Stagger prepare outside the transformed rail', async ({ page }) => {
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   await expect(page.locator('.hx-study-heading > div > div')).toHaveCSS(
     'transform',
     'matrix(1, 0, 0, 1, 0, 8)',
@@ -13,9 +17,10 @@ test('editorial Reveal and Stagger prepare outside the transformed rail', async 
 });
 for (const width of [1440, 1024, 390, 320])
   for (const variant of ['A', 'B']) {
-    test(`${variant} horizontal comparison remains usable at ${width}`, async ({ page }) => {
+    test(`${variant} horizontal modes remain usable at ${width}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
-      await page.goto(`${base}?variant=${variant}`);
+      await page.goto(base);
+      if (variant === 'B') await useNative(page);
       const stage = page.getByTestId('horizontal-stage');
       await stage.scrollIntoViewIfNeeded();
       await expect(stage).toHaveAttribute(
@@ -47,7 +52,7 @@ for (const width of [1440, 1024, 390, 320])
   }
 test('linked passage goes forward, reverse and exits without canceling wheel', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   const stage = page.getByTestId('horizontal-stage');
   await expect(stage).toHaveAttribute('data-mode', 'linked');
   const geometry = await stage.evaluate((el) => ({
@@ -73,7 +78,7 @@ test('reduction live, manual native fallback, resize and focus keep panels usabl
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   const stage = page.getByTestId('horizontal-stage');
   await expect(stage).toHaveAttribute('data-mode', 'linked');
   await stage.scrollIntoViewIfNeeded();
@@ -84,7 +89,7 @@ test('reduction live, manual native fallback, resize and focus keep panels usabl
   await expect.poll(() => stage.getAttribute('data-position')).toBe('1');
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await expect(stage).toHaveAttribute('data-mode', 'linked');
-  await page.getByRole('button', { name: 'Preferir versão nativa' }).click();
+  await page.getByRole('button', { name: 'Preferir rolagem nativa' }).click();
   await expect(stage).toHaveAttribute('data-mode', 'native');
   await page.setViewportSize({ width: 390, height: 900 });
   await expect(stage).toHaveAttribute('data-mode', 'native');
@@ -95,7 +100,7 @@ test('reduction live, manual native fallback, resize and focus keep panels usabl
   await expect(stage.getByText('O estado pertence ao React.', { exact: false })).toBeVisible();
 });
 test('keyboard can traverse all panel links and Presence returns focus', async ({ page }) => {
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   await page.setViewportSize({ width: 1440, height: 900 });
   const stage = page.getByTestId('horizontal-stage');
   const targets = stage.locator('.hx-panel-links a');
@@ -111,15 +116,17 @@ test('keyboard can traverse all panel links and Presence returns focus', async (
   await page.getByRole('button', { name: 'Fechar por dentro e devolver foco ↗' }).click();
   await expect(page.getByRole('button', { name: 'Trazer conteúdo', exact: true })).toBeFocused();
 });
-test('first-contact proposal is optional and does not edit the hero', async ({ page }) => {
-  await page.goto(`${base}?variant=B`);
-  await expect(page.locator('.hx-first')).toHaveCount(0);
+test('default first contact preserves hero and ignores old comparison parameters', async ({
+  page,
+}) => {
+  await page.goto(base);
+  await expect(page.locator('.hx-first')).toHaveCount(1);
   const original = await page.locator('.lp-hero').innerHTML();
-  await page.goto(`${base}?variant=B&first=1`);
-  await expect(page.locator('.lp-hero')).toHaveCount(1);
+  await page.goto(`${base}?variant=B&first=hero`);
   expect((await page.locator('.lp-hero').innerHTML()).replace(/style="[^"]*"/g, '')).toBe(
     original.replace(/style="[^"]*"/g, ''),
   );
+  await expect(page.locator('.lp-hero .hx-first')).toHaveCount(0);
   const open = page.getByRole('button', { name: 'Ver uma resposta real ↗' });
   await open.click();
   await expect(page.getByText('O gesto tem consequência.')).toBeVisible();
@@ -129,7 +136,7 @@ test('first-contact proposal is optional and does not edit the hero', async ({ p
 test('no-JS retains a real read-only description of every new panel', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto(`http://127.0.0.1:4173${base}?variant=A`);
+  await page.goto(`http://127.0.0.1:4173${base}`);
   for (const title of [
     'Confirme uma intenção.',
     'Abra espaço para entender.',
@@ -145,7 +152,7 @@ test('initial reduction and missing ResizeObserver keep real native content', as
   await page.addInitScript(() => {
     Object.defineProperty(window, 'ResizeObserver', { value: undefined, configurable: true });
   });
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   await expect(page.getByTestId('horizontal-stage')).toHaveAttribute('data-mode', 'native');
   await expect(page.locator('.hx-principles > li').first()).toHaveCSS('transform', 'none');
   await page.getByRole('region', { name: 'Exploração horizontal de quatro motions' }).focus();
@@ -158,7 +165,8 @@ test('initial reduction and missing ResizeObserver keep real native content', as
 test('horizontal wheel and real Tab preserve native scroll and input ownership', async ({
   page,
 }) => {
-  await page.goto(`${base}?variant=B`);
+  await page.goto(base);
+  await useNative(page);
   const view = page.getByRole('region', { name: 'Exploração horizontal de quatro motions' });
   await view.scrollIntoViewIfNeeded();
   const box = await view.boundingBox();
@@ -186,7 +194,7 @@ test('native touch swipe moves the horizontal container', async ({ browser }) =>
     isMobile: true,
   });
   const page = await context.newPage();
-  await page.goto(`http://127.0.0.1:4173${base}?variant=B`);
+  await page.goto(`http://127.0.0.1:4173${base}`);
   const view = page.getByRole('region', { name: 'Exploração horizontal de quatro motions' });
   await view.scrollIntoViewIfNeeded();
   const box = await view.boundingBox();
@@ -233,7 +241,7 @@ test('mode changes clean scoped observers and viewport listeners', async ({ page
       return remove.call(this, type, listener, options);
     };
   });
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   await page.getByTestId('horizontal-stage').scrollIntoViewIfNeeded();
   const counts = () =>
     page.evaluate(() =>
@@ -247,7 +255,7 @@ test('mode changes clean scoped observers and viewport listeners', async ({ page
   for (let i = 0; i < 12; i++)
     await page
       .getByRole('button', {
-        name: i % 2 === 0 ? 'Preferir versão nativa' : 'Permitir versão sticky',
+        name: i % 2 === 0 ? 'Preferir rolagem nativa' : 'Permitir exploração guiada',
       })
       .click();
   await expect.poll(counts).toEqual({ observers: 1, listeners: 2 });
@@ -256,7 +264,7 @@ test('mode changes clean scoped observers and viewport listeners', async ({ page
 test('live reduction preserves a focused panel instead of dropping below the stage', async ({
   page,
 }) => {
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   await page.setViewportSize({ width: 1440, height: 900 });
   const button = page.getByRole('button', { name: 'Retirar conteúdo', exact: true });
   await button.focus();
@@ -276,13 +284,14 @@ test('missing ResizeObserver uses safe native presentation even without reductio
   await page.addInitScript(() => {
     Object.defineProperty(window, 'ResizeObserver', { value: undefined, configurable: true });
   });
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   await expect(page.getByTestId('horizontal-stage')).toHaveAttribute('data-mode', 'native');
 });
 
 test('small horizontal wheel impulses accumulate instead of snapping back', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto(`${base}?variant=B`);
+  await page.goto(base);
+  await useNative(page);
   const view = page.locator('.hx-viewport');
   await view.scrollIntoViewIfNeeded();
   const box = await view.boundingBox();
@@ -297,7 +306,7 @@ test('small horizontal wheel impulses accumulate instead of snapping back', asyn
 // Refinement regressions: preserve existing coverage and exercise the reported defects.
 test('refinement keeps the current panel when native geometry becomes sticky', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 900 });
-  await page.goto(`${base}?variant=A`);
+  await page.goto(base);
   const region = page.getByRole('region', { name: 'Exploração horizontal de quatro motions' });
   await region.focus();
   await region.press('End');
@@ -309,11 +318,11 @@ test('refinement keeps the current panel when native geometry becomes sticky', a
   await expect.poll(() => region.evaluate((el) => el.scrollLeft)).toBe(0);
   await expect(region).toBeFocused();
 });
-for (const placement of ['after', 'hero']) {
-  test(`refinement ${placement} widget has opaque readable button states`, async ({ page }) => {
-    await page.goto(`${base}?variant=A&first=${placement}`);
+for (const entry of ['default', 'legacy-url']) {
+  test(`refinement ${entry} widget has opaque readable button states`, async ({ page }) => {
+    await page.goto(entry === 'default' ? base : `${base}?variant=B&first=hero`);
     const widget = page.locator('.hx-first');
-    await expect(widget).toHaveAttribute('data-placement', placement);
+    await expect(widget).toHaveAttribute('data-placement', 'after');
     const trigger = widget.getByRole('button');
     for (const open of [false, true]) {
       if (open) await trigger.click();
@@ -345,14 +354,12 @@ for (const placement of ['after', 'hero']) {
   });
 }
 for (const width of [1440, 1024, 390, 320])
-  for (const placement of ['after', 'hero'])
-    test(`refinement ${placement} composition preserves navigation at ${width}`, async ({
-      page,
-    }) => {
+  for (const entry of ['default', 'legacy-url'])
+    test(`refinement ${entry} composition preserves navigation at ${width}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
-      await page.goto(`${base}?variant=A&first=${placement}`);
+      await page.goto(entry === 'default' ? base : `${base}?variant=B&first=hero`);
       const widget = page.locator('.hx-first');
-      await expect(widget).toHaveAttribute('data-placement', placement);
+      await expect(widget).toHaveAttribute('data-placement', 'after');
       await page.getByRole('link', { name: 'Explorar a biblioteca', exact: false }).focus();
       await expect(
         page.getByRole('link', { name: 'Explorar a biblioteca', exact: false }),
@@ -373,7 +380,7 @@ for (const width of [1440, 1024, 390, 320])
       await expect
         .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
         .toBe(true);
-      if (placement === 'hero') {
+      if (entry === 'legacy-url') {
         const cta = await page.locator('.lp-actions').boundingBox();
         expect(cta).not.toBeNull();
         expect(box!.x >= cta!.x + cta!.width || box!.y >= cta!.y + cta!.height).toBe(true);
@@ -381,3 +388,128 @@ for (const width of [1440, 1024, 390, 320])
       const audit = await new AxeBuilder({ page }).include('.hx-first').analyze();
       expect(audit.violations).toEqual([]);
     });
+
+// Integration contract: approved composition is the default, not a URL experiment.
+test('integration renders the approved landing without comparison parameters', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(base);
+  await expect(page.locator('.hx-first')).toHaveCount(1);
+  await expect(page.locator('.lp-hero .hx-first')).toHaveCount(0);
+  await expect(page.getByTestId('horizontal-stage')).toHaveAttribute('data-mode', 'linked');
+  await expect(page.locator('.hx-panel')).toHaveCount(4);
+  await expect(page.getByRole('navigation', { name: 'Comparar protótipos' })).toHaveCount(0);
+  const order = await page
+    .locator('.lp-hero')
+    .evaluate((el) => el.nextElementSibling?.classList.contains('hx-first'));
+  expect(order).toBe(true);
+});
+test('integration falls back when sticky positioning is not supported', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.addInitScript(() => {
+    const original = CSS.supports.bind(CSS);
+    CSS.supports = ((property: string, value?: string) =>
+      property === 'position' && value === 'sticky'
+        ? false
+        : value === undefined
+          ? original(property)
+          : original(property, value)) as typeof CSS.supports;
+  });
+  await page.goto(base);
+  await expect(page.getByTestId('horizontal-stage')).toHaveAttribute('data-mode', 'native');
+  await page.getByRole('region', { name: 'Exploração horizontal de quatro motions' }).focus();
+  await page.keyboard.press('End');
+  await expect
+    .poll(() => page.getByTestId('horizontal-stage').getAttribute('data-position'))
+    .toBe('1');
+});
+
+test('mode changes preserve all four real panel states and widget state', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(base);
+  await page.locator('.hx-first').getByRole('button').click();
+  const stage = page.getByTestId('horizontal-stage');
+  await stage.getByRole('button', { name: 'Confirmar interação ↗', exact: true }).click();
+  const disclosure = stage.getByRole('button', { name: 'Como uma recipe preserva o contexto?' });
+  await disclosure.focus();
+  await disclosure.press('Enter');
+  const presence = stage.getByRole('button', { name: 'Retirar conteúdo', exact: true });
+  await presence.focus();
+  await presence.press('Enter');
+  const add = stage.getByRole('button', { name: 'Acrescentar notas', exact: false });
+  await add.focus();
+  await add.press('Enter');
+  await page.evaluate(() =>
+    Reflect.set(window, '__originalHorizontalPanels', [...document.querySelectorAll('.hx-panel')]),
+  );
+  for (const reduced of ['reduce', 'no-preference'] as const) {
+    await page.emulateMedia({ reducedMotion: reduced });
+    for (const width of [390, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect(stage.getByText('1 ação confirmada')).toBeVisible();
+      await expect(disclosure).toHaveAttribute('aria-expanded', 'true');
+      await expect(
+        stage.getByRole('button', { name: 'Trazer conteúdo', exact: true }),
+      ).toBeVisible();
+      await expect(stage.locator('.hx-scroll-notes p')).toHaveCount(8);
+      await expect(page.locator('.hx-first button')).toHaveAttribute('aria-expanded', 'true');
+      expect(
+        await page.evaluate(() =>
+          [...document.querySelectorAll('.hx-panel')].every(
+            (node, i) => node === Reflect.get(window, '__originalHorizontalPanels')[i],
+          ),
+        ),
+      ).toBe(true);
+    }
+  }
+});
+test('native browser history restores the linked passage without custom scroll restoration', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(base);
+  const stage = page.getByTestId('horizontal-stage');
+  await expect(stage).toHaveAttribute('data-mode', 'linked');
+  const y = await stage.evaluate(
+    (el) =>
+      el.getBoundingClientRect().top +
+      scrollY -
+      24 +
+      parseFloat(getComputedStyle(el).getPropertyValue('--hx-travel')) * 0.55,
+  );
+  await page.evaluate((y) => scrollTo({ top: y, behavior: 'instant' }), y);
+  await expect
+    .poll(async () => Number(await stage.getAttribute('data-position')))
+    .toBeGreaterThan(0.54);
+  const before = await page.evaluate(() => scrollY);
+  await page.goto(`${base}lab/`);
+  await page.goBack();
+  await expect(stage).toHaveAttribute('data-mode', 'linked');
+  await expect
+    .poll(async () => Math.abs((await page.evaluate(() => scrollY)) - before))
+    .toBeLessThan(3);
+  expect(await page.evaluate(() => history.scrollRestoration)).toBe('auto');
+});
+
+test('resizes preserve the focused panel within both linked and native layouts', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(base);
+  const target = page.getByRole('button', { name: 'Retirar conteúdo', exact: true });
+  await target.focus();
+  await expect(target).toBeInViewport();
+  for (const width of [1024, 390, 320, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await expect(target).toBeFocused();
+    await expect(target).toBeInViewport();
+    await expect
+      .poll(() =>
+        target.evaluate((el) => {
+          const r = el.getBoundingClientRect(),
+            v = document.querySelector('.hx-viewport')!.getBoundingClientRect();
+          return r.left >= v.left - 1 && r.right <= v.right + 1;
+        }),
+      )
+      .toBe(true);
+  }
+});

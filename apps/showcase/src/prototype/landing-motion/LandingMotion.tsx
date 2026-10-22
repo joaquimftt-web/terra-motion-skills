@@ -1,4 +1,4 @@
-/** Disposable A/B proof. Showcase only; no public recipe or skill. */
+/** Approved landing composition. Showcase only; consumes public recipe exports. */
 import { useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { scroll } from 'motion';
 import { ButtonFeedback } from '@motion-skills-lab/motion-recipes/button-feedback';
@@ -8,7 +8,7 @@ import { ScrollReveal } from '@motion-skills-lab/motion-recipes/scroll-reveal';
 import { StaggeredEntrance } from '@motion-skills-lab/motion-recipes/staggered-entrance';
 import { ScrollProgress } from '@motion-skills-lab/motion-recipes/scroll-progress';
 import { linkedGeometry, positionFraction } from './geometry';
-import './horizontal-study.css';
+import './landing-motion.css';
 
 const base = import.meta.env.BASE_URL;
 const principles = [
@@ -36,17 +36,11 @@ const panelTitles = [
   'Encontre sua posição.',
 ];
 
-export function FirstContact({
-  reduced,
-  placement = 'after',
-}: {
-  reduced: boolean;
-  placement?: 'after' | 'hero';
-}) {
+export function FirstContact({ reduced }: { reduced: boolean }) {
   const [present, setPresent] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   return (
-    <aside className="hx-first" data-placement={placement} aria-labelledby="hx-first-title">
+    <aside className="hx-first" data-placement="after" aria-labelledby="hx-first-title">
       <div>
         <p className="lp-kicker">MOTION EM USO / EXPERIMENTE</p>
         <h2 id="hx-first-title">Um gesto. Uma resposta.</h2>
@@ -206,7 +200,7 @@ function PanelContent({ index, reduced }: { index: number; reduced: boolean }) {
   );
 }
 
-function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean }) {
+function MotionGallery({ reduced }: { reduced: boolean }) {
   const stage = useRef<HTMLDivElement>(null),
     sticky = useRef<HTMLDivElement>(null),
     viewport = useRef<HTMLDivElement>(null),
@@ -255,6 +249,8 @@ function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean 
       const top = root.getBoundingClientRect().top;
       const previousHeight = root.offsetHeight;
       const wasLinked = linked;
+      const previousTravel = travel;
+      const previousFraction = Number(root.dataset.position ?? 0);
       const focusedPanel = cards.findIndex((card) => card.contains(document.activeElement));
       const retainedPanel = focusedPanel >= 0 ? focusedPanel : active.current;
       const geometry = linkedGeometry(
@@ -265,8 +261,10 @@ function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean 
         track.scrollWidth,
         reduced ||
           nativeWanted ||
-          variant === 'B' ||
           typeof ResizeObserver === 'undefined' ||
+          typeof CSS === 'undefined' ||
+          typeof CSS.supports !== 'function' ||
+          !CSS.supports('position', 'sticky') ||
           (!wasLinked && focusedPanel >= 0),
       );
       linked = geometry.linked;
@@ -275,10 +273,8 @@ function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean 
       root.style.setProperty('--hx-pin-height', `${pin.getBoundingClientRect().height}px`);
       root.dataset.mode = linked ? 'linked' : 'native';
       mode.current!.textContent = linked
-        ? 'A · A rolagem vertical percorre os painéis. Depois, a página continua.'
-        : variant === 'B'
-          ? 'B · Role horizontalmente, use as setas ou os controles. A página segue verticalmente.'
-          : 'A · Apresentação nativa ativa por preferência, foco ou espaço disponível.';
+        ? 'A rolagem vertical percorre os painéis. Depois, a página continua.'
+        : 'Rolagem horizontal nativa. Use gestos, setas ou os controles. A página segue verticalmente.';
       if (wasLinked !== linked) {
         stopMotion?.();
         stopMotion = undefined;
@@ -305,6 +301,31 @@ function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean 
               top: root.getBoundingClientRect().top + window.scrollY - 24,
               behavior: 'instant',
             });
+        }
+      }
+      // A resize can change offsets without switching mode. Preserve the reading
+      // position and reveal the focused card rather than waiting for another focusin.
+      if (wasLinked === linked && previousTravel > 0 && Math.abs(previousTravel - travel) > 1) {
+        if (linked && top < 24 && top + previousHeight > 24) {
+          const x =
+            focusedPanel >= 0
+              ? Math.min(travel, cards[focusedPanel]!.offsetLeft)
+              : previousFraction * travel;
+          view.scrollLeft = 0;
+          window.scrollTo({
+            top: root.getBoundingClientRect().top + window.scrollY - 24 + x,
+            behavior: 'instant',
+          });
+        } else if (!linked && focusedPanel >= 0) {
+          view.scrollTo({ left: cards[focusedPanel]!.offsetLeft, behavior: 'instant' });
+          // Upstream reflow can move a native panel vertically as well. Reveal
+          // its focused control only while this section still intersects the viewport.
+          if (top < innerHeight && top + previousHeight > 24) {
+            const target = (document.activeElement as HTMLElement).getBoundingClientRect();
+            const dy =
+              target.top < 24 ? target.top - 24 : Math.max(0, target.bottom - innerHeight + 24);
+            if (dy) window.scrollBy({ top: dy, behavior: 'instant' });
+          }
         }
       }
       if (linked && !stopMotion) stopMotion = scroll(update);
@@ -363,7 +384,7 @@ function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean 
       root.dataset.lifecycle = 'disposed';
       go.current = () => {};
     };
-  }, [variant, reduced, nativeWanted]);
+  }, [reduced, nativeWanted]);
   const keys = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.target !== event.currentTarget) return;
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
@@ -406,15 +427,13 @@ function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean 
             </button>
           </div>
           <a href="#hx-after">Pular a sequência ↘</a>
-          {variant === 'A' && (
-            <button
-              className="hx-inline"
-              aria-pressed={nativeWanted}
-              onClick={() => setNativeWanted(!nativeWanted)}
-            >
-              {nativeWanted ? 'Permitir versão sticky' : 'Preferir versão nativa'}
-            </button>
-          )}
+          <button
+            className="hx-inline"
+            aria-pressed={nativeWanted}
+            onClick={() => setNativeWanted(!nativeWanted)}
+          >
+            {nativeWanted ? 'Permitir exploração guiada' : 'Preferir rolagem nativa'}
+          </button>
         </div>
         <div
           className="hx-viewport"
@@ -460,12 +479,12 @@ function StudyRail({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean 
   );
 }
 
-export function HorizontalStudy({ variant, reduced }: { variant: 'A' | 'B'; reduced: boolean }) {
+export function LandingMotion({ reduced }: { reduced: boolean }) {
   return (
     <section className="hx-study" id="motion-exploration" aria-labelledby="hx-title">
       <div className="hx-study-heading">
         <ScrollReveal reduceMotion={reduced}>
-          <p className="lp-kicker">EXPERIMENTO LOCAL / DUAS FORMAS DE EXPLORAR</p>
+          <p className="lp-kicker">MOTION EM USO / EXPLORE NA PRÁTICA</p>
           <h2 id="hx-title">
             <span>O movimento muda.</span>
             <em>A intenção permanece.</em>
@@ -474,23 +493,6 @@ export function HorizontalStudy({ variant, reduced }: { variant: 'A' | 'B'; redu
             Quatro experiências reais. Da resposta de um botão à orientação em um conteúdo maior.
           </p>
         </ScrollReveal>
-        <nav className="hx-switch" aria-label="Comparar protótipos">
-          <a
-            aria-current={variant === 'A' ? 'page' : undefined}
-            href={`${base}?variant=A#motion-exploration`}
-          >
-            A · Scroll-linked
-          </a>
-          <a
-            aria-current={variant === 'B' ? 'page' : undefined}
-            href={`${base}?variant=B#motion-exploration`}
-          >
-            B · Horizontal nativo
-          </a>
-          <a href={`${base}?variant=${variant}&first=after`}>Primeiro contato A · após o hero</a>
-          <a href={`${base}?variant=${variant}&first=hero`}>Primeiro contato B · no hero</a>
-          <a href={base}>V4 preservada</a>
-        </nav>
       </div>
       <StaggeredEntrance
         className="hx-principles"
@@ -504,7 +506,7 @@ export function HorizontalStudy({ variant, reduced }: { variant: 'A' | 'B'; redu
         )}
         reduceMotion={reduced}
       />
-      <StudyRail variant={variant} reduced={reduced} />
+      <MotionGallery reduced={reduced} />
       <div className="hx-after" id="hx-after" tabIndex={-1}>
         <p>Fim da exploração. A leitura continua.</p>
         <a href={`${base}lab/`}>Todas as demonstrações, parâmetros e código no laboratório ↗</a>

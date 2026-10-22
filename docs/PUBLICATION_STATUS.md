@@ -23,3 +23,9 @@ Primeiro deploy: 20/10/2026, baceffee, run 39469817919. Integração inicial: 7e
 ## Candidato L1 local — 22/10/2026
 
 A worktree feat/states-selection-l1 adiciona Presence Transition, Async State Feedback e Navigation Indicator apenas localmente. Nenhuma integração, commit, push, deploy ou alteração da Release v0.1.0 foi autorizada neste lote. O site público continua com as duas recipes da base; Scroll Reveal permanece isolado.
+
+## Integração horizontal local — 22/10/2026
+
+A branch `integration/landing-v4-horizontal` consolida o widget após o hero e a galeria de quatro painéis como padrão local. A rolagem guiada usa fallback nativo por geometria, foco, preferência e capacidade do navegador. Os seletores comparativos foram removidos; o protótipo r2 está preservado no checkpoint local `e27f56b863aa87e9d5ea0e2d736a7a3ee50e860a`.
+
+Este candidato inclui as recipes locais L1/L2 herdadas do checkpoint L2; não representa sua disponibilidade na main, npm ou site público. O registro L1 anterior descreve a autorização daquele momento; neste lote foram autorizados checkpoints e commits exclusivamente locais nas branches de trabalho. A main e a Release/tag histórica não foram alteradas. [Composição, operação e limitações](LANDING_MOTION_INTEGRATION.md).

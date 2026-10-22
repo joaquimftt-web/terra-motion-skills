@@ -1,5 +1,5 @@
-/* Experimental composition only. Existing V4 selectors and recipe files stay intact. */
-.prototype-shell[data-horizontal-study='true'] {
+/* Landing-owned composition. Recipes and existing V4 styles remain independent. */
+.prototype-shell[data-landing-motion='true'] {
   overflow: visible;
 }
 .hx-study {
@@ -9,7 +9,7 @@
 }
 .hx-study-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.45fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 48px;
   max-width: 1400px;
   margin: auto;
@@ -31,23 +31,6 @@
 }
 .hx-study-heading p {
   max-width: 620px;
-}
-.hx-switch {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 8px;
-}
-.hx-switch a {
-  color: #ede4d5;
-  min-height: 44px;
-  padding: 8px 12px;
-  border-left: 2px solid #616d61;
-}
-.hx-switch a[aria-current] {
-  border-color: #b99f77;
-  background: #616d6126;
 }
 .hx-principles {
   display: grid;
@@ -401,38 +384,6 @@
   padding-block: 8px;
   font-size: 14px;
 }
-/* Optional composition B only. The reference hero remains untouched without this query. */
-.lp-hero--first-contact .hx-first {
-  position: absolute;
-  right: 5%;
-  bottom: 100px;
-  width: min(330px, 28%);
-  display: block;
-  padding: 22px;
-  border: 1px solid #b99f7780;
-  border-radius: 4px;
-  background: #17221ff5;
-}
-.lp-hero--first-contact .hx-first h2 {
-  font-size: 28px;
-}
-.lp-hero--first-contact .hx-first-demo {
-  margin-top: 18px;
-}
-@media (max-width: 1199px) {
-  .lp-hero--first-contact .hx-first {
-    position: relative;
-    inset: auto;
-    width: auto;
-    max-width: 540px;
-    margin: 32px 5% 24px;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .lp-hero--first-contact .hx-first-demo {
-    margin-top: 0;
-  }
-}
 @media (max-width: 999px) {
   .hx-study {
     padding: 64px 5% 24px;
@@ -440,10 +391,6 @@
   .hx-study-heading {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-  .hx-switch {
-    flex-direction: row;
-    flex-wrap: wrap;
   }
   .hx-principles {
     gap: 20px;
@@ -510,7 +457,7 @@
     scroll-snap-type: x proximity;
   }
 }
-.prototype-shell[data-horizontal-study='true'][data-reduced='true'] .hx-viewport {
+.prototype-shell[data-landing-motion='true'][data-reduced='true'] .hx-viewport {
   scroll-snap-type: none;
 }
 @media (prefers-reduced-motion: reduce) {
