@@ -46,3 +46,8 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* New scroll demos use a full-width preview; preserve existing lab grids. */
+.lab-shell .scroll-demo .demo-panel {
+  display: block;
+}

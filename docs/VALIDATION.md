@@ -220,3 +220,42 @@ Ubuntu WSL2 está acessível mas sem Node/nodejs Linux; npm/pnpm encontrados em 
 Parecer: fechamento técnico local validado no ambiente disponível; pronto para decisão sobre futuro commit local, condicionado às limitações registradas. Não declarar integração/publicação multiplataforma concluída. M06/R1 permanece isolada; M07/M08 e scroll-motion somente especificados fora desta worktree.
 
 Reconferência final: um processo novo sem SHOWCASE_BASE_PATH rejeitou corretamente os assets Pages como base incompatível. O comando foi repetido com SHOWCASE_BASE_PATH=/terra-motion-skills/ e passou (publication-pages-final.log). Erro operacional documentado, sem alteração do auditor ou produto. Reproduzir o gate na mesma base do build.
+
+## L2 — Scroll funcional, fechamento local em22/10/2026
+
+Base pública9a70fe5; checkpoint local L1a6a1292b8784fce8f4ab1c2a49dd3113c627ae54; implementação L2 em1de180217f9d3e9c68ea61c801be3af1387df183. Branch feat/scroll-functional-l2; R1 original3b1a494 preservada. Sem integração main, push, deploy, npm, bump ou mudança de Release/tag. Ajuste final de painéis/registros recebe commit local normal posterior, sem reescrever marcos.
+
+M06 preserva API260ms/8px/once/replayKey/reduceMotion/ref e SSR. M07 genérica ul/li usa duration260ms,offset8px,stagger50ms e atraso min(i×stagger,200)ms: em20itens,16últimos iniciam juntos no teto. M08 decorativa mede documento/seção/container+contentRef, sem duração/spring/leitura. Helper privado compartilhado de entrada evita duplicar observers por item; três demos usam estilos scoped e preservam cinco anteriores/padding/contratos. Skill scroll-motion produzida após funcionamento e validação; duas anteriores preservadas byte a byte.
+
+### Resultados efetivamente executados
+
+- Formatação, lint, TypeScript strict, builds dos pacotes/showcase, três skills, fronteiras e consumidor independente passaram.
+- **169/169 Vitest em19arquivos +11/11 testes Node** do auditor. Inclui SSR Node, exports e regressões M01–M05.
+- **30/30 Playwright na fixture neutra**, incluindo15casos R1 anteriores,1/6/20itens, timings WAAPI, foco, toque emulado real, redução, fallbacks, conteúdo CSS-only e restauração SSR.
+- **72/72 Playwright em cada base**, raiz/Pages, após ajuste scoped dos painéis. Incluem axe sem violações nos cenários, teclado/foco, replay/cópia,0/default/800ms, quatro larguras, conteúdo/resize/zero-range e restauração do showcase.
+- Consumidor só manifests/dist, sem showcase/fontes/aliases; tipos positivos/negativos e exemplos das três skills compilados. SSR real/noJS/CSS ausente e hydrateRoot positivo/negativo tardio passaram. Negativo gera erro React real após interações e deve retornar1 especificamente por hidratação; o gate retorna0 quando o rejeita corretamente.
+- Restauração nativa repetida3vezes em fixture SSR e3no showcase compilado, sem alterar scrollRestoration/forçar reposição pela recipe.
+- Artefato Pages auditado: **24arquivos/13referências**, notices idênticos,0arquivos proibidos e0matches nos filtros de credenciais; ready=true para evidências de direitos/bytes. Não é autorização de publicação ou certificação jurídica.
+- Capturas reais1440/1024/390/320, seções e viewport; dois WebM originais sem edição de laboratório/entradas/fallbacks. Sem overflow de documento nos casos executados.
+- Zoom **nativo por aba200%**, chrome.tabs.setZoom/getZoom2: janela externa1440×1000 preservada, innerWidth1424→712 e DPR1→2, CSSzoom1 e visualViewport.scale1. Durações/reset/replay/foco e teclado/redução em progresso foram exercitados; axe nas duas demos temporais sem violações. Não é simples redução de viewport nem overrideDPR.
+
+### Regressões reproduzidas e correções
+
+1. Gesto ativo era perdido ao reconstruir grupo por keys+replay. RED real, transferência interna dos pointerIDs e GREEN; nenhum prop adicional.
+2. Troca de fonte M08 não zerada para nova fonte em0 deixava pintura antiga porque MotionValue0.set0 não notifica. RED scaleX(.5)≠0; nova inscrição inicia fill0/inativo até medida; teste unitário e Chromium passaram.
+3. Lista vazia once=false ainda instalava IO. RED e guard antes de observar; vazio não cria alvo de IO em ambos modos.
+4. Coletor de timing lia antes do commit React. Foi corrigida a sincronização do teste, mantendo exigência de animações reais e delays exatos.
+5. Teste de reload numa fixture HTML vazia dependia do browser restaurar antes de React criar altura e oscilou. Criada fixture SSR de geometria estável, mantida asserção>500px de restauração real e acrescentado caso no showcase compilado. Sem scrollTo corretivo/scrollRestoration na recipe.
+6. Inspeção visual revelou grade herdada que comprimira conteúdo das demos L2. Teste geométrico RED; display:block scoped apenas a .scroll-demo .demo-panel e quatro larguras GREEN. Capturas anteriores preservadas como diagnóstico; cinco demos existentes e identidade não alteradas.
+
+Inventário esperado de referências evoluiu9→13 mantendo os nove arquivos anteriores, adicionando os quatro nomes/conteúdos e reforçando comparação exata. Tipos negativos foram posicionados no diagnóstico correto após formatação; não removidos. Logs RED, tentativas e resultados finais estão no pacote externo, com índices/hashes; não classificar tentativas falhas como aprovadas.
+
+### Limitações e revisão
+
+Windows/Chromium executados; Ubuntu WSL2 continua sem Node Linux e wrappers npm/pnpm são Windows. Linux, Firefox/WebKit, leitores de tela/anúncios audíveis, dispositivos físicos e métricas universais de FPS/CPU/energia permanecem pendentes. Touch é emulado. Axe e leituras de agentes não substituem AT/dispositivo real.
+
+Geometria é intencionalmente conservadora: texto/cards/input simples funcionaram, sombra no conteúdo/clip/transform ancestral/inicialmente visível produziram estático. Nenhuma regra relaxada para fazer a animação aparecer. contentRef demonstrou benefício em crescimento apenas por CSS que não redimensiona a caixa fixa; custo estrutural1RO/2alvos e wrapper/ref, sem polling ocioso deliberado. Fontes Motion14.3 instaladas foram comparadas: trackContentSize=true faz leitura por frame; mecanismo selecionado usa rAF sob demanda+MotionValue/listeners/RO.
+
+Minor de documentação registrado na revisão: links internos de Markdown exportado usam GitHub/blob do HEAD local, ainda não enviado. Os arquivos locais/reference abrem; links remotos novos só ficam válidos após futura autorização/push/rebuild. Skills relativas no clone local funcionam. Algumas capturas elementares altas do Chromium podem incluir skip-link fora da viewport; originais preservados e capturas de viewport complementam sem alterar CSS para esconder artefatos de captura.
+
+Revisão independente apontou a troca de fonte (corrigida), vazio/once=false (corrigido) e links remotos locais (limitação registrada). Um cenário de agente com a skill explicitou teto/semântica/fallbacks que não se deduziam só das assinaturas; não foi inventada falha do baseline prudente nem alegada eficácia ampla de agentes. Parecer: APTO para revisão humana local, não autorização de publicação/multiplataforma.

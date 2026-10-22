@@ -9,6 +9,9 @@ for (const width of [320, 390, 1024, 1440])
       const section = page.locator('#' + id);
       await section.scrollIntoViewIfNeeded();
       await expect(section.getByRole('heading', { level: 2 })).toBeVisible();
+      const panel = await section.locator('.demo-panel').boundingBox();
+      const bar = await section.locator('.panel-bar').boundingBox();
+      expect(bar!.width).toBeGreaterThanOrEqual(panel!.width - 3);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
       );
