@@ -137,3 +137,86 @@ Zoom **nativo por aba de 200%** foi executado em Chromium em janela visível via
 Build atual: HTML 0,67 kB / 0,42 kB gzip; CSS **15,85 kB / 4,12 kB gzip**; JavaScript 369,75 kB / 117,73 kB gzip (Vite, arredondado). Os hashes dos assets usados nas capturas estão em `evidence/a1/after/capture.json`. Não são medidas de FPS ou hardware real.
 
 Limites: Chromium 156.0.8078.4 somente; zoom nativo em uma janela desktop, não em toda matriz de larguras ou navegadores. Sem novos testes em leitor de tela ou dispositivos físicos. A2 e A3 permanecem no backlog; A4 (nome, licença/notices e validações complementares antes de publicação) permanece pendente. O pacote privado de revisão não integra esta edição.
+
+## L1 — Estados e seleção, validação local em 22/10/2026
+
+Candidato isolado na branch `feat/states-selection-l1`, base `9a70fe5564fc66cd624861bb0e98337b9a8cb6d5`. Sem commit, integração, push, deploy, bump ou npm. Não confundir estas três adições com o site público ou com Scroll Reveal.
+
+### Evidências atuais executadas
+
+- Baseline antes das alterações: 43 Vitest + 11 testes Node do auditor, instalação offline com lock congelado.
+- Implementação: suites Presence/Async/Navigation, tokens e exports. Antes das últimas ampliações: 83 Vitest + 11 Node; Presence foi ampliada para 17 casos e um teste de pré-requisito de CI foi acrescentado. Resultado consolidado final é registrado no relatório de entrega, após nova execução completa.
+- Playwright completo: 42 casos aprovados por base `/` e `/terra-motion-skills/`, incluindo regressões existentes, axe, teclado, foco, replay, cópia, hashes e integridade das referências. Três casos adicionais de observer ausente/falho e recuperação de geometria passaram na suite direcionada Pages (15 casos L1).
+- Consumidor independente: somente manifests/dist copiados para pasta temporária do sistema, sem fontes/showcase; Button e Async importados sem Motion resolvível. Após adicionar o peer Motion, SSR com renderToString, leitura sem JavaScript e hydrateRoot real sem erro recuperável; StrictMode, reversão, estado dos filhos, foco, live reduced motion, callback após remoção/ref nula, reserva dos cinco textos a 320 px, fonte alternativa, announcement off, CSS bloqueado e axe passaram. Todos os blocos TSX das duas skills compilaram com declarações públicas strict.
+- Capturas reais do laboratório inteiro e das três demos em 1440, 1024, 390 e 320 px; nenhum overflow de documento e axe sem violações. Capturas estáticas usam redução para estabilidade; gravações Chromium originais documentam execução normal, controles, interrupção e redução.
+- Zoom **nativo** via chrome.tabs.setZoom/getZoom(2), janela física mantida em 1440 × 1000, innerWidth 1424 → 712, DPR 1 → 2, CSS zoom=1 e visualViewport.scale=1. As três páginas passaram sem overflow/axe; no laboratório foram exercitados controles antigos e novos, foco, Space/Enter, replay e clipboard. Capturas individuais L1 em zoom constam do pacote externo.
+- Artefato Pages: 20 arquivos, nove referências, avisos legais idênticos e zero correspondências nos filtros de arquivos/credenciais. Gate de direitos ready=true; não é certificação jurídica. Hashes e assets originais não foram alterados.
+
+### Correções e diagnósticos preservados
+
+Overflow de 457 px em mobile foi corrigido na coluna grid da demo, usando minmax(0,1fr), sem ocultar overflow nem relaxar asserções. Falha de registro de ResizeObserver foi reproduzida por teste: seleção posterior não pode reativar medição insegura. Reversão E2E passou a disparar as duas intenções no navegador e provar DOM ainda retido, evitando que a espera de actionability dos cliques ultrapassasse a saída. A fixture SSR recebeu charset UTF-8 após um erro real de hidratação por codificação; nenhuma recipe foi alterada para esconder esse diagnóstico. Uma captura de vídeo selecionou o link de fonte em vez do último link da navegação; o script de coleta foi corrigido, a aplicação permaneceu intacta e a gravação foi repetida. Houve uma execução direcionada com base de preview incorreta, interrompida e repetida com a base Pages correta; não consta como aprovação.
+
+O workflow recebeu apenas a movimentação do passo existente de instalação do Chromium para antes de check:consumer, agora dependente de browser para hidratação. Ordem verificada por teste RED→GREEN; workflow **não executado remotamente**.
+
+### Limites e reprodução
+
+Windows/Chromium headless e toque emulado executados. Ubuntu WSL local existe, mas não possui Node Linux; pnpm encontrado aponta para instalação Windows. Validação Linux desta mudança não executada; resultados históricos Ubuntu da base não cobrem L1. Outros browsers, leitores de tela, dispositivo físico, anúncios audíveis reais e métricas FPS/hardware permanecem pendentes. Axe e testes de atributos não comprovam anúncio em tecnologia assistiva.
+
+Reproduzir: instalar o lock congelado, instalar Chromium do Playwright quando necessário, `pnpm format:check`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm validate:skills`, `pnpm check:boundaries`, `pnpm check:consumer`, `pnpm test:e2e`. Repetir o E2E com SHOWCASE_BASE_PATH=/terra-motion-skills/ e executar `pnpm check:publication` sobre esse mesmo build. Há necessidade de portas livres 4173 e browser local; a fixture independente usa porta efêmera loopback. Não exige servidor externo ou segredo.
+
+Logs, scripts de coleta, vídeos originais, manifesto e capturas ficam na área técnica/evidências e no pacote final entregue ao titular. Não entram no artefato público. Markdown exportado ainda usa o SHA HEAD da base para links GitHub: fontes novas só existirão nesse destino após futuro commit/push autorizado e rebuild; cópias locais `/reference/*.tsx` já são válidas. Não inventar SHA para tornar links remotos aparentes.
+
+### Revisão final do L1
+
+Revisão estática independente encontrou um Important: callback refs React 19 com cleanup precisavam ser compostas corretamente em Presence/Navigation. Três testes falharam antes e passaram após preservar o cleanup do consumidor, limpar a ref interna e suportar troca de ref/StrictMode/unmount. Nenhum contrato foi ampliado. Observação minor registrada naquela revisão: faltava checar onRecoverableError após as interações. Resolvida na continuação de 22/10 descrita abaixo, com controle negativo de erro real tardio e positivo saudável; a descrição anterior não representa o auditor atual.
+
+Algumas capturas elementares muito altas no Chromium incluem o skip-link fora da viewport durante a captura, apesar de activeElement=body e top=-100 px confirmados. Os originais são preservados, identificados como limitação de captura; screenshots da viewport real complementam a evidência sem ocultar elementos ou mudar CSS. Não foi identificada reprodução do overlay na viewport normal.
+
+## Ajustes locais de UX do laboratório — 22/10/2026
+
+Lote posterior ao pacote L1 inicial, ainda sem commit ou publicação. #fundamentos recebeu padding de 24 px no desktop e 16 px até 600 px, em regra scoped ao laboratório. Tipografia, textos, cores, bordas e recipes preservados. Antes/depois medidos e capturados em 1440,1024,390,320 px, sem overflow.
+
+As cinco demos agora expõem 0–800 ms/passo10, defaults de tokens, valor visível, reset e código correspondente. Button usa custom property pública existente; Async só altera marcador, mantendo resultado imediato. Testes RED específicos cobriram ausência/faixa dos controles e padding zero; GREEN após implementação. Teste físico do indicador a800ms revelou items recriados na demo, reiniciando observação e fazendo snap: estabilização com useMemo no showcase passou a preservar o percurso e o retiming, sem modificar a recipe. Mudança/restauração de duração cancela timer pendente de replay do Accordion.
+
+Durante a implementação, falha de parse de template do Button foi corrigida; em seguida, o nome acessível do reset deixou de repetir o label do slider para evitar ambiguidade real em getByLabel. Os testes antigos continuam, com seletor de output agora scoped ao Accordion e ordem de Tab ampliada para incluir os novos controles; asserções não foram removidas. A bateria final e a prova nativa200% deste lote constam do relatório/evidências entregues; não reaproveitar números históricos do L1 como resultado desta revisão.
+
+Resultado final deste ajuste de UX: **94/94 testes Vitest em 14 arquivos**, 11/11 testes Node do auditor e **61/61 testes Playwright em cada uma das duas bases** (`/` e `/terra-motion-skills/`). Tipos, builds, lint, formatação, skills, fronteiras, consumidor e check:publication passaram. Os novos testes exercitam 0/default/800 ms, reset, teclado, cópia, alterações rápidas/durante execução, redução inicial/durante execução e padding/axe nas quatro larguras. A prova nativa de 200% passou nas três rotas, incluindo sliders, restauração de defaults e padding. A gravação original contínua mostra cinco comparações de 800 ms versus 0 ms e um segmento reduzido. Foram comparados 13 arquivos deste ajuste ao snapshot local anterior; pacotes, assets e contratos TypeScript não foram alterados. Linux L1, leitores de tela e dispositivos físicos permanecem não executados. Trabalho local, sem commit/push/merge/deploy.
+
+## Continuação e fechamento técnico L1 — 22/10/2026
+
+Gate visual aprovado expressamente pelo titular em 22/10. Contratos r2, cinco controles de duração e duas skills locais preservados. Branch feat/states-selection-l1; HEAD/base 9a70fe5564fc66cd624861bb0e98337b9a8cb6d5; sem commit, integração ou operação remota. A abertura do L2 é somente documental, fora desta worktree.
+
+### Mudança efetiva desta continuação
+
+Somente auditor/fixtures de consumidor e este registro: check-consumer.mjs passa a executar check-l1-hydration-audit.mjs; check-l1-consumer.mjs verifica erros recuperáveis em checkpoints de commit e depois das interações; client.mjs usa uma boundary SSR controlada pela fixture hydration-probe.mjs. Nenhuma recipe, skill, dependência, controle ou asset alterado neste fechamento.
+
+**RED real:** após commit da aplicação e interações, liberação de uma boundary SSR pendente produz mismatch React e dispara onRecoverableError; o auditor anterior ainda retornava0. Log hydration-red3.log preservado. Duas tentativas anteriores revelaram um landmark ausente na fixture e resolução incorreta da URL com query; foram corrigidas na fixture/servidor de testes, sem suprimir axe ou mudar produto.
+
+**GREEN:** cenário saudável retorna0, seis checkpoints sem erro incluindo boundary tardia e modo sem CSS. Cenário negativo retorna1 especificamente por RECOVERABLE_HYDRATION_ERROR, com um erro real React observado após interações. A leitura não depende apenas de hydrationStarted nem de aguardar um tempo curto sem erros. Cobertura limitada aos commits e cenários exercitados; não prova ausência de qualquer erro assíncrono futuro. O negativo esperado não é regressão do produto: o gate exige sua rejeição.
+
+### Execuções novas deste fechamento
+
+| Comando                                                | Resultado em Windows/Chromium                                                                   |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| pnpm format:check                                      | PASS                                                                                            |
+| pnpm lint                                              | PASS                                                                                            |
+| pnpm typecheck                                         | PASS, incluindo builds dos pacotes                                                              |
+| pnpm test                                              | 94/94 Vitest em14arquivos e11/11 testes Node do auditor                                         |
+| pnpm validate:skills                                   | PASS, duas skills locais                                                                        |
+| pnpm check:boundaries                                  | PASS, dez subpaths explícitos, sem R1                                                           |
+| pnpm check:consumer                                    | PASS, dist/manifests externos, exemplos strict, SSR/noJS/hidratação e positivo/negativo tardios |
+| SHOWCASE_BASE_PATH=/ pnpm test:e2e                     | 61/61, build completo e preview novo                                                            |
+| SHOWCASE_BASE_PATH=/terra-motion-skills/ pnpm test:e2e | 61/61, build Pages completo e preview novo                                                      |
+| pnpm check:publication                                 | PASS,20arquivos estáticos/9referências/notices idênticos/zero matches nos filtros; ready=true   |
+
+Os E2E preservam axe, teclado/foco, cópia/replay, interrupções, redução inicial/ao vivo, navegação/hash, durações0/default/800 e responsividade320/390/1024/1440. Sem violações axe nos cenários executados; não equivale a certificação universal de acessibilidade. Gate de direitos verifica declarações/bytes atuais, não exclusividade jurídica. Logs por comando, JSONs do consumidor e observação negativa originais preservados em .superpowers/sdd/l1-fechamento-l2-20261022/logs e .validation; cópia no pacote externo.
+
+### Evidências históricas reutilizadas e pendências
+
+Capturas, vídeo de duração e zoom nativo200% do lote UX anterior permanecem evidências históricas válidas da UI inalterada. Não foram produzidas novas capturas ou repetido zoom nesta continuação de harness/documentação. Hashes comparados ao inventário anterior confirmam preservação de fontes visuais/recipes/skills/assets; ver manifesto da entrega.
+
+Ubuntu WSL2 está acessível mas sem Node/nodejs Linux; npm/pnpm encontrados em /mnt/c/DevTools/Node não constituem runtime Linux. Validação Linux L1 permanece PENDENTE; não houve instalação, uso de CI remoto ou simulação de teste Linux com Node Windows. Firefox/WebKit, leitores de tela, dispositivos físicos e métricas de hardware também permanecem pendentes.
+
+Parecer: fechamento técnico local validado no ambiente disponível; pronto para decisão sobre futuro commit local, condicionado às limitações registradas. Não declarar integração/publicação multiplataforma concluída. M06/R1 permanece isolada; M07/M08 e scroll-motion somente especificados fora desta worktree.
+
+Reconferência final: um processo novo sem SHOWCASE_BASE_PATH rejeitou corretamente os assets Pages como base incompatível. O comando foi repetido com SHOWCASE_BASE_PATH=/terra-motion-skills/ e passou (publication-pages-final.log). Erro operacional documentado, sem alteração do auditor ou produto. Reproduzir o gate na mesma base do build.

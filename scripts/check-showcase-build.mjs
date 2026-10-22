@@ -14,6 +14,9 @@ const references = [
   'references-and-licenses.md',
   'button-feedback.tsx',
   'accordion-transition.tsx',
+  'presence-transition.tsx',
+  'async-state-feedback.tsx',
+  'navigation-indicator.tsx',
 ];
 const required = [
   'index.html',

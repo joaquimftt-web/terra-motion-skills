@@ -78,7 +78,7 @@ export function Details() {
 }
 ```
 
-Há quatro subpaths de receita/CSS, sem barrel raiz. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
+A base pública possui quatro subpaths de receita/CSS; esta worktree L1 possui dez, sem barrel raiz. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
 
 ## Skills e arquitetura
 
@@ -86,7 +86,7 @@ Leia [motion-foundations](skills/motion-foundations/SKILL.md) e [microinteractio
 
 - `apps/showcase` consome exports públicos dos pacotes.
 - `packages/motion-tokens` define timing/easing neutros.
-- `packages/motion-recipes` contém Button e Accordion independentes.
+- `packages/motion-recipes` contém as cinco recipes independentes nesta worktree (duas na base pública).
 - `skills` contém instruções; `docs` registra decisões, contratos, fontes e evidências.
 
 [Arquitetura](docs/ARCHITECTURE.md) · [Decisões](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -127,3 +127,9 @@ O link público acima apresenta a experiência integrada. Capturas A1 são regis
 [Contribuições](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Estado da publicação](docs/PUBLICATION_STATUS.md)
 
 Logo e fundo arquitetônico têm permissões específicas separadas da MIT: [declaração do titular](docs/ASSET_PERMISSION_2026-10-21.md) e [condições](ASSET_NOTICES.md). Não são recursos abertos para reutilização irrestrita.
+
+## L1 local — candidato à revisão, 22/10/2026
+
+Nesta branch isolada há três recipes adicionais e demos reais: Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms). As duas receitas públicas anteriores permanecem. O L1 **não está no GitHub Pages nem na Release v0.1.0**; não houve bump de versão ou publicação npm. São dez subpaths explícitos de componentes/CSS nesta worktree. Motion é necessário para Presence/Navigation/Accordion; Button/Async funcionam sem ele.
+
+Veja os contratos reais e as duas skills atualizadas. A demo Async usa uma simulação identificada com promessas resolvidas pelos controles, sem inventar operação de negócio. A navegação usa links/hash reais; seu replay manual avança um único destino para preservar o histórico. `check:consumer` inclui um consumidor temporário externo com SSR/hidratação em Chromium, sem imports do showcase. Evidências e limitações do lote: [validação](docs/VALIDATION.md).

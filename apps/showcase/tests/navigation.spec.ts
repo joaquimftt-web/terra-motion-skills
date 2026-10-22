@@ -73,7 +73,7 @@ test('all legal notices and exported references are real resources, not SPA fall
   const links = await page
     .locator('a[href*="/reference/"]')
     .evaluateAll((nodes) => nodes.map((node) => (node as HTMLAnchorElement).pathname));
-  expect(links).toHaveLength(6);
+  expect(links).toHaveLength(9);
   for (const path of [
     ...links,
     base + 'LICENSE',

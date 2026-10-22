@@ -78,7 +78,7 @@ export function Details() {
 }
 ```
 
-There are four recipe/CSS subpaths and no root recipe barrel. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
+The public baseline has four recipe/CSS subpaths; this local L1 worktree has ten, with no root recipe barrel. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
 
 ## Skills and architecture
 
@@ -86,7 +86,7 @@ Read [motion-foundations](skills/motion-foundations/SKILL.md) and [microinteract
 
 - `apps/showcase`: consumes public package exports.
 - `packages/motion-tokens`: neutral timing/easing.
-- `packages/motion-recipes`: independent Button and Accordion recipes.
+- `packages/motion-recipes`: five independent local recipes (Button and Accordion in the public baseline).
 - `skills`: instructions; `docs`: contracts, decisions, sources and evidence.
 
 [Architecture](docs/ARCHITECTURE.md) · [Decisions](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -127,3 +127,9 @@ The public URL above serves the integrated experience. A1 captures are historica
 [Contributing](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Publication status](docs/PUBLICATION_STATUS.md)
 
 The logo and architectural background have specific permissions separate from MIT: [holder declaration](docs/ASSET_PERMISSION_2026-10-21.md) and [conditions](ASSET_NOTICES.md). They are not assets offered for unrestricted reuse.
+
+## Local L1 — review candidate, 22 October 2026
+
+This isolated branch adds Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indicator (180 ms), with real lab demos and updated operational skills. The two existing public recipes remain unchanged. **L1 is not deployed to GitHub Pages or included in release v0.1.0**; there is no version bump or npm publication. This worktree has ten explicit component/CSS subpaths. Presence/Navigation/Accordion require Motion; Button/Async work without it.
+
+See the actual contracts and skills. The Async demo explicitly identifies its user-controlled deferred-promise simulation. Navigation uses native links and hash/history; manual replay advances a single destination instead of an automatic history sequence. `check:consumer` includes an external temporary SSR/hydration consumer in Chromium, without showcase imports. See [validation](docs/VALIDATION.md) for evidence and limitations.

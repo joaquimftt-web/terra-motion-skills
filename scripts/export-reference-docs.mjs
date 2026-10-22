@@ -19,6 +19,12 @@ const sources = {
   'button-feedback.tsx': 'packages/motion-recipes/src/button-feedback/ButtonFeedback.tsx',
   'accordion-transition.tsx':
     'packages/motion-recipes/src/accordion-transition/AccordionTransition.tsx',
+  'presence-transition.tsx':
+    'packages/motion-recipes/src/presence-transition/PresenceTransition.tsx',
+  'async-state-feedback.tsx':
+    'packages/motion-recipes/src/async-state-feedback/AsyncStateFeedback.tsx',
+  'navigation-indicator.tsx':
+    'packages/motion-recipes/src/navigation-indicator/NavigationIndicator.tsx',
 };
 for (const [name, source] of Object.entries(sources)) {
   if (name.endsWith('.md')) {

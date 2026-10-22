@@ -20,6 +20,27 @@ import materialUrl from './assets/terra-material-reference.webp';
 const base = import.meta.env.BASE_URL;
 const resources = [
   [
+    '07',
+    'Presence Transition',
+    'Presença controlada, foco e remoção real.',
+    'presence-transition.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
+    '08',
+    'Async State Feedback',
+    'Cinco estados controlados e anúncio opcional.',
+    'async-state-feedback.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
+    '09',
+    'Navigation Indicator',
+    'Links nativos e seleção controlada.',
+    'navigation-indicator.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
     '01',
     'Contrato de motion',
     'Princípios, parâmetros e limites das interações.',

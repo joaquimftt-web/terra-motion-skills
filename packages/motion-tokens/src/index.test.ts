@@ -6,6 +6,11 @@ import { motionTokens } from './index';
 const stylesheet = readFileSync(new URL('./motion-tokens.css', import.meta.url), 'utf8');
 
 describe('motion tokens', () => {
+  it('provides timing defaults for the three independent state recipes', () => {
+    expect(motionTokens.duration.presenceTransition).toBe(180);
+    expect(motionTokens.duration.asyncStateFeedback).toBe(160);
+    expect(motionTokens.duration.navigationIndicator).toBe(180);
+  });
   it('provides the approved button and accordion timing defaults in milliseconds', () => {
     expect(motionTokens.duration.buttonFeedback).toBe(140);
     expect(motionTokens.duration.accordionTransition).toBe(180);

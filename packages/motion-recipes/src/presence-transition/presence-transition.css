@@ -1,0 +1,6 @@
+.msl-presence-transition {
+  min-inline-size: 0;
+}
+.msl-presence-transition[inert] {
+  pointer-events: none;
+}

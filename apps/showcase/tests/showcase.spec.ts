@@ -30,7 +30,7 @@ test('catalog links navigate and every local reference resolves', async ({ page,
   const links = await page
     .locator('a[href*="/reference/"]')
     .evaluateAll((elements) => [...new Set(elements.map((el) => el.getAttribute('href')!))]);
-  expect(links.length).toBe(6);
+  expect(links.length).toBe(9);
   const expectedContent: Record<string, string> = {
     'motion-contract.md': '# Contrato',
     'motion-foundations.md': 'name: motion-foundations',
@@ -38,6 +38,9 @@ test('catalog links navigate and every local reference resolves', async ({ page,
     'references-and-licenses.md': '# Fontes',
     'button-feedback.tsx': 'export',
     'accordion-transition.tsx': 'export',
+    'presence-transition.tsx': 'export',
+    'async-state-feedback.tsx': 'export',
+    'navigation-indicator.tsx': 'export',
   };
   for (const href of links) {
     expect(href.startsWith(`${expectedBase}reference/`), href).toBe(true);
@@ -92,7 +95,19 @@ test('button keyboard, focus, press and disabled state are real', async ({ page 
   await expect(button).toHaveCSS('outline-style', 'solid');
   await expect(button).toHaveCSS('transform', 'none');
   await page.keyboard.press('Tab');
+  await expect(page.getByLabel('Duração do Button Feedback')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(
+    page.getByRole('button', { name: 'Restaurar padrão (140 ms)', exact: true }),
+  ).toBeFocused();
+  await page.keyboard.press('Tab');
   await expect(page.getByLabel('Desabilitar botão')).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(
+    page.getByRole('button', { name: 'Restaurar padrão (140 ms)', exact: true }),
+  ).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByLabel('Duração do Button Feedback')).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await expect(button).toBeFocused();
   await button.hover();
@@ -134,7 +149,7 @@ test('duration, reversal, replay and remount use live state with cancellation', 
 }) => {
   const trigger = page.getByRole('button', { name: 'O que torna uma transição útil?' });
   await page.getByLabel('Duração do Accordion').fill('220');
-  await expect(page.locator('.duration-control output')).toHaveText('220 ms');
+  await expect(page.locator('#accordion-transition .duration-control output')).toHaveText('220 ms');
   await expect(page.locator('#accordion-transition code')).toContainText('duration={220}');
   for (let i = 0; i < 7; i++) await trigger.click();
   await expect(trigger).toHaveAttribute('aria-expanded', 'false');

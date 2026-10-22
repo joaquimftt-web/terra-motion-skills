@@ -87,3 +87,6 @@ execFileSync(
   { stdio: 'inherit' },
 );
 console.log('PASS both skill examples: strict TypeScript against copied public declarations');
+execFileSync(process.execPath, [resolve('scripts/check-l1-hydration-audit.mjs')], {
+  stdio: 'inherit',
+});

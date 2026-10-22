@@ -16,7 +16,22 @@
       "types": "./dist/accordion-transition/index.d.ts",
       "import": "./dist/accordion-transition/index.js"
     },
-    "./accordion-transition.css": "./dist/accordion-transition/accordion-transition.css"
+    "./accordion-transition.css": "./dist/accordion-transition/accordion-transition.css",
+    "./presence-transition": {
+      "types": "./dist/presence-transition/index.d.ts",
+      "import": "./dist/presence-transition/index.js"
+    },
+    "./presence-transition.css": "./dist/presence-transition/presence-transition.css",
+    "./async-state-feedback": {
+      "types": "./dist/async-state-feedback/index.d.ts",
+      "import": "./dist/async-state-feedback/index.js"
+    },
+    "./async-state-feedback.css": "./dist/async-state-feedback/async-state-feedback.css",
+    "./navigation-indicator": {
+      "types": "./dist/navigation-indicator/index.d.ts",
+      "import": "./dist/navigation-indicator/index.js"
+    },
+    "./navigation-indicator.css": "./dist/navigation-indicator/navigation-indicator.css"
   },
   "files": [
     "dist"

@@ -19,3 +19,7 @@ Publicação integrada confirmada no commit `49d724183732bc8a82e8ed6889e9ecbd333
 Primeiro deploy: 20/10/2026, baceffee, run 39469817919. Integração inicial: 7ea60ea; recuperação de overflow mobile Linux: 2df1626, f0cd8e2 e 49d7241. O run inicial 39651224455 falhou antes do deploy; o run 39654669658 publicou a recuperação validada. Não confundir o relato histórico de bloqueio de direitos com o estado regularizado atual.
 
 [Operação e rollback](HOSTING.md) · [Integração concluída](CLOSING_INTEGRATION.md) · [Validação](CLOSING_VALIDATION.md).
+
+## Candidato L1 local — 22/10/2026
+
+A worktree feat/states-selection-l1 adiciona Presence Transition, Async State Feedback e Navigation Indicator apenas localmente. Nenhuma integração, commit, push, deploy ou alteração da Release v0.1.0 foi autorizada neste lote. O site público continua com as duas recipes da base; Scroll Reveal permanece isolado.

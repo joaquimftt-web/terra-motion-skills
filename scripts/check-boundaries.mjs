@@ -24,6 +24,20 @@ for (const name of ['motion-tokens', 'motion-recipes']) {
   }
 }
 const recipes = JSON.parse(readFileSync('packages/motion-recipes/package.json', 'utf8'));
-if ('.' in recipes.exports || Object.keys(recipes.exports).length !== 4)
+const expected = [
+  'button-feedback',
+  'accordion-transition',
+  'presence-transition',
+  'async-state-feedback',
+  'navigation-indicator',
+]
+  .flatMap((name) => ['./' + name, './' + name + '.css'])
+  .sort();
+if (
+  '.' in recipes.exports ||
+  JSON.stringify(Object.keys(recipes.exports).sort()) !== JSON.stringify(expected)
+)
   throw new Error('Unexpected recipe exports');
-console.log('PASS package boundaries: directed imports and four explicit recipe subpaths');
+console.log(
+  'PASS package boundaries: directed imports and ten explicit recipe subpaths (four original paths retained)',
+);
