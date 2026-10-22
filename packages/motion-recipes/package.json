@@ -31,7 +31,19 @@
       "types": "./dist/navigation-indicator/index.d.ts",
       "import": "./dist/navigation-indicator/index.js"
     },
-    "./navigation-indicator.css": "./dist/navigation-indicator/navigation-indicator.css"
+    "./navigation-indicator.css": "./dist/navigation-indicator/navigation-indicator.css",
+    "./scroll-reveal": {
+      "types": "./dist/scroll-reveal/index.d.ts",
+      "import": "./dist/scroll-reveal/index.js"
+    },
+    "./staggered-entrance": {
+      "types": "./dist/staggered-entrance/index.d.ts",
+      "import": "./dist/staggered-entrance/index.js"
+    },
+    "./scroll-progress": {
+      "types": "./dist/scroll-progress/index.d.ts",
+      "import": "./dist/scroll-progress/index.js"
+    }
   },
   "files": [
     "dist"

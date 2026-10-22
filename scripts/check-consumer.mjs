@@ -55,7 +55,8 @@ for (const path of ['button-feedback.css','accordion-transition.css']) assert.ok
 console.log('PASS output-only consumer: public ESM exports, SSR and CSS resolution');
 `,
 );
-for (const name of ['motion-foundations', 'microinteraction-design']) {
+cpSync(resolve('scripts/fixtures/l2-consumer-types.tsx'), join(fixture, 'l2-consumer-types.tsx'));
+for (const name of ['motion-foundations', 'microinteraction-design', 'scroll-motion']) {
   const skill = readFileSync(resolve('skills', name, 'SKILL.md'), 'utf8');
   const examples = [...skill.matchAll(/```tsx\r?\n([\s\S]*?)```/g)];
   if (!examples.length) throw new Error(`No TSX example: ${name}`);
@@ -86,7 +87,7 @@ execFileSync(
   [resolve('node_modules/typescript/lib/tsc.js'), '-p', join(fixture, 'tsconfig.json')],
   { stdio: 'inherit' },
 );
-console.log('PASS both skill examples: strict TypeScript against copied public declarations');
+console.log('PASS three skill examples: strict TypeScript against copied public declarations');
 execFileSync(process.execPath, [resolve('scripts/check-l1-hydration-audit.mjs')], {
   stdio: 'inherit',
 });

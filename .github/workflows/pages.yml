@@ -49,6 +49,8 @@ jobs:
           pnpm validate:skills
           pnpm check:boundaries
           pnpm check:consumer
+      - name: Validate independent scroll recipe fixture
+        run: pnpm test:e2e:recipes
       - name: Validate local root build
         env:
           SHOWCASE_BASE_PATH: /

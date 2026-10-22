@@ -77,3 +77,13 @@ Código copiável acompanha duração selecionada e redução adicional. Movimen
 Os controles são exclusivamente do showcase. DurationControl reutiliza apresentação e comportamento em cinco demos, sem export para consumidores de recipes. Em Accordion, mudar/restaurar duração cancela replay ainda agendado, evitando abertura tardia do timer antigo; nova interação/replay continua disponível. Navigation mantém a identidade de items até os rótulos mudarem, preservando a medição durante foco, hash e duração.
 
 Toda demo futura deve validar 0/default/valor alto, alterações rápidas/durante execução, teclado/foco, reduced motion, correspondência com código copiável, responsividade e ausência de overflow. Se uma futura recipe for realmente fixa e não oferecer prop nem custom property pública, documentar essa limitação e propor alternativa; não ampliar contrato silenciosamente.
+
+## L2 local — scroll funcional
+
+Contratos selecionados na especificação B-L2-r1 e implementados na branch feat/scroll-functional-l2, sobre checkpoint L1. Sem integração pública ou bump. Subpaths novos scroll-reveal, staggered-entrance e scroll-progress não exigem CSS próprio; dez subpaths anteriores preservados.
+
+- [M06](recipes/scroll-reveal.md): preparação comprovadamente fora da viewport, deslocamento sem fade, replay contínuo e prioridade de foco/redução.
+- [M07](recipes/staggered-entrance.md): ul/li genérico, duration260ms,offset8px,stagger50ms e atraso min(i×stagger,200)ms; grupo cancela junto.
+- [M08](recipes/scroll-progress.md): source document/section/container com contentRef, barra decorativa ligada à posição, sem duração/spring ou leitura presumida.
+
+Demonstrações temporais0–800ms e código sincronizado; M08 usa scroll/conteúdo/resize reais. Skill [scroll-motion](../skills/scroll-motion/SKILL.md) somente após funcionamento e validação dos contratos. Linux continua pendente. Nunca aninhar M06/M07 sobre o mesmo conteúdo.

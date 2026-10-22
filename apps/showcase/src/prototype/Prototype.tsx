@@ -82,6 +82,34 @@ const resources = [
     'references-and-licenses.md',
     'CRÉDITOS',
   ],
+  [
+    '10',
+    'Scroll Reveal',
+    'Entrada neutra, preparação segura e fallback.',
+    'scroll-reveal.tsx',
+    'CÓDIGO-FONTE LOCAL',
+  ],
+  [
+    '11',
+    'Staggered Entrance',
+    'Grupo semântico com atraso limitado.',
+    'staggered-entrance.tsx',
+    'CÓDIGO-FONTE LOCAL',
+  ],
+  [
+    '12',
+    'Scroll Progress',
+    'Indicador decorativo de posição real.',
+    'scroll-progress.tsx',
+    'CÓDIGO-FONTE LOCAL',
+  ],
+  [
+    '13',
+    'Scroll motion',
+    'Skill de entradas e progresso de rolagem.',
+    'scroll-motion.md',
+    'SKILL LOCAL',
+  ],
 ] as const;
 
 function Brand() {
@@ -344,7 +372,8 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
         </div>
         <p className="lp-scope-note">
           A apresentação desta prévia é exclusiva da landing. Scroll Reveal permanece em branch
-          isolada; receitas futuras não são demonstradas como entregues.
+          isolada no histórico. Nesta prévia local, L1 e L2 estão disponíveis para revisão; não
+          foram publicados na main ou no npm.
         </p>
       </section>
       <section className="lp-method lp-section" aria-labelledby="method-title">

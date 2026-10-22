@@ -19,3 +19,10 @@ describe('public state recipe consumption', () => {
     });
   }
 });
+
+for (const name of ['scroll-reveal', 'staggered-entrance', 'scroll-progress']) {
+  it(`resolves the independent ${name} ESM subpath without required CSS`, async () => {
+    const module = await import(`@motion-skills-lab/motion-recipes/${name}`);
+    expect(Object.values(module).some((value) => typeof value === 'function')).toBe(true);
+  });
+}

@@ -1,3 +1,6 @@
+import { ScrollReveal } from '@motion-skills-lab/motion-recipes/scroll-reveal';
+import { StaggeredEntrance } from '@motion-skills-lab/motion-recipes/staggered-entrance';
+import { ScrollProgress } from '@motion-skills-lab/motion-recipes/scroll-progress';
 import React, { useRef, useState, StrictMode } from 'react';
 import { PresenceTransition } from '@motion-skills-lab/motion-recipes/presence-transition';
 import { AsyncStateFeedback } from '@motion-skills-lab/motion-recipes/async-state-feedback';
@@ -83,6 +86,22 @@ export function App() {
         value,
         duration,
       }),
+      React.createElement(
+        ScrollReveal,
+        { 'data-testid': 'independent-reveal' },
+        React.createElement('p', null, 'Reveal SSR legível'),
+      ),
+      React.createElement(StaggeredEntrance, {
+        'data-testid': 'independent-group',
+        items,
+        getKey: (item) => item.id,
+        renderItem: (item) =>
+          React.createElement('input', {
+            'aria-label': 'Independent group ' + item.id,
+            defaultValue: item.label,
+          }),
+      }),
+      React.createElement(ScrollProgress, { 'data-testid': 'independent-progress' }),
       ...items.map((item) =>
         React.createElement(
           'section',

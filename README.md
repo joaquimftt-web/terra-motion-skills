@@ -133,3 +133,13 @@ Logo e fundo arquitetônico têm permissões específicas separadas da MIT: [dec
 Nesta branch isolada há três recipes adicionais e demos reais: Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms). As duas receitas públicas anteriores permanecem. O L1 **não está no GitHub Pages nem na Release v0.1.0**; não houve bump de versão ou publicação npm. São dez subpaths explícitos de componentes/CSS nesta worktree. Motion é necessário para Presence/Navigation/Accordion; Button/Async funcionam sem ele.
 
 Veja os contratos reais e as duas skills atualizadas. A demo Async usa uma simulação identificada com promessas resolvidas pelos controles, sem inventar operação de negócio. A navegação usa links/hash reais; seu replay manual avança um único destino para preservar o histórico. `check:consumer` inclui um consumidor temporário externo com SSR/hidratação em Chromium, sem imports do showcase. Evidências e limitações do lote: [validação](docs/VALIDATION.md).
+
+## L2 — scroll funcional (somente branch local)
+
+A branch feat/scroll-functional-l2 parte do checkpoint L1 e acrescenta Scroll Reveal, Staggered Entrance e Scroll Progress, com três demos e a skill [scroll-motion](skills/scroll-motion/SKILL.md). Não estão integradas na main ou publicadas no npm/Pages. A URL pública acima continua representando a base publicada, não esta prévia de oito recipes.
+
+- [Scroll Reveal](docs/recipes/scroll-reveal.md): entrada curta, sem fade, preparação segura abaixo da viewport.
+- [Staggered Entrance](docs/recipes/staggered-entrance.md): lista ul/li com atraso min(i×stagger,200)ms e cancelamento do grupo.
+- [Scroll Progress](docs/recipes/scroll-progress.md): posição vertical real; barra decorativa, sem percentual de leitura.
+
+Consumo por subpaths, sem dependência do showcase ou CSS V4. Demos temporais permitem0–800ms; o indicador de posição não tem duração artificial. Execute pnpm test:e2e:recipes além das verificações do workspace. Linux desta composição permanece pendente; não assumir que validações históricas da main cobrem este lote.

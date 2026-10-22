@@ -133,3 +133,13 @@ The logo and architectural background have specific permissions separate from MI
 This isolated branch adds Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indicator (180 ms), with real lab demos and updated operational skills. The two existing public recipes remain unchanged. **L1 is not deployed to GitHub Pages or included in release v0.1.0**; there is no version bump or npm publication. This worktree has ten explicit component/CSS subpaths. Presence/Navigation/Accordion require Motion; Button/Async work without it.
 
 See the actual contracts and skills. The Async demo explicitly identifies its user-controlled deferred-promise simulation. Navigation uses native links and hash/history; manual replay advances a single destination instead of an automatic history sequence. `check:consumer` includes an external temporary SSR/hydration consumer in Chromium, without showcase imports. See [validation](docs/VALIDATION.md) for evidence and limitations.
+
+## L2 — functional scroll (local branch only)
+
+The feat/scroll-functional-l2 branch builds on the L1 checkpoint and adds Scroll Reveal, Staggered Entrance and Scroll Progress, three demos and the [scroll-motion](skills/scroll-motion/SKILL.md) skill. These changes are not merged into main or published to npm/Pages. The public URL above still represents the published baseline, not this eight-recipe local preview.
+
+- [Scroll Reveal](docs/recipes/scroll-reveal.md): short vertical entrance, no fade, safe preparation below the viewport.
+- [Staggered Entrance](docs/recipes/staggered-entrance.md): semantic ul/li group; delay min(i×stagger,200)ms and whole-group cancellation.
+- [Scroll Progress](docs/recipes/scroll-progress.md): actual vertical position; decorative, not proof of reading.
+
+Consume independent subpaths without showcase/V4 CSS. Temporal demos offer0–800ms controls; position-linked progress has no artificial duration. Run pnpm test:e2e:recipes as well as workspace checks. Linux validation for this composition remains pending; historical main results do not cover L2.

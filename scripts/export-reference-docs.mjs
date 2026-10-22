@@ -12,6 +12,10 @@ const revision =
   execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root }).toString().trim();
 const repository = `https://github.com/joaquimftt-web/terra-motion-skills/blob/${revision}/`;
 const sources = {
+  'scroll-reveal.tsx': 'packages/motion-recipes/src/scroll-reveal/ScrollReveal.tsx',
+  'staggered-entrance.tsx': 'packages/motion-recipes/src/staggered-entrance/StaggeredEntrance.tsx',
+  'scroll-progress.tsx': 'packages/motion-recipes/src/scroll-progress/ScrollProgress.tsx',
+  'scroll-motion.md': 'skills/scroll-motion/SKILL.md',
   'motion-foundations.md': 'skills/motion-foundations/SKILL.md',
   'microinteraction-design.md': 'skills/microinteraction-design/SKILL.md',
   'motion-contract.md': 'docs/MOTION_CONTRACT.md',

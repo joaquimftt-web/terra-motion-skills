@@ -181,6 +181,16 @@ try {
   await page.getByRole('button', { name: 'Select c', exact: true }).click();
   assert.equal(await page.locator('[aria-current]').innerText(), 'Examples');
   await assertHydrationClean(page, 'after async, font and navigation interactions');
+  assert.equal(await page.getByTestId('independent-reveal').innerText(), 'Reveal SSR legível');
+  assert.equal(await page.getByTestId('independent-group').locator('li').count(), 3);
+  await page.getByLabel('Independent group a', { exact: true }).fill('L2 state preserved');
+  assert.equal(
+    await page.getByLabel('Independent group a', { exact: true }).inputValue(),
+    'L2 state preserved',
+  );
+  assert.equal(await page.getByTestId('independent-progress').getAttribute('aria-hidden'), 'true');
+  await assertHydrationClean(page, 'after three independent scroll recipes and native interaction');
+  results.push('L2 independent subpaths SSR, hydration, native state and decorative progress');
   const violations = (await new AxeBuilder({ page }).analyze()).violations;
   assert.deepEqual(violations, []);
   await page.waitForFunction(() => window.hydrationCommitted === true);

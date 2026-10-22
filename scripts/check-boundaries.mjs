@@ -32,6 +32,7 @@ const expected = [
   'navigation-indicator',
 ]
   .flatMap((name) => ['./' + name, './' + name + '.css'])
+  .concat(['./scroll-reveal', './staggered-entrance', './scroll-progress'])
   .sort();
 if (
   '.' in recipes.exports ||
@@ -39,5 +40,5 @@ if (
 )
   throw new Error('Unexpected recipe exports');
 console.log(
-  'PASS package boundaries: directed imports and ten explicit recipe subpaths (four original paths retained)',
+  'PASS package boundaries: directed imports and thirteen explicit recipe subpaths (four original paths retained)',
 );

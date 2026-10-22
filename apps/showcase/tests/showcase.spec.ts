@@ -30,8 +30,12 @@ test('catalog links navigate and every local reference resolves', async ({ page,
   const links = await page
     .locator('a[href*="/reference/"]')
     .evaluateAll((elements) => [...new Set(elements.map((el) => el.getAttribute('href')!))]);
-  expect(links.length).toBe(9);
+  expect(links.length).toBe(13);
   const expectedContent: Record<string, string> = {
+    'scroll-reveal.tsx': 'export',
+    'staggered-entrance.tsx': 'export',
+    'scroll-progress.tsx': 'export',
+    'scroll-motion.md': 'name: scroll-motion',
     'motion-contract.md': '# Contrato',
     'motion-foundations.md': 'name: motion-foundations',
     'microinteraction-design.md': 'name: microinteraction-design',
@@ -42,6 +46,9 @@ test('catalog links navigate and every local reference resolves', async ({ page,
     'async-state-feedback.tsx': 'export',
     'navigation-indicator.tsx': 'export',
   };
+  expect(links.map((href) => href.split('/').at(-1)!).sort()).toEqual(
+    Object.keys(expectedContent).sort(),
+  );
   for (const href of links) {
     expect(href.startsWith(`${expectedBase}reference/`), href).toBe(true);
     const response = await request.get(href);
