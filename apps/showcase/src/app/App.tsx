@@ -23,9 +23,9 @@ export function App() {
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
-      <nav className="lp-lab-return" aria-label="Navegação da prévia">
+      <nav className="lp-lab-return" aria-label="Navegação do laboratório">
         <a href={import.meta.env.BASE_URL}>← Voltar à apresentação</a>
-        <span>PRÉVIA LOCAL · MINERAL TÉCNICO</span>
+        <span>LAB · MINERAL TÉCNICO</span>
         <a href={`${import.meta.env.BASE_URL}referencias/`}>Referências ↗</a>
       </nav>
       <aside className="sidebar">
@@ -51,12 +51,12 @@ export function App() {
         <RecipeCatalog />
         <div className="sidebar-bottom">
           <span className="version-badge">
-            v0.1 <span>REVISÃO LOCAL</span>
+            v0.1 <span>HISTÓRICA</span>
           </span>
           <p>
             React · TypeScript · Motion
             <br />
-            Projeto independente / v0.1 validada localmente
+            Projeto independente / 8 recipes na main
           </p>
         </div>
       </aside>
@@ -93,11 +93,11 @@ export function App() {
           </section>
           <div className="lab-summary">
             <div>
-              <strong>05</strong>
+              <strong>08</strong>
               <span>RECEITAS FUNCIONAIS</span>
             </div>
             <div>
-              <strong>02</strong>
+              <strong>03</strong>
               <span>SKILLS OPERACIONAIS</span>
             </div>
             <div>
@@ -165,7 +165,7 @@ export function App() {
             </div>
             <div className="foundation-links">
               <a href={`${import.meta.env.BASE_URL}reference/scroll-motion.md`}>
-                Ler scroll-motion (L2 local) ↗
+                Ler scroll-motion ↗
               </a>
               <a href={`${import.meta.env.BASE_URL}reference/motion-foundations.md`}>
                 Ler motion-foundations ↗

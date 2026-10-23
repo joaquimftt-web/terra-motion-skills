@@ -88,29 +88,23 @@ const resources = [
     'Scroll Reveal',
     'Entrada neutra, preparação segura e fallback.',
     'scroll-reveal.tsx',
-    'CÓDIGO-FONTE LOCAL',
+    'CÓDIGO-FONTE',
   ],
   [
     '11',
     'Staggered Entrance',
     'Grupo semântico com atraso limitado.',
     'staggered-entrance.tsx',
-    'CÓDIGO-FONTE LOCAL',
+    'CÓDIGO-FONTE',
   ],
   [
     '12',
     'Scroll Progress',
     'Indicador decorativo de posição real.',
     'scroll-progress.tsx',
-    'CÓDIGO-FONTE LOCAL',
+    'CÓDIGO-FONTE',
   ],
-  [
-    '13',
-    'Scroll motion',
-    'Skill de entradas e progresso de rolagem.',
-    'scroll-motion.md',
-    'SKILL LOCAL',
-  ],
+  ['13', 'Scroll motion', 'Skill de entradas e progresso de rolagem.', 'scroll-motion.md', 'SKILL'],
 ] as const;
 
 function Brand() {
@@ -136,8 +130,8 @@ export function Prototype() {
       page === 'lab'
         ? 'Terra Motion Skills — Interações com intenção'
         : page === 'references'
-          ? 'Terra Motion Skills — Referências · Prévia local'
-          : 'Terra Motion Skills — Experiência integrada · Prévia local';
+          ? 'Terra Motion Skills — Referências'
+          : 'Terra Motion Skills — Experiência integrada';
   }, [page]);
   const [manualReduction, setManualReduction] = useState(false);
   const reduced = useSystemReducedMotion() || manualReduction;
@@ -157,7 +151,7 @@ export function Prototype() {
       <header>
         <div className="lp-preview">
           <span className="lp-status-dot" />
-          P2 · P3 · L-UX <span>Prévia local</span>
+          V4 · L1 · L2 <span>Público</span>
         </div>
         <div className="lp-header">
           <Brand />
@@ -262,10 +256,10 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
       <FirstContact reduced={reduced} />
       <div className="lp-proof-strip">
         <p>
-          <strong>02</strong> Recipes funcionais
+          <strong>08</strong> Recipes funcionais
         </p>
         <p>
-          <strong>02</strong> Skills operacionais
+          <strong>03</strong> Skills operacionais
         </p>
         <p>
           <span className="lp-small-cross" aria-hidden="true">
@@ -310,7 +304,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
             </h2>
           </div>
           <p>
-            Duas recipes. Comportamento real.
+            8 recipes. Comportamento real.
             <br />
             Código independente desta vitrine.
           </p>
@@ -336,7 +330,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
               <output aria-live="polite">
                 {activations === 0
                   ? 'Experimente o botão'
-                  : `${activations} ${activations === 1 ? 'ativação' : 'ativações'} nesta prévia`}
+                  : `${activations} ${activations === 1 ? 'ativação' : 'ativações'} nesta sessão`}
               </output>
             </div>
             <a className="lp-card-link" href={`${base}lab/#button-feedback`}>
@@ -374,9 +368,9 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
           </motion.article>
         </div>
         <p className="lp-scope-note">
-          A apresentação desta prévia é exclusiva da landing. Scroll Reveal permanece em branch
-          isolada no histórico. Nesta prévia local, L1 e L2 estão disponíveis para revisão; não
-          foram publicados na main ou no npm.
+          A apresentação é exclusiva da landing. L1 e L2 estão na main e no GitHub Pages. A recipe
+          Scroll Reveal publicada pertence ao L2; o experimento R1 permanece preservado no
+          histórico. Pacotes npm não publicados.
         </p>
       </section>
       <section className="lp-method lp-section" aria-labelledby="method-title">
@@ -460,7 +454,7 @@ function References() {
       </h1>
       <p className="lp-reference-intro">
         Contratos, código e decisões. Recursos originais da biblioteca, separados das inspirações
-        visuais desta prévia.
+        visuais do showcase.
       </p>
       <div className="lp-reference-grid">
         {resources.map(([index, title, description, file, type]) => (

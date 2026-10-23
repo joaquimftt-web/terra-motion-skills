@@ -1,6 +1,6 @@
-# Scroll Reveal — M06 / L2 no candidato da PR #1
+# Scroll Reveal — M06 / L2 publicado pela PR #1
 
-**Código disponível na branch pública integration/landing-v4-horizontal da PR #1; ainda fora da main/Pages/npm.** Este subpath não pertence à Release/tag histórica v0.1.0. O candidato inclui oito recipes, três skills e 13 subpaths, com demos L2 no laboratório e consumo na landing. A branch R1 original permanece separada.
+**Código integrado na main e demos publicadas no Pages pela PR #1; pacotes npm não publicados.** Este subpath não pertence à Release/tag histórica v0.1.0. A main inclui oito recipes, três skills e 13 subpaths, com demos L2 no laboratório e consumo na landing. A branch R1 original permanece separada.
 
 ## Consumo
 
@@ -84,8 +84,8 @@ Geometria/pintura arbitrárias não são inferidas universalmente: em dúvida, e
 
 ## Histórico — adaptação seletiva ao L2 em 22/10/2026
 
-Contrato público preservado, default260ms/8px. Branch R1 original permanece intacta em3b1a494. Esta cópia parte do checkpoint L1 a6a1292; não é merge da infraestrutura antiga. O lifecycle privado foi compartilhado com M07 após necessidade real de cancelamento/preparação comum;33testes R1 e15E2E anteriores permanecem. Nenhuma API de fade/root/amount adicionada. Duas skills anteriores preservadas; nova [scroll-motion](../../skills/scroll-motion/SKILL.md) ensina composição e limites. Naquela etapa a adaptação era exclusivamente local; agora integra o candidato público da PR #1, ainda fora da main/Pages/npm. Resultados atuais/limitações em [VALIDATION](../VALIDATION.md).
+Contrato público preservado, default260ms/8px. Branch R1 original permanece intacta em3b1a494. Esta cópia parte do checkpoint L1 a6a1292; não é merge da infraestrutura antiga. O lifecycle privado foi compartilhado com M07 após necessidade real de cancelamento/preparação comum;33testes R1 e15E2E anteriores permanecem. Nenhuma API de fade/root/amount adicionada. Duas skills anteriores preservadas; nova [scroll-motion](../../skills/scroll-motion/SKILL.md) ensina composição e limites. Naquela etapa a adaptação era exclusivamente local; foi posteriormente integrada na main e publicada no Pages pela PR #1, sem publicação npm. Resultados atuais/limitações em [VALIDATION](../VALIDATION.md).
 
-## Estado de validação do candidato
+## Estado de validação publicado
 
-CI Ubuntu do SHA original 38b6fbbb aprovada na [execução 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), deploy skipped. Resultados pertencem àquele SHA; alterações documentais posteriores ainda requerem revalidação Ubuntu. Outros navegadores, leitores de tela e dispositivos físicos continuam sem validação específica.
+No merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.

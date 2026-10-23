@@ -1,6 +1,14 @@
 # Hospedagem — GitHub Pages
 
-## Estado público confirmado em 21/10/2026
+## Estado público confirmado em 22/10/2026
+
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+
+No merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.
+
+O experimento Scroll Reveal R1 original permanece isolado; a recipe Scroll Reveal L2 está publicada. Nenhuma versão ou Release foi alterada.
+
+## Histórico — estado público confirmado em 21/10/2026
 
 Experiência integrada ativa em **https://joaquimftt-web.github.io/terra-motion-skills/**, incluindo landing V4/P1/P2/P3, laboratório Mineral Técnico e referências. Commit publicado: `49d724183732bc8a82e8ed6889e9ecbd3338d527`, [run 39654669658](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658), com validação/build e deploy bem-sucedidos. Primeiro deploy histórico: 20/10/2026, baceffee, run 39469817919. Pages usa GitHub Actions e HTTPS obrigatório.
 
@@ -10,7 +18,7 @@ Experiência integrada ativa em **https://joaquimftt-web.github.io/terra-motion-
 
 Tokens → receitas → showcase via `pnpm build`. Artefato exclusivo: `apps/showcase/dist`. Base `/` ou `/terra-motion-skills/`. Build cria `index.html`, `lab/index.html` e `referencias/index.html` com a mesma entrada JS/CSS: acesso direto e refresh independem do fallback SPA/404 do Pages. Usar barras finais; âncoras antigas de recipes redirecionam para o laboratório. Sem backend ou catch-all para rotas arbitrárias.
 
-Links usam `import.meta.env.BASE_URL`. Seis referências exportadas mantêm os fontes intactos; somente links Markdown relativos das cópias viram URLs para o SHA de origem. Em clone Git usa-se HEAD. Na cópia sem Git, `PROTOTYPE_SOURCE_REVISION` aponta para a base conhecida. **Não fixar esse override no workflow:** o build integrado deve usar seu novo SHA.
+Links usam `import.meta.env.BASE_URL`. As 13 referências exportadas mantêm os fontes intactos; somente links Markdown relativos das cópias viram URLs para o SHA de origem. Em clone Git usa-se HEAD. Na cópia sem Git, `PROTOTYPE_SOURCE_REVISION` aponta para a base conhecida. **Não fixar esse override no workflow:** o build integrado deve usar seu novo SHA.
 
 LICENSE, THIRD_PARTY_NOTICES.md, ASSET_NOTICES.md e aviso de identidade integram o artefato, sem fontes completos, evidências de auditoria, Git, caches ou node_modules. Auditor exige entradas, imagens idênticas aos fontes, allowlist, bases e avisos; rejeita symlinks/padrões de dados privados. Gate separado verifica registros de direitos, não constitui certificação jurídica.
 
