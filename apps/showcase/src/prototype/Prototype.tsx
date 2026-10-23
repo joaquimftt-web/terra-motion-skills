@@ -6,14 +6,12 @@ import { App } from '../app/App';
 import { useSystemReducedMotion } from '../components/useSystemReducedMotion';
 import { usePresentation } from './usePresentation';
 import { Architecture } from './Architecture';
-import { useMineralFold } from './useMineralFold';
 import { useLandingNarrative } from './useLandingNarrative';
 import './prototype.css';
 import './v2.css';
 import './v3.css';
 import './v4.css';
 import './p1.css';
-import './p2.css';
 import './narrative.css';
 import materialUrl from './assets/terra-material-reference.webp';
 import { FirstContact, LandingMotion } from './landing-motion/LandingMotion';
@@ -199,7 +197,6 @@ export function Prototype() {
 }
 
 function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () => void }) {
-  const { plane, region } = useMineralFold(reduced, materialUrl);
   const narrativeRoot = useLandingNarrative(reduced);
   const [activations, setActivations] = useState(0);
   const [open, setOpen] = useState(false);
@@ -285,15 +282,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
           </p>
         </div>
       </section>
-      <section
-        ref={region}
-        id="biblioteca"
-        className="lp-library lp-section"
-        aria-labelledby="library-title"
-      >
-        <div className="lp-p2-slot" aria-hidden="true">
-          <div className="lp-p2-plane" ref={plane} />
-        </div>
+      <section id="biblioteca" className="lp-library lp-section" aria-labelledby="library-title">
         <div className="lp-section-heading">
           <div>
             <p className="lp-kicker">(02) A BIBLIOTECA / v0.1</p>
