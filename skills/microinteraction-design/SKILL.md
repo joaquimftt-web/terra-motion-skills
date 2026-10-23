@@ -7,9 +7,11 @@ description: 'Use when designing or reviewing control feedback, disclosure, remo
 
 Faça o controle comunicar seu estado real. Escolha somente os estados que a operação possui e mantenha o consumidor responsável pelos dados e ações.
 
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+
 ## Aplicação
 
-Use para feedback de controles e disclosure de conteúdo em React. Escolha [Button Feedback](../../packages/motion-recipes/src/button-feedback/ButtonFeedback.tsx) para botão semântico com feedback de cor; escolha [Accordion Transition](../../packages/motion-recipes/src/accordion-transition/AccordionTransition.tsx) para conteúdo aberto/fechado controlado. Essas duas receitas da base pública não resolvem links, dialogs, menus com teclado composto nem uma operação assíncrona completa. As três adições L1 do candidato da PR #1 estão detalhadas ao final, incluindo navegação nativa e apresentação de estados.
+Use para feedback de controles e disclosure de conteúdo em React. Escolha [Button Feedback](../../packages/motion-recipes/src/button-feedback/ButtonFeedback.tsx) para botão semântico com feedback de cor; escolha [Accordion Transition](../../packages/motion-recipes/src/accordion-transition/AccordionTransition.tsx) para conteúdo aberto/fechado controlado. Essas duas receitas originais não resolvem links, dialogs, menus com teclado composto nem uma operação assíncrona completa. As três adições L1 integradas na main pela PR #1 estão detalhadas ao final, incluindo navegação nativa e apresentação de estados.
 
 Comece identificando: ação real, rótulo acessível, estados aplicáveis, estado controlado pelo consumidor e forma de cancelar ou reverter a interação. Preserve o contrato existente antes de alterar uma receita.
 
@@ -71,9 +73,9 @@ Execute os testes da receita alterada e um consumo pelos exports públicos. No b
 
 Apresente a matriz de estados aplicáveis, props usadas, comandos/resultados e pendências. Revise a solução se ela anunciar sucesso sem operação concluída, tornar conteúdo fechado navegável, perder foco ou reativar movimento contra a preferência do sistema. Auditoria axe complementa esses cenários; não os substitui.
 
-## L1 — Presence, Async e Navigation (candidato da PR #1; ainda fora da main/Pages/npm)
+## L1 — Presence, Async e Navigation (main e Pages; npm não publicado)
 
-As três APIs abaixo existem nesta worktree, sem bump de versão ou publicação. Os contratos anteriores permanecem válidos. Consulte os [contratos completos](../../docs/MOTION_CONTRACT.md) antes de editar.
+As três APIs abaixo estão integradas na main e demonstradas no Pages, sem bump de versão ou publicação npm. Os contratos anteriores permanecem válidos. Consulte os [contratos completos](../../docs/MOTION_CONTRACT.md) antes de editar.
 
 | Recipe               | Default                                        | Fonte de verdade           | Limite                                             |
 | -------------------- | ---------------------------------------------- | -------------------------- | -------------------------------------------------- |

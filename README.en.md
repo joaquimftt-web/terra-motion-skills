@@ -1,14 +1,14 @@
 # Terra Motion Skills
 
-[Português](README.md) · **v0.1 — validated local milestone** · Public GitHub repository
+[Português](README.md) · **v0.1.0 — historical milestone; published experience** · Public GitHub repository
 
-Eight reusable React motion recipes in the candidate and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
+Eight reusable React motion recipes on main and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
 
 ![Terra Motion Skills showcase](docs/evidence/publication/terra-showcase-v4-1440.png)
 
-**Public showcase:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [Mineral Technical lab](https://joaquimftt-web.github.io/terra-motion-skills/lab/) and [references](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). The integrated V4/P1/P2/P3 experience was published from `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [successful deployment](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Historical release/tag v0.1.0 remains unchanged; this visual publication does not bump the library version. A1 screenshots below are historical.
+**Public showcase:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [Mineral Technical lab](https://joaquimftt-web.github.io/terra-motion-skills/lab/) and [references](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). Historically, the first integrated V4/P1/P2/P3 experience was published from `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [successful deployment](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Historical release/tag v0.1.0 remains unchanged; this visual publication does not bump the library version. A1 screenshots below are historical.
 
-**[PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) candidate:** 8 recipes, 3 operational skills and 13 explicit recipe/CSS subpaths. L1/L2 and the horizontal composition are available on `integration/landing-v4-horizontal`; they are not yet merged into main or deployed to Pages. No npm packages are published. Release/tag v0.1.0 is historical and unchanged.
+**Published on main and GitHub Pages:** 8 recipes, 3 operational skills and 13 explicit recipe/CSS subpaths. [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) was merged with merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, including L1/L2 and the horizontal Landing V4 composition. [CI/build and deployment passed](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). No npm packages are published; historical release/tag v0.1.0 is unchanged.
 
 ## Install and run
 
@@ -19,8 +19,6 @@ Public repository: [joaquimftt-web/terra-motion-skills](https://github.com/joaqu
 ```sh
 git clone https://github.com/joaquimftt-web/terra-motion-skills.git
 cd terra-motion-skills
-# To review the PR; omit this line to use the published main baseline.
-git switch integration/landing-v4-horizontal
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -88,7 +86,7 @@ export function Details() {
 }
 ```
 
-The candidate has 13 explicit subpaths: eight components and five CSS exports, with no root recipe barrel. Main/Pages still represent the earlier two-recipe baseline. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
+Main has 13 explicit subpaths: eight components and five CSS exports, with no root recipe barrel. All eight recipes have Pages demos. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
 
 ## Skills and architecture
 
@@ -96,7 +94,7 @@ Read [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction
 
 - `apps/showcase`: consumes public package exports.
 - `packages/motion-tokens`: neutral timing/easing.
-- `packages/motion-recipes`: eight independent candidate recipes (two on current main/Pages).
+- `packages/motion-recipes`: eight independent recipes integrated into main.
 - `skills`: instructions; `docs`: contracts, decisions, sources and evidence.
 
 [Architecture](docs/ARCHITECTURE.md) · [Decisions](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -117,11 +115,13 @@ pnpm test:e2e
 pnpm test:e2e:recipes
 ```
 
-Historical v0.1 refined-base results, not this candidate’s test count: **22 Vitest tests, 17 Playwright tests and eight axe audits** at four widths. Historical evidence also records native browser zoom at 200% with one additional axe audit returning no violations. See [VALIDATION.md](docs/VALIDATION.md) for the recorded validation results. E2E needs a free port 4173 and installed Chromium.
+Historical v0.1 refined-base results, not the current publication’s test count: **22 Vitest tests, 17 Playwright tests and eight axe audits** at four widths. Historical evidence also records native browser zoom at 200% with one additional axe audit returning no violations. See [VALIDATION.md](docs/VALIDATION.md) for the recorded validation results. E2E needs a free port 4173 and installed Chromium.
 
 The integrated experience was validated with Chromium on Windows and the Ubuntu 24.04 runner: no claims of a tested alternative browser, screen reader, physical device or accessibility certification. No FPS/hardware measurements. A2 (boundary checks) and A3 (preference changes during scheduled replay) remain backlog. GSAP, Lenis, WebGL, Drawer and new recipes are outside v0.1.
 
-**Ubuntu CI for original candidate `38b6fbbb50a867c790c72a2c8ce90b9aba6a1118`:** [successful run](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276) with **172 Vitest, 11 auditor tests, 30 independent-fixture E2E and 109 E2E per base**, including axe within the suites. Validation/build passed; deploy was `skipped`. This subsequent documentation correction still requires Ubuntu revalidation. The **43 Vitest / 11 auditor / 30 E2E per base** results and HTTPS smoke in [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md) are historical published-baseline evidence, not proof of deployment for this candidate. The original R1 branch remains separate; Scroll Reveal implemented in this candidate belongs to L2. No npm packages are published.
+For published merge `491a934169966de481710a63fa7b4a2bb19fdc3e`, [Ubuntu run 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passed 172 Vitest, 11 Node auditor tests, 30 independent E2E and 109 E2E per base; build and deploy succeeded. Post-deploy HTTPS smoke passed 42 automated Chromium/Windows tests; 24 public resources matched the artifact. P2 returned cleanly at all four widths and P3 completed on desktop/mobile. These are results for that published SHA; approval does not automatically cover later changes. No new manual zoom, Firefox/WebKit, screen reader or physical-device validation; axe does not certify accessibility.
+
+**Pre-merge history:** original 38b6fbbb results are in [CI 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), and documentation correction 28b3cb8 passed [CI 39880582782](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39880582782), both with deploy skipped. The 43 Vitest / 11 auditor / 30 E2E per base results and smoke in [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md) belong to the earlier publication.
 
 ## Screenshots and demo
 
@@ -139,7 +139,7 @@ The public URL above serves the integrated experience. A1 captures are historica
 
 The logo and architectural background have specific permissions separate from MIT: [holder declaration](docs/ASSET_PERMISSION_2026-10-21.md) and [conditions](ASSET_NOTICES.md). They are not assets offered for unrestricted reuse.
 
-## L1/L2 and candidate landing composition
+## L1/L2 and published landing composition
 
 Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indicator (180 ms) form L1. Scroll Reveal, Staggered Entrance and Scroll Progress form L2. Including Button and Accordion, there are eight recipes; see the [contracts](docs/MOTION_CONTRACT.md) and three skills. The Async demo identifies its user-controlled promise simulation; Navigation uses real links/hash/history. Temporal demos offer 0–800 ms; position-linked progress has no artificial duration.
 
@@ -147,4 +147,4 @@ Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indic
 - [Staggered Entrance](docs/recipes/staggered-entrance.md): semantic ul/li list, min(i×stagger,200) ms delay and whole-group cancellation.
 - [Scroll Progress](docs/recipes/scroll-progress.md): actual vertical position, not a reading percentage.
 
-The [candidate Landing V4](docs/LANDING_MOTION_INTEGRATION.md) preserves hero/P1/P2/P3, adds the widget after the hero and guided horizontal gallery A on eligible desktops, with native B as fallback/mobile. It consumes public subpaths without coupling the library to V4 identity. This content is on the public PR branch, not main/Pages; future integration and deployment require approval. No version bump or new release was created.
+The [published Landing V4](docs/LANDING_MOTION_INTEGRATION.md) preserves hero/P1/P2/P3, adds the widget after the hero and guided horizontal gallery A on eligible desktops, with native B as fallback/mobile. It consumes public subpaths without coupling the library to V4 identity. This content is integrated into main and published on Pages through PR #1. The original R1 experiment remains separate from the published L2 Scroll Reveal recipe. No version bump or new release was created; npm packages remain unpublished.

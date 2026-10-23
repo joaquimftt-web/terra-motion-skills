@@ -1,6 +1,6 @@
-# Staggered Entrance — M07 / L2 no candidato da PR #1
+# Staggered Entrance — M07 / L2 publicado pela PR #1
 
-Código disponível na branch pública integration/landing-v4-horizontal, ainda não na main/Pages/npm. A Release/tag histórica v0.1.0 permanece inalterada.
+Código integrado na main e demos publicadas no Pages pela PR #1; pacotes npm não publicados. A Release/tag histórica v0.1.0 permanece inalterada.
 
 Subpath: `@motion-skills-lab/motion-recipes/staggered-entrance`. Sem CSS obrigatório, showcase, provider ou dependência nova. Contrato genérico StaggeredEntranceProps<T> com items readonly, getKey(item):string e renderItem(item,index):ReactNode; ref nativa HTMLUListElement. Props HTML nativas na ul, exceto children/dangerouslySetInnerHTML. renderItem retorna conteúdo de li, não outra li.
 
@@ -26,4 +26,4 @@ Exemplos reais compiláveis e decisões de aplicação: [scroll-motion](../../sk
 
 ## Validação e limites
 
-Unitários incluem1/6/20, delays exatos, ref/semântica,0ms, chaves, replay, foco, redução e gesto ativo durante troca. Chromium mede timings WAAPI reais e entradas/fallbacks; consumidor externo exerce SSR/hidratação. Resultados finais e limites em [VALIDATION](../VALIDATION.md). CI Ubuntu do SHA original 38b6fbbb aprovada na [execução 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), deploy skipped. Alterações documentais posteriores ainda requerem revalidação Ubuntu. Outros navegadores, AT e dispositivos físicos permanecem sem validação específica. Código na branch da PR não equivale a disponibilidade na main/Pages/npm.
+Unitários incluem1/6/20, delays exatos, ref/semântica,0ms, chaves, replay, foco, redução e gesto ativo durante troca. Chromium mede timings WAAPI reais e entradas/fallbacks; consumidor externo exerce SSR/hidratação. Resultados finais e limites em [VALIDATION](../VALIDATION.md). CI/build e deploy do merge 491a934 aprovados na [execução 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). O smoke HTTPS pós-deploy teve 42 testes automatizados; limitações em [PUBLICATION_STATUS](../PUBLICATION_STATUS.md). Mudanças posteriores exigem validação própria. Outros navegadores, AT e dispositivos físicos permanecem sem validação específica. Publicação no Pages não equivale a distribuição npm.

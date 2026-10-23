@@ -1,14 +1,14 @@
 # Terra Motion Skills
 
-[English](README.en.md) · **v0.1 — marco técnico local validado** · Repositório público no GitHub
+[English](README.en.md) · **v0.1.0 — marco histórico; experiência publicada** · Repositório público no GitHub
 
-Receitas de motion para React e skills operacionais para agentes de IA. Oito receitas reutilizáveis no candidato, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
+Receitas de motion para React e skills operacionais para agentes de IA. Oito receitas reutilizáveis na main, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
 
 ![Showcase Terra Motion Skills](docs/evidence/publication/terra-showcase-v4-1440.png)
 
-**Showcase público:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). A experiência integrada V4/P1/P2/P3 foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [deploy bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). A Release/tag histórica v0.1.0 permanece intacta; esta publicação visual não altera a versão da biblioteca. As capturas A1 abaixo são históricas.
+**Showcase público:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). Historicamente, a primeira experiência integrada V4/P1/P2/P3 foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [deploy bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). A Release/tag histórica v0.1.0 permanece intacta; esta publicação visual não altera a versão da biblioteca. As capturas A1 abaixo são históricas.
 
-**Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 ## Instalação e execução
 
@@ -19,8 +19,6 @@ Repositório público: [joaquimftt-web/terra-motion-skills](https://github.com/j
 ```sh
 git clone https://github.com/joaquimftt-web/terra-motion-skills.git
 cd terra-motion-skills
-# Para avaliar a PR; omita esta linha para usar a main publicada.
-git switch integration/landing-v4-horizontal
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -88,7 +86,7 @@ export function Details() {
 }
 ```
 
-O candidato possui 13 subpaths explícitos: oito componentes e cinco CSS, sem barrel raiz. A main/Pages ainda representam a base anterior de duas recipes. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
+A main possui 13 subpaths explícitos: oito componentes e cinco CSS, sem barrel raiz. As oito recipes têm demonstrações no Pages. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
 
 ## Skills e arquitetura
 
@@ -96,7 +94,7 @@ Leia [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction
 
 - `apps/showcase` consome exports públicos dos pacotes.
 - `packages/motion-tokens` define timing/easing neutros.
-- `packages/motion-recipes` contém oito recipes independentes no candidato (duas na main/Pages atuais).
+- `packages/motion-recipes` contém oito recipes independentes integradas na main.
 - `skills` contém instruções; `docs` registra decisões, contratos, fontes e evidências.
 
 [Arquitetura](docs/ARCHITECTURE.md) · [Decisões](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -117,11 +115,13 @@ pnpm test:e2e
 pnpm test:e2e:recipes
 ```
 
-Histórico da base refinada v0.1, sem representar a contagem deste candidato: passou em **22 testes Vitest, 17 Playwright e oito auditorias axe** nas quatro larguras. Há evidência histórica adicional de zoom nativo de 200% em Chromium com uma auditoria axe sem violações retornadas. A revalidação específica desta cópia está em [VALIDATION.md](docs/VALIDATION.md). E2E precisa da porta 4173 livre e de Chromium instalado.
+Histórico da base refinada v0.1, sem representar a contagem da publicação atual: passou em **22 testes Vitest, 17 Playwright e oito auditorias axe** nas quatro larguras. Há evidência histórica adicional de zoom nativo de 200% em Chromium com uma auditoria axe sem violações retornadas. A revalidação específica desta cópia está em [VALIDATION.md](docs/VALIDATION.md). E2E precisa da porta 4173 livre e de Chromium instalado.
 
 A experiência integrada foi validada em Windows/Chromium e no Chromium do runner Ubuntu 24.04: não há alegação de compatibilidade validada com outros navegadores, leitores de tela, dispositivos físicos ou certificação de acessibilidade. Sem medições de FPS/hardware. A2 (fronteiras) e A3 (preferência durante replay agendado) permanecem no backlog. GSAP, Lenis, WebGL, Drawer e novas receitas não integram a v0.1.
 
-**CI Ubuntu do candidato original `38b6fbbb50a867c790c72a2c8ce90b9aba6a1118`:** [execução aprovada](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276) com **172 Vitest, 11 testes do auditor, 30 E2E da fixture independente e 109 E2E por base**, incluindo axe nas suítes. Build/validação aprovados; deploy `skipped`. Esta correção documental posterior ainda requer revalidação Ubuntu. Os **43 Vitest / 11 auditor / 30 E2E por base** e o smoke HTTPS em [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md) são históricos da base publicada, não prova de publicação deste candidato. A branch R1 original continua separada; Scroll Reveal implementado neste candidato faz parte do L2. Nenhum pacote npm foi publicado.
+No merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.
+
+**Histórico pré-merge:** os resultados originais de 38b6fbbb estão na [CI 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), e a correção documental 28b3cb8 passou na [CI 39880582782](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39880582782), ambas com deploy skipped. As contagens 43 Vitest / 11 auditor / 30 E2E por base e o smoke em [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md) são da publicação anterior.
 
 ## Capturas e demonstração
 
@@ -139,7 +139,7 @@ O link público acima apresenta a experiência integrada. Capturas A1 são regis
 
 Logo e fundo arquitetônico têm permissões específicas separadas da MIT: [declaração do titular](docs/ASSET_PERMISSION_2026-10-21.md) e [condições](ASSET_NOTICES.md). Não são recursos abertos para reutilização irrestrita.
 
-## L1/L2 e composição da landing no candidato
+## L1/L2 e composição publicada da landing
 
 Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms) compõem L1. Scroll Reveal, Staggered Entrance e Scroll Progress compõem L2. São oito recipes ao incluir Button e Accordion; consulte os [contratos](docs/MOTION_CONTRACT.md) e as três skills. A demo Async identifica sua simulação com promessas controladas pelo usuário; Navigation usa links/hash/history reais. Demos temporais permitem 0–800 ms; progresso de posição não recebe duração artificial.
 
@@ -147,4 +147,4 @@ Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicat
 - [Staggered Entrance](docs/recipes/staggered-entrance.md): lista ul/li, atraso min(i×stagger,200) ms e cancelamento do grupo.
 - [Scroll Progress](docs/recipes/scroll-progress.md): posição vertical real, sem percentual de leitura.
 
-A [Landing V4 candidata](docs/LANDING_MOTION_INTEGRATION.md) mantém hero/P1/P2/P3, acrescenta widget após o hero e galeria horizontal A guiada no desktop elegível, com B nativa como fallback/mobile. Consome recipes por subpath, sem atrelar a biblioteca à identidade V4. Este conteúdo está na branch pública da PR, não na main/Pages; a futura integração e o deploy exigem aprovação. Nenhum bump ou nova release foi criado.
+A [Landing V4 publicada](docs/LANDING_MOTION_INTEGRATION.md) mantém hero/P1/P2/P3, acrescenta widget após o hero e galeria horizontal A guiada no desktop elegível, com B nativa como fallback/mobile. Consome recipes por subpath, sem atrelar a biblioteca à identidade V4. Este conteúdo está integrado na main e publicado no Pages pela PR #1. O experimento R1 original permanece separado da recipe Scroll Reveal L2 publicada. Nenhum bump ou nova release foi criado; pacotes npm continuam não publicados.

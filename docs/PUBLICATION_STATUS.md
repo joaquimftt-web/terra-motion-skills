@@ -1,6 +1,16 @@
 # Estado da publicação
 
-## Estado do candidato da PR #1 — revisão documental, 22/10/2026
+## Estado publicado — 22/10/2026
+
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+
+No merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.
+
+Main e Pages contêm as duas receitas originais e as seis L1/L2; a branch integration/landing-v4-horizontal foi preservada após o merge, assim como o experimento R1 original. Não confundir publicação dos fontes na main, disponibilização do showcase no Pages e eventual publicação npm. Este registro de publicação não autoriza novas integrações ou deploys.
+
+Os registros abaixo preservam estados e autorizações anteriores por data/etapa; não representam bloqueios atuais nem indisponibilidade de L1/L2.
+
+## Histórico — revisão documental do candidato da PR #1 em 22/10/2026
 
 **Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
 
@@ -10,13 +20,13 @@ A main de referência e o Pages permanecem na base pública anterior; main: `9a7
 
 Os registros abaixo são fatos históricos por etapa. Menções a pendências, ausência de autorização e contagens antigas descrevem aquele momento; não substituem este estado do candidato. A branch R1 original feat/scroll-reveal permanece separada, sem merge: o Scroll Reveal atual pertence ao L2. R2–R9 da pesquisa anterior não são IDs dos lotes L1/L2 atuais; propostas não implementadas continuam no backlog. Avisos e permissões dos assets não foram alterados.
 
-## Experiência pública — 21/10/2026
+## Histórico — experiência pública em 21/10/2026
 
 [Landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [Referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/) estão públicos. A landing inclui identidade V4, coreografia P1, narrativa P2 e acabamento P3. Button Feedback e Accordion Transition continuam sendo as duas recipes públicas, com as skills motion-foundations e microinteraction-design.
 
 Publicação integrada confirmada no commit `49d724183732bc8a82e8ed6889e9ecbd3338d527`, [Actions 39654669658](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658), com jobs de validação/build e deploy bem-sucedidos. Commits editoriais posteriores não representam nova versão da biblioteca; o SHA servido de cada atualização deve ser conferido no Actions de main.
 
-## Versão, isolamento e direitos
+## Histórico — versão, isolamento e direitos em 21/10/2026
 
 - Release/tag histórica v0.1.0 preservada em `63ea755982c9bc31da9dd21b0c8206b20b07049a`. A publicação visual não cria uma release nova.
 - Scroll Reveal R1 permanece local na branch isolada feat/scroll-reveal, sem integração pública. R2 e demais propostas continuam no planejamento/backlog.

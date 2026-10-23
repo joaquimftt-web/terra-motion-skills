@@ -1,6 +1,6 @@
-# Arquitetura — base v0.1 e candidato L1/L2
+# Arquitetura — base v0.1 e L1/L2 publicados
 
-**Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 ```text
 showcase (Vite / React / TypeScript)
@@ -35,8 +35,8 @@ Vitest usa DOM para componentes e ambiente Node explícito para o teste de token
 
 Decisões e licenças: [DECISIONS.md](DECISIONS.md). Contratos públicos: [MOTION_CONTRACT.md](MOTION_CONTRACT.md). Evidências reais: [VALIDATION.md](VALIDATION.md).
 
-## L1 — estados e seleção no candidato
+## L1 — estados e seleção na main
 
 Presence usa retenção de um bloco controlado, foco antes da saída inerte e gerações de animação para impedir callbacks vencidos. Async é React/CSS, sem dependência de Motion ou Presence; a lógica de operação pertence ao consumidor. Navigation separa links/seleção/foco, mede o track com um ResizeObserver por instância e mantém fallback estático quando a medição não é segura. O hook privado de redução das novas recipes não substitui o hook existente do Accordion.
 
-As três demos L1 reusam a superfície Mineral Técnico. A composição posterior da landing consome recipes públicas sem alterar seus contratos ou os assets. O consumidor L1 fica no diretório temporário do sistema, copia apenas manifests/dist e prova primeiro Button/Async sem Motion resolvível; depois adiciona Motion, gera SSR e hidrata em Chromium. A fixture é de validação, não novo workspace ou API pública. Exportadores/auditores exigem 13 referências e 13 subpaths no candidato L1/L2, preservando listas explícitas. A galeria guiada/fallback pertence exclusivamente ao showcase; detalhes em [LANDING_MOTION_INTEGRATION.md](LANDING_MOTION_INTEGRATION.md).
+As três demos L1 reusam a superfície Mineral Técnico. A composição posterior da landing consome recipes públicas sem alterar seus contratos ou os assets. O consumidor L1 fica no diretório temporário do sistema, copia apenas manifests/dist e prova primeiro Button/Async sem Motion resolvível; depois adiciona Motion, gera SSR e hidrata em Chromium. A fixture é de validação, não novo workspace ou API pública. Exportadores/auditores exigem 13 referências e 13 subpaths na main L1/L2, preservando listas explícitas. A galeria guiada/fallback pertence exclusivamente ao showcase; detalhes em [LANDING_MOTION_INTEGRATION.md](LANDING_MOTION_INTEGRATION.md).

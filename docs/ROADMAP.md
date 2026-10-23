@@ -1,6 +1,6 @@
 # Roadmap
 
-v0.1 entrega apenas Button Feedback, Accordion Transition, duas skills e vitrine. Drawer permanece adiado: depende de diálogo modal, contenção/restauração de foco, Escape, fundo inativo, mobile e reduced motion integralmente validados.
+A Release histórica v0.1.0 entregou Button Feedback, Accordion Transition, duas skills e vitrine. A main atual reúne oito recipes, três skills e 13 subpaths desde a PR #1; [estado publicado](PUBLICATION_STATUS.md). Não há nova versão ou release implícita. Drawer permanece adiado: depende de diálogo modal, contenção/restauração de foco, Escape, fundo inativo, mobile e reduced motion integralmente validados.
 
 ## Revisão independente da v0.1
 

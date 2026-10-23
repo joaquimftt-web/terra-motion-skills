@@ -7,9 +7,11 @@ description: 'Use when choosing or reviewing timing, easing, interruption, reduc
 
 Transforme a intenção da interface em uma decisão de motion verificável. Use o estado real do React como fonte de verdade; a conclusão de uma animação não autoriza ações de negócio.
 
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+
 ## Aplicação
 
-Aplique ao escolher movimento para feedback ou disclosure em React. A base pública v0.1 tem Button Feedback e Accordion Transition; as três adições L1 do candidato da PR #1 estão descritas ao final. Para feedback apenas de cor, prefira a receita CSS. Para altura de conteúdo controlado, use Accordion com Motion. Não aplique como instrução para scroll global, timelines, modal, WebGL ou animação decorativa contínua.
+Aplique ao escolher movimento para feedback ou disclosure em React. A Release histórica v0.1.0 incluiu Button Feedback e Accordion Transition; as três adições L1 integradas na main pela PR #1 estão descritas ao final. Para feedback apenas de cor, prefira a receita CSS. Para altura de conteúdo controlado, use Accordion com Motion. Não aplique como instrução para scroll global, timelines, modal, WebGL ou animação decorativa contínua.
 
 Antes de editar, leia o contrato público da receita: [Button](../../packages/motion-recipes/src/button-feedback/ButtonFeedback.tsx) ou [Accordion](../../packages/motion-recipes/src/accordion-transition/AccordionTransition.tsx). Importe por subpaths públicos; não importe a vitrine.
 
@@ -62,9 +64,9 @@ Execute typecheck, build e testes da receita alterada; valide no browser abertur
 
 Para alegar performance, registre build, browser, viewport, preferência e cenário medido. Não converta tempo de duração em FPS nem resultado headless em garantia de dispositivo físico. Entregue: ficha de motion, mudança concreta, comandos/resultados e limites da evidência. Revise se houver foco perdido, conteúdo fechado alcançável, preferência ignorada ou estado visual divergente do React.
 
-## L1 — Presence, Async e Navigation (candidato da PR #1; ainda fora da main/Pages/npm)
+## L1 — Presence, Async e Navigation (main e Pages; npm não publicado)
 
-As três APIs abaixo existem nesta worktree, sem bump de versão ou publicação. Os contratos anteriores permanecem válidos. Consulte os [contratos completos](../../docs/MOTION_CONTRACT.md) antes de editar.
+As três APIs abaixo estão integradas na main e demonstradas no Pages, sem bump de versão ou publicação npm. Os contratos anteriores permanecem válidos. Consulte os [contratos completos](../../docs/MOTION_CONTRACT.md) antes de editar.
 
 | Recipe               | Default                                        | Fonte de verdade           | Limite                                             |
 | -------------------- | ---------------------------------------------- | -------------------------- | -------------------------------------------------- |

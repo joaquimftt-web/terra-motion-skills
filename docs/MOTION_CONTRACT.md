@@ -1,6 +1,6 @@
-# Contratos de motion — candidato L1/L2 da PR #1
+# Contratos de motion — L1/L2 integrados na main
 
-**Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 ## Button Feedback
 
@@ -36,7 +36,7 @@ Faixas de design iniciais: Button 110–160 ms, Accordion 160–220 ms. Duraçõ
 
 React/React DOM são peers; Motion é peer opcional para consumo de Button/Async e obrigatório para Accordion/Presence/Navigation e recipes L2. O showcase declara Motion diretamente. Resultados por etapa e limitações estão em [VALIDATION.md](VALIDATION.md). Não há suporte certificado a leitores de tela, dispositivo físico ou browsers não executados. O consumidor deve validar hierarquia de headings, contraste e conteúdo dinâmico no próprio produto.
 
-## Presence Transition — L1 no candidato da PR #1
+## Presence Transition — L1 integrado pela PR #1
 
 Subpaths: `/presence-transition` e `/presence-transition.css`. `PresenceTransitionProps` estende `HTMLAttributes<HTMLDivElement>` exceto children/hidden/inert/aria-hidden, com `present: boolean`, `children: ReactNode`, `duration?: number` (180 ms), `reduceMotion?: boolean` (false), `returnFocusRef?: RefObject<HTMLElement | null>` e `onExitComplete?: () => void`. Ref: HTMLDivElement.
 
@@ -44,13 +44,13 @@ Inicial true é estático, false não produz DOM nem callback. Entrada de 6 px a
 
 Reverter antes da remoção mantém filhos; remoção real descarta estado. A execução anterior é cancelada em reversão/duração/redução/unmount. `onExitComplete` refere-se só à saída ainda válida, após DOM removido e ref nula, no máximo uma vez por saída. Não use callback como confirmação de negócio. Reduced motion inicial/conservador, duração zero e falha de animação encerram o visual imediatamente. SSR usa estado estático e a hidratação mantém os mesmos props/filhos. Transform/opacity do wrapper pertencem à recipe; estilos de layout são do consumidor. Duração deve ser finita e ≥0; inválida lança RangeError.
 
-## Async State Feedback — L1 no candidato da PR #1
+## Async State Feedback — L1 integrado pela PR #1
 
 Subpaths: `/async-state-feedback` e `/async-state-feedback.css`. `AsyncFeedbackState = 'idle' | 'pending' | 'success' | 'error' | 'cancelled'`; `AsyncFeedbackMessages = Readonly<Record<AsyncFeedbackState, string>>`. Props nativas de span exceto children/role/aria-live/aria-atomic/aria-busy/hidden/inert; obrigatórios `state`, `messages`; opcionais `announcement='polite'`, `duration=160` ms e `reduceMotion=false`. Ref: HTMLSpanElement.
 
 Polite tem role=status, live=polite e atomic=true. Off omite os três, sem ocultar texto nem recriar nó. Uma live region ancestral não é neutralizada. Não aplica busy na região que precisa anunciar. Texto é imediato; só o marcador decorativo tem transição de opacidade. Cinco helpers vazios aria-hidden medem por pseudo conteúdo CSS e reservam a maior largura/altura disponível; sem CSS só a mensagem atual possui texto. Não há truncamento, altura fixa, requisição, Promise de negócio, timer, Presence ou Motion. Mensagens precisam ser cinco strings não vazias (TypeError); estado/política inválidos e duração inválida geram erro. Traduções/fontes podem alterar a reserva: testar no produto. Cancelamento e respostas vencidas são do consumidor.
 
-## Navigation Indicator — L1 no candidato da PR #1
+## Navigation Indicator — L1 integrado pela PR #1
 
 Subpaths: `/navigation-indicator` e `/navigation-indicator.css`. `NavigationIndicatorItem` usa props nativas de anchor exceto id/href/children/role/aria-current/aria-selected/aria-controls/tabIndex/aria-disabled e define `id`, `href`, `label` strings. Props de nav exceto children/role/aria-label: `'aria-label': string`, `items: readonly NavigationIndicatorItem[]`, `value: string | null`, `currentType?: 'page' | 'location'` (page), `duration?: number` (180 ms), `reduceMotion?: boolean` (false). Ref: HTMLElement.
 
@@ -58,9 +58,9 @@ Native nav/ul/li/a; apenas o item selecionado recebe aria-current. Unknown/null 
 
 Linha decorativa medida por retângulo do link relativo ao track: scroll desloca ambos, sem adicionar scrollLeft. Um ResizeObserver por instância observa track, viewport e links, nunca o marcador. Resize/font loading fazem remedição sem loop de leitura por frame; A→B→C cancela animação anterior e parte da geometria visual corrente. Sem observer, registro falho, geometria zero/incerta ou RTL: linha oculta e seleção estática por aria-current/borda/peso. SSR mantém links utilizáveis, linha oculta; hidratação não altera seleção. Cleanup remove observers, listeners, frames e controles. Motion é peer requerido.
 
-## Consumo e estado do candidato L1/L2
+## Consumo e estado de L1/L2 na main
 
-O pacote oferece 13 subpaths explícitos: oito componentes e cinco CSS, sem barrel raiz. L1 acrescentou seis exports aos quatro originais; L2 acrescentou três componentes sem CSS próprio. Todos são neutros e não importam o showcase. Motion é obrigatório para Accordion, Presence, Navigation e L2; Button e Async podem ser importados sem Motion. CSS é explícito quando oferecido. O código está na branch pública da PR #1, ainda não na main/Pages ou npm. A Release/tag v0.1.0 permanece histórica e inalterada.
+O pacote oferece 13 subpaths explícitos: oito componentes e cinco CSS, sem barrel raiz. L1 acrescentou seis exports aos quatro originais; L2 acrescentou três componentes sem CSS próprio. Todos são neutros e não importam o showcase. Motion é obrigatório para Accordion, Presence, Navigation e L2; Button e Async podem ser importados sem Motion. CSS é explícito quando oferecido. O código está na main e as demonstrações estão no Pages desde o merge da PR #1. Os pacotes npm não estão publicados. A Release/tag v0.1.0 permanece histórica e inalterada.
 
 ## Regra permanente do laboratório — experimentação de duração
 
@@ -82,12 +82,12 @@ Os controles são exclusivamente do showcase. DurationControl reutiliza apresent
 
 Toda demo futura deve validar 0/default/valor alto, alterações rápidas/durante execução, teclado/foco, reduced motion, correspondência com código copiável, responsividade e ausência de overflow. Se uma futura recipe for realmente fixa e não oferecer prop nem custom property pública, documentar essa limitação e propor alternativa; não ampliar contrato silenciosamente.
 
-## L2 — scroll funcional no candidato
+## L2 — scroll funcional publicado
 
-Contratos selecionados na especificação B-L2-r1, implementados sobre checkpoint L1 e consolidados na branch integration/landing-v4-horizontal da PR #1. Sem integração na main/Pages ou bump. Os subpaths scroll-reveal, staggered-entrance e scroll-progress não exigem CSS próprio; preservam os dez exports de componentes/CSS anteriores, totalizando 13.
+Contratos selecionados na especificação B-L2-r1, implementados sobre checkpoint L1 e integrados na main pela PR #1 e publicados no Pages, sem bump. Os subpaths scroll-reveal, staggered-entrance e scroll-progress não exigem CSS próprio; preservam os dez exports de componentes/CSS anteriores, totalizando 13.
 
 - [M06](recipes/scroll-reveal.md): preparação comprovadamente fora da viewport, deslocamento sem fade, replay contínuo e prioridade de foco/redução.
 - [M07](recipes/staggered-entrance.md): ul/li genérico, duration260ms,offset8px,stagger50ms e atraso min(i×stagger,200)ms; grupo cancela junto.
 - [M08](recipes/scroll-progress.md): source document/section/container com contentRef, barra decorativa ligada à posição, sem duração/spring ou leitura presumida.
 
-Demonstrações temporais0–800ms e código sincronizado; M08 usa scroll/conteúdo/resize reais. Skill [scroll-motion](../skills/scroll-motion/SKILL.md) somente após funcionamento e validação dos contratos. CI Ubuntu do SHA original 38b6fbbb passou na [execução 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), com deploy skipped; alterações documentais posteriores ainda requerem revalidação. M08 não possui duração artificial. Nunca aninhar M06/M07 sobre o mesmo conteúdo.
+Demonstrações temporais0–800ms e código sincronizado; M08 usa scroll/conteúdo/resize reais. Skill [scroll-motion](../skills/scroll-motion/SKILL.md) somente após funcionamento e validação dos contratos. CI e deploy do merge 491a934 passaram na [execução 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Resultados e limitações do smoke HTTPS estão em [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md). Alterações posteriores exigem validação própria. M08 não possui duração artificial. Nunca aninhar M06/M07 sobre o mesmo conteúdo.

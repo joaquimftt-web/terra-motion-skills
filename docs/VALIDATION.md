@@ -1,6 +1,24 @@
 # Validação — estado atual e registros históricos
 
+## Publicação da PR #1 — 22/10/2026
+
+**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+
+No merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.
+
+O merge possui os pais 9a70fe5 e 28b3cb8 e árvore idêntica ao candidato aprovado. Os 24 recursos HTTPS retornaram 200 e coincidiram com o artefato publicado (2.117.084 bytes descompactados). A branch foi preservada, sem npm, nova Release ou integração do experimento R1 original. Os relatos seguintes descrevem etapas anteriores, inclusive bloqueios e pendências já superados. O lote E1 é somente editorial/local; os resultados abaixo não comprovam CI/deploy do E1.
+
 Fechamento da experiência integrada publicada: [CLOSING_VALIDATION.md](CLOSING_VALIDATION.md). Estado público confirmado: [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md). O deploy v0.1 já ocorreu; abaixo estão registros históricos preservados, inclusive pendências anteriores ao primeiro deploy. Eles não representam a situação atual.
+
+## E1 — fechamento editorial local pós-publicação, 22/10/2026
+
+Base publicada: 491a934169966de481710a63fa7b4a2bb19fdc3e. E1 atualiza apenas textos da interface, disponibilidade das recipes/skills e registros de publicação; não altera estrutura, classes, IDs, rotas, lógica, motion, parâmetros, CSS, assets, dependências, workflows ou versões. A branch editorial não foi enviada e não modifica o Pages ativo.
+
+Validação local executada: formatação, lint, TypeScript, três skills, fronteiras/13 subpaths, consumidor independente/SSR/hidratação e controle negativo real; quatro exemplos dos READMEs compilados em strict. **172/172 Vitest, 11/11 testes Node e 109/109 Playwright em cada base**, incluindo axe, teclado, foco, durações/replay, reduced motion, navegação e quatro larguras. Os testes existentes não foram alterados. Builds e gates das duas bases passaram. Após a última correção de disponibilidade nas introduções das skills, a checagem estrutural/consumidor, builds e gates foram repetidos; nenhum exemplo ou passo operacional mudou.
+
+Na inspeção visual posterior, foram identificados textos fixos de contagem ainda antigos na landing/laboratório. Foram corrigidos para 08 recipes / 03 skills, sem alterar índices, estado ou lógica. Após esses quatro valores JSX, TypeScript, builds e gates foram reexecutados, além de **19/19 E2E direcionados por base** para navegação, legibilidade, responsividade, fundamentos e geometria do widget. Os 109/109 anteriores pertencem à bateria completa do E1 antes dessa última correção exclusivamente textual; não são apresentados como nova execução posterior aos quatro valores.
+
+Auditoria editorial: 154 links locais existentes, 12 blocos TSX preservados e estrutura AST idêntica nos três TSX de interface, permitindo somente strings de exibição aprovadas e texto JSX. Contratos e instruções operacionais das skills preservados. Não foi executado Ubuntu/novo deploy do E1, nova bateria da fixture independente de 30 testes, zoom nativo 200%, Firefox/WebKit, leitores de tela ou dispositivos físicos; evidências anteriores pertencem aos SHAs identificados. Não há alegação de certificação de acessibilidade.
 
 ## Correção documental pré-merge da PR #1 — 22/10/2026
 

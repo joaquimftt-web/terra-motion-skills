@@ -72,7 +72,7 @@ export function Example() {
             <h2 id={`${id}-title`}>{name}</h2>
           </div>
         </div>
-        <span className="technology-tag">LOCAL · {duration} ms</span>
+        <span className="technology-tag">DEMO · {duration} ms</span>
       </div>
       <p className="section-description">
         {group
