@@ -1,0 +1,53 @@
+.lab-shell .scroll-demo {
+  min-inline-size: 0;
+}
+.lab-shell .scroll-card {
+  padding: 16px;
+  border: 1px solid var(--lab-line);
+  border-radius: 8px;
+  min-inline-size: 0;
+}
+.lab-shell .scroll-card h3 {
+  font-size: 16px;
+}
+.lab-shell .scroll-card p {
+  margin-block: 10px;
+}
+.lab-shell .scroll-card--unsafe {
+  box-shadow: 0 8px 20px #0008;
+}
+.lab-shell .scroll-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding-inline-start: 20px;
+}
+.lab-shell .scroll-group li {
+  min-inline-size: 0;
+}
+.lab-shell .scroll-progress-bar {
+  color: var(--terra-bronze, #b99f77);
+  border-radius: 2px;
+}
+.lab-shell .scroll-progress-viewport {
+  border: 1px solid var(--lab-line);
+  padding-inline: 16px;
+}
+.lab-shell .scroll-progress-viewport p {
+  padding-block: 12px;
+}
+.lab-shell .scroll-progress-viewport:focus-visible {
+  outline: 3px solid Highlight;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .lab-shell .scroll-group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* New scroll demos use a full-width preview; preserve existing lab grids. */
+.lab-shell .scroll-demo .demo-panel {
+  display: block;
+}

@@ -38,6 +38,8 @@ jobs:
           cache_dependency_path: pnpm-lock.yaml
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile
+      - name: Install Chromium and system dependencies
+        run: pnpm exec playwright install --with-deps chromium
       - name: Validate workspace
         run: |
           pnpm format:check
@@ -47,8 +49,8 @@ jobs:
           pnpm validate:skills
           pnpm check:boundaries
           pnpm check:consumer
-      - name: Install Chromium and system dependencies
-        run: pnpm exec playwright install --with-deps chromium
+      - name: Validate independent scroll recipe fixture
+        run: pnpm test:e2e:recipes
       - name: Validate local root build
         env:
           SHOWCASE_BASE_PATH: /

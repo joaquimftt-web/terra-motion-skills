@@ -1,3 +1,5 @@
+import { motionTokens } from '@motion-skills-lab/motion-tokens';
+import { DurationControl } from '../../components/DurationControl';
 import { useEffect, useRef, useState } from 'react';
 import { AccordionTransition } from '@motion-skills-lab/motion-recipes/accordion-transition';
 import { ButtonFeedback } from '@motion-skills-lab/motion-recipes/button-feedback';
@@ -5,7 +7,7 @@ import { CodeExample } from '../../components/CodeExample';
 
 export function AccordionTransitionDemo({ reduceMotion }: { reduceMotion: boolean }) {
   const [open, setOpen] = useState(true);
-  const [duration, setDuration] = useState(180);
+  const [duration, setDuration] = useState<number>(motionTokens.duration.accordionTransition);
   const [instance, setInstance] = useState(0);
   const [replays, setReplays] = useState(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -104,19 +106,17 @@ export function Details() {
           </div>
           <div className="lab-settings">
             <p className="lab-control-heading">CONFIGURAÇÕES</p>
-            <div className="duration-control">
-              <label htmlFor="accordion-duration">Duração do Accordion</label>
-              <output htmlFor="accordion-duration">{duration} ms</output>
-              <input
-                id="accordion-duration"
-                type="range"
-                min="160"
-                max="220"
-                step="10"
-                value={duration}
-                onChange={(event) => setDuration(event.currentTarget.valueAsNumber)}
-              />
-            </div>
+            <DurationControl
+              id="accordion-duration"
+              label="Duração do Accordion"
+              value={duration}
+              defaultValue={motionTokens.duration.accordionTransition}
+              onChange={(next) => {
+                cancelReplay();
+                setDuration(next);
+              }}
+              reduceMotion={reduceMotion}
+            />
             <div className="demo-controls replay-controls">
               <ButtonFeedback type="button" onClick={replay} reduceMotion={reduceMotion}>
                 ↻ Repetir transição

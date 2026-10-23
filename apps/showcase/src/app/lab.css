@@ -1,4 +1,88 @@
 /* Mineral técnico A. Presentation only; states/recipes keep their own implementation. */
+/* L1 demo additions reuse the existing surfaces and typography. */
+.lab-shell .l1-stage {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  min-inline-size: 0;
+  align-content: start;
+}
+.lab-shell .l1-presence-stage {
+  min-block-size: 300px;
+}
+.lab-shell .l1-stage > * {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+.lab-shell .l1-notice {
+  border: 1px solid var(--lab-line);
+  padding: 20px;
+  border-radius: 8px;
+}
+.lab-shell .l1-notice p {
+  margin-block: 12px;
+}
+.lab-shell .l1-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block: 14px;
+  min-inline-size: 0;
+}
+.lab-shell .l1-field :is(input, select) {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 44px;
+  font: inherit;
+  color: inherit;
+}
+.lab-shell .l1-field select,
+.lab-shell .l1-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--lab-line);
+  border-radius: 4px;
+  background: var(--terra-code);
+}
+.lab-shell .l1-field :focus-visible {
+  outline: 3px solid Highlight;
+  outline-offset: 2px;
+}
+.lab-shell .l1-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block: 12px;
+}
+.lab-shell .l1-actions > button {
+  min-inline-size: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.lab-shell .l1-observation,
+.lab-shell .l1-delegated {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.lab-shell .l1-destinations {
+  display: grid;
+  gap: 12px;
+}
+.lab-shell .l1-destinations section {
+  border-block-start: 1px solid var(--lab-line);
+  padding-block: 12px;
+  scroll-margin-block-start: 24px;
+}
+.lab-shell .l1-destinations h3 {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .lab-shell .l1-stage {
+    padding: 20px;
+  }
+}
 html:has(.lab-shell) {
   background: #151a1b;
   color-scheme: dark;
@@ -410,11 +494,25 @@ html:has(.lab-shell) {
 }
 .lab-shell .duration-control {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 12px;
   padding: 0;
   background: transparent;
   border: 0;
+}
+.lab-shell .duration-control .duration-reset {
+  grid-column: 1/-1;
+  justify-self: start;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.lab-shell .duration-control .duration-reduced {
+  grid-column: 1/-1;
+  margin: 0;
+  color: var(--terra-muted);
+  font-size: 13px;
 }
 .lab-shell .duration-control label {
   color: var(--terra-ivory);
@@ -535,7 +633,12 @@ html:has(.lab-shell) {
 .lab-shell .foundations {
   border-color: var(--lab-line);
   background: transparent;
-  padding: 0 0 44px;
+  padding: 24px;
+}
+@media (max-width: 600px) {
+  .lab-shell .foundations {
+    padding: 16px;
+  }
 }
 .lab-shell .foundations h2 {
   color: var(--terra-ivory);

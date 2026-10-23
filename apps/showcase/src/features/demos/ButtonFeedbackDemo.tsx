@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
+import { motionTokens } from '@motion-skills-lab/motion-tokens';
+import { DurationControl } from '../../components/DurationControl';
 import { ButtonFeedback } from '@motion-skills-lab/motion-recipes/button-feedback';
 import { CodeExample } from '../../components/CodeExample';
 
-const code = `import { ButtonFeedback } from
+export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) {
+  const [duration, setDuration] = useState<number>(motionTokens.duration.buttonFeedback);
+  const code = `import type { CSSProperties } from 'react';
+import { ButtonFeedback } from
   '@motion-skills-lab/motion-recipes/button-feedback';
 import '@motion-skills-lab/motion-recipes/button-feedback.css';
 
@@ -10,13 +15,14 @@ export function Confirm({ onConfirm }: {
   onConfirm: () => void;
 }) {
   return (
-    <ButtonFeedback type="button" onClick={onConfirm}>
+    <ButtonFeedback type="button" onClick={onConfirm}
+      reduceMotion={${reduceMotion}}
+      style={{ '--msl-motion-duration-button-feedback': '${duration}ms' } as CSSProperties}>
       Confirmar
     </ButtonFeedback>
   );
 }`;
 
-export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) {
   const [disabled, setDisabled] = useState(false);
   const [activations, setActivations] = useState(0);
   return (
@@ -29,7 +35,7 @@ export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) 
             <h2 id="button-title">Button Feedback</h2>
           </div>
         </div>
-        <span className="technology-tag">CSS · 140 ms</span>
+        <span className="technology-tag">CSS · {reduceMotion ? 0 : duration} ms</span>
       </div>
       <p className="section-description">
         Um gesto pequeno que confirma a interação. Cor e foco comunicam o estado, sem deslocar a
@@ -47,6 +53,7 @@ export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) 
             <ButtonFeedback
               type="button"
               className="demo-action"
+              style={{ '--msl-motion-duration-button-feedback': `${duration}ms` } as CSSProperties}
               reduceMotion={reduceMotion}
               disabled={disabled}
               onClick={() => setActivations((value) => value + 1)}
@@ -60,6 +67,14 @@ export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) 
           </div>
           <div className="demo-controls">
             <p className="lab-control-heading">CONFIGURAÇÕES</p>
+            <DurationControl
+              id="button-duration"
+              label="Duração do Button Feedback"
+              value={duration}
+              defaultValue={motionTokens.duration.buttonFeedback}
+              onChange={setDuration}
+              reduceMotion={reduceMotion}
+            />
             <label className="checkbox-label">
               <input
                 type="checkbox"
@@ -69,7 +84,7 @@ export function ButtonFeedbackDemo({ reduceMotion }: { reduceMotion: boolean }) 
               Desabilitar botão
             </label>
             <span className="mono">
-              {reduceMotion ? '0 ms · reduzido' : '140 ms · cor e borda'}
+              {reduceMotion ? '0 ms · reduzido' : `${duration} ms · cor e borda`}
             </span>
           </div>
         </div>

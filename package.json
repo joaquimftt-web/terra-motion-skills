@@ -21,7 +21,8 @@
     "check:consumer": "pnpm build:packages && node scripts/check-consumer.mjs",
     "check:showcase": "node scripts/check-showcase-build.mjs",
     "check:publication": "pnpm check:showcase && node scripts/check-publication-ready.mjs",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:e2e:recipes": "pnpm build:packages && tsc -p packages/motion-recipes/e2e/tsconfig.json && playwright test --config playwright.recipes.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

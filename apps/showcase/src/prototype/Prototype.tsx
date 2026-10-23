@@ -16,9 +16,31 @@ import './p1.css';
 import './p2.css';
 import './narrative.css';
 import materialUrl from './assets/terra-material-reference.webp';
+import { FirstContact, LandingMotion } from './landing-motion/LandingMotion';
 
 const base = import.meta.env.BASE_URL;
 const resources = [
+  [
+    '07',
+    'Presence Transition',
+    'Presença controlada, foco e remoção real.',
+    'presence-transition.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
+    '08',
+    'Async State Feedback',
+    'Cinco estados controlados e anúncio opcional.',
+    'async-state-feedback.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
+    '09',
+    'Navigation Indicator',
+    'Links nativos e seleção controlada.',
+    'navigation-indicator.tsx',
+    'CÓDIGO-FONTE',
+  ],
   [
     '01',
     'Contrato de motion',
@@ -61,6 +83,34 @@ const resources = [
     'references-and-licenses.md',
     'CRÉDITOS',
   ],
+  [
+    '10',
+    'Scroll Reveal',
+    'Entrada neutra, preparação segura e fallback.',
+    'scroll-reveal.tsx',
+    'CÓDIGO-FONTE LOCAL',
+  ],
+  [
+    '11',
+    'Staggered Entrance',
+    'Grupo semântico com atraso limitado.',
+    'staggered-entrance.tsx',
+    'CÓDIGO-FONTE LOCAL',
+  ],
+  [
+    '12',
+    'Scroll Progress',
+    'Indicador decorativo de posição real.',
+    'scroll-progress.tsx',
+    'CÓDIGO-FONTE LOCAL',
+  ],
+  [
+    '13',
+    'Scroll motion',
+    'Skill de entradas e progresso de rolagem.',
+    'scroll-motion.md',
+    'SKILL LOCAL',
+  ],
 ] as const;
 
 function Brand() {
@@ -98,6 +148,7 @@ export function Prototype() {
       className="prototype-shell"
       ref={scope}
       data-reduced={reduced}
+      data-landing-motion={page === 'landing' ? 'true' : undefined}
       style={{ '--lp-material-image': `url("${materialUrl}")` } as CSSProperties}
     >
       <a className="lp-skip" href="#principal">
@@ -208,6 +259,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
           <span>MINERAL / CONTEXTO</span>
         </div>
       </section>
+      <FirstContact reduced={reduced} />
       <div className="lp-proof-strip">
         <p>
           <strong>02</strong> Recipes funcionais
@@ -323,7 +375,8 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
         </div>
         <p className="lp-scope-note">
           A apresentação desta prévia é exclusiva da landing. Scroll Reveal permanece em branch
-          isolada; receitas futuras não são demonstradas como entregues.
+          isolada no histórico. Nesta prévia local, L1 e L2 estão disponíveis para revisão; não
+          foram publicados na main ou no npm.
         </p>
       </section>
       <section className="lp-method lp-section" aria-labelledby="method-title">
@@ -374,6 +427,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
           </ol>
         </div>
       </section>
+      <LandingMotion reduced={reduced} />
       <section className="lp-closing lp-section" aria-labelledby="closing-title">
         <div className="lp-closing-light" data-narrative="closing" aria-hidden="true" />
         <div>

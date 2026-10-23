@@ -3,7 +3,15 @@ import { useSystemReducedMotion } from '../components/useSystemReducedMotion';
 import { RecipeCatalog } from '../features/catalog/RecipeCatalog';
 import { ButtonFeedbackDemo } from '../features/demos/ButtonFeedbackDemo';
 import { AccordionTransitionDemo } from '../features/demos/AccordionTransitionDemo';
+import { PresenceTransitionDemo } from '../features/demos/PresenceTransitionDemo';
+import { AsyncStateFeedbackDemo } from '../features/demos/AsyncStateFeedbackDemo';
+import { NavigationIndicatorDemo } from '../features/demos/NavigationIndicatorDemo';
 import { ReducedMotionControl } from '../components/ReducedMotionControl';
+import {
+  ScrollRevealDemo,
+  StaggeredEntranceDemo,
+  ScrollProgressDemo,
+} from '../features/demos/ScrollFunctionalDemos';
 import './lab.css';
 
 export function App() {
@@ -85,7 +93,7 @@ export function App() {
           </section>
           <div className="lab-summary">
             <div>
-              <strong>02</strong>
+              <strong>05</strong>
               <span>RECEITAS FUNCIONAIS</span>
             </div>
             <div>
@@ -117,6 +125,12 @@ export function App() {
           />
           <ButtonFeedbackDemo reduceMotion={effectiveReduction} />
           <AccordionTransitionDemo reduceMotion={effectiveReduction} />
+          <PresenceTransitionDemo reduceMotion={effectiveReduction} />
+          <AsyncStateFeedbackDemo reduceMotion={effectiveReduction} />
+          <NavigationIndicatorDemo reduceMotion={effectiveReduction} />
+          <ScrollRevealDemo reduceMotion={effectiveReduction} />
+          <StaggeredEntranceDemo reduceMotion={effectiveReduction} />
+          <ScrollProgressDemo />
           <section id="fundamentos" className="foundations" aria-labelledby="foundations-title">
             <p className="eyebrow">O QUE GUIA O LAB</p>
             <h2 id="foundations-title">
@@ -150,6 +164,9 @@ export function App() {
               </article>
             </div>
             <div className="foundation-links">
+              <a href={`${import.meta.env.BASE_URL}reference/scroll-motion.md`}>
+                Ler scroll-motion (L2 local) ↗
+              </a>
               <a href={`${import.meta.env.BASE_URL}reference/motion-foundations.md`}>
                 Ler motion-foundations ↗
               </a>

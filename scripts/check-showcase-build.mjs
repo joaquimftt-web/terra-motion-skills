@@ -8,12 +8,19 @@ const dist = resolve(root, 'apps/showcase/dist');
 const base = process.env.SHOWCASE_BASE_PATH ?? '/';
 assert.ok(['/', '/terra-motion-skills/'].includes(base), 'Unsupported showcase base');
 const references = [
+  'scroll-reveal.tsx',
+  'staggered-entrance.tsx',
+  'scroll-progress.tsx',
+  'scroll-motion.md',
   'motion-foundations.md',
   'microinteraction-design.md',
   'motion-contract.md',
   'references-and-licenses.md',
   'button-feedback.tsx',
   'accordion-transition.tsx',
+  'presence-transition.tsx',
+  'async-state-feedback.tsx',
+  'navigation-indicator.tsx',
 ];
 const required = [
   'index.html',

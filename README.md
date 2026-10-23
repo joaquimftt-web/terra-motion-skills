@@ -2,21 +2,25 @@
 
 [English](README.en.md) · **v0.1 — marco técnico local validado** · Repositório público no GitHub
 
-Receitas de motion para React e skills operacionais para agentes de IA. Duas receitas reutilizáveis, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
+Receitas de motion para React e skills operacionais para agentes de IA. Oito receitas reutilizáveis no candidato, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
 
 ![Showcase Terra Motion Skills](docs/evidence/publication/terra-showcase-v4-1440.png)
 
 **Showcase público:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). A experiência integrada V4/P1/P2/P3 foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [deploy bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). A Release/tag histórica v0.1.0 permanece intacta; esta publicação visual não altera a versão da biblioteca. As capturas A1 abaixo são históricas.
 
+**Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
+
 ## Instalação e execução
 
-Ambiente verificado: Windows, Node **24.20.0** e pnpm **11.24.0**. Faixa aceita pelas ferramentas: Node `^22.22.2 || ^24.15.0 || >=26.0.0`; os demais ambientes não compõem uma matriz testada. React/React DOM 19.3.1 e Motion 14.3.0 estão fixados no lockfile. Se pnpm não estiver disponível, consulte a [instalação oficial](https://pnpm.io/installation) e use a versão fixada.
+Ambientes verificados: Windows e runner Ubuntu 24.04 com Chromium, Node **24.20.0** e pnpm **11.24.0**. Faixa aceita pelas ferramentas: Node `^22.22.2 || ^24.15.0 || >=26.0.0`; os demais ambientes não compõem uma matriz testada. React/React DOM 19.3.1 e Motion 14.3.0 estão fixados no lockfile. Se pnpm não estiver disponível, consulte a [instalação oficial](https://pnpm.io/installation) e use a versão fixada.
 
 Repositório público: [joaquimftt-web/terra-motion-skills](https://github.com/joaquimftt-web/terra-motion-skills), branch `main`. Clone o projeto e entre na raiz que contém pnpm-workspace.yaml. Não há credenciais ou .env necessários.
 
 ```sh
 git clone https://github.com/joaquimftt-web/terra-motion-skills.git
 cd terra-motion-skills
+# Para avaliar a PR; omita esta linha para usar a main publicada.
+git switch integration/landing-v4-horizontal
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -40,6 +44,12 @@ Nome oficial: **Terra Motion Skills**; repositório público: [joaquimftt-web/te
 
 - **Button Feedback:** botão nativo, props/ref do consumidor, cor/borda em hover/press, foco visível e disabled; sem scale, 140 ms.
 - **Accordion Transition:** disclosure controlado, IDs/ARIA, painel fechado inert e aria-hidden, altura reversível com Motion; 180 ms por padrão.
+- **Presence Transition:** presença controlada e foco antes da saída, 180 ms.
+- **Async State Feedback:** cinco estados controlados; efeito decorativo de 160 ms, sem controlar a operação.
+- **Navigation Indicator:** links nativos horizontais LTR e indicador, 180 ms.
+- **Scroll Reveal:** entrada segura de bloco, sem fade, 260 ms / 8 px.
+- **Staggered Entrance:** entrada de grupo semântico com atraso limitado, 260 ms / 8 px / stagger de 50 ms.
+- **Scroll Progress:** posição real de scroll, sem duração artificial ou promessa de leitura.
 - **Showcase:** duração ajustável, replay/reinício, contador de ativações, disabled e cópia com sucesso/fallback reais.
 
 A preferência reduzida do sistema tem prioridade e atualiza durante a sessão. Accordion reduz conservadoramente quando matchMedia não está disponível. Conteúdo e lógica de negócio pertencem ao consumidor.
@@ -78,15 +88,15 @@ export function Details() {
 }
 ```
 
-Há quatro subpaths de receita/CSS, sem barrel raiz. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
+O candidato possui 13 subpaths explícitos: oito componentes e cinco CSS, sem barrel raiz. A main/Pages ainda representam a base anterior de duas recipes. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
 
 ## Skills e arquitetura
 
-Leia [motion-foundations](skills/motion-foundations/SKILL.md) e [microinteraction-design](skills/microinteraction-design/SKILL.md) a partir deste clone. São instruções operacionais com parâmetros, exemplos, restrições, acessibilidade e validação. Não são runtime nem se instalam automaticamente no agente; preservar os diretórios mantém os links relativos válidos. A validação estrutural não certifica eficácia de agentes.
+Leia [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction-design](skills/microinteraction-design/SKILL.md) e [scroll-motion](skills/scroll-motion/SKILL.md) a partir deste clone. São instruções operacionais com parâmetros, exemplos, restrições, acessibilidade e validação. Não são runtime nem se instalam automaticamente no agente; preservar os diretórios mantém os links relativos válidos. A validação estrutural não certifica eficácia de agentes.
 
 - `apps/showcase` consome exports públicos dos pacotes.
 - `packages/motion-tokens` define timing/easing neutros.
-- `packages/motion-recipes` contém Button e Accordion independentes.
+- `packages/motion-recipes` contém oito recipes independentes no candidato (duas na main/Pages atuais).
 - `skills` contém instruções; `docs` registra decisões, contratos, fontes e evidências.
 
 [Arquitetura](docs/ARCHITECTURE.md) · [Decisões](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -104,13 +114,14 @@ pnpm check:boundaries
 pnpm check:consumer
 pnpm exec playwright install chromium
 pnpm test:e2e
+pnpm test:e2e:recipes
 ```
 
 Histórico da base refinada v0.1, sem representar a contagem deste candidato: passou em **22 testes Vitest, 17 Playwright e oito auditorias axe** nas quatro larguras. Há evidência histórica adicional de zoom nativo de 200% em Chromium com uma auditoria axe sem violações retornadas. A revalidação específica desta cópia está em [VALIDATION.md](docs/VALIDATION.md). E2E precisa da porta 4173 livre e de Chromium instalado.
 
 A experiência integrada foi validada em Windows/Chromium e no Chromium do runner Ubuntu 24.04: não há alegação de compatibilidade validada com outros navegadores, leitores de tela, dispositivos físicos ou certificação de acessibilidade. Sem medições de FPS/hardware. A2 (fronteiras) e A3 (preferência durante replay agendado) permanecem no backlog. GSAP, Lenis, WebGL, Drawer e novas receitas não integram a v0.1.
 
-Validação da experiência integrada: **43 testes Vitest, 11 testes do gate de publicação e 30 testes Playwright por base** (`/` e `/terra-motion-skills/`), incluindo axe. CI Linux e smoke HTTPS real estão registrados em [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md). Scroll Reveal R1 permanece isolada localmente; R2 e demais recipes continuam planejadas. Nenhum pacote npm foi publicado.
+**CI Ubuntu do candidato original `38b6fbbb50a867c790c72a2c8ce90b9aba6a1118`:** [execução aprovada](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276) com **172 Vitest, 11 testes do auditor, 30 E2E da fixture independente e 109 E2E por base**, incluindo axe nas suítes. Build/validação aprovados; deploy `skipped`. Esta correção documental posterior ainda requer revalidação Ubuntu. Os **43 Vitest / 11 auditor / 30 E2E por base** e o smoke HTTPS em [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md) são históricos da base publicada, não prova de publicação deste candidato. A branch R1 original continua separada; Scroll Reveal implementado neste candidato faz parte do L2. Nenhum pacote npm foi publicado.
 
 ## Capturas e demonstração
 
@@ -127,3 +138,13 @@ O link público acima apresenta a experiência integrada. Capturas A1 são regis
 [Contribuições](docs/CONTRIBUTING.md) · [Changelog](docs/CHANGELOG.md) · [Estado da publicação](docs/PUBLICATION_STATUS.md)
 
 Logo e fundo arquitetônico têm permissões específicas separadas da MIT: [declaração do titular](docs/ASSET_PERMISSION_2026-10-21.md) e [condições](ASSET_NOTICES.md). Não são recursos abertos para reutilização irrestrita.
+
+## L1/L2 e composição da landing no candidato
+
+Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms) compõem L1. Scroll Reveal, Staggered Entrance e Scroll Progress compõem L2. São oito recipes ao incluir Button e Accordion; consulte os [contratos](docs/MOTION_CONTRACT.md) e as três skills. A demo Async identifica sua simulação com promessas controladas pelo usuário; Navigation usa links/hash/history reais. Demos temporais permitem 0–800 ms; progresso de posição não recebe duração artificial.
+
+- [Scroll Reveal](docs/recipes/scroll-reveal.md): entrada curta, sem fade, preparação segura abaixo da viewport.
+- [Staggered Entrance](docs/recipes/staggered-entrance.md): lista ul/li, atraso min(i×stagger,200) ms e cancelamento do grupo.
+- [Scroll Progress](docs/recipes/scroll-progress.md): posição vertical real, sem percentual de leitura.
+
+A [Landing V4 candidata](docs/LANDING_MOTION_INTEGRATION.md) mantém hero/P1/P2/P3, acrescenta widget após o hero e galeria horizontal A guiada no desktop elegível, com B nativa como fallback/mobile. Consome recipes por subpath, sem atrelar a biblioteca à identidade V4. Este conteúdo está na branch pública da PR, não na main/Pages; a futura integração e o deploy exigem aprovação. Nenhum bump ou nova release foi criado.

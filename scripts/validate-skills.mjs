@@ -2,7 +2,9 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
 const names = process.argv.slice(2);
-const selected = names.length ? names : ['motion-foundations', 'microinteraction-design'];
+const selected = names.length
+  ? names
+  : ['motion-foundations', 'microinteraction-design', 'scroll-motion'];
 for (const name of selected) {
   const file = resolve('skills', name, 'SKILL.md');
   const text = readFileSync(file, 'utf8');

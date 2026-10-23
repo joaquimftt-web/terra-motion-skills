@@ -5,6 +5,9 @@ import { Prototype } from './prototype/Prototype';
 import '@motion-skills-lab/motion-tokens/motion-tokens.css';
 import '@motion-skills-lab/motion-recipes/button-feedback.css';
 import '@motion-skills-lab/motion-recipes/accordion-transition.css';
+import '@motion-skills-lab/motion-recipes/presence-transition.css';
+import '@motion-skills-lab/motion-recipes/async-state-feedback.css';
+import '@motion-skills-lab/motion-recipes/navigation-indicator.css';
 import './app/app.css';
 
 const root = document.getElementById('root');

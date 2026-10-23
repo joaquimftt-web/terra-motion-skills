@@ -1,0 +1,77 @@
+.msl-navigation-indicator {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  color: inherit;
+}
+.msl-navigation-indicator__viewport {
+  overflow-x: auto;
+  max-inline-size: 100%;
+  padding-block: 0.25rem;
+}
+.msl-navigation-indicator__track {
+  position: relative;
+  inline-size: max-content;
+  min-inline-size: 100%;
+  padding: 0;
+  border: 0;
+}
+.msl-navigation-indicator__list {
+  display: flex;
+  align-items: stretch;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.msl-navigation-indicator__list > li {
+  display: flex;
+  min-inline-size: 0;
+  flex: 0 0 auto;
+}
+.msl-navigation-indicator__link {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  padding: 0.6rem 0.8rem;
+  max-inline-size: min(20rem, 75vw);
+  box-sizing: border-box;
+  color: inherit;
+  font: inherit;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  border-block-end: 2px solid transparent;
+  text-decoration: none;
+}
+.msl-navigation-indicator__link[aria-current] {
+  border-block-end-color: currentColor;
+  font-weight: 700;
+}
+.msl-navigation-indicator[data-indicator-ready='true']
+  .msl-navigation-indicator__link[aria-current] {
+  border-block-end-color: transparent;
+}
+.msl-navigation-indicator__link:focus-visible {
+  outline: 3px solid Highlight;
+  outline-offset: -3px;
+}
+.msl-navigation-indicator__line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  inline-size: 1px;
+  block-size: 2px;
+  background: currentColor;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+.msl-navigation-indicator__line[hidden] {
+  display: none;
+}
+@media (forced-colors: active) {
+  .msl-navigation-indicator .msl-navigation-indicator__link[aria-current] {
+    border-block-end-color: LinkText;
+  }
+  .msl-navigation-indicator__line {
+    background: LinkText;
+  }
+}
