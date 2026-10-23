@@ -9,7 +9,7 @@ Transforme a intenção da interface em uma decisão de motion verificável. Use
 
 ## Aplicação
 
-Aplique ao escolher movimento para feedback ou disclosure em React. A base pública v0.1 tem Button Feedback e Accordion Transition; as três adições locais L1 estão descritas ao final. Para feedback apenas de cor, prefira a receita CSS. Para altura de conteúdo controlado, use Accordion com Motion. Não aplique como instrução para scroll global, timelines, modal, WebGL ou animação decorativa contínua.
+Aplique ao escolher movimento para feedback ou disclosure em React. A base pública v0.1 tem Button Feedback e Accordion Transition; as três adições L1 do candidato da PR #1 estão descritas ao final. Para feedback apenas de cor, prefira a receita CSS. Para altura de conteúdo controlado, use Accordion com Motion. Não aplique como instrução para scroll global, timelines, modal, WebGL ou animação decorativa contínua.
 
 Antes de editar, leia o contrato público da receita: [Button](../../packages/motion-recipes/src/button-feedback/ButtonFeedback.tsx) ou [Accordion](../../packages/motion-recipes/src/accordion-transition/AccordionTransition.tsx). Importe por subpaths públicos; não importe a vitrine.
 
@@ -62,7 +62,7 @@ Execute typecheck, build e testes da receita alterada; valide no browser abertur
 
 Para alegar performance, registre build, browser, viewport, preferência e cenário medido. Não converta tempo de duração em FPS nem resultado headless em garantia de dispositivo físico. Entregue: ficha de motion, mudança concreta, comandos/resultados e limites da evidência. Revise se houver foco perdido, conteúdo fechado alcançável, preferência ignorada ou estado visual divergente do React.
 
-## L1 local — Presence, Async e Navigation (candidato não publicado)
+## L1 — Presence, Async e Navigation (candidato da PR #1; ainda fora da main/Pages/npm)
 
 As três APIs abaixo existem nesta worktree, sem bump de versão ou publicação. Os contratos anteriores permanecem válidos. Consulte os [contratos completos](../../docs/MOTION_CONTRACT.md) antes de editar.
 

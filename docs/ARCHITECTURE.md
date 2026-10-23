@@ -1,9 +1,13 @@
-# Arquitetura — v0.1
+# Arquitetura — base v0.1 e candidato L1/L2
+
+**Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
 
 ```text
 showcase (Vite / React / TypeScript)
   ├─→ motion-recipes/button-feedback (+ CSS)
   ├─→ motion-recipes/accordion-transition (+ CSS / Motion peer)
+  ├─→ motion-recipes/presence-transition, async-state-feedback, navigation-indicator (+ CSS)
+  ├─→ motion-recipes/scroll-reveal, staggered-entrance, scroll-progress
   └─→ motion-tokens (+ CSS opcional)
 motion-recipes ─→ motion-tokens
 skills ─ instruções e exemplos; sem runtime importado pela aplicação
@@ -13,7 +17,7 @@ pnpm workspaces usa somente apps/* e packages/*. Os três workspaces têm conte�
 
 ## Pacotes e consumo
 
-TypeScript emite ESM/declarations com imports relativos `.js` resolvíveis pelo Node. O helper de build copia apenas CSS para dist. Tokens possuem export raiz e CSS; receitas possuem dez subpaths de componentes/CSS nesta worktree L1 (quatro na base pública). Não há barrel raiz para carregar receitas sem uso. React/React DOM 19 são peers; Motion é opcional no manifesto para consumo de Button/Async, mas obrigatório para Accordion/Presence/Navigation. O showcase declara Motion diretamente. Apenas React 19.3.1/Motion 14.3.0 foram executados.
+TypeScript emite ESM/declarations com imports relativos `.js` resolvíveis pelo Node. O helper de build copia apenas CSS para dist. Tokens possuem export raiz e CSS; receitas possuem 13 subpaths explícitos: oito componentes e cinco CSS (quatro exports na base histórica de duas recipes). Não há barrel raiz para carregar receitas sem uso. React/React DOM 19 são peers; Motion é opcional no manifesto para consumo de Button/Async, mas obrigatório para Accordion/Presence/Navigation e as três recipes L2. O showcase declara Motion diretamente. Apenas React 19.3.1/Motion 14.3.0 foram executados.
 
 `check:consumer` copia somente manifests/dist para um consumidor de teste e liga peers locais: valida ESM, SSR, resolução CSS e exemplos das skills em TypeScript strict. Não importa fontes nem a vitrine. Isso verifica consumo local compilado; não constitui teste de publicação npm ou matriz de versões. `check:boundaries` faz scan estático das fronteiras e verifica os exports esperados.
 
@@ -31,8 +35,8 @@ Vitest usa DOM para componentes e ambiente Node explícito para o teste de token
 
 Decisões e licenças: [DECISIONS.md](DECISIONS.md). Contratos públicos: [MOTION_CONTRACT.md](MOTION_CONTRACT.md). Evidências reais: [VALIDATION.md](VALIDATION.md).
 
-## L1 local — estados e seleção
+## L1 — estados e seleção no candidato
 
 Presence usa retenção de um bloco controlado, foco antes da saída inerte e gerações de animação para impedir callbacks vencidos. Async é React/CSS, sem dependência de Motion ou Presence; a lógica de operação pertence ao consumidor. Navigation separa links/seleção/foco, mede o track com um ResizeObserver por instância e mantém fallback estático quando a medição não é segura. O hook privado de redução das novas recipes não substitui o hook existente do Accordion.
 
-As três demos reusam a superfície Mineral Técnico e não alteram a landing ou os assets. O consumidor L1 fica no diretório temporário do sistema, copia apenas manifests/dist e prova primeiro Button/Async sem Motion resolvível; depois adiciona Motion, gera SSR e hidrata em Chromium. A fixture é de validação, não novo workspace ou API pública. Exportadores/auditores exigem nove referências e dez subpaths, preservando listas explícitas.
+As três demos L1 reusam a superfície Mineral Técnico. A composição posterior da landing consome recipes públicas sem alterar seus contratos ou os assets. O consumidor L1 fica no diretório temporário do sistema, copia apenas manifests/dist e prova primeiro Button/Async sem Motion resolvível; depois adiciona Motion, gera SSR e hidrata em Chromium. A fixture é de validação, não novo workspace ou API pública. Exportadores/auditores exigem 13 referências e 13 subpaths no candidato L1/L2, preservando listas explícitas. A galeria guiada/fallback pertence exclusivamente ao showcase; detalhes em [LANDING_MOTION_INTEGRATION.md](LANDING_MOTION_INTEGRATION.md).

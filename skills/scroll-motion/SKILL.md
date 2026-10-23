@@ -5,7 +5,7 @@ description: 'Use when implementing or reviewing scroll-triggered entrances, bou
 
 # Scroll motion
 
-Escolha pela função da interface. As três recipes deste guia existem **na branch local L2**, sem integração pública ou publicação npm. Leia as APIs reais antes de editar: [ScrollReveal](../../packages/motion-recipes/src/scroll-reveal/ScrollReveal.tsx), [StaggeredEntrance](../../packages/motion-recipes/src/staggered-entrance/StaggeredEntrance.tsx), [ScrollProgress](../../packages/motion-recipes/src/scroll-progress/ScrollProgress.tsx). Não importe o showcase, helpers privados ou estilos V4.
+Escolha pela função da interface. As três recipes deste guia estão no candidato público da **PR #1, branch integration/landing-v4-horizontal**, junto às cinco anteriores: oito recipes, três skills e 13 subpaths. Ainda não estão integradas à main nem publicadas no Pages/npm; a Release/tag v0.1.0 permanece histórica. Leia as APIs reais antes de editar: [ScrollReveal](../../packages/motion-recipes/src/scroll-reveal/ScrollReveal.tsx), [StaggeredEntrance](../../packages/motion-recipes/src/staggered-entrance/StaggeredEntrance.tsx), [ScrollProgress](../../packages/motion-recipes/src/scroll-progress/ScrollProgress.tsx). Não importe o showcase, helpers privados ou estilos V4.
 
 ## Aplicação
 
@@ -133,4 +133,4 @@ Antes de declarar a integração pronta, execute e registre:
 6. StrictMode, cancelamento de callbacks/listeners/frames/observers após troca/unmount; redução durante espera e execução; teclado/foco/axe/toque.
 7. Bases local/Pages,320/390/1024/1440, zoom nativo200%, overflow e regressões M01–M05/duas skills anteriores.
 
-Diferencie Windows executado, Linux pendente, demos apenas lidas e dispositivos/browsers/AT não disponíveis. Axe não certifica anúncios de leitor de tela. Não usar “compatível” ou “publicado” por existir exemplo local.
+Diferencie resultados Windows por etapa, CI Ubuntu do SHA original 38b6fbbb aprovada na [execução 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276) com deploy skipped, alterações posteriores ainda não revalidadas no Ubuntu, demos apenas lidas e dispositivos/browsers/AT não disponíveis. Axe não certifica anúncios de leitor de tela. Não usar “compatível” ou “publicado” por existir exemplo local.

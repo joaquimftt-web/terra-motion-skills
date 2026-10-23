@@ -9,7 +9,7 @@ Faça o controle comunicar seu estado real. Escolha somente os estados que a ope
 
 ## Aplicação
 
-Use para feedback de controles e disclosure de conteúdo em React. Escolha [Button Feedback](../../packages/motion-recipes/src/button-feedback/ButtonFeedback.tsx) para botão semântico com feedback de cor; escolha [Accordion Transition](../../packages/motion-recipes/src/accordion-transition/AccordionTransition.tsx) para conteúdo aberto/fechado controlado. Essas duas receitas da base pública não resolvem links, dialogs, menus com teclado composto nem uma operação assíncrona completa. As três adições locais L1 estão detalhadas ao final, incluindo navegação nativa e apresentação de estados.
+Use para feedback de controles e disclosure de conteúdo em React. Escolha [Button Feedback](../../packages/motion-recipes/src/button-feedback/ButtonFeedback.tsx) para botão semântico com feedback de cor; escolha [Accordion Transition](../../packages/motion-recipes/src/accordion-transition/AccordionTransition.tsx) para conteúdo aberto/fechado controlado. Essas duas receitas da base pública não resolvem links, dialogs, menus com teclado composto nem uma operação assíncrona completa. As três adições L1 do candidato da PR #1 estão detalhadas ao final, incluindo navegação nativa e apresentação de estados.
 
 Comece identificando: ação real, rótulo acessível, estados aplicáveis, estado controlado pelo consumidor e forma de cancelar ou reverter a interação. Preserve o contrato existente antes de alterar uma receita.
 
@@ -71,7 +71,7 @@ Execute os testes da receita alterada e um consumo pelos exports públicos. No b
 
 Apresente a matriz de estados aplicáveis, props usadas, comandos/resultados e pendências. Revise a solução se ela anunciar sucesso sem operação concluída, tornar conteúdo fechado navegável, perder foco ou reativar movimento contra a preferência do sistema. Auditoria axe complementa esses cenários; não os substitui.
 
-## L1 local — Presence, Async e Navigation (candidato não publicado)
+## L1 — Presence, Async e Navigation (candidato da PR #1; ainda fora da main/Pages/npm)
 
 As três APIs abaixo existem nesta worktree, sem bump de versão ou publicação. Os contratos anteriores permanecem válidos. Consulte os [contratos completos](../../docs/MOTION_CONTRACT.md) antes de editar.
 
@@ -120,7 +120,7 @@ export function RemovableNotice() {
 
 Antes de entregar, teste SSR/hidratação real (não só string), StrictMode/unmount, duração zero/alterada, redução inicial/durante execução, foco interno com alvo válido e inválido, reversões, callback após DOM removido, textos longos/sem CSS, A→B→C e rail rolado/redimensionado. Compilar exemplos e passar axe não comprova anúncio em leitor de tela nem desempenho físico. Preserve logs de falhas e diferencie evidência atual de histórica.
 
-### Exemplo — feedback controlado e links reais (L1 local)
+### Exemplo — feedback controlado e links reais (L1)
 
 ```tsx
 import {

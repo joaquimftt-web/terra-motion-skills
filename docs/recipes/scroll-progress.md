@@ -1,4 +1,6 @@
-# Scroll Progress — M08 / L2 local
+# Scroll Progress — M08 / L2 no candidato da PR #1
+
+Código disponível na branch pública integration/landing-v4-horizontal, ainda não na main/Pages/npm. A Release/tag histórica v0.1.0 permanece inalterada.
 
 Subpath: `@motion-skills-lab/motion-recipes/scroll-progress`. ScrollProgressProps e ScrollProgressSource exportados; ref nativa HTMLDivElement da barra. Sem CSS obrigatório ou paleta; superfície herda currentColor. Sem children, duration, replay, easing/spring, leitura, eixo/offsets genéricos, live region ou semântica progressbar. Barra aria-hidden, sem tabulação/pointer; navegação permanece no conteúdo.
 
@@ -26,4 +28,4 @@ Sem RO, medidas iniciais e eventos disponíveis continuam funcionando; não há 
 
 SSR/primeiro render iguais: barra inativa, texto do produto independente e legível. Após commit, medir posição atual/restaurada diretamente, sem animação0→posição. Source com novos objetos mas mesmos nós não perde valor. Troca de fonte/nó/unmount/StrictMode remove listeners/observers/subscrição e frame pendente; callbacks antigos não escrevem.
 
-Exemplos independentes: [skill](../../skills/scroll-motion/SKILL.md). API real: [fonte](../../packages/motion-recipes/src/scroll-progress/ScrollProgress.tsx). Fórmulas/SSR/noJS/restore/resize/conteúdo dinâmico e ausência de RO são cenários de validação; veja [resultados e limitações](../VALIDATION.md). Linux e tecnologias assistivas não executadas permanecem pendentes. Nenhuma publicação npm/main autorizada por este lote.
+Exemplos independentes: [skill](../../skills/scroll-motion/SKILL.md). API real: [fonte](../../packages/motion-recipes/src/scroll-progress/ScrollProgress.tsx). Fórmulas/SSR/noJS/restore/resize/conteúdo dinâmico e ausência de RO são cenários de validação; veja [resultados e limitações](../VALIDATION.md). CI Ubuntu do SHA original 38b6fbbb aprovada na [execução 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), deploy skipped; alterações documentais posteriores ainda requerem revalidação Ubuntu. Tecnologias assistivas, dispositivos físicos e outros navegadores permanecem sem validação específica. Esta documentação não autoriza integração na main, deploy ou publicação npm.

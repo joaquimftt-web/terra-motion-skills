@@ -1,6 +1,6 @@
-# Scroll Reveal — L1
+# Scroll Reveal — M06 / L2 no candidato da PR #1
 
-**Implementação local em revisão, não publicada.** Este novo subpath não pertence à Release v0.1.0. O lote não altera sua tag, versão de package.json, showcase ou skills.
+**Código disponível na branch pública integration/landing-v4-horizontal da PR #1; ainda fora da main/Pages/npm.** Este subpath não pertence à Release/tag histórica v0.1.0. O candidato inclui oito recipes, três skills e 13 subpaths, com demos L2 no laboratório e consumo na landing. A branch R1 original permanece separada.
 
 ## Consumo
 
@@ -82,6 +82,10 @@ Testes unitários separam a política com doubles da prova real em Chromium. A f
 
 Geometria/pintura arbitrárias não são inferidas universalmente: em dúvida, estado estático. Capturas finais não provam ausência de saltos; o teste registra amostras de transform por requestAnimationFrame e vídeo real. Isso não é benchmark de FPS nem certificação de acessibilidade. Zoom real 200%, outros navegadores, leitores de tela e dispositivos físicos só devem ser apresentados como validados se houver evidência específica.
 
-## Adaptação seletiva ao L2 — 22/10/2026
+## Histórico — adaptação seletiva ao L2 em 22/10/2026
 
-Contrato público preservado, default260ms/8px. Branch R1 original permanece intacta em3b1a494. Esta cópia parte do checkpoint L1 a6a1292; não é merge da infraestrutura antiga. O lifecycle privado foi compartilhado com M07 após necessidade real de cancelamento/preparação comum;33testes R1 e15E2E anteriores permanecem. Nenhuma API de fade/root/amount adicionada. Duas skills anteriores preservadas; nova [scroll-motion](../../skills/scroll-motion/SKILL.md) ensina composição e limites. Esta adaptação é local, não integrada à main/npm. Resultados atuais/limitações em [VALIDATION](../VALIDATION.md).
+Contrato público preservado, default260ms/8px. Branch R1 original permanece intacta em3b1a494. Esta cópia parte do checkpoint L1 a6a1292; não é merge da infraestrutura antiga. O lifecycle privado foi compartilhado com M07 após necessidade real de cancelamento/preparação comum;33testes R1 e15E2E anteriores permanecem. Nenhuma API de fade/root/amount adicionada. Duas skills anteriores preservadas; nova [scroll-motion](../../skills/scroll-motion/SKILL.md) ensina composição e limites. Naquela etapa a adaptação era exclusivamente local; agora integra o candidato público da PR #1, ainda fora da main/Pages/npm. Resultados atuais/limitações em [VALIDATION](../VALIDATION.md).
+
+## Estado de validação do candidato
+
+CI Ubuntu do SHA original 38b6fbbb aprovada na [execução 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), deploy skipped. Resultados pertencem àquele SHA; alterações documentais posteriores ainda requerem revalidação Ubuntu. Outros navegadores, leitores de tela e dispositivos físicos continuam sem validação específica.

@@ -1,6 +1,12 @@
-# Landing V4 — composição horizontal integrada localmente
+# Landing V4 — composição horizontal no candidato da PR #1
 
-## Estado e isolamento
+## Estado do candidato — revisão documental, 22/10/2026
+
+**Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
+
+[CI Ubuntu 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276) aprovada no SHA original `38b6fbbb50a867c790c72a2c8ce90b9aba6a1118`: 172 Vitest, 11 auditor, 30 E2E independentes e 109 E2E por base; deploy skipped. A correção documental posterior ainda requer revalidação Ubuntu. Main/Pages permanecem na base anterior. Os resultados locais e pendências relatados abaixo são históricos daquela etapa, incluindo a ausência de push e Linux naquele momento. Não são o estado remoto atual.
+
+## Histórico — estado e isolamento da integração local
 
 Composição aprovada pelo titular em 22/10/2026 e consolidada somente na branch `integration/landing-v4-horizontal`. Não integrada à main nem publicada. O site público e suas duas recipes disponíveis não mudam por este lote; os pacotes não estão publicados no npm.
 
@@ -65,13 +71,13 @@ Repetir build/E2E com `SHOWCASE_BASE_PATH=/` e `/terra-motion-skills/`, sem reut
 
 Zoom nativo 200%, capturas, vídeos originais e checagens visuais são evidências externas ao código, entregues em Arquivos-GPT. Resultados efetivamente executados constam no fechamento abaixo e em [VALIDATION.md](VALIDATION.md). A lista de comandos, isoladamente, não substitui as evidências.
 
-## Limitações e autorização futura
+## Histórico — limitações e autorização futura da etapa local
 
 Linux, outros navegadores, leitores de tela e dispositivos físicos só podem ser declarados validados após execução específica. Touch/wheel emulados e axe não equivalem a essas verificações. Amostras curtas de performance não certificam FPS ou energia. Links Markdown exportados para commits locais passam a ter destino remoto somente após eventual push/rebuild autorizado; os recursos locais e links do Laboratório devem funcionar já neste candidato.
 
 Próxima decisão humana: revisão do resultado integrado localmente. Publicação, integração na main, npm, tags e Release permanecem fora desta autorização.
 
-## Fechamento da integração local — 22/10/2026
+## Histórico — fechamento da integração local em 22/10/2026
 
 Validações executadas nesta integração, sem somar os resultados históricos do r2:
 

@@ -2,6 +2,22 @@
 
 Fechamento da experiência integrada publicada: [CLOSING_VALIDATION.md](CLOSING_VALIDATION.md). Estado público confirmado: [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md). O deploy v0.1 já ocorreu; abaixo estão registros históricos preservados, inclusive pendências anteriores ao primeiro deploy. Eles não representam a situação atual.
 
+## Correção documental pré-merge da PR #1 — 22/10/2026
+
+Revisão exclusivamente documental sobre o candidato original 38b6fbbb: oito recipes, três skills e 13 subpaths, separando branch pública, main e Pages. Históricos preservados; APIs, exemplos TSX, instruções operacionais, código, CSS, workflows, dependências, assets e licenças inalterados.
+
+Executados localmente nesta etapa: formatação, lint, TypeScript, validação das três skills, fronteiras, consumidor independente com exemplos strict/SSR/hidratação e controle negativo; quatro exemplos TSX dos READMEs compilados em strict; 172/172 Vitest e 11/11 testes Node positivos/negativos do auditor. Builds das bases `/` e `/terra-motion-skills/`, gates de publicação e sete E2E direcionados por base passaram: navegação direta/refresh, referências reais, JS/CSS e avisos legais. Auditoria de links relativos e diff documental passou. Não foi reexecutada a bateria completa de 109 E2E por base ou 30 E2E independentes nesta correção editorial; esses resultados são da CI do SHA original abaixo. Não houve nova revisão visual, zoom ou certificação de acessibilidade nesta etapa.
+
+Este checkpoint é local e não foi enviado à PR. Revalidação Ubuntu do novo commit depende de autorização de push e de um novo workflow_dispatch na branch, com deploy restrito à main e esperado skipped. Main/Pages e Release/tag histórica v0.1.0 permanecem inalterados.
+
+## CI Ubuntu do candidato original da PR #1 — 22/10/2026
+
+[Execução 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), uma tentativa: branch integration/landing-v4-horizontal, SHA `38b6fbbb50a867c790c72a2c8ce90b9aba6a1118`. Ubuntu 24.04/Chromium headless: formatação, lint, tipos, builds, três skills, fronteiras/13 subpaths, consumidor independente/SSR/hidratação aprovados; controle negativo de mismatch tardio rejeitado corretamente. **172/172 Vitest em 20 arquivos, 11/11 testes Node do auditor, 30/30 E2E da fixture independente e 109/109 E2E por base**, incluindo axe nas suítes. Build/validação success; deploy skipped.
+
+Artefato: 24 arquivos, 2.115.366 bytes descompactados, 13 referências e avisos legais. Auditoria e comparação byte a byte com o build local passaram. ZIP original SHA-256 `944d9907244d29e9a22eeeb2a134e2eeccdf71f20e1d7d7a11dee8bb80e55cdb`, igual ao digest GitHub. Logs e artefato originais preservados nas evidências entregues ao titular. O workflow bem-sucedido não reteve HTML/vídeos dos testes; não há nova evidência visual manual Linux ou zoom nativo Ubuntu. Outros browsers, leitores de tela/dispositivos físicos continuam pendentes.
+
+A revisão documental posterior não herda automaticamente aprovação de CI para seu novo SHA. Main/Pages não receberam a PR, pacotes npm não publicados e Release/tag v0.1.0 inalteradas. Resultados Windows, limitações Linux e contagens nos registros históricos seguintes descrevem suas respectivas etapas e não contradizem esta execução posterior.
+
 ## Suporte ao GitHub Pages — 20/10/2026
 
 Implementação local, sem push do workflow, alteração remota de configuração ou deploy do Pages. Bases verificadas: `/` e `/terra-motion-skills/`. Recipes, skills, contrato, estilos e licença preservados. A tag e a Release v0.1.0 existentes não foram alteradas. Na conferência final, Pages já constava configurado para GitHub Actions com HTTPS, mas sem execuções de workflow; essa configuração não foi realizada nesta etapa.

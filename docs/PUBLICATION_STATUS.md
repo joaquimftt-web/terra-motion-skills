@@ -1,5 +1,15 @@
 # Estado da publicação
 
+## Estado do candidato da PR #1 — revisão documental, 22/10/2026
+
+**Candidato da [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. L1/L2 e a composição horizontal estão disponíveis na branch `integration/landing-v4-horizontal`; ainda não integrados à main nem publicados no Pages. Pacotes npm não publicados. A Release/tag v0.1.0 é histórica e permanece inalterada.
+
+A main de referência e o Pages permanecem na base pública anterior; main: `9a70fe5564fc66cd624861bb0e98337b9a8cb6d5`. Na branch candidata há Presence Transition, Async State Feedback, Navigation Indicator, Scroll Reveal, Staggered Entrance e Scroll Progress, além de Button Feedback e Accordion Transition. Skills: motion-foundations, microinteraction-design e scroll-motion. Landing candidata: V4/P1/P2/P3 preservados, widget após o hero e galeria horizontal guiada A com fallback nativo B.
+
+[CI Ubuntu 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276) aprovada no SHA original `38b6fbbb50a867c790c72a2c8ce90b9aba6a1118`; deploy **skipped**. Esta revisão documental posterior exige novo push e dispatch autorizados antes de afirmar CI Ubuntu do novo commit. O código original da PR já está disponível na branch GitHub; não está integrado à main ou servido pelo Pages. Publicação npm é uma operação separada, não realizada.
+
+Os registros abaixo são fatos históricos por etapa. Menções a pendências, ausência de autorização e contagens antigas descrevem aquele momento; não substituem este estado do candidato. A branch R1 original feat/scroll-reveal permanece separada, sem merge: o Scroll Reveal atual pertence ao L2. R2–R9 da pesquisa anterior não são IDs dos lotes L1/L2 atuais; propostas não implementadas continuam no backlog. Avisos e permissões dos assets não foram alterados.
+
 ## Experiência pública — 21/10/2026
 
 [Landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [Referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/) estão públicos. A landing inclui identidade V4, coreografia P1, narrativa P2 e acabamento P3. Button Feedback e Accordion Transition continuam sendo as duas recipes públicas, com as skills motion-foundations e microinteraction-design.
@@ -20,11 +30,11 @@ Primeiro deploy: 20/10/2026, baceffee, run 39469817919. Integração inicial: 7e
 
 [Operação e rollback](HOSTING.md) · [Integração concluída](CLOSING_INTEGRATION.md) · [Validação](CLOSING_VALIDATION.md).
 
-## Candidato L1 local — 22/10/2026
+## Histórico — candidato L1 local em 22/10/2026
 
 A worktree feat/states-selection-l1 adiciona Presence Transition, Async State Feedback e Navigation Indicator apenas localmente. Nenhuma integração, commit, push, deploy ou alteração da Release v0.1.0 foi autorizada neste lote. O site público continua com as duas recipes da base; Scroll Reveal permanece isolado.
 
-## Integração horizontal local — 22/10/2026
+## Histórico — integração horizontal local em 22/10/2026
 
 A branch `integration/landing-v4-horizontal` consolida o widget após o hero e a galeria de quatro painéis como padrão local. A rolagem guiada usa fallback nativo por geometria, foco, preferência e capacidade do navegador. Os seletores comparativos foram removidos; o protótipo r2 está preservado no checkpoint local `e27f56b863aa87e9d5ea0e2d736a7a3ee50e860a`.
 
