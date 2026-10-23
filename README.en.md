@@ -2,13 +2,13 @@
 
 [Português](README.md) · **v0.1.0 — historical milestone; published experience** · Public GitHub repository
 
-Eight reusable React motion recipes on main and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
+Eleven reusable React motion recipes on main and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
 
 ![Terra Motion Skills showcase](docs/evidence/publication/terra-showcase-v4-1440.png)
 
 **Public showcase:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [Mineral Technical lab](https://joaquimftt-web.github.io/terra-motion-skills/lab/) and [references](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). Historically, the first integrated V4/P1/P2/P3 experience was published from `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [successful deployment](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Historical release/tag v0.1.0 remains unchanged; this visual publication does not bump the library version. A1 screenshots below are historical.
 
-**Published on main and GitHub Pages:** 8 recipes, 3 operational skills and 13 explicit recipe/CSS subpaths. [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) was merged with merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, including L1/L2 and the horizontal Landing V4 composition. [CI/build and deployment passed](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). No npm packages are published; historical release/tag v0.1.0 is unchanged.
+**Code catalog:** 11 recipes, 4 operational skills and 16 explicit recipe/CSS subpaths. L3 adds Layout Reflow, Skeleton-to-Content and Data Change Feedback; see [contracts](docs/L3_CONTRACTS.md). No npm packages are published and historical release/tag v0.1.0 is unchanged.
 
 ## Install and run
 
@@ -48,6 +48,9 @@ Official name: **Terra Motion Skills**; public repository: [joaquimftt-web/terra
 - **Scroll Reveal:** safe block entrance without fade, 260 ms / 8 px.
 - **Staggered Entrance:** bounded semantic group entrance, 260 ms / 8 px / 50 ms stagger.
 - **Scroll Progress:** actual scroll position, without artificial duration or proof of reading.
+- **Layout Reflow:** controlled position-only list, stable ids and explicit intent, 240 ms.
+- **Skeleton-to-Content:** immediate ready content and focus-preserving revalidation, 180 ms decorative effect.
+- **Data Change Feedback:** exact controlled values with secondary feedback, 220 ms.
 - **Showcase:** actual duration/replay/reset controls, activation counter, disabled control and clipboard success/fallback.
 
 Live system reduced motion takes priority. Accordion reduces conservatively if matchMedia is unavailable. Consumers own content and business operations.
@@ -86,15 +89,15 @@ export function Details() {
 }
 ```
 
-Main has 13 explicit subpaths: eight components and five CSS exports, with no root recipe barrel. All eight recipes have Pages demos. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
+Main has 16 explicit subpaths: eleven components and five CSS exports, with no root recipe barrel. All eleven recipes have Pages demos. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
 
 ## Skills and architecture
 
-Read [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction-design](skills/microinteraction-design/SKILL.md) and [scroll-motion](skills/scroll-motion/SKILL.md) within the clone, preserving directories for relative links. They contain operational instructions in Portuguese, parameters, examples, constraints, accessibility and validation. They are not runtime or automatically installed agent configuration. Structural validation does not certify agent effectiveness.
+Read [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction-design](skills/microinteraction-design/SKILL.md) and [scroll-motion](skills/scroll-motion/SKILL.md) and [layout-transitions](skills/layout-transitions/SKILL.md) within the clone, preserving directories for relative links. They contain operational instructions in Portuguese, parameters, examples, constraints, accessibility and validation. They are not runtime or automatically installed agent configuration. Structural validation does not certify agent effectiveness.
 
 - `apps/showcase`: consumes public package exports.
 - `packages/motion-tokens`: neutral timing/easing.
-- `packages/motion-recipes`: eight independent recipes integrated into main.
+- `packages/motion-recipes`: eleven independent recipes integrated into main.
 - `skills`: instructions; `docs`: contracts, decisions, sources and evidence.
 
 [Architecture](docs/ARCHITECTURE.md) · [Decisions](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -141,7 +144,7 @@ The logo and architectural background have specific permissions separate from MI
 
 ## L1/L2 and published landing composition
 
-Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indicator (180 ms) form L1. Scroll Reveal, Staggered Entrance and Scroll Progress form L2. Including Button and Accordion, there are eight recipes; see the [contracts](docs/MOTION_CONTRACT.md) and three skills. The Async demo identifies its user-controlled promise simulation; Navigation uses real links/hash/history. Temporal demos offer 0–800 ms; position-linked progress has no artificial duration.
+Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indicator (180 ms) form L1. Scroll Reveal, Staggered Entrance and Scroll Progress form L2. L3 adds Layout Reflow, Skeleton-to-Content and Data Change Feedback, for eleven recipes; see the [contracts](docs/MOTION_CONTRACT.md) and four skills. The Async demo identifies its user-controlled promise simulation; Navigation uses real links/hash/history. Temporal demos offer 0–800 ms; position-linked progress has no artificial duration.
 
 - [Scroll Reveal](docs/recipes/scroll-reveal.md): short entrance without fade, safe preparation below the viewport.
 - [Staggered Entrance](docs/recipes/staggered-entrance.md): semantic ul/li list, min(i×stagger,200) ms delay and whole-group cancellation.

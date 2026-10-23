@@ -1,14 +1,24 @@
 import { useSyncExternalStore } from 'react';
 
 const query = '(prefers-reduced-motion: reduce)';
+function mediaQuery() {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return null;
+  try {
+    const media = window.matchMedia(query);
+    return typeof media.addEventListener === 'function' &&
+      typeof media.removeEventListener === 'function'
+      ? media
+      : null;
+  } catch {
+    return null;
+  }
+}
 function snapshot() {
-  return typeof window === 'undefined' || !window.matchMedia
-    ? true
-    : window.matchMedia(query).matches;
+  return mediaQuery()?.matches ?? true;
 }
 function subscribe(notify: () => void) {
-  if (typeof window === 'undefined' || !window.matchMedia) return () => {};
-  const media = window.matchMedia(query);
+  const media = mediaQuery();
+  if (!media) return () => {};
   media.addEventListener('change', notify);
   return () => media.removeEventListener('change', notify);
 }

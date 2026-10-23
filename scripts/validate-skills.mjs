@@ -4,7 +4,7 @@ import { dirname, resolve } from 'node:path';
 const names = process.argv.slice(2);
 const selected = names.length
   ? names
-  : ['motion-foundations', 'microinteraction-design', 'scroll-motion'];
+  : ['motion-foundations', 'microinteraction-design', 'scroll-motion', 'layout-transitions'];
 for (const name of selected) {
   const file = resolve('skills', name, 'SKILL.md');
   const text = readFileSync(file, 'utf8');

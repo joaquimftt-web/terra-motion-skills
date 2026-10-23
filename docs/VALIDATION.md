@@ -1,5 +1,17 @@
 # Validação — estado atual e registros históricos
 
+## L3 — validação local final, 23/10/2026
+
+Base c50e4fe, branch feat/layout-transitions-l3. Adicionados Layout Reflow, Skeleton-to-Content, Data Change Feedback e a skill layout-transitions: 11 recipes, quatro skills, 16 subpaths e 17 referências exportadas. Contratos: [L3_CONTRACTS.md](L3_CONTRACTS.md). Sem alteração de dependências, versões, assets, licenças ou fontes M01–M08; o helper privado de redução ganhou fallback conservador para API ausente/incompleta ou consulta que lança.
+
+Executado no estado final funcional em Chromium/Windows: **240/240 Vitest (27 arquivos), 11/11 testes Node positivos/negativos, 41/41 E2E independentes e 122/122 Playwright em cada base** (`/` e `/terra-motion-skills/`). Formatação, ESLint, TypeScript strict, instalação congelada, quatro skills, fronteiras, consumidor dist/manifests, exemplos das skills, builds, direitos e auditoria do artefato aprovados. Incluídos SSR/hidratação real saudável e mismatch negativo, StrictMode/cleanup, duração zero/default/800, foco/teclado, redução ao vivo, clipboard nativo, axe, quatro larguras e regressões da landing/galeria/ausência de P2. Os exemplos realmente exibidos pelas três demos com duração 800 ms também compilaram em strict contra o consumidor dist.
+
+A primeira bateria revelou contagem antiga de referências e a comparação nativa de clipboard encontrou conversão CRLF do Windows. Corrigidos o inventário para exigir todas as 17 referências e a normalização exclusiva de fim de linha. Revisão independente encontrou fallback M09 com matchMedia que lança e atribuição histórica imprecisa: ambos corrigidos e rechecados; os testes finais incluem sete casos hostis/hidratação M09. As falhas e correções permanecem no relatório de entrega, sem enfraquecer expectativas funcionais.
+
+Capturas e vídeos originais das três demos em 1440, 1024, 390 e 320 px, incluindo redução ao vivo, foram registrados. Revisão de imagens desktop/mobile é evidência visual localizada; não demonstra precisão de FPS ou todos os frames. Axe não certifica acessibilidade. Zoom nativo 200%, Firefox/WebKit, leitores de tela e dispositivos físicos **não executados** neste lote.
+
+Esta seção registra gates locais anteriores à integração, não constitui evidência da futura execução Ubuntu ou do deploy. Os resultados da branch, main e HTTPS serão registrados separadamente no relatório consolidado com seus SHAs e URLs. Registros abaixo são históricos e não descrevem o catálogo L3.
+
 ## Remoção do movimento P2 — 23/10/2026
 
 Decisão e escopo: [P2_REMOVAL.md](P2_REMOVAL.md). Comparação pública on/off reproduziu a passagem raster nas quatro larguras. Após remover o plano, capturas locais estáticas coincidiram pixel a pixel com a referência desativada em 1440, 1024, 390 e 320 px; geometria e espaçamento mantidos. Vídeos originais registraram ida/volta e reduced motion.

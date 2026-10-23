@@ -43,6 +43,18 @@
     "./scroll-progress": {
       "types": "./dist/scroll-progress/index.d.ts",
       "import": "./dist/scroll-progress/index.js"
+    },
+    "./layout-reflow": {
+      "types": "./dist/layout-reflow/index.d.ts",
+      "import": "./dist/layout-reflow/index.js"
+    },
+    "./skeleton-to-content": {
+      "types": "./dist/skeleton-to-content/index.d.ts",
+      "import": "./dist/skeleton-to-content/index.js"
+    },
+    "./data-change-feedback": {
+      "types": "./dist/data-change-feedback/index.d.ts",
+      "import": "./dist/data-change-feedback/index.js"
     }
   },
   "files": [

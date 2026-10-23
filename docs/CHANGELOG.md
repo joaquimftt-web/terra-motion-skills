@@ -1,5 +1,9 @@
 # Changelog
 
+## 23/10/2026 — L3, sem bump de versão
+
+Layout Reflow, Skeleton-to-Content e Data Change Feedback, skill operacional layout-transitions e três demos reais no laboratório. Catálogo com 11 recipes/quatro skills, 16 subpaths e 17 referências. Controles de duração, fallback conservador, SSR/hidratação e consumidor independente documentados e testados. Identidade V4, P1/P3, galeria, assets e contratos anteriores preservados; P2 permanece removido. Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada. [Contratos](L3_CONTRACTS.md) e [gates locais](VALIDATION.md). Integração/deploy exigem os gates próprios deste lote, registrados na entrega.
+
 ## 23/10/2026 — remoção da passagem decorativa P2, sem nova versão
 
 Removidos plano raster transitório, controlador, hook e CSS exclusivos do Mineral Fold. Preservados fundo/identidade V4, P1/P3, espaçamento, galeria, recipes, APIs e assets. Nove testes unitários do recurso excluído foram aposentados; oito cenários E2E de ausência da faixa e continuidade da transição foram acrescentados. Detalhes: [P2_REMOVAL.md](P2_REMOVAL.md).

@@ -39,11 +39,13 @@ import { strict as assert } from 'node:assert';
 import { createElement as h } from 'react'; import { renderToString } from 'react-dom/server';
 import { ButtonFeedback } from '@motion-skills-lab/motion-recipes/button-feedback';
 import { AsyncStateFeedback } from '@motion-skills-lab/motion-recipes/async-state-feedback';
+import { SkeletonToContent } from '@motion-skills-lab/motion-recipes/skeleton-to-content';
 assert.throws(()=>import.meta.resolve('motion/react'));
 assert.ok(renderToString(h(ButtonFeedback,null,'Button')).includes('Button'));
 const messages={idle:'Ready',pending:'Pending',success:'Done',error:'Error',cancelled:'Cancelled'};
 assert.ok(renderToString(h(AsyncStateFeedback,{state:'idle',messages})).includes('Ready'));
-console.log('PASS Button + Async without resolvable Motion in an OS temporary consumer');`,
+assert.ok(renderToString(h(SkeletonToContent,{loading:false,skeleton:'Loading'},'Real')).includes('Real'));
+console.log('PASS Button + Async + Skeleton without resolvable Motion in an OS temporary consumer');`,
 );
 execFileSync(process.execPath, [join(fixture, 'without-motion.mjs')], { stdio: 'inherit' });
 symlinkSync(

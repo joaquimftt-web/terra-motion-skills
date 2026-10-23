@@ -48,6 +48,12 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { ButtonFeedback } from '@motion-skills-lab/motion-recipes/button-feedback';
 import { AccordionTransition } from '@motion-skills-lab/motion-recipes/accordion-transition';
 import { motionTokens } from '@motion-skills-lab/motion-tokens';
+import {LayoutReflow} from '@motion-skills-lab/motion-recipes/layout-reflow';
+import {SkeletonToContent} from '@motion-skills-lab/motion-recipes/skeleton-to-content';
+import {DataChangeFeedback} from '@motion-skills-lab/motion-recipes/data-change-feedback';
+assert.ok(renderToStaticMarkup(createElement(LayoutReflow,{items:[{id:'a',content:'Stable'}],reflowKey:0})).includes('Stable'));
+assert.ok(renderToStaticMarkup(createElement(SkeletonToContent,{loading:false,skeleton:'Loading'},'Real')).includes('Real'));
+assert.ok(renderToStaticMarkup(createElement(DataChangeFeedback,{value:'R$ 1.234,56'})).includes('R$ 1.234,56'));
 assert.equal(motionTokens.duration.accordionTransition, 180);
 assert.ok(renderToStaticMarkup(createElement(ButtonFeedback,{type:'button'},'Real')).includes('Real'));
 assert.ok(renderToStaticMarkup(createElement(AccordionTransition,{open:true,onOpenChange:()=>{},trigger:'Details'},'Content')).includes('Content'));
@@ -56,7 +62,13 @@ console.log('PASS output-only consumer: public ESM exports, SSR and CSS resoluti
 `,
 );
 cpSync(resolve('scripts/fixtures/l2-consumer-types.tsx'), join(fixture, 'l2-consumer-types.tsx'));
-for (const name of ['motion-foundations', 'microinteraction-design', 'scroll-motion']) {
+cpSync(resolve('scripts/fixtures/l3-consumer-types.tsx'), join(fixture, 'l3-consumer-types.tsx'));
+for (const name of [
+  'motion-foundations',
+  'microinteraction-design',
+  'scroll-motion',
+  'layout-transitions',
+]) {
   const skill = readFileSync(resolve('skills', name, 'SKILL.md'), 'utf8');
   const examples = [...skill.matchAll(/```tsx\r?\n([\s\S]*?)```/g)];
   if (!examples.length) throw new Error(`No TSX example: ${name}`);
@@ -87,7 +99,7 @@ execFileSync(
   [resolve('node_modules/typescript/lib/tsc.js'), '-p', join(fixture, 'tsconfig.json')],
   { stdio: 'inherit' },
 );
-console.log('PASS three skill examples: strict TypeScript against copied public declarations');
+console.log('PASS four skill examples: strict TypeScript against copied public declarations');
 execFileSync(process.execPath, [resolve('scripts/check-l1-hydration-audit.mjs')], {
   stdio: 'inherit',
 });

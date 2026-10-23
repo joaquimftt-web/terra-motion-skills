@@ -7,7 +7,7 @@ description: 'Use when choosing or reviewing timing, easing, interruption, reduc
 
 Transforme a intenção da interface em uma decisão de motion verificável. Use o estado real do React como fonte de verdade; a conclusão de uma animação não autoriza ações de negócio.
 
-**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+**Catálogo desta atualização L3:** 11 recipes, 4 skills operacionais e 16 subpaths explícitos de recipes/CSS. Para layout e estados dinâmicos, consulte [layout-transitions](../layout-transitions/SKILL.md). L1/L2 foram publicados pela PR #1 (merge 491a934, CI/deploy 39881855054); esse registro é histórico e não valida L3. A integração e publicação de L3 exigem seus próprios gates. Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 ## Aplicação
 

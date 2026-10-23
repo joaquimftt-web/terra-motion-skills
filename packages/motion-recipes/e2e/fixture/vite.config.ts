@@ -10,7 +10,7 @@ export default defineConfig({
     {
       name: 'recipe-ssr-fixture',
       configureServer(server) {
-        for (const filename of ['ssr.html', 'progress-ssr.html'])
+        for (const filename of ['ssr.html', 'progress-ssr.html', 'layout-ssr.html'])
           server.middlewares.use('/' + filename, async (_req, res, next) => {
             try {
               const source = readFileSync(
