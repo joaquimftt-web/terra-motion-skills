@@ -1,5 +1,9 @@
 # Changelog
 
+## 23/10/2026 — remoção da passagem decorativa P2, sem nova versão
+
+Removidos plano raster transitório, controlador, hook e CSS exclusivos do Mineral Fold. Preservados fundo/identidade V4, P1/P3, espaçamento, galeria, recipes, APIs e assets. Nove testes unitários do recurso excluído foram aposentados; oito cenários E2E de ausência da faixa e continuidade da transição foram acrescentados. Detalhes: [P2_REMOVAL.md](P2_REMOVAL.md).
+
 ## 21/10/2026 — experiência integrada publicada, sem nova versão de biblioteca
 
 Landing V4/P1/P2/P3, laboratório Mineral Técnico e referências publicados no Pages em `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [run bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Overflow de 320 px no runner Linux reproduzido e corrigido antes do deploy final. Direitos específicos dos assets regularizados e avisos separados preservados. Fechamento editorial atualiza estado público, operação e contribuição sem alterar runtime, recipes, skills, identidade visual ou dependências. Release/tag histórica v0.1.0 preservada; R1 isolada e npm não publicado.

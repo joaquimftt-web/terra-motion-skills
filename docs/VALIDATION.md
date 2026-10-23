@@ -1,5 +1,13 @@
 # Validação — estado atual e registros históricos
 
+## Remoção do movimento P2 — 23/10/2026
+
+Decisão e escopo: [P2_REMOVAL.md](P2_REMOVAL.md). Comparação pública on/off reproduziu a passagem raster nas quatro larguras. Após remover o plano, capturas locais estáticas coincidiram pixel a pixel com a referência desativada em 1440, 1024, 390 e 320 px; geometria e espaçamento mantidos. Vídeos originais registraram ida/volta e reduced motion.
+
+Validação local executada: formatação, lint, TypeScript, skills, fronteiras, consumidor independente/SSR/hidratação, builds, publicação e auditorias aprovados; 163 Vitest em 19 arquivos, 11 Node, 30 E2E independentes e 117 E2E por base. Os nove testes do controlador P2 excluído foram aposentados; oito cenários E2E de regressão foram adicionados. Testes de recipes e suas APIs preservados.
+
+Esses resultados são locais (Chromium/Windows), não evidência de CI/deploy desta correção. A validação Ubuntu na main e o smoke HTTPS do novo SHA constarão no relatório de entrega. Sem nova alegação de zoom nativo, outros navegadores, leitores de tela ou dispositivos físicos. As seções seguintes são registros históricos.
+
 ## Publicação da PR #1 — 22/10/2026
 
 **Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.

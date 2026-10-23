@@ -1,5 +1,9 @@
 # Estado da publicação
 
+## Correção da dobra mineral — 23/10/2026
+
+A passagem animada Mineral Fold foi removida por decisão visual. A identidade estática V4, P1, P3, widget, galeria horizontal, oito recipes e três skills são preservados. Sem efeito substituto ou alteração de assets/APIs. Escopo e cobertura em [P2_REMOVAL.md](P2_REMOVAL.md). Os relatos de P2 abaixo são evidências históricas dos respectivos SHAs.
+
 ## Estado publicado — 22/10/2026
 
 **Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.

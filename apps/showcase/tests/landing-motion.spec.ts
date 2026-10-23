@@ -2,6 +2,44 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const base = process.env.SHOWCASE_BASE_PATH ?? '/';
+for (const width of [1440, 1024, 390, 320])
+  for (const reducedMotion of ['no-preference', 'reduce'] as const) {
+    test(`mineral crossing stays absent at ${width} with ${reducedMotion}`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.emulateMedia({ reducedMotion });
+      await page.goto(base);
+      await expect(page.locator('.lp-p2-slot, .lp-p2-plane')).toHaveCount(0);
+      const geometry = () =>
+        page.evaluate(() => {
+          const statement = document.querySelector('.lp-statement')!.getBoundingClientRect();
+          const library = document.querySelector('#biblioteca')!.getBoundingClientRect();
+          return { gap: library.top - statement.bottom, top: library.top + scrollY };
+        });
+      const initial = await geometry();
+      expect(Math.abs(initial.gap)).toBeLessThan(1);
+      for (const y of [
+        initial.top - 600,
+        initial.top - 400,
+        initial.top - 200,
+        initial.top - 500,
+      ]) {
+        await page.evaluate((y) => scrollTo({ top: y, behavior: 'instant' }), y);
+        await page.waitForTimeout(100);
+        expect(Math.abs((await geometry()).top - initial.top)).toBeLessThan(1);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+          true,
+        );
+      }
+      await page.emulateMedia({
+        reducedMotion: reducedMotion === 'reduce' ? 'no-preference' : 'reduce',
+      });
+      await expect(page.locator('.lp-p2-slot, .lp-p2-plane')).toHaveCount(0);
+      await page.goto(base + '?p21=off#biblioteca');
+      await expect(page.locator('#library-title')).toBeInViewport();
+      await expect(page.locator('.lp-p2-slot, .lp-p2-plane')).toHaveCount(0);
+      await expect(page.locator('.lp-recipe-card')).toHaveCount(2);
+    });
+  }
 async function useNative(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: 'Preferir rolagem nativa' }).click();
   await expect(page.getByTestId('horizontal-stage')).toHaveAttribute('data-mode', 'native');
@@ -47,7 +85,7 @@ for (const width of [1440, 1024, 390, 320])
       expect(audit.violations).toEqual([]);
       await page.getByRole('link', { name: 'Pular a sequência ↘' }).click();
       await expect(page.locator('#hx-after')).toBeInViewport();
-      await expect(page.locator('.lp-p2-plane')).toHaveCSS('opacity', '0');
+      await expect(page.locator('.lp-p2-slot, .lp-p2-plane')).toHaveCount(0);
     });
   }
 test('linked passage goes forward, reverse and exits without canceling wheel', async ({ page }) => {
