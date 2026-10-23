@@ -1,0 +1,66 @@
+.l3-stage {
+  padding: 24px;
+  min-width: 0;
+  min-height: 180px;
+}
+.l3-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.l3-list > li {
+  min-width: 0;
+}
+.l3-list article,
+.l3-content {
+  padding: 16px;
+  border: 1px solid #616d61;
+  background: #151a1b;
+  border-radius: 8px;
+}
+.l3-stage label {
+  display: block;
+  font-size: 14px;
+}
+.l3-stage input {
+  width: 100%;
+  min-width: 0;
+}
+.l3-content h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.l3-content p {
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+.l3-skeleton span {
+  display: block;
+  height: 16px;
+  margin-bottom: 12px;
+  background: #616d61;
+  border-radius: 4px;
+}
+.l3-skeleton span:nth-child(2) {
+  width: 80%;
+}
+.l3-skeleton span:nth-child(3) {
+  width: 60%;
+}
+.l3-data {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  font-size: 24px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .l3-stage {
+    padding: 16px;
+  }
+}

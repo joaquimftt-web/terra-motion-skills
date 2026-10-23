@@ -2,13 +2,13 @@
 
 [English](README.en.md) · **v0.1.0 — marco histórico; experiência publicada** · Repositório público no GitHub
 
-Receitas de motion para React e skills operacionais para agentes de IA. Oito receitas reutilizáveis na main, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
+Receitas de motion para React e skills operacionais para agentes de IA. Onze receitas reutilizáveis na main, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
 
 ![Showcase Terra Motion Skills](docs/evidence/publication/terra-showcase-v4-1440.png)
 
 **Showcase público:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). Historicamente, a primeira experiência integrada V4/P1/P2/P3 foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [deploy bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). A Release/tag histórica v0.1.0 permanece intacta; esta publicação visual não altera a versão da biblioteca. As capturas A1 abaixo são históricas.
 
-**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+**Catálogo do código:** 11 recipes, 4 skills operacionais e 16 subpaths explícitos de recipes/CSS. L3 acrescenta Layout Reflow, Skeleton-to-Content e Data Change Feedback; consulte os [contratos](docs/L3_CONTRACTS.md). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 ## Instalação e execução
 
@@ -48,6 +48,9 @@ Nome oficial: **Terra Motion Skills**; repositório público: [joaquimftt-web/te
 - **Scroll Reveal:** entrada segura de bloco, sem fade, 260 ms / 8 px.
 - **Staggered Entrance:** entrada de grupo semântico com atraso limitado, 260 ms / 8 px / stagger de 50 ms.
 - **Scroll Progress:** posição real de scroll, sem duração artificial ou promessa de leitura.
+- **Layout Reflow:** lista controlada com posição e identidade estável, 240 ms.
+- **Skeleton-to-Content:** conteúdo imediato e revalidação que preserva foco, efeito decorativo de 180 ms.
+- **Data Change Feedback:** valor exato controlado e feedback secundário, 220 ms.
 - **Showcase:** duração ajustável, replay/reinício, contador de ativações, disabled e cópia com sucesso/fallback reais.
 
 A preferência reduzida do sistema tem prioridade e atualiza durante a sessão. Accordion reduz conservadoramente quando matchMedia não está disponível. Conteúdo e lógica de negócio pertencem ao consumidor.
@@ -86,15 +89,15 @@ export function Details() {
 }
 ```
 
-A main possui 13 subpaths explícitos: oito componentes e cinco CSS, sem barrel raiz. As oito recipes têm demonstrações no Pages. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
+A main possui 16 subpaths explícitos: onze componentes e cinco CSS, sem barrel raiz. As onze recipes têm demonstrações no Pages. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
 
 ## Skills e arquitetura
 
-Leia [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction-design](skills/microinteraction-design/SKILL.md) e [scroll-motion](skills/scroll-motion/SKILL.md) a partir deste clone. São instruções operacionais com parâmetros, exemplos, restrições, acessibilidade e validação. Não são runtime nem se instalam automaticamente no agente; preservar os diretórios mantém os links relativos válidos. A validação estrutural não certifica eficácia de agentes.
+Leia [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction-design](skills/microinteraction-design/SKILL.md) e [scroll-motion](skills/scroll-motion/SKILL.md) e [layout-transitions](skills/layout-transitions/SKILL.md) a partir deste clone. São instruções operacionais com parâmetros, exemplos, restrições, acessibilidade e validação. Não são runtime nem se instalam automaticamente no agente; preservar os diretórios mantém os links relativos válidos. A validação estrutural não certifica eficácia de agentes.
 
 - `apps/showcase` consome exports públicos dos pacotes.
 - `packages/motion-tokens` define timing/easing neutros.
-- `packages/motion-recipes` contém oito recipes independentes integradas na main.
+- `packages/motion-recipes` contém onze recipes independentes integradas na main.
 - `skills` contém instruções; `docs` registra decisões, contratos, fontes e evidências.
 
 [Arquitetura](docs/ARCHITECTURE.md) · [Decisões](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -119,7 +122,7 @@ Histórico da base refinada v0.1, sem representar a contagem da publicação atu
 
 A experiência integrada foi validada em Windows/Chromium e no Chromium do runner Ubuntu 24.04: não há alegação de compatibilidade validada com outros navegadores, leitores de tela, dispositivos físicos ou certificação de acessibilidade. Sem medições de FPS/hardware. A2 (fronteiras) e A3 (preferência durante replay agendado) permanecem no backlog. GSAP, Lenis, WebGL, Drawer e novas receitas não integram a v0.1.
 
-No merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.
+Histórico (não corresponde à contagem atual): no merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.
 
 **Histórico pré-merge:** os resultados originais de 38b6fbbb estão na [CI 39874614276](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39874614276), e a correção documental 28b3cb8 passou na [CI 39880582782](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39880582782), ambas com deploy skipped. As contagens 43 Vitest / 11 auditor / 30 E2E por base e o smoke em [CLOSING_VALIDATION.md](docs/CLOSING_VALIDATION.md) são da publicação anterior.
 
@@ -141,7 +144,7 @@ Logo e fundo arquitetônico têm permissões específicas separadas da MIT: [dec
 
 ## L1/L2 e composição publicada da landing
 
-Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms) compõem L1. Scroll Reveal, Staggered Entrance e Scroll Progress compõem L2. São oito recipes ao incluir Button e Accordion; consulte os [contratos](docs/MOTION_CONTRACT.md) e as três skills. A demo Async identifica sua simulação com promessas controladas pelo usuário; Navigation usa links/hash/history reais. Demos temporais permitem 0–800 ms; progresso de posição não recebe duração artificial.
+Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms) compõem L1. Scroll Reveal, Staggered Entrance e Scroll Progress compõem L2. L3 acrescenta Layout Reflow, Skeleton-to-Content e Data Change Feedback: são onze recipes; consulte os [contratos](docs/MOTION_CONTRACT.md) e as quatro skills. A demo Async identifica sua simulação com promessas controladas pelo usuário; Navigation usa links/hash/history reais. Demos temporais permitem 0–800 ms; progresso de posição não recebe duração artificial.
 
 - [Scroll Reveal](docs/recipes/scroll-reveal.md): entrada curta, sem fade, preparação segura abaixo da viewport.
 - [Staggered Entrance](docs/recipes/staggered-entrance.md): lista ul/li, atraso min(i×stagger,200) ms e cancelamento do grupo.

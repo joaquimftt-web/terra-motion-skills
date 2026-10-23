@@ -1,5 +1,9 @@
 # Landing V4 — composição horizontal publicada
 
+## L3 — catálogo de layout e estados dinâmicos
+
+O código reúne 11 recipes, 4 skills operacionais e 16 subpaths explícitos (11 componentes e os cinco CSS existentes). Novas APIs: LayoutReflow, SkeletonToContent e DataChangeFeedback, com a skill layout-transitions. [Contratos e decisões](L3_CONTRACTS.md). Sem dependências novas, bump, npm ou alteração da Release/tag histórica. Landing preservada, com P2 removido; atualização nela restrita a contagens e referências. As seções seguintes preservam os estados históricos das etapas indicadas.
+
 ## Remoção do movimento P2 — 23/10/2026
 
 A passagem animada Mineral Fold foi removida por decisão visual. A identidade estática V4, P1, P3, widget, galeria horizontal, oito recipes e três skills são preservados. Sem efeito substituto ou alteração de assets/APIs. Escopo e cobertura em [P2_REMOVAL.md](P2_REMOVAL.md). Os relatos de P2 abaixo são evidências históricas dos respectivos SHAs.

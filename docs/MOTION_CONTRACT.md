@@ -1,5 +1,9 @@
 # Contratos de motion — L1/L2 integrados na main
 
+## L3 — catálogo de layout e estados dinâmicos
+
+O código reúne 11 recipes, 4 skills operacionais e 16 subpaths explícitos (11 componentes e os cinco CSS existentes). Novas APIs: LayoutReflow, SkeletonToContent e DataChangeFeedback, com a skill layout-transitions. [Contratos e decisões](L3_CONTRACTS.md). Sem dependências novas, bump, npm ou alteração da Release/tag histórica. Landing preservada, com P2 removido; atualização nela restrita a contagens e referências. As seções seguintes preservam os estados históricos das etapas indicadas.
+
 **Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 ## Button Feedback
@@ -60,7 +64,7 @@ Linha decorativa medida por retângulo do link relativo ao track: scroll desloca
 
 ## Consumo e estado de L1/L2 na main
 
-O pacote oferece 13 subpaths explícitos: oito componentes e cinco CSS, sem barrel raiz. L1 acrescentou seis exports aos quatro originais; L2 acrescentou três componentes sem CSS próprio. Todos são neutros e não importam o showcase. Motion é obrigatório para Accordion, Presence, Navigation e L2; Button e Async podem ser importados sem Motion. CSS é explícito quando oferecido. O código está na main e as demonstrações estão no Pages desde o merge da PR #1. Os pacotes npm não estão publicados. A Release/tag v0.1.0 permanece histórica e inalterada.
+O pacote oferece 16 subpaths explícitos: onze componentes e cinco CSS, sem barrel raiz. L1 acrescentou seis exports aos quatro originais; L2 acrescentou três componentes sem CSS próprio; L3 acrescenta outros três e layout-transitions. Todos são neutros e não importam o showcase. Motion é obrigatório para Accordion, Presence, Navigation, L2, Layout Reflow e Data Change Feedback; Button, Async e Skeleton-to-Content podem ser importados sem Motion. CSS é explícito quando oferecido. L1/L2 foram integrados pela PR #1; L3 é a atualização documentada neste lote, com seus próprios gates de integração e publicação. Os pacotes npm não estão publicados. A Release/tag v0.1.0 permanece histórica e inalterada.
 
 ## Regra permanente do laboratório — experimentação de duração
 

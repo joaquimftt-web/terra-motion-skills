@@ -5,7 +5,7 @@ export function RecipeCatalog() {
       <a className="overview-link" href="#visao-geral">
         <span aria-hidden="true">⌘</span> Visão geral
       </a>
-      <span className="nav-caption">RECEITAS / 08</span>
+      <span className="nav-caption">RECEITAS / 11</span>
       <a href="#button-feedback">
         <span className="nav-index">01</span>
         <span>Button Feedback</span>
@@ -50,6 +50,17 @@ export function RecipeCatalog() {
           </span>
         </a>
       ))}
+      {(['layout-reflow', 'skeleton-to-content', 'data-change-feedback'] as const).map(
+        (id, index) => (
+          <a key={id} href={'#' + id}>
+            <span className="nav-index">{String(index + 9).padStart(2, '0')}</span>
+            <span>{['Layout Reflow', 'Skeleton-to-Content', 'Data Change Feedback'][index]}</span>
+            <span className="nav-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        ),
+      )}
       <span className="nav-caption">CRITÉRIOS</span>
       <a href="#fundamentos">
         <span aria-hidden="true">◎</span> Fundamentos

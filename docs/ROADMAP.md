@@ -1,5 +1,9 @@
 # Roadmap
 
+## L3 — layout e estados dinâmicos
+
+Layout Reflow, Skeleton-to-Content e Data Change Feedback compõem a implementação atual do L3, com skill layout-transitions e demos no laboratório. Não há integração automática de novos motions na landing nem início do L4. Limites de API em [L3_CONTRACTS.md](L3_CONTRACTS.md); evidências específicas em [VALIDATION.md](VALIDATION.md). A Release/tag v0.1.0 é histórica e os pacotes continuam não publicados no npm. As etapas seguintes preservam o planejamento anterior.
+
 A Release histórica v0.1.0 entregou Button Feedback, Accordion Transition, duas skills e vitrine. A main atual reúne oito recipes, três skills e 13 subpaths desde a PR #1; [estado publicado](PUBLICATION_STATUS.md). Não há nova versão ou release implícita. Drawer permanece adiado: depende de diálogo modal, contenção/restauração de foco, Escape, fundo inativo, mobile e reduced motion integralmente validados.
 
 ## Revisão independente da v0.1

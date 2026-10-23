@@ -103,6 +103,34 @@ const resources = [
     'CÓDIGO-FONTE',
   ],
   ['13', 'Scroll motion', 'Skill de entradas e progresso de rolagem.', 'scroll-motion.md', 'SKILL'],
+  [
+    '14',
+    'Layout Reflow',
+    'Posição controlada e identidade preservada.',
+    'layout-reflow.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
+    '15',
+    'Skeleton-to-Content',
+    'Conteúdo imediato e recarga acessível.',
+    'skeleton-to-content.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
+    '16',
+    'Data Change Feedback',
+    'Valor exato e feedback secundário.',
+    'data-change-feedback.tsx',
+    'CÓDIGO-FONTE',
+  ],
+  [
+    '17',
+    'Layout transitions',
+    'Skill de layout e estados dinâmicos.',
+    'layout-transitions.md',
+    'SKILL',
+  ],
 ] as const;
 
 function Brand() {
@@ -149,7 +177,7 @@ export function Prototype() {
       <header>
         <div className="lp-preview">
           <span className="lp-status-dot" />
-          V4 · L1 · L2 <span>Público</span>
+          V4 · L1–L3 <span>Público</span>
         </div>
         <div className="lp-header">
           <Brand />
@@ -253,10 +281,10 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
       <FirstContact reduced={reduced} />
       <div className="lp-proof-strip">
         <p>
-          <strong>08</strong> Recipes funcionais
+          <strong>11</strong> Recipes funcionais
         </p>
         <p>
-          <strong>03</strong> Skills operacionais
+          <strong>04</strong> Skills operacionais
         </p>
         <p>
           <span className="lp-small-cross" aria-hidden="true">
@@ -293,7 +321,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
             </h2>
           </div>
           <p>
-            8 recipes. Comportamento real.
+            11 recipes. Comportamento real.
             <br />
             Código independente desta vitrine.
           </p>
@@ -357,8 +385,8 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
           </motion.article>
         </div>
         <p className="lp-scope-note">
-          A apresentação é exclusiva da landing. L1 e L2 estão na main e no GitHub Pages. A recipe
-          Scroll Reveal publicada pertence ao L2; o experimento R1 permanece preservado no
+          A apresentação é exclusiva da landing. L1, L2 e L3 estão na main e no GitHub Pages. A
+          recipe Scroll Reveal publicada pertence ao L2; o experimento R1 permanece preservado no
           histórico. Pacotes npm não publicados.
         </p>
       </section>

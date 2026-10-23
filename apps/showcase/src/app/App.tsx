@@ -6,6 +6,11 @@ import { AccordionTransitionDemo } from '../features/demos/AccordionTransitionDe
 import { PresenceTransitionDemo } from '../features/demos/PresenceTransitionDemo';
 import { AsyncStateFeedbackDemo } from '../features/demos/AsyncStateFeedbackDemo';
 import { NavigationIndicatorDemo } from '../features/demos/NavigationIndicatorDemo';
+import {
+  LayoutReflowDemo,
+  SkeletonToContentDemo,
+  DataChangeFeedbackDemo,
+} from '../features/demos/LayoutTransitionDemos';
 import { ReducedMotionControl } from '../components/ReducedMotionControl';
 import {
   ScrollRevealDemo,
@@ -56,7 +61,7 @@ export function App() {
           <p>
             React · TypeScript · Motion
             <br />
-            Projeto independente / 8 recipes na main
+            Projeto independente / 11 recipes na main
           </p>
         </div>
       </aside>
@@ -93,11 +98,11 @@ export function App() {
           </section>
           <div className="lab-summary">
             <div>
-              <strong>08</strong>
+              <strong>11</strong>
               <span>RECEITAS FUNCIONAIS</span>
             </div>
             <div>
-              <strong>03</strong>
+              <strong>04</strong>
               <span>SKILLS OPERACIONAIS</span>
             </div>
             <div>
@@ -131,6 +136,9 @@ export function App() {
           <ScrollRevealDemo reduceMotion={effectiveReduction} />
           <StaggeredEntranceDemo reduceMotion={effectiveReduction} />
           <ScrollProgressDemo />
+          <LayoutReflowDemo reduceMotion={effectiveReduction} />
+          <SkeletonToContentDemo reduceMotion={effectiveReduction} />
+          <DataChangeFeedbackDemo reduceMotion={effectiveReduction} />
           <section id="fundamentos" className="foundations" aria-labelledby="foundations-title">
             <p className="eyebrow">O QUE GUIA O LAB</p>
             <h2 id="foundations-title">
@@ -164,6 +172,9 @@ export function App() {
               </article>
             </div>
             <div className="foundation-links">
+              <a href={`${import.meta.env.BASE_URL}reference/layout-transitions.md`}>
+                Ler layout-transitions ↗
+              </a>
               <a href={`${import.meta.env.BASE_URL}reference/scroll-motion.md`}>
                 Ler scroll-motion ↗
               </a>
