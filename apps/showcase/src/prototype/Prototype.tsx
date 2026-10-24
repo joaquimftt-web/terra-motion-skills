@@ -131,6 +131,13 @@ const resources = [
     'layout-transitions.md',
     'SKILL',
   ],
+  [
+    '18',
+    'Expandable Cards',
+    'Expansão controlada no fluxo, foco e identidade.',
+    'expandable-cards.tsx',
+    'CÓDIGO-FONTE',
+  ],
 ] as const;
 
 function Brand() {
@@ -281,7 +288,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
       <FirstContact reduced={reduced} />
       <div className="lp-proof-strip">
         <p>
-          <strong>11</strong> Recipes funcionais
+          <strong>12</strong> Recipes funcionais
         </p>
         <p>
           <strong>04</strong> Skills operacionais
@@ -321,7 +328,7 @@ function Landing({ reduced, replayIntro }: { reduced: boolean; replayIntro: () =
             </h2>
           </div>
           <p>
-            11 recipes. Comportamento real.
+            12 recipes. Comportamento real.
             <br />
             Código independente desta vitrine.
           </p>

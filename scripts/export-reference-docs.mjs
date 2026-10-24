@@ -12,6 +12,7 @@ const revision =
   execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root }).toString().trim();
 const repository = `https://github.com/joaquimftt-web/terra-motion-skills/blob/${revision}/`;
 const sources = {
+  'expandable-cards.tsx': 'packages/motion-recipes/src/expandable-cards/ExpandableCards.tsx',
   'layout-reflow.tsx': 'packages/motion-recipes/src/layout-reflow/LayoutReflow.tsx',
   'skeleton-to-content.tsx':
     'packages/motion-recipes/src/skeleton-to-content/SkeletonToContent.tsx',

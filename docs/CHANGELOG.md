@@ -47,3 +47,7 @@ Relatório independente representado por resumo público em [docs/reviews](revie
 ## 0.1.0 — revisão local
 
 Entregue localmente para revisão do usuário: Button Feedback e Accordion Transition independentes, tokens neutros, duas skills operacionais e showcase responsivo com controles reais. Suíte final: 22 testes Vitest, 13 testes Playwright e oito auditorias axe sem violações retornadas. Preferência do sistema acompanhada durante a sessão e conteúdo do Accordion sem fade para preservar contraste. Evidências e limites estão em [VALIDATION.md](VALIDATION.md). Nome provisório, licença pendente. Sem distribuição, push ou publicação. Drawer e motores futuros permanecem adiados.
+
+## M13 — lote de integração, sem bump de versão
+
+Expandable Cards controlado no fluxo, demo e extensão de layout-transitions. 12 recipes, 4 skills e 17 subpaths. Publicação depende dos gates e merge deste lote.

@@ -1,14 +1,18 @@
 # Terra Motion Skills
 
+## M13 — Expandable Cards
+
+Esta revisão acrescenta Expandable Cards: **12 recipes, 4 skills operacionais, 17 subpaths explícitos**. [Contrato M13](docs/recipes/expandable-cards.md). Base publicada anterior: 8b5454e (M01–M11). Integração, CI Ubuntu e deploy Pages são rastreados separadamente na PR correspondente. Sem publicação npm ou alteração da Release/tag histórica v0.1.0. Registros datados abaixo são históricos.
+
 [English](README.en.md) · **v0.1.0 — marco histórico; experiência publicada** · Repositório público no GitHub
 
-Receitas de motion para React e skills operacionais para agentes de IA. Onze receitas reutilizáveis na main, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
+Receitas de motion para React e skills operacionais para agentes de IA. Doze receitas reutilizáveis nesta revisão, tokens neutros e um showcase com demonstrações reais, sem dependência da vitrine para consumir as receitas. Projeto independente, sem afiliação com a Motion. O nome do projeto e identificador do repositório são Terra Motion Skills e terra-motion-skills.
 
 ![Showcase Terra Motion Skills](docs/evidence/publication/terra-showcase-v4-1440.png)
 
 **Showcase público:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [laboratório Mineral Técnico](https://joaquimftt-web.github.io/terra-motion-skills/lab/) e [referências](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). Historicamente, a primeira experiência integrada V4/P1/P2/P3 foi publicada a partir de `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [deploy bem-sucedido](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). A Release/tag histórica v0.1.0 permanece intacta; esta publicação visual não altera a versão da biblioteca. As capturas A1 abaixo são históricas.
 
-**Catálogo do código:** 11 recipes, 4 skills operacionais e 16 subpaths explícitos de recipes/CSS. L3 acrescenta Layout Reflow, Skeleton-to-Content e Data Change Feedback; consulte os [contratos](docs/L3_CONTRACTS.md). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+**Catálogo do código:** 12 recipes, 4 skills operacionais e 17 subpaths explícitos de recipes/CSS. L3 acrescenta Layout Reflow, Skeleton-to-Content e Data Change Feedback; consulte os [contratos](docs/L3_CONTRACTS.md). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 ## Instalação e execução
 
@@ -51,6 +55,7 @@ Nome oficial: **Terra Motion Skills**; repositório público: [joaquimftt-web/te
 - **Layout Reflow:** lista controlada com posição e identidade estável, 240 ms.
 - **Skeleton-to-Content:** conteúdo imediato e revalidação que preserva foco, efeito decorativo de 180 ms.
 - **Data Change Feedback:** valor exato controlado e feedback secundário, 220 ms.
+- **Expandable Cards:** expansão controlada no fluxo, foco em duas fases e inputs preservados, 280 ms.
 - **Showcase:** duração ajustável, replay/reinício, contador de ativações, disabled e cópia com sucesso/fallback reais.
 
 A preferência reduzida do sistema tem prioridade e atualiza durante a sessão. Accordion reduz conservadoramente quando matchMedia não está disponível. Conteúdo e lógica de negócio pertencem ao consumidor.
@@ -89,7 +94,7 @@ export function Details() {
 }
 ```
 
-A main possui 16 subpaths explícitos: onze componentes e cinco CSS, sem barrel raiz. As onze recipes têm demonstrações no Pages. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
+A main possui 17 subpaths explícitos: doze componentes e cinco CSS, sem barrel raiz. As doze recipes têm demonstrações no Pages. Tokens CSS são opcionais pelos fallbacks; APIs e limites estão no [contrato](docs/MOTION_CONTRACT.md).
 
 ## Skills e arquitetura
 
@@ -97,7 +102,7 @@ Leia [motion-foundations](skills/motion-foundations/SKILL.md), [microinteraction
 
 - `apps/showcase` consome exports públicos dos pacotes.
 - `packages/motion-tokens` define timing/easing neutros.
-- `packages/motion-recipes` contém onze recipes independentes integradas na main.
+- `packages/motion-recipes` contém doze recipes independentes integradas na main.
 - `skills` contém instruções; `docs` registra decisões, contratos, fontes e evidências.
 
 [Arquitetura](docs/ARCHITECTURE.md) · [Decisões](docs/DECISIONS.md) · [Roadmap](docs/ROADMAP.md)
@@ -144,10 +149,12 @@ Logo e fundo arquitetônico têm permissões específicas separadas da MIT: [dec
 
 ## L1/L2 e composição publicada da landing
 
-Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms) compõem L1. Scroll Reveal, Staggered Entrance e Scroll Progress compõem L2. L3 acrescenta Layout Reflow, Skeleton-to-Content e Data Change Feedback: são onze recipes; consulte os [contratos](docs/MOTION_CONTRACT.md) e as quatro skills. A demo Async identifica sua simulação com promessas controladas pelo usuário; Navigation usa links/hash/history reais. Demos temporais permitem 0–800 ms; progresso de posição não recebe duração artificial.
+Presence Transition (180 ms), Async State Feedback (160 ms) e Navigation Indicator (180 ms) compõem L1. Scroll Reveal, Staggered Entrance e Scroll Progress compõem L2. L3 acrescenta Layout Reflow, Skeleton-to-Content e Data Change Feedback; M13 acrescenta Expandable Cards: são doze recipes; consulte os [contratos](docs/MOTION_CONTRACT.md) e as quatro skills. A demo Async identifica sua simulação com promessas controladas pelo usuário; Navigation usa links/hash/history reais. Demos temporais permitem 0–800 ms; progresso de posição não recebe duração artificial.
 
 - [Scroll Reveal](docs/recipes/scroll-reveal.md): entrada curta, sem fade, preparação segura abaixo da viewport.
 - [Staggered Entrance](docs/recipes/staggered-entrance.md): lista ul/li, atraso min(i×stagger,200) ms e cancelamento do grupo.
 - [Scroll Progress](docs/recipes/scroll-progress.md): posição vertical real, sem percentual de leitura.
 
 A [Landing V4 publicada](docs/LANDING_MOTION_INTEGRATION.md) mantém hero/P1/P2/P3, acrescenta widget após o hero e galeria horizontal A guiada no desktop elegível, com B nativa como fallback/mobile. Consome recipes por subpath, sem atrelar a biblioteca à identidade V4. Este conteúdo está integrado na main e publicado no Pages pela PR #1. O experimento R1 original permanece separado da recipe Scroll Reveal L2 publicada. Nenhum bump ou nova release foi criado; pacotes npm continuam não publicados.
+
+Expandable Cards usa expansão controlada no fluxo (`duration=280` ms), sem CSS obrigatório. Consulte o contrato para os atributos de estado, foco e SSR.

@@ -1,0 +1,100 @@
+.expandable-stage {
+  padding: 24px;
+}
+.expandable-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.expandable-grid > li {
+  grid-column: span 6;
+  min-width: 0;
+  border: 1px solid var(--lab-line);
+  border-radius: 16px;
+  background: #1c2423;
+  overflow: hidden;
+}
+.expandable-grid > li[data-expanded='true'] {
+  grid-column: span 8;
+}
+.expandable-grid > li[data-peer='true'] {
+  grid-column: span 4;
+}
+.expandable-grid > li[data-lone='true'] {
+  grid-column: span 12;
+}
+.expandable-grid [data-card-media] {
+  height: 180px;
+  overflow: hidden;
+}
+.expandable-grid [data-card-media] img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.expandable-grid [data-card-content] {
+  padding: 20px;
+  overflow-wrap: anywhere;
+}
+.expandable-grid h3 {
+  margin: 0 0 16px;
+}
+.expandable-grid h3 button {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 20px;
+  color: var(--terra-ivory);
+  background: transparent;
+  padding: 10px 0;
+  border: 0;
+  cursor: pointer;
+}
+.expandable-grid label {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+}
+.expandable-grid input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px;
+  font: inherit;
+  color: var(--terra-ivory);
+  background: #1c2423;
+  border: 1px solid var(--lab-line);
+  border-radius: 6px;
+}
+.expandable-grid [data-card-details] p {
+  margin-top: 20px;
+}
+.expandable-grid [data-card-details] a {
+  color: var(--terra-ivory);
+  text-decoration: underline;
+}
+.expandable-grid :focus-visible {
+  outline: 2px solid var(--terra-bronze);
+  outline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .expandable-stage {
+    padding: 16px;
+  }
+  .expandable-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .expandable-grid > li,
+  .expandable-grid > li[data-expanded='true'],
+  .expandable-grid > li[data-peer='true'],
+  .expandable-grid > li[data-lone='true'] {
+    grid-column: 1;
+  }
+  .expandable-grid [data-card-content] {
+    padding: 16px;
+  }
+}

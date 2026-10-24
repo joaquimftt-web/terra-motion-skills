@@ -27,6 +27,7 @@ for (const name of [
   'layout-reflow',
   'skeleton-to-content',
   'data-change-feedback',
+  'expandable-cards',
 ]) {
   it(`resolves the independent ${name} ESM subpath without required CSS`, async () => {
     const module = await import(`@motion-skills-lab/motion-recipes/${name}`);

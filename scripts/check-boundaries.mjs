@@ -39,6 +39,7 @@ const expected = [
     './layout-reflow',
     './skeleton-to-content',
     './data-change-feedback',
+    './expandable-cards',
   ])
   .sort();
 if (
@@ -47,5 +48,5 @@ if (
 )
   throw new Error('Unexpected recipe exports');
 console.log(
-  'PASS package boundaries: directed imports and sixteen explicit recipe subpaths (four original paths retained)',
+  'PASS package boundaries: directed imports and seventeen explicit recipe subpaths (four original paths retained)',
 );

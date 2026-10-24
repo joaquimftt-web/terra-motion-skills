@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font: 16px/1.5 system-ui;
+  color: #18221e;
+  background: #fafafa;
+}
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px;
+}
+button,
+input {
+  font: inherit;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+button {
+  padding: 8px;
+  cursor: pointer;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #065fc4;
+  outline-offset: 3px;
+}
+.controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+.cards > li {
+  grid-column: span 6;
+  min-width: 0;
+  border: 1px solid #555;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.cards > li[data-expanded='true'] {
+  grid-column: span 8;
+}
+.cards > li[data-peer='true'] {
+  grid-column: span 4;
+}
+.cards > li[data-lone='true'] {
+  grid-column: span 12;
+}
+.cards [data-card-content] {
+  padding: 16px;
+  overflow-wrap: anywhere;
+}
+.cards [data-card-media] {
+  height: 160px;
+  overflow: hidden;
+}
+.cards img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cards label {
+  display: grid;
+  gap: 4px;
+  margin: 12px 0;
+}
+.cards input {
+  width: 100%;
+  min-width: 0;
+}
+.cards [data-card-details] p {
+  margin: 16px 0;
+}
+h3 {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cards > li,
+  .cards > li[data-expanded='true'],
+  .cards > li[data-peer='true'],
+  .cards > li[data-lone='true'] {
+    grid-column: 1;
+  }
+}

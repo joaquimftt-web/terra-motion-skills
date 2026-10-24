@@ -1,3 +1,4 @@
+import { ExpandableCardsDemo } from '../features/demos/ExpandableCardsDemo';
 import { useState } from 'react';
 import { useSystemReducedMotion } from '../components/useSystemReducedMotion';
 import { RecipeCatalog } from '../features/catalog/RecipeCatalog';
@@ -61,7 +62,7 @@ export function App() {
           <p>
             React · TypeScript · Motion
             <br />
-            Projeto independente / 11 recipes na main
+            Projeto independente / 12 recipes na main
           </p>
         </div>
       </aside>
@@ -98,7 +99,7 @@ export function App() {
           </section>
           <div className="lab-summary">
             <div>
-              <strong>11</strong>
+              <strong>12</strong>
               <span>RECEITAS FUNCIONAIS</span>
             </div>
             <div>
@@ -139,6 +140,7 @@ export function App() {
           <LayoutReflowDemo reduceMotion={effectiveReduction} />
           <SkeletonToContentDemo reduceMotion={effectiveReduction} />
           <DataChangeFeedbackDemo reduceMotion={effectiveReduction} />
+          <ExpandableCardsDemo reduceMotion={effectiveReduction} />
           <section id="fundamentos" className="foundations" aria-labelledby="foundations-title">
             <p className="eyebrow">O QUE GUIA O LAB</p>
             <h2 id="foundations-title">

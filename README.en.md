@@ -1,14 +1,18 @@
 # Terra Motion Skills
 
+## M13 — Expandable Cards
+
+This revision adds Expandable Cards: **12 recipes, 4 operational skills, 17 explicit subpaths**. [M13 contract](docs/recipes/expandable-cards.md). Previous published base: 8b5454e (M01–M11). Integration, Ubuntu CI and Pages deployment are tracked separately in the corresponding pull request. No npm publication or change to historical release/tag v0.1.0.
+
 [Português](README.md) · **v0.1.0 — historical milestone; published experience** · Public GitHub repository
 
-Eleven reusable React motion recipes on main and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
+Twelve reusable React motion recipes in this revision and operational AI agent skills, with neutral tokens and a real showcase. Recipes work independently of the showcase. This is an independent project, not affiliated with Motion. Project name: Terra Motion Skills; repository identifier: terra-motion-skills.
 
 ![Terra Motion Skills showcase](docs/evidence/publication/terra-showcase-v4-1440.png)
 
 **Public showcase:** [landing](https://joaquimftt-web.github.io/terra-motion-skills/), [Mineral Technical lab](https://joaquimftt-web.github.io/terra-motion-skills/lab/) and [references](https://joaquimftt-web.github.io/terra-motion-skills/referencias/). Historically, the first integrated V4/P1/P2/P3 experience was published from `49d724183732bc8a82e8ed6889e9ecbd3338d527`; [successful deployment](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39654669658). Historical release/tag v0.1.0 remains unchanged; this visual publication does not bump the library version. A1 screenshots below are historical.
 
-**Code catalog:** 11 recipes, 4 operational skills and 16 explicit recipe/CSS subpaths. L3 adds Layout Reflow, Skeleton-to-Content and Data Change Feedback; see [contracts](docs/L3_CONTRACTS.md). No npm packages are published and historical release/tag v0.1.0 is unchanged.
+**Code catalog:** 12 recipes, 4 operational skills and 17 explicit recipe/CSS subpaths. L3 adds Layout Reflow, Skeleton-to-Content and Data Change Feedback; see [contracts](docs/L3_CONTRACTS.md). No npm packages are published and historical release/tag v0.1.0 is unchanged.
 
 ## Install and run
 
@@ -51,6 +55,7 @@ Official name: **Terra Motion Skills**; public repository: [joaquimftt-web/terra
 - **Layout Reflow:** controlled position-only list, stable ids and explicit intent, 240 ms.
 - **Skeleton-to-Content:** immediate ready content and focus-preserving revalidation, 180 ms decorative effect.
 - **Data Change Feedback:** exact controlled values with secondary feedback, 220 ms.
+- **Expandable Cards:** controlled in-flow expansion, two-phase focus and stable inputs, 280 ms.
 - **Showcase:** actual duration/replay/reset controls, activation counter, disabled control and clipboard success/fallback.
 
 Live system reduced motion takes priority. Accordion reduces conservatively if matchMedia is unavailable. Consumers own content and business operations.
@@ -89,7 +94,7 @@ export function Details() {
 }
 ```
 
-Main has 16 explicit subpaths: eleven components and five CSS exports, with no root recipe barrel. All eleven recipes have Pages demos. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
+Main has 17 explicit subpaths: twelve components and five CSS exports, with no root recipe barrel. All twelve recipes have Pages demos. Optional token CSS has recipe fallbacks. See [contracts](docs/MOTION_CONTRACT.md).
 
 ## Skills and architecture
 
@@ -144,10 +149,12 @@ The logo and architectural background have specific permissions separate from MI
 
 ## L1/L2 and published landing composition
 
-Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indicator (180 ms) form L1. Scroll Reveal, Staggered Entrance and Scroll Progress form L2. L3 adds Layout Reflow, Skeleton-to-Content and Data Change Feedback, for eleven recipes; see the [contracts](docs/MOTION_CONTRACT.md) and four skills. The Async demo identifies its user-controlled promise simulation; Navigation uses real links/hash/history. Temporal demos offer 0–800 ms; position-linked progress has no artificial duration.
+Presence Transition (180 ms), Async State Feedback (160 ms) and Navigation Indicator (180 ms) form L1. Scroll Reveal, Staggered Entrance and Scroll Progress form L2. L3 adds Layout Reflow, Skeleton-to-Content and Data Change Feedback; M13 adds Expandable Cards, for twelve recipes; see the [contracts](docs/MOTION_CONTRACT.md) and four skills. The Async demo identifies its user-controlled promise simulation; Navigation uses real links/hash/history. Temporal demos offer 0–800 ms; position-linked progress has no artificial duration.
 
 - [Scroll Reveal](docs/recipes/scroll-reveal.md): short entrance without fade, safe preparation below the viewport.
 - [Staggered Entrance](docs/recipes/staggered-entrance.md): semantic ul/li list, min(i×stagger,200) ms delay and whole-group cancellation.
 - [Scroll Progress](docs/recipes/scroll-progress.md): actual vertical position, not a reading percentage.
 
 The [published Landing V4](docs/LANDING_MOTION_INTEGRATION.md) preserves hero/P1/P2/P3, adds the widget after the hero and guided horizontal gallery A on eligible desktops, with native B as fallback/mobile. It consumes public subpaths without coupling the library to V4 identity. This content is integrated into main and published on Pages through PR #1. The original R1 experiment remains separate from the published L2 Scroll Reveal recipe. No version bump or new release was created; npm packages remain unpublished.
+
+Expandable Cards uses the same-flow controlled API (`duration=280` ms), no required CSS export. See the contract for state attributes, focus and SSR.

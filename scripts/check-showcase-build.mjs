@@ -8,6 +8,7 @@ const dist = resolve(root, 'apps/showcase/dist');
 const base = process.env.SHOWCASE_BASE_PATH ?? '/';
 assert.ok(['/', '/terra-motion-skills/'].includes(base), 'Unsupported showcase base');
 const references = [
+  'expandable-cards.tsx',
   'layout-reflow.tsx',
   'skeleton-to-content.tsx',
   'data-change-feedback.tsx',
