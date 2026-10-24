@@ -1,5 +1,14 @@
 import { createElement as h, useState, useId } from 'react';
 import { ExpandableCards } from '@motion-skills-lab/motion-recipes/expandable-cards';
+function Note({ label }) {
+  const htmlId = useId();
+  return h(
+    'label',
+    { htmlFor: htmlId },
+    label,
+    h('input', { id: htmlId, 'aria-label': label, defaultValue: '' }),
+  );
+}
 export function ExpandableFixture({ initial = 'B' } = {}) {
   const afterId = useId();
   const [ids, setIds] = useState(['A', 'B', 'C', 'D']);
@@ -18,22 +27,12 @@ export function ExpandableFixture({ initial = 'B' } = {}) {
         ? '/late.svg'
         : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200'%3E%3Crect width='600' height='200' fill='%23616d61'/%3E%3C/svg%3E",
     }),
-    preview: h(
-      'label',
-      null,
-      'Preview ' + id,
-      h('input', { 'aria-label': 'Preview ' + id, defaultValue: '' }),
-    ),
+    preview: h(Note, { label: 'Preview ' + id }),
     details: h(
       'div',
       null,
       h('p', null, 'Details remain in the same flow and DOM.'),
-      h(
-        'label',
-        null,
-        'Detail ' + id,
-        h('input', { 'aria-label': 'Detail ' + id, defaultValue: '' }),
-      ),
+      h(Note, { label: 'Detail ' + id }),
       h('a', { href: '#' + afterId }, 'Continue'),
     ),
   }));

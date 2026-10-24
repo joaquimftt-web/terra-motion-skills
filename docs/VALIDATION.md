@@ -329,3 +329,9 @@ M13 inclui19 testes unitários e16 cenários independentes: geometria/movimento 
 Os ensaios iniciais concorrentes tiveram interferência entre rebuild/HMR da fixture e diretórios compartilhados de resultados (ENOENT); não foram classificados como aprovados. A bateria final serial passou sem reduzir asserts ou modificar recipes/testes legados para esconder falhas. Após o fechamento editorial, verificações afetadas são repetidas. Capturas/vídeos e JSONs completos estão na entrega M13 do lote autorizado; a CI Ubuntu e o deploy desta revisão são etapas posteriores rastreadas na PR, não resultados locais.
 
 Limitações: sem Firefox/WebKit, leitores de tela, dispositivos físicos, zoom nativo200% ou benchmark FPS/CPU/CLS nesta execução. Axe não certifica acessibilidade. Não se promete suporte a portais, virtualização, sticky/fixed ou ancestrais transformados. Marcador de diagnóstico suspenso tem a limitação descrita no contrato M13; DOM/foco permanecem seguros. Recursos globais Motion/React são distinguidos de listeners locais no cleanup.
+
+### M13 — identidade de slots na hidratação
+
+Uma verificação adicional com slots que chamam useId detectou avisos reais de hidratação após a integração inicial. O workflow da primeira main foi cancelado antes do deploy, mantendo o Pages anterior; não houve rollback. A fixture passou a usar componentes de slots com useId e reproduziu a falha em Chromium real.
+
+Correção interna: mesma árvore de wrappers Motion em SSR, hidratação e fallback. MotionConfig isStatic (API pública14.3.0) é fixado por instância conforme suporte inicial; modo estático não aciona as APIs ausentes/hostis. Nenhuma API, layout final, CSS, dependência, versão ou recipe anterior foi alterada. Os gates completos e resultados remotos da correção são rastreados em sua PR e na entrega consolidada; os gates iniciais não comprovavam este cenário adicional.

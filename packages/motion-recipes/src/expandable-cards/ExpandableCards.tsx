@@ -12,7 +12,7 @@ import {
   type ReactNode,
   type Ref,
 } from 'react';
-import { LayoutGroup, motion } from 'motion/react';
+import { LayoutGroup, MotionConfig, motion } from 'motion/react';
 export type ExpandableCardItem = {
   id: string;
   title: string;
@@ -112,8 +112,9 @@ export function ExpandableCards({
     serverReduction,
   );
   const supported = useSyncExternalStore(subscribeSupport, supportSnapshot, serverSupport);
-  // Stable host choice avoids remounting slots during hydration or fallback.
-  const [motionHost] = useState(supportSnapshot);
+  // Static mode is fixed per client instance; the React wrapper tree stays
+  // identical in SSR, hydration and unsupported browsers, including slot useId.
+  const [motionEnabled] = useState(supportSnapshot);
   const [view, setView] = useState({ items, selectedId, revision: 0 });
   const [focusBlocked, setFocusBlocked] = useState(false);
   const [settled, setSettled] = useState(-1);
@@ -125,7 +126,7 @@ export function ExpandableCards({
   }
   if ((reduced || duration === 0) && settled !== view.revision) setSettled(view.revision);
   const blocked =
-    !motionHost || !supported || reduced || duration === 0 || settled === view.revision;
+    !motionEnabled || !supported || reduced || duration === 0 || settled === view.revision;
   const transform = useCallback(
     (_: unknown, generated: string) => (blocked ? 'none' : generated),
     [blocked],
@@ -193,11 +194,11 @@ export function ExpandableCards({
   }, [items, selectedId, view]);
 
   useEffect(() => {
-    if (!motionHost) return;
+    if (!motionEnabled) return;
     const settle = () => setSettled(view.revision);
     window.addEventListener('resize', settle);
     return () => window.removeEventListener('resize', settle);
-  }, [motionHost, view.revision]);
+  }, [motionEnabled, view.revision]);
 
   useLayoutEffect(() => {
     if (blocked && root.current)
@@ -227,8 +228,6 @@ export function ExpandableCards({
     throw new RangeError('ExpandableCards selectedId must identify an item or be null.');
   if (typeof onSelectedIdChange !== 'function')
     throw new TypeError('ExpandableCards requires onSelectedIdChange.');
-  const Li = motionHost ? motion.li : 'li';
-  const Div = motionHost ? motion.div : 'div';
   const transition = {
     layout: {
       duration: blocked ? 0 : duration / 1000,
@@ -237,106 +236,111 @@ export function ExpandableCards({
   };
   const movement = {
     style: { transform: blocked ? 'none' : undefined },
-    ...(motionHost
-      ? {
-          initial: false as const,
-          layoutDependency: dependency,
-          transformTemplate: transform,
-          transition,
-        }
-      : {}),
+    initial: false as const,
+    layoutDependency: dependency,
+    transformTemplate: transform,
+    transition,
   };
   const selectedIndex = view.items.findIndex((item) => item.id === view.selectedId);
   return (
-    <LayoutGroup id={scope} inherit={false}>
-      <ul
-        {...native}
-        ref={root}
-        aria-label={
-          native['aria-label'] ?? (native['aria-labelledby'] ? undefined : 'Expandable cards')
-        }
-        tabIndex={native.tabIndex ?? -1}
-        data-update-blocked={focusBlocked}
-        data-selected-id={view.selectedId ?? ''}
-        onFocusCapture={(event) => {
-          setSettled(view.revision);
-          onFocusCapture?.(event);
-        }}
-        onPointerDownCapture={(event) => {
-          setSettled(view.revision);
-          onPointerDownCapture?.(event);
-        }}
-        onKeyDown={(event) => {
-          onKeyDown?.(event);
-          if (event.defaultPrevented || event.key !== 'Escape' || view.selectedId === null) return;
-          const card = Array.from(event.currentTarget.children).find(
-            (n) => n instanceof HTMLElement && n.dataset.cardId === view.selectedId,
-          );
-          if (card?.contains(event.target as Node)) {
-            event.preventDefault();
-            const trigger = card.querySelector<HTMLButtonElement>('[data-card-trigger]');
-            try {
-              if (trigger?.isConnected) trigger.focus({ preventScroll: true });
-            } catch {
-              return;
-            }
-            if (trigger?.isConnected && event.currentTarget.ownerDocument.activeElement === trigger)
-              onSelectedIdChange(null);
+    <MotionConfig isStatic={!motionEnabled}>
+      <LayoutGroup id={scope} inherit={false}>
+        <ul
+          {...native}
+          ref={root}
+          aria-label={
+            native['aria-label'] ?? (native['aria-labelledby'] ? undefined : 'Expandable cards')
           }
-        }}
-      >
-        {view.items.map((item, index) => {
-          const open = item.id === view.selectedId;
-          const peer =
-            Math.floor(index / 2) === Math.floor(selectedIndex / 2) && !open && selectedIndex >= 0;
-          const lone = open && index % 2 === 0 && index === view.items.length - 1;
-          const detailsId = `${scope}-${index}-details`;
-          return (
-            <Li
-              key={item.id}
-              {...movement}
-              {...(motionHost ? { layout: supported, layoutCrossfade: false } : {})}
-              data-card-id={item.id}
-              data-expanded={open}
-              data-peer={peer}
-              data-lone={lone}
-            >
-              <article>
-                {item.media != null && (
-                  <Div
-                    {...movement}
-                    {...(motionHost ? { layout: supported ? ('position' as const) : false } : {})}
-                    data-card-media=""
-                  >
-                    {item.media}
-                  </Div>
-                )}
-                <Div
-                  {...movement}
-                  {...(motionHost ? { layout: supported ? ('position' as const) : false } : {})}
-                  data-card-content=""
-                >
-                  <h3>
-                    <button
-                      type="button"
-                      data-card-trigger=""
-                      aria-expanded={open}
-                      aria-controls={detailsId}
-                      onClick={() => onSelectedIdChange(open ? null : item.id)}
+          tabIndex={native.tabIndex ?? -1}
+          data-update-blocked={focusBlocked}
+          data-selected-id={view.selectedId ?? ''}
+          onFocusCapture={(event) => {
+            setSettled(view.revision);
+            onFocusCapture?.(event);
+          }}
+          onPointerDownCapture={(event) => {
+            setSettled(view.revision);
+            onPointerDownCapture?.(event);
+          }}
+          onKeyDown={(event) => {
+            onKeyDown?.(event);
+            if (event.defaultPrevented || event.key !== 'Escape' || view.selectedId === null)
+              return;
+            const card = Array.from(event.currentTarget.children).find(
+              (n) => n instanceof HTMLElement && n.dataset.cardId === view.selectedId,
+            );
+            if (card?.contains(event.target as Node)) {
+              event.preventDefault();
+              const trigger = card.querySelector<HTMLButtonElement>('[data-card-trigger]');
+              try {
+                if (trigger?.isConnected) trigger.focus({ preventScroll: true });
+              } catch {
+                return;
+              }
+              if (
+                trigger?.isConnected &&
+                event.currentTarget.ownerDocument.activeElement === trigger
+              )
+                onSelectedIdChange(null);
+            }
+          }}
+        >
+          {view.items.map((item, index) => {
+            const open = item.id === view.selectedId;
+            const peer =
+              Math.floor(index / 2) === Math.floor(selectedIndex / 2) &&
+              !open &&
+              selectedIndex >= 0;
+            const lone = open && index % 2 === 0 && index === view.items.length - 1;
+            const detailsId = `${scope}-${index}-details`;
+            return (
+              <motion.li
+                key={item.id}
+                {...movement}
+                layout={supported}
+                layoutCrossfade={false}
+                data-card-id={item.id}
+                data-expanded={open}
+                data-peer={peer}
+                data-lone={lone}
+              >
+                <article>
+                  {item.media != null && (
+                    <motion.div
+                      {...movement}
+                      layout={supported ? 'position' : false}
+                      data-card-media=""
                     >
-                      {item.title}
-                    </button>
-                  </h3>
-                  <div data-card-preview="">{item.preview}</div>
-                  <div id={detailsId} data-card-details="" hidden={!open}>
-                    {item.details}
-                  </div>
-                </Div>
-              </article>
-            </Li>
-          );
-        })}
-      </ul>
-    </LayoutGroup>
+                      {item.media}
+                    </motion.div>
+                  )}
+                  <motion.div
+                    {...movement}
+                    layout={supported ? 'position' : false}
+                    data-card-content=""
+                  >
+                    <h3>
+                      <button
+                        type="button"
+                        data-card-trigger=""
+                        aria-expanded={open}
+                        aria-controls={detailsId}
+                        onClick={() => onSelectedIdChange(open ? null : item.id)}
+                      >
+                        {item.title}
+                      </button>
+                    </h3>
+                    <div data-card-preview="">{item.preview}</div>
+                    <div id={detailsId} data-card-details="" hidden={!open}>
+                      {item.details}
+                    </div>
+                  </motion.div>
+                </article>
+              </motion.li>
+            );
+          })}
+        </ul>
+      </LayoutGroup>
+    </MotionConfig>
   );
 }

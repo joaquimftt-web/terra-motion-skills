@@ -218,13 +218,22 @@ test('M13 static fallback without matchMedia retains native selection', async ({
   await page.addInitScript(() =>
     Object.defineProperty(window, 'matchMedia', { value: undefined, configurable: true }),
   );
-  await page.goto('/expandable.html');
-  await page.getByRole('button', { name: 'Card C' }).click();
-  await expect(page.getByRole('button', { name: 'Card C' })).toHaveAttribute(
-    'aria-expanded',
-    'true',
-  );
-  await expect(page.locator('[data-card-id="C"]')).toHaveCSS('transform', 'none');
+  const errors: string[] = [];
+  page.on('console', (message) => {
+    if (message.type() === 'error') errors.push(message.text());
+  });
+  page.on('pageerror', (error) => errors.push(String(error)));
+  for (const route of ['/expandable.html', '/expandable-ssr.html']) {
+    await page.goto(route);
+    await page.getByRole('button', { name: 'Card C' }).click();
+    await expect(page.getByRole('button', { name: 'Card C' })).toHaveAttribute(
+      'aria-expanded',
+      'true',
+    );
+    await expect(page.locator('[data-card-id="C"]')).toHaveCSS('transform', 'none');
+    expect(await page.evaluate(() => Reflect.get(window, '__m13').errors)).toEqual([]);
+  }
+  expect(errors).toEqual([]);
 });
 
 test('M13 rapid selection, duration interruption, resize and late image do not replay stale motion', async ({
