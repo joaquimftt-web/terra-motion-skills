@@ -92,3 +92,9 @@ Testes do módulo cobrem semântica, callback/ref, identidade, foco, erros e SSR
 O exemplo TSX da skill compila contra o pacote dist. Adicione className="cards" à coleção para aplicar esta geometria; personalize os estilos nativos, dimensões/reserva da mídia e foco visível no produto. O limiar640px é um exemplo do consumidor, não API da recipe.
 
 Limitação conhecida de diagnóstico: após falha de transferência, cancelar a intenção retornando ao snapshot anterior com o mesmo array pode deixar data-update-blocked=true. DOM e foco permanecem seguros; uma nova intenção/array permite atualizar o marcador. Não usar esse atributo como fonte de seleção ou regra para ocultar conteúdo.
+
+### M13 — identidade de slots na hidratação
+
+Uma verificação adicional com slots que chamam useId detectou avisos reais de hidratação após a integração inicial. O workflow da primeira main foi cancelado antes do deploy, mantendo o Pages anterior; não houve rollback. A fixture passou a usar componentes de slots com useId e reproduziu a falha em Chromium real.
+
+Correção interna: mesma árvore de wrappers Motion em SSR, hidratação e fallback. MotionConfig isStatic (API pública14.3.0) é fixado por instância conforme suporte inicial; modo estático não aciona as APIs ausentes/hostis. Nenhuma API, layout final, CSS, dependência, versão ou recipe anterior foi alterada. Os gates completos e resultados remotos da correção são rastreados em sua PR e na entrega consolidada; os gates iniciais não comprovavam este cenário adicional.
