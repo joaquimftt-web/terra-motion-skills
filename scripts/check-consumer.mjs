@@ -50,10 +50,12 @@ import { AccordionTransition } from '@motion-skills-lab/motion-recipes/accordion
 import { motionTokens } from '@motion-skills-lab/motion-tokens';
 import {LayoutReflow} from '@motion-skills-lab/motion-recipes/layout-reflow';
 import {SkeletonToContent} from '@motion-skills-lab/motion-recipes/skeleton-to-content';
+import {ExpandableCards} from '@motion-skills-lab/motion-recipes/expandable-cards';
 import {DataChangeFeedback} from '@motion-skills-lab/motion-recipes/data-change-feedback';
 assert.ok(renderToStaticMarkup(createElement(LayoutReflow,{items:[{id:'a',content:'Stable'}],reflowKey:0})).includes('Stable'));
 assert.ok(renderToStaticMarkup(createElement(SkeletonToContent,{loading:false,skeleton:'Loading'},'Real')).includes('Real'));
 assert.ok(renderToStaticMarkup(createElement(DataChangeFeedback,{value:'R$ 1.234,56'})).includes('R$ 1.234,56'));
+assert.ok(renderToStaticMarkup(createElement(ExpandableCards,{items:[{id:'a',title:'A',preview:'Preview',details:'Details'}],selectedId:'a',onSelectedIdChange:()=>{}})).includes('Details'));
 assert.equal(motionTokens.duration.accordionTransition, 180);
 assert.ok(renderToStaticMarkup(createElement(ButtonFeedback,{type:'button'},'Real')).includes('Real'));
 assert.ok(renderToStaticMarkup(createElement(AccordionTransition,{open:true,onOpenChange:()=>{},trigger:'Details'},'Content')).includes('Content'));
@@ -62,6 +64,7 @@ console.log('PASS output-only consumer: public ESM exports, SSR and CSS resoluti
 `,
 );
 cpSync(resolve('scripts/fixtures/l2-consumer-types.tsx'), join(fixture, 'l2-consumer-types.tsx'));
+cpSync(resolve('scripts/fixtures/m13-consumer-types.tsx'), join(fixture, 'm13-consumer-types.tsx'));
 cpSync(resolve('scripts/fixtures/l3-consumer-types.tsx'), join(fixture, 'l3-consumer-types.tsx'));
 for (const name of [
   'motion-foundations',

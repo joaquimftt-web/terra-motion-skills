@@ -5,7 +5,7 @@ export function RecipeCatalog() {
       <a className="overview-link" href="#visao-geral">
         <span aria-hidden="true">⌘</span> Visão geral
       </a>
-      <span className="nav-caption">RECEITAS / 11</span>
+      <span className="nav-caption">RECEITAS / 12</span>
       <a href="#button-feedback">
         <span className="nav-index">01</span>
         <span>Button Feedback</span>
@@ -61,6 +61,13 @@ export function RecipeCatalog() {
           </a>
         ),
       )}
+      <a href="#expandable-cards">
+        <span className="nav-index">12</span>
+        <span>Expandable Cards</span>
+        <span className="nav-arrow" aria-hidden="true">
+          ↗
+        </span>
+      </a>
       <span className="nav-caption">CRITÉRIOS</span>
       <a href="#fundamentos">
         <span aria-hidden="true">◎</span> Fundamentos

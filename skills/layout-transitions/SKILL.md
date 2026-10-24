@@ -1,6 +1,6 @@
 ---
 name: layout-transitions
-description: 'Use when reordering a controlled list without losing input state, replacing an initial skeleton with ready content, or highlighting a real controlled value change in React.'
+description: 'Use when reordering a controlled list without losing input state, replacing an initial skeleton with ready content, highlighting a real controlled value change, or expanding controlled cards in the same page flow in React.'
 ---
 
 # Layout transitions
@@ -134,3 +134,46 @@ Use nomes acessíveis e ordem de leitura real. Verifique foco visível, Tab e Sh
 5. Executar SSR/hidratação saudável e o controle negativo que injeta mismatch real, fixture independente, axe, StrictMode e cleanup. Separar verificações executadas de limitações de navegador, leitor de tela, dispositivo e zoom nativo.
 
 Diagnóstico: se M09 parece estático, confira reflowKey, foco/reduced motion e geometria antes de aumentar duração. Se M10 mantém conteúdo em loading, isso é revalidação deliberada, não atraso do skeleton. Se M11 parece alterar dado, compare value/formatValue do consumidor; a recipe não interpola valores.
+
+## M13 — Expandable Cards
+
+Use para expandir um card no próprio fluxo mantendo preview, formulário, ordem DOM e seleção controlada. Para apenas reordenar use LayoutReflow; para disclosure vertical simples use AccordionTransition. Não use como modal/drawer, Shared Element entre páginas ou roteador.
+
+Parâmetros: items com id/title strings, media opcional e preview/details ReactNode; selectedId string|null e onSelectedIdChange obrigatórios; duration280ms e reduceMotion=false; ref HTMLUListElement. Zero imediato, sistema prevalece. Não existe CSS obrigatório. [Contrato e atributos públicos](../../docs/recipes/expandable-cards.md).
+
+Procedimento para agentes: valide ids/seleção/duração; use dados imutáveis e keys estáveis nos slots; dê nome ao ul e contexto h2 para os títulos h3; escreva CSS do consumidor por data-expanded/data-peer/data-lone; não anime transform/opacidade em concorrência. Em SSR, mesmos dados/seleção e identifierPrefix exclusivo por root. Não copie identidade mineral para biblioteca.
+
+```tsx
+import { useState } from 'react';
+import { ExpandableCards } from '@motion-skills-lab/motion-recipes/expandable-cards';
+export function ProjectCards() {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  return (
+    <section>
+      <h2>Projetos</h2>
+      <ExpandableCards
+        aria-label="Projetos"
+        items={[
+          {
+            id: 'a',
+            title: 'Projeto A',
+            preview: <input aria-label="Nota A" defaultValue="" />,
+            details: <p>Detalhes A</p>,
+          },
+          {
+            id: 'b',
+            title: 'Projeto B',
+            preview: <p>Resumo B</p>,
+            details: <a href="#next">Continuar</a>,
+          },
+        ]}
+        selectedId={selectedId}
+        onSelectedIdChange={setSelectedId}
+        duration={280}
+      />
+    </section>
+  );
+}
+```
+
+Validação obrigatória: foco externo antes de hidden/removal, falha de focus conserva DOM acessível; A→B→C/Escape/Tab/ShiftTab; input persiste enquanto item existe; empty fallback nomeado; duração0/default/800 e mudança ao vivo; reduced motion inicial/ao vivo; 320/390/1024/1440 sem overflow; imagem tardia; projeção intermediária real; SSR/hidratação e negativo; duas instâncias/roots; StrictMode/cleanup e consumidor só dist. Nenhum teste planejado deve ser declarado executado. Conteúdo longo, imagens/traduções e zoom exigem validação real do produto.

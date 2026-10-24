@@ -1,8 +1,12 @@
 # Estado da publicação
 
-## L3 — catálogo de layout e estados dinâmicos
+## M13 — Expandable Cards
 
-O código reúne 11 recipes, 4 skills operacionais e 16 subpaths explícitos (11 componentes e os cinco CSS existentes). Novas APIs: LayoutReflow, SkeletonToContent e DataChangeFeedback, com a skill layout-transitions. [Contratos e decisões](L3_CONTRACTS.md). Sem dependências novas, bump, npm ou alteração da Release/tag histórica. Landing preservada, com P2 removido; atualização nela restrita a contagens e referências. As seções seguintes preservam os estados históricos das etapas indicadas.
+Esta revisão acrescenta Expandable Cards: **12 recipes, 4 skills operacionais, 17 subpaths explícitos**. [Contrato M13](recipes/expandable-cards.md). Base publicada anterior: 8b5454e (M01–M11). Integração, CI Ubuntu e deploy Pages são rastreados separadamente na PR correspondente. Sem publicação npm ou alteração da Release/tag histórica v0.1.0. Registros datados abaixo são históricos.
+
+## L3 — histórico da base publicada 8b5454e
+
+A base L3 reuniu 11 recipes, 4 skills operacionais e 16 subpaths explícitos (11 componentes e os cinco CSS existentes). Novas APIs: LayoutReflow, SkeletonToContent e DataChangeFeedback, com a skill layout-transitions. [Contratos e decisões](L3_CONTRACTS.md). Sem dependências novas, bump, npm ou alteração da Release/tag histórica. Landing preservada, com P2 removido; atualização nela restrita a contagens e referências. As seções seguintes preservam os estados históricos das etapas indicadas.
 
 ## Correção da dobra mineral — 23/10/2026
 
@@ -10,7 +14,7 @@ A passagem animada Mineral Fold foi removida por decisão visual. A identidade e
 
 ## Estado publicado — 22/10/2026
 
-**Publicado na main e no GitHub Pages:** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
+**Histórico da publicação L1/L2 (PR #1):** 8 recipes, 3 skills operacionais e 13 subpaths explícitos de recipes/CSS. A [PR #1](https://github.com/joaquimftt-web/terra-motion-skills/pull/1) foi integrada por merge commit `491a934169966de481710a63fa7b4a2bb19fdc3e`, incluindo L1/L2 e a composição horizontal da Landing V4. [CI/build e deploy aprovados](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054). Pacotes npm não publicados; Release/tag v0.1.0 histórica e inalterada.
 
 No merge publicado `491a934169966de481710a63fa7b4a2bb19fdc3e`, a [execução Ubuntu 39881855054](https://github.com/joaquimftt-web/terra-motion-skills/actions/runs/39881855054) passou em 172 Vitest, 11 testes Node do auditor, 30 E2E independentes e 109 E2E por base; build e deploy success. O smoke HTTPS pós-deploy passou em 42 testes automatizados Chromium/Windows; 24 recursos públicos conferiram com o artefato. P2 retornou limpa nas quatro larguras e P3 concluiu em desktop/mobile. São evidências desse SHA publicado, sem estender a aprovação a alterações posteriores. Sem nova validação manual de zoom, Firefox/WebKit, leitores de tela ou dispositivos físicos; axe não certifica acessibilidade.
 

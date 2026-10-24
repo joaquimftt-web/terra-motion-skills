@@ -5,8 +5,8 @@ for (const width of [1440, 1024, 390, 320]) {
   test(`L3 laboratory controls, duration, code and axe at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('');
-    await expect(page.locator('.lab-summary strong')).toHaveText(['11', '04']);
-    await expect(page.locator('.recipe-section')).toHaveCount(11);
+    await expect(page.locator('.lab-summary strong')).toHaveText(['12', '04']);
+    await expect(page.locator('.recipe-section')).toHaveCount(12);
     for (const [id, title, defaultDuration] of [
       ['layout-reflow', 'Layout Reflow', 240],
       ['skeleton-to-content', 'Skeleton-to-Content', 180],

@@ -30,8 +30,9 @@ test('catalog links navigate and every local reference resolves', async ({ page,
   const links = await page
     .locator('a[href*="/reference/"]')
     .evaluateAll((elements) => [...new Set(elements.map((el) => el.getAttribute('href')!))]);
-  expect(links.length).toBe(17);
+  expect(links.length).toBe(18);
   const expectedContent: Record<string, string> = {
+    'expandable-cards.tsx': 'export',
     'layout-reflow.tsx': 'export',
     'skeleton-to-content.tsx': 'export',
     'data-change-feedback.tsx': 'export',

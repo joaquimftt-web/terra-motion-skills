@@ -55,6 +55,10 @@
     "./data-change-feedback": {
       "types": "./dist/data-change-feedback/index.d.ts",
       "import": "./dist/data-change-feedback/index.js"
+    },
+    "./expandable-cards": {
+      "types": "./dist/expandable-cards/index.d.ts",
+      "import": "./dist/expandable-cards/index.js"
     }
   },
   "files": [
